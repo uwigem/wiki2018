@@ -3,3 +3,75 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.App, #root {
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    background-color: rgb(46, 46, 124);
+    line-height: 100vh; /* temporary */
+}
+
+#root {
+    line-height: 100vh;
+    color: white;
+}
+
+
+/* Wiki overrides */
+#sideMenu,
+#top_title {
+  display: none;
+  width: 0px;
+}
+#bodyContent a[href ^="https://"], .link-https {
+  padding-right: 0px;
+}
+#content {
+  width: 100%;
+  padding: 0px;
+  border: none;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  position: relative;
+}
+#globalWrapper {
+  padding-bottom: 0;
+  font-size: 100%;
+}
+#top_menu_under {
+  height: 0px;
+}
+#top_menu_14 {
+  height: 22px;
+}
+/*@font-face {
+  font-family: "Seg";
+  src: url(http://2017.igem.org/wiki/images/c/ce/T--Washington--SegoeUIL.ttf) format("TrueType");
+}*/
+#HQ_page h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Seg, Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: normal;
+  padding: 0px;
+  line-height: normal;
+  }
+#HQ_page p {
+  font-family: Seg, Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-align: left;
+  font-size: 1.25rem;
+}
+#top_menu_inside #user_item {
+  float: left;
+  padding-top: 0px;
+  margin-right: none;
+}
+#bodyContent a[href ^="mailto:"], .link-mailto {
+    padding-right: 0px;
+    background: none;
+}
