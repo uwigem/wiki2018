@@ -1,77 +1,104 @@
+
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+margin: 0;
+padding: 0;
 }
 
 .App, #root {
+    margin: 0px;
+    margin-top: -18px;
+    padding: 0;
     height: 100vh;
+    font-family: sans-serif;
     width: 100vw;
     text-align: center;
     background-color: rgb(46, 46, 124);
-    line-height: 100vh; /* temporary */
+    color: white;
+    line-height: 80vh; /* temporary */
 }
 
 #root {
-    line-height: 100vh;
+    top: 8px;
+    width: 100%;
+    position: absolute;
+    background-color: rgb(46, 46, 124);
     color: white;
+    font-size: 16px;
+    font-family: sans-serif;
 }
-
-
 /* Wiki overrides */
-#sideMenu,
-#top_title {
-  display: none;
-  width: 0px;
-}
-#bodyContent a[href ^="https://"], .link-https {
-  padding-right: 0px;
-}
-#content {
-  width: 100%;
-  padding: 0px;
-  border: none;
-  color: black;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #fff;
-  position: relative;
-}
+
 #globalWrapper {
-  padding-bottom: 0;
-  font-size: 100%;
-}
-#top_menu_under {
-  height: 0px;
-}
-#top_menu_14 {
-  height: 22px;
-}
-/*@font-face {
-  font-family: "Seg";
-  src: url(http://2017.igem.org/wiki/images/c/ce/T--Washington--SegoeUIL.ttf) format("TrueType");
-}*/
-#HQ_page h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: Seg, Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-weight: normal;
-  padding: 0px;
-  line-height: normal;
+    font-size: 100%;
+    padding: 0;
   }
-#HQ_page p {
-  font-family: Seg, Roboto, "Helvetica Neue", Arial, sans-serif;
-  text-align: left;
-  font-size: 1.25rem;
-}
-#top_menu_inside #user_item {
-  float: left;
-  padding-top: 0px;
-  margin-right: none;
-}
-#bodyContent a[href ^="mailto:"], .link-mailto {
-    padding-right: 0px;
-    background: none;
+  
+  #top_menu_under, #top_menu_14, #top_menu_inside {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 15px;
+    border: none;
+    font-size: default;
+    font-size: 27px;
+    font-weight: bold;
+  }
+  
+  a[href ^="https://"] {
+    padding: 0;
+  }
+  
+  .submenu div {
+    line-height: 1.5em;
+  }
+  
+  #contentBox {
+    width: 100%;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    padding: 0;
+    margin: 0;
+    line-height: normal;
+    position: absolute;
+    top: 10px;
+    background: #C6c6c6;
+  }
+  
+  li, ul {
+    margin: 0;
+    line-height: normal;
+    list-style-type: none;
+    list-style-image: none;
+    display: block;
+  }
+  
+  .mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  
+  body {
+    background-color: var(--whiteish);
+    color: var(--blackish);
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  #top_menu_inside ul a {
+  line-height: 1.5em;
 }

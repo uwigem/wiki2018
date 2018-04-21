@@ -19,10 +19,10 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                {this.pageTitle === "" &&
-                    <h1>debug mode</h1>
+                {/* {this.pageTitle === "" &&
+                    <h2>debug mode</h1>
 
-                }
+                } */}
                 {this.pageTitle === "ASDFTest" &&
                     <h1>page is asdftest</h1>
                 }
