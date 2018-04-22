@@ -1,14 +1,33 @@
 <html>
-<!-- Read in Babel Script -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 
+<!-- Set up mobile viewport and meta tag -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Import CSS -->
 <link href="http://2018.igem.org/Team:Washington/Test?action=raw&ctype=text/css" type="text/css" rel="stylesheet" />
-<script src="http://2018.igem.org/Team:Washington/Test2?action=raw&ctype=text/jsx" type="text/jsx"></script>
 
+<!-- Create root div for React to inject information into -->
 <div id="root">Please enable JavaScript to view this page.</div>
 
+<!-- Add on-page javascript for destroying default iGEM CSS and adding a loading animation -->
 <script type="text/javascript">
     document.getElementById("root").innerText = "Page loading...";
+
+    $(document).ready(function () {
+        $('div#content').removeAttr('id').attr('id', 'contentBox');
+        $('a#top').remove();
+        $('div#top_title').remove();
+        $('div#HQ_page').removeAttr('id');
+        $('div.mw-body').removeAttr('class');
+        $('div#mw-content-text').removeAttr('id');
+        $('div#bodyContent').removeAttr('id');
+        $('div.mw-content-ltr>p').addClass('meta');
+        $('div.mw-content-ltr').removeAttr('class');
+    })
 </script>
+
+<!-- Import React Javascript -->
+<script src="http://2018.igem.org/Team:Washington/Test2?action=raw&ctype=text/javascript" type="text/javascript"></script>
 
 </html>

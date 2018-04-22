@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { DebugHeader } from './debugfiles/DebugHeader'
 
 class App extends Component {
     constructor(props) {
@@ -19,16 +20,19 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                {/* {this.pageTitle === "" &&
-                    <h2>debug mode</h1>
 
-                } */}
+                {this.pageTitle === "" &&
+                    <DebugHeader />
+                }
+
                 {this.pageTitle === "ASDFTest" &&
                     <h1>page is asdftest</h1>
                 }
+
                 {this.pageTitle !== "ASDFTest" &&
                     <h1>page is NOT ASDFTest</h1>
                 }
+
             </div>
         );
     }

@@ -1,11 +1,16 @@
-
-
-body {
-margin: 0;
-padding: 0;
+.debugheader {
+    height: 18px;
+    background-color: gray;
+    margin-top: 28px;
 }
 
-.App, #root {
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.App,
+#root {
     margin: 0px;
     margin-top: -18px;
     padding: 0;
@@ -15,7 +20,8 @@ padding: 0;
     text-align: center;
     background-color: rgb(46, 46, 124);
     color: white;
-    line-height: 80vh; /* temporary */
+    line-height: 80vh;
+    /* temporary */
 }
 
 #root {
@@ -27,20 +33,27 @@ padding: 0;
     font-size: 16px;
     font-family: sans-serif;
 }
+
 /* Wiki overrides */
 
 #globalWrapper {
     font-size: 100%;
     padding: 0;
-  }
-  
-  #top_menu_under, #top_menu_14, #top_menu_inside {
+}
+
+#top_menu_under,
+#top_menu_14,
+#top_menu_inside {
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
-  }
-  
-  h1, h2, h3, h4, h5 {
-    font-family: 'Times New Roman', Times, serif;
+    height: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
     margin: 0;
     padding: 0;
     padding-top: 15px;
@@ -48,17 +61,17 @@ padding: 0;
     font-size: default;
     font-size: 27px;
     font-weight: bold;
-  }
-  
-  a[href ^="https://"] {
+}
+
+a[href ^="https://"] {
     padding: 0;
-  }
-  
-  .submenu div {
+}
+
+.submenu div {
     line-height: 1.5em;
-  }
-  
-  #contentBox {
+}
+
+#contentBox {
     width: 100%;
     height: -webkit-max-content;
     height: -moz-max-content;
@@ -69,36 +82,35 @@ padding: 0;
     position: absolute;
     top: 10px;
     background: #C6c6c6;
-  }
-  
-  li, ul {
+}
+
+li,
+ul {
     margin: 0;
     line-height: normal;
     list-style-type: none;
     list-style-image: none;
     display: block;
-  }
-  
-  .mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul {
+}
+
+.mw-content-ltr ul,
+.mw-content-rtl .mw-content-ltr ul {
     margin: 0;
     padding: 0;
-  }
-  
-  * {
+}
+
+* {
     padding: 0;
     margin: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     text-decoration: none;
-  }
-  
-  body {
-    background-color: var(--whiteish);
-    color: var(--blackish);
-    font-size: 16px;
-    font-family: 'Times New Roman', Times, serif;
-  }
+}
 
-  #top_menu_inside ul a {
-  line-height: 1.5em;
+body {
+    font-size: 16px;
+}
+
+#top_menu_inside ul a {
+    line-height: 1.5em;
 }
