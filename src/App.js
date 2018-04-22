@@ -7,7 +7,8 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "";
+        this.debugURL = "/ASDFTest";
+        this.name = "http://2018.igem.org/Team:Washington";
     }
 
     // When component mounts, determine if this is on the live website or not.
@@ -25,9 +26,14 @@ class App extends Component {
         }
     }
 
+    setTest() {
+        document.getElementById("root").innerHTML = "Page loading...";
+    }
+
     // Render the page. 
     // Pre:     The page is either locally hosted or existing on the iGEM Website.
     render() {
+        console.log("ttt");
         return (
             <div className="App">
                 {/* Check for if the page is localhost or actually on igem website */}
@@ -37,7 +43,11 @@ class App extends Component {
 
                 {/* ASDFTest page */}
                 {this.pageTitle === "/ASDFTest" &&
-                    <h1>page is asdftest</h1>
+                    <h1><a onClick={() => this.setTest()} style={{ color: "white" }} href={`${this.name}/ASDFTestA`}>page is asdftest</a></h1>
+                }
+
+                {this.pageTitle === "/ASDFTestA" &&
+                    <h1>Page is not asdftest</h1>
                 }
 
                 {/* HOME PAGE */}
