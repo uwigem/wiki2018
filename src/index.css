@@ -1,6 +1,12 @@
+:root {
+    --headerTagColor: white;
+    --mainColor: white;
+    --debugHeaderColor: gray;
+}
+
 .debugheader {
     height: 18px;
-    background-color: gray;
+    background-color: var(--debugHeaderColor);
     margin-top: 28px;
 }
 
@@ -19,7 +25,7 @@ body {
     width: 100vw;
     text-align: center;
     background-color: rgb(46, 46, 124);
-    color: white;
+    color: var(--mainColor);
     line-height: 80vh;
     /* temporary */
 }
@@ -29,7 +35,7 @@ body {
     width: 100%;
     position: absolute;
     background-color: rgb(46, 46, 124);
-    color: white;
+    color: var(--mainColor);
     font-size: 16px;
     font-family: sans-serif;
 }
@@ -61,6 +67,7 @@ h5 {
     font-size: default;
     font-size: 27px;
     font-weight: bold;
+    color: var(--headerTagColor);
 }
 
 a[href ^="https://"] {
