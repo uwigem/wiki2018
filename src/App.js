@@ -9,6 +9,9 @@ class App extends Component {
         super(props);
         this.debugURL = "/ASDFTest";
         this.name = "http://2018.igem.org/Team:Washington";
+        this.state = {
+            loading: false
+        }
     }
 
     // When component mounts, determine if this is on the live website or not.
@@ -24,16 +27,16 @@ class App extends Component {
             this.pageTitle = pageURL;
             this.debugMode = false;
         }
+        this.setState({ loading: false });
     }
 
-    setTest() {
-        document.getElementById("root").innerHTML = "Page loading...";
+    displayLoadingMessage() {
+        this.setState({ loading: true });
     }
 
     // Render the page. 
     // Pre:     The page is either locally hosted or existing on the iGEM Website.
     render() {
-        console.log("ttt");
         return (
             <div className="App">
                 {/* Check for if the page is localhost or actually on igem website */}
@@ -41,18 +44,31 @@ class App extends Component {
                     <DebugHeader />
                 }
 
-                {/* ASDFTest page */}
-                {this.pageTitle === "/ASDFTest" &&
-                    <h1><a onClick={() => this.setTest()} style={{ color: "white" }} href={`${this.name}/ASDFTestA`}>page is asdftest</a></h1>
+                {!this.state.loading &&
+                    <div>
+                        {/* ASDFTest page */}
+                        {this.pageTitle === "/ASDFTest" &&
+                            <h1><a onClick={() => this.displayLoadingMessage()} style={{ color: "white" }} href={`${this.name}/TempMain`}>page is asdftest</a></h1>
+                        }
+
+                        {this.pageTitle === "/ASDFTestA" &&
+                            <h1>Page is not asdftest</h1>
+                        }
+
+                        {/* HOME PAGE */}
+                        {this.pageTitle === "" &&
+                            <h1>Welcome to the main page</h1>
+                        }
+
+                        {/* TEMPORARY MAIN PAGE */}
+                        {this.pageTitle === "/TempMain" &&
+                            <h1>Welcome to the temporary main page</h1>
+                        }
+                    </div>
                 }
 
-                {this.pageTitle === "/ASDFTestA" &&
-                    <h1>Page is not asdftest</h1>
-                }
-
-                {/* HOME PAGE */}
-                {this.pageTitle === "" &&
-                    <h1>Welcome to the main page</h1>
+                {this.state.loading &&
+                    <h1>Page loading...</h1>
                 }
 
             </div>
