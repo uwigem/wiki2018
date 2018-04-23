@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { DebugHeader } from './debugfiles/DebugHeader'
+import { DebugHeader } from './debugfiles/DebugHeader';
+import { LoadingScreen } from './components/LoadingScreen';
 
 // App is the main class that encompasses all the other classes.
 // See the render method.
@@ -71,7 +72,7 @@ class App extends Component {
                 }
 
                 {this.state.loading &&
-                    <h1>Page loading...</h1>
+                    <LoadingScreen />
                 }
 
             </div>
