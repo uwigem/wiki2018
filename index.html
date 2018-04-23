@@ -2,7 +2,7 @@
 
 <!-- Set up mobile viewport and meta tag -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
 
 <!-- Import CSS -->
 <link href="http://2018.igem.org/Team:Washington/CSS?action=raw&ctype=text/css" type="text/css" rel="stylesheet" />
@@ -11,9 +11,19 @@
 <div id="root">Please enable JavaScript to view this page.</div>
 
 <!-- Add on-page javascript for destroying default iGEM CSS and adding a loading animation -->
+<!-- I do it twice to run once so the page loading animation gets correct styling the first run -->
+<!-- Second run is just to make sure everything gets ran -->
 <script type="text/javascript">
+    $('div#content').removeAttr('id').attr('id', 'contentBox');
+    $('a#top').remove();
+    $('div#top_title').remove();
+    $('div#HQ_page').removeAttr('id');
+    $('div.mw-body').removeAttr('class');
+    $('div#mw-content-text').removeAttr('id');
+    $('div#bodyContent').removeAttr('id');
+    $('div.mw-content-ltr>p').addClass('meta');
+    $('div.mw-content-ltr').removeAttr('class');
     document.getElementById("root").innerText = "Page loading...";
-
     $(document).ready(function () {
         $('div#content').removeAttr('id').attr('id', 'contentBox');
         $('a#top').remove();

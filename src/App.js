@@ -30,6 +30,9 @@ class App extends Component {
         this.setState({ loading: false });
     }
 
+    // displayLoadingMessage sets the state of loading to true. This is used
+    // for in between pages
+    // This function MUST be sent down as a prop to ALL the pages.
     displayLoadingMessage() {
         this.setState({ loading: true });
     }

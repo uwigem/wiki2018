@@ -2,6 +2,7 @@
     --headerTagColor: white;
     --mainColor: white;
     --debugHeaderColor: gray;
+    --backgroundColor: #4b2e83;
 }
 
 .debugheader {
@@ -24,7 +25,7 @@ body {
     font-family: sans-serif;
     width: 100vw;
     text-align: center;
-    background-color: rgb(46, 46, 124);
+    background-color: var(--backgroundColor);
     color: var(--mainColor);
     line-height: 80vh;
     /* temporary */
@@ -34,7 +35,7 @@ body {
     top: 8px;
     width: 100%;
     position: absolute;
-    background-color: rgb(46, 46, 124);
+    background-color: var(--backgroundColor);
     color: var(--mainColor);
     font-size: 16px;
     font-family: sans-serif;
