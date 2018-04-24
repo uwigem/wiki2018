@@ -24,14 +24,11 @@ body {
     height: 100vh;
     font-family: sans-serif;
     width: 100vw;
+    text-align: center;
     background-color: var(--backgroundColor);
     color: var(--mainColor);
-    /* temporary */
-}
-
-.centeredMid {
-    margin: auto;
     line-height: 80vh;
+    /* temporary */
 }
 
 #root {

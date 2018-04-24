@@ -5,7 +5,7 @@ export class LoadingScreen extends Component {
     render() {
         return (
             <div>
-                <p className="centeredMid" >Page loading...<br /><img src="http://2018.igem.org/wiki/images/3/34/T--Washington--LoadingSpin.svg" /></p>
+                <h1>Page loading... <img src="http://2018.igem.org/wiki/images/3/34/T--Washington--LoadingSpin.svg" /></h1>
             </div>
         );
     }
