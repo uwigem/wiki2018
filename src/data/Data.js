@@ -13,7 +13,24 @@ class Data {
     getNavbarData() {
         return navbarData;
     }
+
+    /**
+     * getDisplayConstants 
+     * @return all the display constants from the object down below
+     */
+    getDisplayConstants() {
+        return displayConstants;
+    }
 }
+
+/**
+ * display constants. This has a very different use case than CSS does.
+ * Mainly will be used for certain material-ui elements.
+ */
+var displayConstants = {
+    primaryColor: "#4B2E83",
+    secondaryColor: "#330066"
+};
 
 /**
  * These are mostly ALL placeholder values. We will DEFINITELY CHANGE THIS.
