@@ -7,7 +7,7 @@ class Data {
 
     /**
      * getNavbarData returns all the navbar data from the object down below
-     * @return array of objects with a title, list of names, and list of links
+     * @return {object array} with a title, list of names, and list of links
      *         where list of names and links are equal in length.
      */
     getNavbarData() {
@@ -16,10 +16,41 @@ class Data {
 
     /**
      * getDisplayConstants 
-     * @return all the display constants from the object down below
+     * @param {string} pageTitle page title (ie "/ASDFTest")
+     * @return {object} all the display constants from the object down below.
+     *                  Default colors if not found.
      */
-    getDisplayConstants() {
-        return displayConstants;
+    getDisplayConstants(pageTitle) {
+        if (displayConstants.globalColor) {
+            return displayConstants;
+        } else {
+            let pageSpecificString = this.getNavbarDataTitleFromLink(pageTitle);
+            if (pageSpecificString === "") {
+                return displayConstants;
+            } else {
+                let specificPage = displayConstants.pageSpecificColors[pageSpecificString];
+                if (specificPage) {
+                    return specificPage;
+                } else {
+                    return displayConstants;
+                }
+            }
+        }
+    }
+
+    /**
+     * helper method for getDisplayConstants
+     * @param {string} pageTitle page title (ie "/ASDFTest")
+     * @return {string} title of navigation bar parent. Empty string if not found
+     */
+    getNavbarDataTitleFromLink(pageTitle) {
+        let returnString = "";
+        navbarData.forEach((d) => {
+            if (d.links.indexOf(pageTitle) > -1 || d.names.indexOf(pageTitle.split("/")[1]) > -1) {
+                returnString = d.title;
+            }
+        });
+        return returnString;
     }
 }
 
@@ -29,7 +60,18 @@ class Data {
  */
 var displayConstants = {
     primaryColor: "#4B2E83",
-    secondaryColor: "#330066"
+    secondaryColor: "#330066",
+    globalColor: false,
+    pageSpecificColors: {
+        Home: {
+            primaryColor: "#FFFFFF",
+            secondaryColor: "#FFFF00"
+        },
+        Project: {
+            primaryColor: "#FF0000",
+            secondaryColor: "#00FF00"
+        }
+    }
 };
 
 /**
@@ -72,7 +114,8 @@ var navbarData = [
     },
     {
         title: "Medal Criteria",
-        names: [""]
+        names: ["Medal"],
+        links: ["/Medal"]
 
     }
 ];

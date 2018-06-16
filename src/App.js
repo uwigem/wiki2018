@@ -13,28 +13,13 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/ASDFTest";
+        this.debugURL = "/Home";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: false,
             data: new data.Data()       // data object can now be called by this.state.data
         }
-        let displayConstants = this.state.data.getDisplayConstants();
 
-        // Create mui theme from data colors. Don't modify this segment, modify Data.js
-        // instead.
-        const theme = createMuiTheme({
-            palette: {
-                primary: {
-                    main: displayConstants.primaryColor
-                },
-                secondary: {
-                    main: displayConstants.secondaryColor
-                }
-            }
-        });
-
-        this.theme = theme;
     }
 
     /**
@@ -53,6 +38,23 @@ class App extends Component {
             this.debugMode = false;
         }
         this.setState({ loading: false });
+
+        let displayConstants = this.state.data.getDisplayConstants(this.pageTitle);
+        console.log(displayConstants);
+        // Create mui theme from data colors. Don't modify this segment, modify Data.js
+        // instead.
+        const theme = createMuiTheme({
+            palette: {
+                primary: {
+                    main: displayConstants.primaryColor
+                },
+                secondary: {
+                    main: displayConstants.secondaryColor
+                }
+            }
+        });
+
+        this.theme = theme;
     }
 
     /**
