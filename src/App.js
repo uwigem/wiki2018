@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { DebugHeader } from './debugfiles/DebugHeader';
 import { LoadingScreen } from './components/LoadingScreen';
 
-// App is the main class that encompasses all the other classes.
-// See the render method.
+var data = require("./data/Data.js");
+
+/**
+ * App is the main class that encompasses all the other classes.
+ * See the render method.
+ */
 class App extends Component {
     // Set up debugURL
     constructor(props) {
@@ -11,14 +15,17 @@ class App extends Component {
         this.debugURL = "/ASDFTest";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
-            loading: false
+            loading: false,
+            data: new data.Data()       // data object can now be called by this.state.data
         }
     }
 
-    // When component mounts, determine if this is on the live website or not.
-    // Post:    Sets `this.pageTitle` to be a string `this.debugURL` if not live, 
-    //          or to the text after `Team:Washington` in the url.
-    //              eg. "2018.igem.org/Team:Washington/Design" -> "/Design"
+    /**
+     * When component mounts, determine if this is on the live website or not.
+     * @post    Sets `this.pageTitle` to be a string `this.debugURL` if not live, 
+     *          or to the text after `Team:Washington` in the url.
+     *           eg. "2018.igem.org/Team:Washington/Design" -> "/Design"
+     */
     componentWillMount() {
         let splitTitle = window.location.href.split("igem");
         this.pageTitle = this.debugURL;
@@ -31,15 +38,19 @@ class App extends Component {
         this.setState({ loading: false });
     }
 
-    // displayLoadingMessage sets the state of loading to true. This is used
-    // for in between pages
-    // This function MUST be sent down as a prop to ALL the pages.
+    /**
+     * displayLoadingMessage sets the state of loading to true. This is used
+     * for in between pages
+     * This function MUST be sent down as a prop to ALL the pages.
+     */
     displayLoadingMessage() {
         this.setState({ loading: true });
     }
 
-    // Render the page. 
-    // Pre:     The page is either locally hosted or existing on the iGEM Website.
+    /**
+     * Render the page.
+     * Pre:     The page is either locally hosted or existing on the iGEM Website.
+     */
     render() {
         return (
             <div className="App">
