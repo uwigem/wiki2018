@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DebugHeader } from './debugfiles/DebugHeader';
 import { LoadingScreen } from './components/LoadingScreen';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { CustomAppBar } from './components/CustomAppBar';
 
 var data = require("./data/Data.js");
 
@@ -40,7 +41,7 @@ class App extends Component {
         this.setState({ loading: false });
 
         let displayConstants = this.state.data.getDisplayConstants(this.pageTitle);
-        console.log(displayConstants);
+
         // Create mui theme from data colors. Don't modify this segment, modify Data.js
         // instead.
         const theme = createMuiTheme({
@@ -79,7 +80,7 @@ class App extends Component {
                         <DebugHeader />
                     }
 
-
+                    <CustomAppBar pageTitle={this.pageTitle} data={this.state.data} />
 
                     {!this.state.loading &&
                         <div>

@@ -1,10 +1,4 @@
-'use strict';
-
 class Data {
-    constructor() {
-
-    }
-
     /**
      * getNavbarData returns all the navbar data from the object down below
      * @return {object array} with a title, list of names, and list of links
