@@ -33,6 +33,8 @@ class App extends Component {
                 }
             }
         });
+
+        this.theme = theme;
     }
 
     /**
@@ -69,40 +71,41 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                {/* Check for if the page is localhost or actually on igem website */}
-                {this.debugMode &&
-                    <DebugHeader />
-                }
+                <MuiThemeProvider theme={this.theme}>
+                    {/* Check for if the page is localhost or actually on igem website */}
+                    {this.debugMode &&
+                        <DebugHeader />
+                    }
 
 
 
-                {!this.state.loading &&
-                    <div>
-                        {/* ASDFTest page */}
-                        {this.pageTitle === "/ASDFTest" &&
-                            <h1><a onClick={() => this.displayLoadingMessage()} style={{ color: "white" }} href={`${this.name}/TempMain`}>page is asdftest</a></h1>
-                        }
+                    {!this.state.loading &&
+                        <div>
+                            {/* ASDFTest page */}
+                            {this.pageTitle === "/ASDFTest" &&
+                                <h1><a onClick={() => this.displayLoadingMessage()} style={{ color: "white" }} href={`${this.name}/TempMain`}>page is asdftest</a></h1>
+                            }
 
-                        {this.pageTitle === "/ASDFTestA" &&
-                            <h1>Page is not asdftest</h1>
-                        }
+                            {this.pageTitle === "/ASDFTestA" &&
+                                <h1>Page is not asdftest</h1>
+                            }
 
-                        {/* HOME PAGE */}
-                        {this.pageTitle === "" &&
-                            <h1>Welcome to the main page</h1>
-                        }
+                            {/* HOME PAGE */}
+                            {this.pageTitle === "" &&
+                                <h1>Welcome to the main page</h1>
+                            }
 
-                        {/* TEMPORARY MAIN PAGE */}
-                        {this.pageTitle === "/TempMain" &&
-                            <h1>Welcome to the temporary main page</h1>
-                        }
-                    </div>
-                }
+                            {/* TEMPORARY MAIN PAGE */}
+                            {this.pageTitle === "/TempMain" &&
+                                <h1>Welcome to the temporary main page</h1>
+                            }
+                        </div>
+                    }
 
-                {this.state.loading &&
-                    <LoadingScreen />
-                }
-
+                    {this.state.loading &&
+                        <LoadingScreen />
+                    }
+                </MuiThemeProvider>
             </div>
         );
     }
