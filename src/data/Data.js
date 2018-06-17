@@ -46,6 +46,13 @@ class Data {
         });
         return returnString;
     }
+
+    /**
+     * @return {string} url to logo image
+     */
+    getLogo() {
+        return displayConstants.logo;
+    }
 }
 
 /**
@@ -65,7 +72,8 @@ var displayConstants = {
             primaryColor: "#FF0000",
             secondaryColor: "#00FF00"
         }
-    }
+    },
+    logo: "http://2017.igem.org/wiki/images/e/e9/T--Washington--WLogo.png"
 };
 
 /**
