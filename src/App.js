@@ -14,7 +14,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/ASDFTest";
+        this.debugURL = "/Design";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: false,
@@ -80,7 +80,7 @@ class App extends Component {
                         <DebugHeader />
                     }
 
-                    <CustomAppBar pageTitle={this.pageTitle} data={this.state.data} />
+                    <CustomAppBar name={this.name} pageTitle={this.pageTitle} data={this.state.data} />
 
                     {!this.state.loading &&
                         <div>

@@ -3,8 +3,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { AppBarMenuList } from './AppBarMenuList';
-import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
 
 // LoadingScreen is the page that appears when the page is loading.
 export class CustomAppBar extends Component {
@@ -61,9 +59,9 @@ export class CustomAppBar extends Component {
                         <Typography style={this.logoStyle} variant="title" color="secondary">
                             <img height={this.logoHeight} alt="Washington Logo" src={this.props.data.getLogo()} />
                         </Typography>
-                        <AppBarMenuList />
-                        <AppBarMenuList />
-                        <AppBarMenuList />
+                        {this.props.data.getNavbarData().map((nav, index) => {
+                            return <AppBarMenuList name={this.props.name} pageTitle={this.props.pageTitle} nav={nav} key={`abmL-${index}`} />
+                        })}
                     </Toolbar>
                 </AppBar>
             </div >

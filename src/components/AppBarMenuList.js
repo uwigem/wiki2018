@@ -17,14 +17,21 @@ export class AppBarMenuList extends Component {
             margin: "2px",
             textTransform: 'none'
         };
+        this.anchorElSpacing = 45;
     }
 
     handleClick = (event) => {
-        console.log(event.currentTarget)
         this.setState({ anchorEl: event.currentTarget });
     };
 
-    handleClose = () => {
+    handleClose = (e) => {
+        if (window && e.target.value !== undefined) {
+            let link = `${this.props.name}${this.props.nav.links[e.target.value]}`;
+            if (this.props.nav.title === "Home") {
+                link = this.props.nav.links[e.target.value];
+            }
+            window.location.href = link;
+        }
         this.setState({ anchorEl: null });
     };
 
@@ -41,7 +48,7 @@ export class AppBarMenuList extends Component {
                     color="secondary"
                     style={this.buttonStyle}
                 >
-                    Open Menu
+                    {this.props.nav.title}
                 </Button>
                 <Menu
                     id="simple-menu"
@@ -49,7 +56,7 @@ export class AppBarMenuList extends Component {
                     open={Boolean(anchorEl)}
                     onClose={this.handleClose}
                     anchorOrigin={{
-                        vertical: 'bottom',
+                        vertical: this.anchorElSpacing,
                         horizontal: 'left',
                     }}
                     transformOrigin={{
@@ -58,9 +65,16 @@ export class AppBarMenuList extends Component {
                     }}
                     getContentAnchorEl={null} // stupid fixes https://github.com/mui-org/material-ui/issues/7961
                 >
-                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                    {this.props.nav.names.map((name, index) => {
+                        return (
+                            <MenuItem
+                                disabled={this.props.pageTitle === this.props.nav.links[index]}
+                                key={`${name}-${index}`}
+                                onClick={this.handleClose}
+                                value={index}>{name}
+                            </MenuItem>
+                        );
+                    })}
                 </Menu>
             </div>
 
