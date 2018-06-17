@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { AppBarMenuList } from './AppBarMenuList';
+import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 
 // LoadingScreen is the page that appears when the page is loading.
 export class CustomAppBar extends Component {
@@ -15,7 +18,12 @@ export class CustomAppBar extends Component {
 
         // AppBar specific constants
         this.appbarStyle = {
+            flexGrow: 1,
             paddingTop: "2px"
+        }
+        this.logoStyle = {
+            flex: 1,
+            textAlign: 'left'
         }
         this.logoHeight = 30;
         this.minWidth = 600;
@@ -47,13 +55,18 @@ export class CustomAppBar extends Component {
 
     render() {
         return (
-            <AppBar style={this.appbarStyle}>
-                <Toolbar>
-                    <Typography variant="title" color="secondary">
-                        <img height={this.logoHeight} alt="Washington Logo" src={this.props.data.getLogo()} />
-                    </Typography>
-                </Toolbar>
-            </AppBar>
+            <div style={this.appbarStyle}>
+                <AppBar>
+                    <Toolbar>
+                        <Typography style={this.logoStyle} variant="title" color="secondary">
+                            <img height={this.logoHeight} alt="Washington Logo" src={this.props.data.getLogo()} />
+                        </Typography>
+                        <AppBarMenuList />
+                        <AppBarMenuList />
+                        <AppBarMenuList />
+                    </Toolbar>
+                </AppBar>
+            </div >
         );
     }
 }

@@ -27,7 +27,6 @@ body {
     text-align: center;
     background-color: var(--backgroundColor);
     color: var(--mainColor);
-    line-height: 80vh;
     /* temporary */
 }
 
