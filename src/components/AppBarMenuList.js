@@ -3,6 +3,14 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
+/**
+ * AppBarMenuList is a single menu per index of data.navbarData.
+ * This code is adapted from MaterialUI provided code, so I will
+ * only be commenting parts that I have created.
+ * 
+ * Understanding of materialUI part isn't difficult, but it uses 
+ * abnormal syntax to what we've been taught. 
+ */
 export class AppBarMenuList extends Component {
     constructor(props) {
         super(props);
@@ -10,8 +18,9 @@ export class AppBarMenuList extends Component {
             anchorEl: null,
         };
 
+        // styles
         this.appbarStyle = {
-            paddingTop: "7px"
+            paddingTop: "16px"
         };
         this.buttonStyle = {
             margin: "2px",
@@ -25,6 +34,7 @@ export class AppBarMenuList extends Component {
     };
 
     handleClose = (e) => {
+        // This part will create the links and the redirect when clicking
         if (window && e.target.value !== undefined) {
             let link = `${this.props.name}${this.props.nav.links[e.target.value]}`;
             if (this.props.nav.title === "Home") {
@@ -35,6 +45,14 @@ export class AppBarMenuList extends Component {
         this.setState({ anchorEl: null });
     };
 
+    /**
+     * Render a single menu
+     * IE
+     *  Project
+     *      Design
+     *      BioBricks
+     *      InterLab
+     */
     render() {
         const { anchorEl } = this.state;
 

@@ -24,7 +24,7 @@ export class CustomAppBar extends Component {
             textAlign: 'left'
         }
         this.logoHeight = 30;
-        this.minWidth = 600;
+        this.minWidth = 660;
     }
 
     /**
