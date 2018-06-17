@@ -19,14 +19,18 @@ export class AppBarMenuList extends Component {
         };
 
         // styles
-        this.appbarStyle = {
-            paddingTop: "16px"
-        };
         this.buttonStyle = {
             margin: "2px",
             textTransform: 'none'
         };
         this.anchorElSpacing = 45;
+        this.buttonVariant = "contained";
+    }
+
+    componentWillMount() {
+        this.appbarStyle = {
+            paddingTop: this.props.data.getButtonHeight()
+        };
     }
 
     handleClick = (event) => {
@@ -59,7 +63,7 @@ export class AppBarMenuList extends Component {
         return (
             <div style={this.appbarStyle}>
                 <Button
-                    variant="contained"
+                    variant={this.buttonVariant}
                     aria-owns={anchorEl ? 'simple-menu' : null}
                     aria-haspopup="true"
                     onClick={this.handleClick}

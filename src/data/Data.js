@@ -53,6 +53,13 @@ class Data {
     getLogo() {
         return displayConstants.logo;
     }
+
+    /**
+     * @return {string} button vertical height from top
+     */
+    getButtonHeight() {
+        return displayConstants.buttonHeight;
+    }
 }
 
 /**
@@ -73,7 +80,8 @@ var displayConstants = {
             secondaryColor: "#00FF00"
         }
     },
-    logo: "http://2017.igem.org/wiki/images/e/e9/T--Washington--WLogo.png"
+    logo: "http://2017.igem.org/wiki/images/e/e9/T--Washington--WLogo.png",
+    buttonHeight: "16px"
 };
 
 /**
