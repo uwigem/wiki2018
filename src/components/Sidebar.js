@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { SwipeableDrawer, List, Divider, ListItem } from '@material-ui/core';
+import { SidebarItem } from './SidebarItem';
 
 // LoadingScreen is the page that appears when the page is loading.
 export class Sidebar extends Component {
@@ -9,6 +10,7 @@ export class Sidebar extends Component {
         this.state = {
             drawerOpen: false
         }
+        this.drawerWidth = 250;
     }
 
     componentWillMount() {
@@ -26,22 +28,20 @@ export class Sidebar extends Component {
     render() {
         return (
             <SwipeableDrawer
-                anchor="right"
+                anchor={this.props.side}
                 open={this.state.drawerOpen}
                 onClose={() => this.props.toggleDrawer()}
                 onOpen={() => this.props.toggleDrawer()}>
                 <div
                     tabIndex={0}
                     role="button"
-                    onClick={() => this.props.toggleDrawer()}
-                    onKeyDown={() => this.props.toggleDrawer()}
                 >
-                    <div style={{ width: 250 }}>
-                        <List>
-                            <ListItem>Test</ListItem>
+                    <div style={{ width: this.drawerWidth }}>
+                        <List style={{ paddingTop: this.props.data.getButtonHeight() }}>
+                            {this.props.data.getNavbarData().map((nav, index) => {
+                                return <SidebarItem data={this.props.data} name={this.props.name} pageTitle={this.props.pageTitle} nav={nav} key={`sbit-${index}`} />
+                            })}
                         </List>
-                        <Divider />
-                        <List></List>
                     </div>
                 </div>
             </SwipeableDrawer>
