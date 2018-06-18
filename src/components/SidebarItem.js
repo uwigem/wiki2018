@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import { SwipeableDrawer, List, Divider, ListItem } from '@material-ui/core';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+import { List, ListItem } from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
 
-// LoadingScreen is the page that appears when the page is loading.
+/**
+ * SidebarItem creates the individual sidebar dropdowns
+ */
 export class SidebarItem extends Component {
     constructor(props) {
         super(props);
@@ -25,13 +21,22 @@ export class SidebarItem extends Component {
         this.secondPadding = "30px";
     }
 
-    componentWillMount() {
-    }
-
+    /**
+     * handleClick handles the sidebar dropdown opening or closing
+     */
     handleClick() {
         this.setState({ open: !this.state.open });
     }
 
+    /**
+     * handleLinkClick works similar to how handleClose() does in
+     * AppBarMenuList.js. In fact, TODO, that should be changed
+     * to this version.
+     * 
+     * This part basically takes the thing clicked and sets a 
+     * redirect link
+     * @param {integer} index of sub-element
+     */
     handleLinkClick(index) {
         if (window) {
             let link = `${this.props.name}${this.props.nav.links[index]}`;
@@ -67,8 +72,6 @@ export class SidebarItem extends Component {
                                 </ListItem>
                             )
                         })}
-
-
                     </List>
                 </Collapse>
             </div>

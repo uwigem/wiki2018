@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { SwipeableDrawer, List, Divider, ListItem } from '@material-ui/core';
+import { SwipeableDrawer, List } from '@material-ui/core';
 import { SidebarItem } from './SidebarItem';
 
-// LoadingScreen is the page that appears when the page is loading.
+/**
+ * Sidebar controls the sidebar appearing and generation of
+ * the individual SidebarItems 
+ */
 export class Sidebar extends Component {
     constructor(props) {
         super(props);
@@ -19,6 +22,14 @@ export class Sidebar extends Component {
         });
     }
 
+    /**
+     * The component will constantly be updating based on what
+     * the parent state is. This object WON'T be deleted then
+     * recreated, but we have to update it somehow. The way to
+     * do this is by introducing new props to it, which is
+     * possible to do with componentWillReceiveProps
+     * @param {props} nextProps 
+     */
     componentWillReceiveProps(nextProps) {
         this.setState({
             drawerOpen: nextProps.drawerOpen
@@ -39,7 +50,12 @@ export class Sidebar extends Component {
                     <div style={{ width: this.drawerWidth }}>
                         <List style={{ paddingTop: this.props.data.getButtonHeight() }}>
                             {this.props.data.getNavbarData().map((nav, index) => {
-                                return <SidebarItem data={this.props.data} name={this.props.name} pageTitle={this.props.pageTitle} nav={nav} key={`sbit-${index}`} />
+                                return <SidebarItem
+                                    data={this.props.data}
+                                    name={this.props.name}
+                                    pageTitle={this.props.pageTitle}
+                                    nav={nav}
+                                    key={`sbit-${index}`} />
                             })}
                         </List>
                     </div>
