@@ -17,6 +17,7 @@ export class SidebarItem extends Component {
 
         this.handleClick = this.handleClick.bind(this);
         this.handleLinkClick = this.handleLinkClick.bind(this);
+        this.getLink = this.getLink.bind(this);
         this.firstPadding = "15px";
         this.secondPadding = "30px";
     }
@@ -47,6 +48,19 @@ export class SidebarItem extends Component {
         }
     }
 
+    /**
+     * Gets the link of the matching name for the menu item. Special
+     * case for "Home"
+     * @param {number} index index of matching link from name
+     */
+    getLink(index) {
+        let link = `${this.props.name}${this.props.nav.links[index]}`;
+        if (this.props.nav.title === "Home") {
+            link = this.props.nav.links[index];
+        }
+        return link;
+    }
+
     render() {
         return (
             <div>
@@ -61,14 +75,14 @@ export class SidebarItem extends Component {
                                 <ListItem
                                     button
                                     key={`${name}-${index}`}
-                                    onClick={() => this.handleLinkClick(index)}
+                                    component="a"
+                                    href={this.getLink(index)}
                                 >
                                     <ListItemText
                                         style={{ paddingLeft: this.secondPadding }}
                                         primary={name}
                                         disabled={this.props.pageTitle === this.props.nav.links[index]}
-                                        key={`${name}-li-${index}`}
-                                        onClick={() => this.handleLinkClick(index)} />
+                                        key={`${name}-li-${index}`} />
                                 </ListItem>
                             )
                         })}

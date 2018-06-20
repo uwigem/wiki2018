@@ -18,6 +18,8 @@ export class AppBarMenuList extends Component {
             anchorEl: null,
         };
 
+        this.getLink = this.getLink.bind(this);
+
         // styles
         this.buttonStyle = {
             margin: "2px",
@@ -37,17 +39,22 @@ export class AppBarMenuList extends Component {
         this.setState({ anchorEl: event.currentTarget });
     };
 
-    handleClose = (e) => {
-        // This part will create the links and the redirect when clicking
-        if (window && e.target.value !== undefined) {
-            let link = `${this.props.name}${this.props.nav.links[e.target.value]}`;
-            if (this.props.nav.title === "Home") {
-                link = this.props.nav.links[e.target.value];
-            }
-            window.location.href = link;
-        }
+    handleClose = () => {
         this.setState({ anchorEl: null });
     };
+
+    /**
+     * Gets the link of the matching name for the menu item. Special
+     * case for "Home"
+     * @param {number} index index of matching link from name
+     */
+    getLink(index) {
+        let link = `${this.props.name}${this.props.nav.links[index]}`;
+        if (this.props.nav.title === "Home") {
+            link = this.props.nav.links[index];
+        }
+        return link;
+    }
 
     /**
      * Render a single menu
@@ -90,6 +97,8 @@ export class AppBarMenuList extends Component {
                     {this.props.nav.names.map((name, index) => {
                         return (
                             <MenuItem
+                                component="a"
+                                href={this.getLink(index)}
                                 disabled={this.props.pageTitle === this.props.nav.links[index]}
                                 key={`${name}-${index}`}
                                 onClick={this.handleClose}
@@ -98,7 +107,7 @@ export class AppBarMenuList extends Component {
                         );
                     })}
                 </Menu>
-            </div>
+            </div >
 
         );
     }
