@@ -37,6 +37,7 @@ export class Sidebar extends Component {
     }
 
     render() {
+        let a = this.props.a;
         return (
             <SwipeableDrawer
                 anchor={this.props.side}
@@ -55,7 +56,8 @@ export class Sidebar extends Component {
                                     name={this.props.name}
                                     pageTitle={this.props.pageTitle}
                                     nav={nav}
-                                    key={`sbit-${index}`} />
+                                    key={`sbit-${index}`}
+                                    a={a} />
                             })}
                         </List>
                     </div>

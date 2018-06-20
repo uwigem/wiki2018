@@ -62,6 +62,7 @@ export class SidebarItem extends Component {
     }
 
     render() {
+        let a = this.props.a;
         return (
             <div>
                 <ListItem button onClick={this.handleClick}>
@@ -77,6 +78,7 @@ export class SidebarItem extends Component {
                                     key={`${name}-${index}`}
                                     component="a"
                                     href={this.getLink(index)}
+                                    onClick={a}
                                 >
                                     <ListItemText
                                         style={{ paddingLeft: this.secondPadding }}

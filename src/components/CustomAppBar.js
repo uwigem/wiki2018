@@ -106,7 +106,8 @@ export class CustomAppBar extends Component {
                                     data={this.props.data}
                                     side="right"
                                     name={this.props.name}
-                                    title={this.props.pageTitle} />
+                                    title={this.props.pageTitle}
+                                    a={a} />
                             </div>
                         }
                     </Toolbar>

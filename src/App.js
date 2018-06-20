@@ -17,7 +17,7 @@ class App extends Component {
         this.debugURL = "/ASDFTest";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
-            loading: false,
+            loading: true,
             data: new data.Data()       // data object can now be called by this.state.data
         }
 
