@@ -72,15 +72,12 @@ class App extends Component {
      *      
      *      in CustomView:
      * 
-     *          componentDidMount() {
-     *              this.a = this.props.a;
-     *          }
-     * 
      *          render() {
+     *              let a = this.props.a;
      *              return (
      *                  <div>   
-     *                      <ChildView a={this.a} />
-     *                      <a href="_____" onClick={this.a} />
+     *                      <ChildView a={a} />
+     *                      <a href="_____" onClick={a} />
      *                  </div>
      *              )
      *          }

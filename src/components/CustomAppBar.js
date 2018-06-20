@@ -80,6 +80,7 @@ export class CustomAppBar extends Component {
     }
 
     render() {
+        let a = this.props.a;
         return (
             <div style={this.appbarStyle}>
                 <AppBar>
@@ -89,7 +90,7 @@ export class CustomAppBar extends Component {
                         </Typography>
                         {/* If screen bigger than this.minwidth, show a button list along the nav bar */}
                         {!this.state.minimized && this.props.data.getNavbarData().map((nav, index) => {
-                            return <AppBarMenuList a={this.props.a} data={this.props.data} name={this.props.name} pageTitle={this.props.pageTitle} nav={nav} key={`abmL-${index}`} />
+                            return <AppBarMenuList a={a} data={this.props.data} name={this.props.name} pageTitle={this.props.pageTitle} nav={nav} key={`abmL-${index}`} />
                         })}
                         {/* If the screen is less, show a hamburger button that shows a sidebar */}
                         {this.state.minimized &&
