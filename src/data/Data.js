@@ -109,8 +109,8 @@ var navbarData = [
     },
     {
         title: "Project",
-        names: ["Design", "BioBricks", "InterLab"],
-        links: ["/Design", "/BioBricks", "/InterLab"]
+        names: ["Design", "BioBricks", "InterLab", "ASDFTest", "ASDFTestA"],
+        links: ["/Design", "/BioBricks", "/InterLab", "/ASDFTest", "/ASDFTestA"]
     },
     {
         title: "Human Practices",

@@ -14,13 +14,14 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/Design";
+        this.debugURL = "/ASDFTest";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: false,
             data: new data.Data()       // data object can now be called by this.state.data
         }
 
+        this.displayLoadingMessage = this.displayLoadingMessage.bind(this);
     }
 
     /**
@@ -38,6 +39,7 @@ class App extends Component {
             this.pageTitle = pageURL;
             this.debugMode = false;
         }
+        console.log(this.pageTitle, this.debugMode);;
         this.setState({ loading: false });
 
         let displayConstants = this.state.data.getDisplayConstants(this.pageTitle);
@@ -61,7 +63,27 @@ class App extends Component {
     /**
      * displayLoadingMessage sets the state of loading to true. This is used
      * for in between pages
-     * This function MUST be sent down as a prop to ALL the pages.
+     * This function MUST be sent down as a prop to ALL the pages, so the
+     * appropriate loading procedure takes place.
+     * 
+     * From now on, we will pass this down like this:
+     * 
+     *      <CustomView a={this.displayLoadingMessage} />
+     *      
+     *      in CustomView:
+     * 
+     *          componentDidMount() {
+     *              this.a = this.props.a;
+     *          }
+     * 
+     *          render() {
+     *              return (
+     *                  <div>   
+     *                      <ChildView a={this.a} />
+     *                      <a href="_____" onClick={this.a} />
+     *                  </div>
+     *              )
+     *          }
      */
     displayLoadingMessage() {
         this.setState({ loading: true });
@@ -72,6 +94,7 @@ class App extends Component {
      * Pre:     The page is either locally hosted or existing on the iGEM Website.
      */
     render() {
+        let a = this.displayLoadingMessage;
         return (
             <div className="App">
                 <MuiThemeProvider theme={this.theme}>
@@ -80,13 +103,14 @@ class App extends Component {
                         <DebugHeader />
                     }
 
-                    <CustomAppBar name={this.name} pageTitle={this.pageTitle} data={this.state.data} />
+                    <CustomAppBar name={this.name} pageTitle={this.pageTitle} data={this.state.data} a={a} />
 
                     {!this.state.loading &&
                         <div>
                             {/* ASDFTest page */}
                             {this.pageTitle === "/ASDFTest" &&
-                                <h1><a onClick={() => this.displayLoadingMessage()} style={{ color: "white" }} href={`${this.name}/TempMain`}>page is asdftest</a></h1>
+                                <h1><br /><br /><br /><br /><br /><br />
+                                    <a onClick={() => this.displayLoadingMessage()} style={{ color: "white" }} href={`${this.name}/TempMain`}>page is asdftest</a></h1>
                             }
 
                             {this.pageTitle === "/ASDFTestA" &&
@@ -100,7 +124,8 @@ class App extends Component {
 
                             {/* TEMPORARY MAIN PAGE */}
                             {this.pageTitle === "/TempMain" &&
-                                <h1>Welcome to the temporary main page</h1>
+                                //<MainPage setLoading />
+                                <div></div>
                             }
                         </div>
                     }

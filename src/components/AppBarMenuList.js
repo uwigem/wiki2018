@@ -33,6 +33,7 @@ export class AppBarMenuList extends Component {
         this.appbarStyle = {
             paddingTop: this.props.data.getButtonHeight()
         };
+        this.a = this.props.a;
     }
 
     handleClick = (event) => {
@@ -40,6 +41,7 @@ export class AppBarMenuList extends Component {
     };
 
     handleClose = () => {
+        this.a();
         this.setState({ anchorEl: null });
     };
 
