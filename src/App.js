@@ -39,7 +39,6 @@ class App extends Component {
             this.pageTitle = pageURL;
             this.debugMode = false;
         }
-        console.log(this.pageTitle, this.debugMode);;
         this.setState({ loading: false });
 
         let displayConstants = this.state.data.getDisplayConstants(this.pageTitle);
