@@ -41,9 +41,13 @@ export class AppBarMenuList extends Component {
     };
 
     handleClose = () => {
-        this.a();
         this.setState({ anchorEl: null });
     };
+
+    handleLink = () => {
+        this.a();
+        this.handleClose();
+    }
 
     /**
      * Gets the link of the matching name for the menu item. Special
@@ -103,7 +107,7 @@ export class AppBarMenuList extends Component {
                                 href={this.getLink(index)}
                                 disabled={this.props.pageTitle === this.props.nav.links[index]}
                                 key={`${name}-${index}`}
-                                onClick={this.handleClose}
+                                onClick={this.handleLink}
                                 value={index}>{name}
                             </MenuItem>
                         );
