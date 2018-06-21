@@ -1,8 +1,8 @@
 :root {
-    --headerTagColor: white;
-    --mainColor: white;
+    --headerTagColor: black;
+    --mainColor: black;
     --debugHeaderColor: gray;
-    --backgroundColor: #4b2e83;
+    --backgroundColor: rgb(245, 245, 245);
 }
 
 .debugheader {

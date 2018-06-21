@@ -3,6 +3,7 @@ import { DebugHeader } from './debugfiles/DebugHeader';
 import { LoadingScreen } from './components/LoadingScreen';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { CustomAppBar } from './components/CustomAppBar';
+import { MainPageContent } from './components/MainPageContent';
 
 var data = require("./data/Data.js");
 
@@ -14,7 +15,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/ASDFTest";
+        this.debugURL = "";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -100,6 +101,7 @@ class App extends Component {
                     }
 
                     <CustomAppBar name={this.name} pageTitle={this.pageTitle} data={this.state.data} a={a} />
+                    <div style={{ marginTop: "40px" }}></div>
 
                     {!this.state.loading &&
                         <div>
@@ -114,13 +116,16 @@ class App extends Component {
                             }
 
                             {/* HOME PAGE */}
+                            {/* IT IS IMPERITIVE THAT WHEN WE PUSH THIS CODE, THE ABSTRACT WILL APPEAR */}
                             {this.pageTitle === "" &&
-                                <h1>Welcome to the main page</h1>
+                                <div>
+                                    <MainPageContent />
+                                </div>
                             }
 
                             {/* TEMPORARY MAIN PAGE */}
                             {this.pageTitle === "/TempMain" &&
-                                //<MainPage setLoading />
+                                //<TempMainPageContent />
                                 <div></div>
                             }
                         </div>
