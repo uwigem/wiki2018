@@ -85,7 +85,7 @@ export class CustomAppBar extends Component {
             <div style={this.appbarStyle}>
                 <AppBar>
                     <Toolbar>
-                        <Typography style={this.logoStyle} variant="title" color="secondary">
+                        <Typography style={this.logoStyle} variant="title" color="primary">
                             <img height={this.logoHeight} alt="Washington Logo" src={this.props.data.getLogo()} />
                         </Typography>
                         {/* If screen bigger than this.minwidth, show a button list along the nav bar */}

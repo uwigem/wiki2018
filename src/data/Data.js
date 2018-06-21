@@ -67,8 +67,8 @@ class Data {
  * Mainly will be used for certain material-ui elements.
  */
 var displayConstants = {
-    primaryColor: "#4B2E83",
-    secondaryColor: "#330066",
+    primaryColor: "#420DAB",
+    secondaryColor: "#6308b2",
     globalColor: false,
     pageSpecificColors: {
         Home: {

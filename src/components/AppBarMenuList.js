@@ -26,7 +26,7 @@ export class AppBarMenuList extends Component {
             textTransform: 'none'
         };
         this.anchorElSpacing = 45;
-        this.buttonVariant = "contained";
+        this.buttonVariant = "raised";
         this.menuItemStyles = {
             color: "#000000",
             textDecoration: "none"
@@ -84,7 +84,7 @@ export class AppBarMenuList extends Component {
                     aria-owns={anchorEl ? 'simple-menu' : null}
                     aria-haspopup="true"
                     onClick={this.handleClick}
-                    color="secondary"
+                    color="inherit"
                     style={this.buttonStyle}
                 >
                     {this.props.nav.title}
