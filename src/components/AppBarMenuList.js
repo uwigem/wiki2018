@@ -27,6 +27,10 @@ export class AppBarMenuList extends Component {
         };
         this.anchorElSpacing = 45;
         this.buttonVariant = "contained";
+        this.menuItemStyles = {
+            color: "#000000",
+            textDecoration: "none"
+        };
     }
 
     componentWillMount() {
@@ -103,6 +107,7 @@ export class AppBarMenuList extends Component {
                     {this.props.nav.names.map((name, index) => {
                         return (
                             <MenuItem
+                                style={this.menuItemStyles}
                                 component="a"
                                 href={this.getLink(index)}
                                 disabled={this.props.pageTitle === this.props.nav.links[index]}
