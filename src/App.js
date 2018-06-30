@@ -6,6 +6,7 @@ import { CustomAppBar } from './components/CustomAppBar';
 import { MainPageContent } from './components/MainPageContent';
 
 var data = require("./data/Data.js");
+window.addEventListener('unload', function () { });
 
 /**
  * App is the main class that encompasses all the other classes.
