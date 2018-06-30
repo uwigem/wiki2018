@@ -126,7 +126,9 @@ class App extends Component {
                             {/* TEMPORARY MAIN PAGE */}
                             {this.pageTitle === "/TempMain" &&
                                 //<TempMainPageContent />
-                                <div></div>
+                                <div>
+                                    <MainPageContent />
+                                </div>
                             }
                         </div>
                     }
