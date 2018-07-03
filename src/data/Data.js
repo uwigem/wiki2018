@@ -109,24 +109,26 @@ var navbarData = [
     },
     {
         title: "Project",
-        names: ["Design", "BioBricks", "InterLab", "ASDFTest", "ASDFTestA"],
-        links: ["/Design", "/BioBricks", "/InterLab", "/ASDFTest", "/ASDFTestA"]
+        names: ["Description", "Design", "Experiments", "Parts", "Protocols", "Notebook", "Safety", "BioBricks", "InterLab", "ASDFTest", "ASDFTestA"],
+        links: ["/Description", "/Design", "/Experiments", "/Parts", "/Protocols", "/Notebook", "/Safety", "/Parts", "/InterLab", "/ASDFTest", "/ASDFTestA"]
+        // note biobrick's page is named parts
+        // look into basic part vs composite part vs part collection etc
+        // maybe biobrick is split into its own section
+    },
+    {
+        title: "Modeling",
+        names: ["Model"],
+        links: ["/Model"]
     },
     {
         title: "Human Practices",
-        names: ["Summary", "Collaborations", "Engagement"],
-        links: ["/Summary", "/Collaborations", "/Engagement"]
+        names: ["Human Practices", "Education & Engagement", "Entrepreneurship", "Collaborations"],
+        links: ["/Human_Practices", "/Public_Engagement", "/Entrepreneurship", "/Collaborations"]
     },
     {
         title: "Team",
         names: ["Members", "Attributions"],
         links: ["/Members", "/Attributions"]
-    },
-    {
-        title: "Medal Criteria",
-        names: ["Medal"],
-        links: ["/Medal"]
-
     }
 ];
 
