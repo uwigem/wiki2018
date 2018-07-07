@@ -13,7 +13,14 @@
 
 body {
     margin: 0;
-    padding: 0;
+    overflow-y: scroll !important;
+    height: 100%;
+    padding: 0 !important;
+    background-color: var(--backgroundColor);
+}
+
+header {
+    padding: 0 !important;
 }
 
 .App,
@@ -23,7 +30,7 @@ body {
     padding: 0;
     height: 100vh;
     font-family: sans-serif;
-    width: 100vw;
+    width: 100%;
     text-align: center;
     background-color: var(--backgroundColor);
     color: var(--mainColor);
