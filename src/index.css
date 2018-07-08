@@ -13,8 +13,19 @@
 
 body {
     margin: 0;
+<<<<<<< HEAD
     padding: 0;
     background-color: var(--backgroundColor);
+=======
+    overflow-y: scroll !important;
+    height: 100%;
+    padding: 0 !important;
+    background-color: var(--backgroundColor);
+}
+
+header {
+    padding: 0 !important;
+>>>>>>> cdc93f5fd310ac3a4cb26a365efa19d34eadbcc0
 }
 
 .App,
@@ -24,7 +35,7 @@ body {
     padding: 0;
     height: 100vh;
     font-family: sans-serif;
-    width: 100vw;
+    width: 100%;
     text-align: center;
     background-color: var(--backgroundColor);
     color: var(--mainColor);
