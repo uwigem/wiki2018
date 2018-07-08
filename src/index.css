@@ -13,10 +13,6 @@
 
 body {
     margin: 0;
-<<<<<<< HEAD
-    padding: 0;
-    background-color: var(--backgroundColor);
-=======
     overflow-y: scroll !important;
     height: 100%;
     padding: 0 !important;
@@ -25,7 +21,6 @@ body {
 
 header {
     padding: 0 !important;
->>>>>>> cdc93f5fd310ac3a4cb26a365efa19d34eadbcc0
 }
 
 .App,
