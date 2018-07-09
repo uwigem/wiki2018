@@ -134,6 +134,12 @@ class App extends Component {
                                     <MainPageContent />
                                 </div>
                             }
+
+                            {this.pageTitle === "/ContentTest" &&
+                                <div>
+                                    {/* <Content edit={false} pageTitle={this.pageTitle} a={a} data={this.state.data} /> */}
+                                </div>
+                            }
                         </div>
                     }
 
