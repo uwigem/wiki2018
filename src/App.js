@@ -4,6 +4,7 @@ import { LoadingScreen } from './components/LoadingScreen';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { CustomAppBar } from './components/CustomAppBar';
 import { MainPageContent } from './components/MainPageContent';
+import { ContentView } from './components/ContentView';
 import Data from './data/Data';
 
 import firebase from 'firebase';
@@ -18,7 +19,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "";
+        this.debugURL = "/ContentTest";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -80,8 +81,9 @@ class App extends Component {
      */
     getContentData() {
         if (this.firebaseIsSet && Date.now() < 1539835140000) { // Hardcoded value for Wiki freeze, just for security
-            return this.state.contentData;
+            return this.state.contentData.pageData;
         } else {
+            console.log("aa");
             return this.state.data.getContentData();
         }
     }
@@ -163,7 +165,7 @@ class App extends Component {
 
                             {this.pageTitle === "/ContentTest" &&
                                 <div>
-                                    {/* <Content edit={false} pageTitle={this.pageTitle} a={a} data={this.state.data} contentData={contentData}/> */}
+                                    <ContentView edit={false} pageTitle={this.pageTitle} a={a} data={this.state.data} contentData={contentData} />
                                 </div>
                             }
                         </div>

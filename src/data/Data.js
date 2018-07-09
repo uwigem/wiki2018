@@ -66,7 +66,7 @@ export default class Data {
     }
 }
 
-var contentData = {};
+var contentData = [];
 
 /**
  * display constants. This has a very different use case than CSS does.
