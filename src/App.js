@@ -6,6 +6,8 @@ import { CustomAppBar } from './components/CustomAppBar';
 import { MainPageContent } from './components/MainPageContent';
 import Data from './data/Data';
 
+import firebase from 'firebase';
+
 window.addEventListener('unload', function () { });
 
 /**
@@ -24,6 +26,7 @@ class App extends Component {
         }
 
         this.displayLoadingMessage = this.displayLoadingMessage.bind(this);
+        this.getContentData = this.getContentData.bind(this);
     }
 
     /**
@@ -59,6 +62,28 @@ class App extends Component {
         });
 
         this.theme = theme;
+
+
+        // TODO: REPLACE FIREBASE BEFORE WIKI FREEZE
+        let dataRef = firebase.database().ref("/");
+        dataRef.once("value", (snapshot) => {
+            this.firebaseIsSet = true;
+            this.setState({ contentData: snapshot.val() });
+        });
+        ////////////////////////////////////////////
+    }
+
+    /**
+     * getContentData gets the page's content data. It grabs it from firebase
+     * if wiki freeze has not happened yet
+     * @return {object} page content data as a json object
+     */
+    getContentData() {
+        if (this.firebaseIsSet && Date.now() < 1539835140000) { // Hardcoded value for Wiki freeze, just for security
+            return this.state.contentData;
+        } else {
+            return this.state.data.getContentData();
+        }
     }
 
     /**
@@ -96,6 +121,7 @@ class App extends Component {
      */
     render() {
         let a = this.displayLoadingMessage;
+        let contentData = this.getContentData();
         return (
             <div className="App">
                 <MuiThemeProvider theme={this.theme}>
@@ -137,7 +163,7 @@ class App extends Component {
 
                             {this.pageTitle === "/ContentTest" &&
                                 <div>
-                                    {/* <Content edit={false} pageTitle={this.pageTitle} a={a} data={this.state.data} /> */}
+                                    {/* <Content edit={false} pageTitle={this.pageTitle} a={a} data={this.state.data} contentData={contentData}/> */}
                                 </div>
                             }
                         </div>

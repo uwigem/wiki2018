@@ -1,4 +1,3 @@
-import firebase from 'firebase';
 export default class Data {
     /**
      * getNavbarData returns all the navbar data from the object down below
@@ -61,7 +60,13 @@ export default class Data {
     getButtonHeight() {
         return displayConstants.buttonHeight;
     }
+
+    getContentData() {
+        return contentData;
+    }
 }
+
+var contentData = {};
 
 /**
  * display constants. This has a very different use case than CSS does.
