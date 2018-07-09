@@ -1,4 +1,5 @@
-class Data {
+import firebase from 'firebase';
+export default class Data {
     /**
      * getNavbarData returns all the navbar data from the object down below
      * @return {object array} with a title, list of names, and list of links
@@ -131,5 +132,3 @@ var navbarData = [
         links: ["/Members", "/Attributions"]
     }
 ];
-
-exports.Data = Data;

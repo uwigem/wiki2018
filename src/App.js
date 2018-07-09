@@ -4,8 +4,8 @@ import { LoadingScreen } from './components/LoadingScreen';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { CustomAppBar } from './components/CustomAppBar';
 import { MainPageContent } from './components/MainPageContent';
+import Data from './data/Data';
 
-var data = require("./data/Data.js");
 window.addEventListener('unload', function () { });
 
 /**
@@ -20,7 +20,7 @@ class App extends Component {
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
-            data: new data.Data()       // data object can now be called by this.state.data
+            data: new Data()       // data object can now be called by this.state.data
         }
 
         this.displayLoadingMessage = this.displayLoadingMessage.bind(this);
