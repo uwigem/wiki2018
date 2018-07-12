@@ -83,7 +83,6 @@ class App extends Component {
         if (this.firebaseIsSet && Date.now() < 1539835140000) { // Hardcoded value for Wiki freeze, just for security
             return this.state.contentData.pageData;
         } else {
-            console.log("aa");
             return this.state.data.getContentData();
         }
     }
