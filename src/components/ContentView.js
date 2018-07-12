@@ -23,21 +23,30 @@ export class ContentView extends Component {
         if (this.state.contentData) {
             for (let i = 0; i < this.state.contentData.length; i++) {
                 if (this.state.contentData[i].pageTitle === this.props.pageTitle) {
-                    console.log("aa");
                     return this.state.contentData[i];
-
                 }
-                console.log("bb")
             }
         }
         return null;
     }
 
+    generateSegment(data, index) {
+        return (<div>
+            {
+
+            }
+        </div>)
+    }
+
     render() {
-        console.log(this.filterToPage())
+        let newContentData = this.filterToPage();
         return (
             <div>
+                {newContentData &&
+                    newContentData.map((d, i) => {
 
+                    })
+                }
             </div>
         );
     }

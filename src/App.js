@@ -118,6 +118,16 @@ class App extends Component {
     }
 
     /**
+     * setEdit is used in ContentView to set the certain element to edit
+     * This is used later in the ContentEditor (TODO)
+     * @param {string} page string of page to edit
+     * @param {number} index index of the content box to edit
+     */
+    setEdit(page, index) {
+        this.setState({ setEdit: { page, index } });
+    }
+
+    /**
      * Render the page.
      * Pre:     The page is either locally hosted or existing on the iGEM Website.
      */
