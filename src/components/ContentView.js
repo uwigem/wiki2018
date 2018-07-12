@@ -31,20 +31,28 @@ export class ContentView extends Component {
     }
 
     generateSegment(data, index) {
+        let returnDiv = null;
+        switch (data.type) {
+            case "MARKDOWN":
+                returnDiv = <div>MARKDOWN</div>;
+                break;
+            case "LATEX":
+                returnDiv = <div>LATEX</div>;
+                break;
+        }
         return (<div>
-            {
-
-            }
+            {returnDiv}
         </div>)
     }
 
     render() {
         let newContentData = this.filterToPage();
+        console.log(newContentData);
         return (
-            <div>
+            <div style={{ marginTop: "100px" }}>
                 {newContentData &&
-                    newContentData.map((d, i) => {
-
+                    newContentData.content.map((d, i) => {
+                        return this.generateSegment(d, i);
                     })
                 }
             </div>
