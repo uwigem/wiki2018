@@ -175,7 +175,13 @@ class App extends Component {
 
                             {this.pageTitle === "/ContentTest" &&
                                 <div>
-                                    <ContentView setEdit={this.setEdit} setEditData={this.state.setEditData} edit={true} pageTitle={this.pageTitle} a={a} data={this.state.data} contentData={contentData} />
+                                    <ContentView setEdit={this.setEdit}
+                                        setEditData={this.state.setEditData}
+                                        edit={true}
+                                        pageTitle={this.pageTitle}
+                                        a={a}
+                                        data={this.state.data}
+                                        contentData={contentData} />
                                 </div>
                             }
                         </div>
