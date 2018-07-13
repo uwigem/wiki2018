@@ -28,6 +28,7 @@ class App extends Component {
 
         this.displayLoadingMessage = this.displayLoadingMessage.bind(this);
         this.getContentData = this.getContentData.bind(this);
+        this.setEdit = this.setEdit.bind(this);
     }
 
     /**
@@ -123,7 +124,7 @@ class App extends Component {
      * @param {number} index index of the content box to edit
      */
     setEdit(page, index) {
-        this.setState({ setEdit: { page, index } });
+        this.setState({ setEditData: { page, index } });
     }
 
     /**
@@ -174,7 +175,7 @@ class App extends Component {
 
                             {this.pageTitle === "/ContentTest" &&
                                 <div>
-                                    <ContentView edit={false} pageTitle={this.pageTitle} a={a} data={this.state.data} contentData={contentData} />
+                                    <ContentView setEdit={this.setEdit} setEditData={this.state.setEditData} edit={true} pageTitle={this.pageTitle} a={a} data={this.state.data} contentData={contentData} />
                                 </div>
                             }
                         </div>

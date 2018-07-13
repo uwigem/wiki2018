@@ -6,7 +6,7 @@ export class MainPageContent extends Component {
     render() {
         return (
             <div>
-                <Card style={{ minWidth: 250, maxWidth: "80%", margin: "auto", marginTop: 90 }}>
+                <Card style={{ minWidth: 250, maxWidth: "80%", margin: "auto", marginTop: 90, textAlign: 'center' }}>
                     <CardContent>
                         <Typography gutterBottom variant="headline" component="h2">
                             Washington iGEM 2018 Project Abstract

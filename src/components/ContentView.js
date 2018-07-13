@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import 'katex/dist/katex.min.css';
+import { BlockMath } from 'react-katex';
+import ReactMarkdown from 'react-markdown';
+import './ContentView.css';
 
 // ContentView is the main content hub that controls a certain page's
 // content. It also contains some logic for editing.
@@ -6,16 +10,17 @@ export class ContentView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            contentData: null
+            contentData: null,
+            setEditData: null
         };
     }
 
     componentWillMount() {
-        this.setState({ contentData: this.props.contentData });
+        this.setState({ contentData: this.props.contentData, setEditData: this.props.setEditData });
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({ contentData: nextProps.contentData });
+        this.setState({ contentData: nextProps.contentData, setEditData: nextProps.setEditData });
     }
 
     /**
@@ -66,10 +71,13 @@ export class ContentView extends Component {
         let returnDiv = null;
         switch (data.type) {
             case "MARKDOWN":
-                returnDiv = <div>MARKDOWN</div>;
+                returnDiv = <ReactMarkdown source={data.data} style={{ textAlign: 'left' }} />;
                 break;
             case "LATEX":
-                returnDiv = <div>LATEX</div>;
+                returnDiv = <BlockMath>{data.data}</BlockMath>;
+                break;
+            case "IMAGE":
+                returnDiv = null//<ContentImage image={data.data} />;
                 break;
             case "SPECIAL":
                 returnDiv = this.createSpecial(data.data);
@@ -79,10 +87,16 @@ export class ContentView extends Component {
                 break;
         }
         // nested ternary operator below maybe? :o
-        return (<div key={"segment" + index} style={{ border: this.props.edit ? "2px solid black" : "none" }}>
+        let isEdit = false;
+        if (this.props.edit && this.state.setEditData && this.state.setEditData.index === index) {
+            isEdit = true;
+        }
+        return (<div key={"segment" + index} className={`${this.props.edit ? "editBorder" : ""} ${isEdit ? "greenBorder" : ""}`}>
             {returnDiv}
             {this.props.edit &&
-                <div>insert editing console here</div>
+                <div><button onClick={() => {
+                    this.props.setEdit(this.props.pageTitle, index);
+                }}>edit</button></div>
             }
         </div>)
     }
@@ -90,7 +104,7 @@ export class ContentView extends Component {
     render() {
         let newContentData = this.filterToPage();
         return (
-            <div style={{ marginTop: "100px" }}>
+            <div style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}>
                 {newContentData &&
                     newContentData.content.map((d, i) => {
                         return this.generateSegment(d, i);

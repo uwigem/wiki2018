@@ -31,7 +31,6 @@ header {
     height: 100vh;
     font-family: sans-serif;
     width: 100%;
-    text-align: center;
     background-color: var(--backgroundColor);
     color: var(--mainColor);
     /* temporary */
