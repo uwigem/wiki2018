@@ -65,8 +65,9 @@ class App extends Component {
 
         this.theme = theme;
 
-
+        this.firebasePassIn = null;
         // TODO: REPLACE FIREBASE BEFORE WIKI FREEZE
+        this.firebasePassIn = firebase;
         let dataRef = firebase.database().ref("/");
         dataRef.once("value", (snapshot) => {
             this.firebaseIsSet = true;
@@ -181,7 +182,8 @@ class App extends Component {
                                         pageTitle={this.pageTitle}
                                         a={a}
                                         data={this.state.data}
-                                        contentData={contentData} />
+                                        contentData={contentData}
+                                        firebase={this.firebasePassIn} />
                                 </div>
                             }
                         </div>

@@ -11,16 +11,17 @@ export class ContentView extends Component {
         super(props);
         this.state = {
             contentData: null,
-            setEditData: null
+            setEditData: null,
+            firebase: null
         };
     }
 
     componentWillMount() {
-        this.setState({ contentData: this.props.contentData, setEditData: this.props.setEditData });
+        this.setState({ contentData: this.props.contentData, setEditData: this.props.setEditData, firebase: this.props.firebase });
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({ contentData: nextProps.contentData, setEditData: nextProps.setEditData });
+        this.setState({ contentData: nextProps.contentData, setEditData: nextProps.setEditData, firebase: this.props.firebase });
     }
 
     /**
@@ -32,9 +33,9 @@ export class ContentView extends Component {
      */
     filterToPage() {
         if (this.state.contentData) {
-            for (let i = 0; i < this.state.contentData.length; i++) {
-                if (this.state.contentData[i].pageTitle === this.props.pageTitle) {
-                    return this.state.contentData[i];
+            for (let content of this.state.contentData) {
+                if (content.pageTitle === this.props.pageTitle) {
+                    return content;
                 }
             }
         }
