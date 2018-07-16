@@ -52,7 +52,7 @@ export class ContentView extends Component {
                 // The firebase.auth.AuthCredential type that was used.
                 var credential = error.credential;
                 // ...
-                console.log("error");
+                console.log("error, email did not work");
             });
         }
     }
@@ -208,24 +208,12 @@ export class ContentView extends Component {
         let newContentData = this.filterToPage();
         let tempPass = "";
 
+        if (newContentData && !newContentData.content) {
+            newContentData.content = [];
+        }
 
         return (
             <div style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}>
-                {/* {this.props.edit && !this.state.canEdit &&
-                    <div>
-                        {}
-
-                        ENTER PASSWORD: <input type={"password"} onChange={(e) => { tempPass = e.target.value }} /> <button onClick={() => {
-                            this.props.firebase.database().ref(`key`).once('value').then((s) => {
-                                if (s.val() === tempPass) {
-                                    this.setState({ canEdit: true });
-                                } else {
-                                    console.log("rip u");
-                                }
-                            })
-                        }}>submit</button>
-                    </div>
-                } */}
                 {((this.props.edit && this.state.canEdit) || !this.props.edit) &&
                     <div>
                         {newContentData &&
