@@ -16,7 +16,8 @@ export class ContentView extends Component {
             firebase: null,
             tempEditType: "",
             tempEditContent: "",
-            canEdit: false
+            canEdit: false,
+            currentEmail: ''
         };
 
         this.possibleTypes = ["MARKDOWN", "LATEX", "IMAGE", "SPECIAL"];
@@ -26,33 +27,39 @@ export class ContentView extends Component {
         this.setState({ contentData: this.props.contentData, setEditData: this.props.setEditData, firebase: this.props.firebase });
 
         if (this.props.edit) {
-            let provider = new this.props.firebase.auth.GoogleAuthProvider();
-            this.props.firebase.auth().signInWithPopup(provider).then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                var token = result.credential.accessToken;
-                // The signed-in user info.
-                var user = result.user;
-                // console.log(user.email);
-                let splitEmail = user.email.split("@")[1];
-                if (splitEmail === "uw.edu" ||
-                    splitEmail === "washington.edu" ||
-                    splitEmail === "u.washington.edu") {
-                    this.setState({ canEdit: true });
+            this.props.firebase.auth().onAuthStateChanged((user) => {
+                if (user) {
+                    this.setState({ canEdit: true, currentEmail: user.email });
                 } else {
-                    alert("email not allowed, your email has been logged and will be reported to igem administration");
-                    this.props.firebase.database().ref('evilPeople').push(user.email);
+                    let provider = new this.props.firebase.auth.GoogleAuthProvider();
+                    this.props.firebase.auth().signInWithPopup(provider).then((result) => {
+                        // This gives you a Google Access Token. You can use it to access the Google API.
+                        var token = result.credential.accessToken;
+                        // The signed-in user info.
+                        var user = result.user;
+                        // console.log(user.email);
+                        let splitEmail = user.email.split("@")[1];
+                        if (splitEmail === "uw.edu" ||
+                            splitEmail === "washington.edu" ||
+                            splitEmail === "u.washington.edu") {
+                            this.setState({ canEdit: true, currentEmail: user.email });
+                        } else {
+                            alert("email not allowed, your email has been logged and will be reported to igem administration");
+                            this.props.firebase.database().ref('evilPeople').push(user.email);
+                        }
+                        // ...
+                    }).catch(function (error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        // The email of the user's account used.
+                        var email = error.email;
+                        // The firebase.auth.AuthCredential type that was used.
+                        var credential = error.credential;
+                        // ...
+                        console.log("error, email did not work");
+                    });
                 }
-                // ...
-            }).catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // The email of the user's account used.
-                var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
-                var credential = error.credential;
-                // ...
-                console.log("error, email did not work");
             });
         }
     }
@@ -222,12 +229,15 @@ export class ContentView extends Component {
                             })
                         }
                         {this.props.edit &&
-                            <button style={{ margin: 10 }} onClick={() => {
+                            <div><button style={{ margin: 10 }} onClick={() => {
                                 let listOfData = newContentData;
                                 listOfData.content.push({ type: "MARKDOWN", data: "Insert text" });
                                 this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
                                 this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
                             }}>insert after</button>
+                                <button onClick={() => {
+                                    this.props.firebase.auth().signOut();
+                                }}>sign out</button></div>
                         }
                     </div>
                 }
