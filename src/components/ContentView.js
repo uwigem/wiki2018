@@ -37,10 +37,13 @@ export class ContentView extends Component {
      */
     filterToPage() {
         if (this.state.contentData) {
+            let index = 0;
             for (let content of this.state.contentData) {
                 if (content.pageTitle === this.props.pageTitle) {
+                    this.pageIndex = index;
                     return content;
                 }
+                index++;
             }
         }
         return null;
@@ -72,7 +75,7 @@ export class ContentView extends Component {
      * @param {number} index index of content item
      * @return {object} returns the object associated with the type.
      */
-    generateSegment(data, index) {
+    generateSegment(data, index, newContentData) {
         let returnDiv = null;
         switch (data.type) {
             case "MARKDOWN":
@@ -120,8 +123,22 @@ export class ContentView extends Component {
                                 })}
                             </select>
                             <button onClick={() => {
+                                let listOfData = newContentData;
+                                listOfData.content[index] = {
+                                    data: this.state.tempEditContent !== "" ? this.state.tempEditContent : data.data,
+                                    type: this.state.tempEditType !== "" ? this.state.tempEditType : data.type
+                                };
+                                this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
+                                this.setState({ setEditData: null, tempEditContent: "", tempEditType: "" });
+                            }}>submit</button>
+                            <button onClick={() => {
                                 this.setState({ setEditData: null, tempEditContent: "", tempEditType: "" });
                             }}>cancel</button>
+                            <br />
+                            <textarea style={{ margin: "auto" }} cols={100} rows={30} value={this.state.tempEditContent !== "" ? this.state.tempEditContent : data.data}
+                                onChange={(e) => {
+                                    this.setState({ tempEditContent: e.target.value });
+                                }} />
                         </div>
                     }
 
@@ -136,7 +153,7 @@ export class ContentView extends Component {
             <div style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}>
                 {newContentData &&
                     newContentData.content.map((d, i) => {
-                        return this.generateSegment(d, i);
+                        return this.generateSegment(d, i, newContentData);
                     })
                 }
             </div>
