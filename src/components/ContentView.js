@@ -24,6 +24,39 @@ export class ContentView extends Component {
 
     componentWillMount() {
         this.setState({ contentData: this.props.contentData, setEditData: this.props.setEditData, firebase: this.props.firebase });
+
+        if (this.props.edit) {
+            let provider = new this.props.firebase.auth.GoogleAuthProvider();
+            this.props.firebase.auth().signInWithPopup(provider).then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                var token = result.credential.accessToken;
+                // The signed-in user info.
+                var user = result.user;
+                // console.log(user.email);
+                let splitEmail = user.email.split("@")[1];
+                console.log(splitEmail);
+                console.log(splitEmail === "uw.edu");
+                if (splitEmail === "uw.edu" ||
+                    splitEmail === "washington.edu" ||
+                    splitEmail === "u.washington.edu") {
+                    this.setState({ canEdit: true });
+                } else {
+                    alert("email not allowed, your email has been logged and will be reported to igem administration");
+                    this.props.firebase.database().ref('evilPeople').push(user.email);
+                }
+                // ...
+            }).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+                console.log(email);
+            });
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -176,10 +209,14 @@ export class ContentView extends Component {
     render() {
         let newContentData = this.filterToPage();
         let tempPass = "";
+
+
         return (
             <div style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}>
-                {this.props.edit && !this.state.canEdit &&
+                {/* {this.props.edit && !this.state.canEdit &&
                     <div>
+                        {}
+
                         ENTER PASSWORD: <input type={"password"} onChange={(e) => { tempPass = e.target.value }} /> <button onClick={() => {
                             this.props.firebase.database().ref(`key`).once('value').then((s) => {
                                 if (s.val() === tempPass) {
@@ -190,7 +227,7 @@ export class ContentView extends Component {
                             })
                         }}>submit</button>
                     </div>
-                }
+                } */}
                 {((this.props.edit && this.state.canEdit) || !this.props.edit) &&
                     <div>
                         {newContentData &&
