@@ -198,6 +198,14 @@ export class ContentView extends Component {
                                 return this.generateSegment(d, i, newContentData);
                             })
                         }
+                        {this.props.edit &&
+                            <button style={{ margin: 10 }} onClick={() => {
+                                let listOfData = newContentData;
+                                listOfData.content.push({ type: "MARKDOWN", data: "Insert text" });
+                                this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
+                                this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
+                            }}>insert after</button>
+                        }
                     </div>
                 }
 
