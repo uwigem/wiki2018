@@ -3,6 +3,7 @@ import 'katex/dist/katex.min.css';
 import { BlockMath } from 'react-katex';
 import ReactMarkdown from 'react-markdown';
 import './ContentView.css';
+import CodeBlock from './CodeBlock';
 
 // ContentView is the main content hub that controls a certain page's
 // content. It also contains some logic for editing.
@@ -80,7 +81,10 @@ export class ContentView extends Component {
         let returnDiv = null;
         switch (data.type) {
             case "MARKDOWN":
-                returnDiv = <ReactMarkdown source={data.data} style={{ textAlign: 'left' }} />;
+                returnDiv = <ReactMarkdown source={data.data}
+                    style={{ textAlign: 'left' }}
+                    renderers={{ code: CodeBlock }}
+                    escapeHtml={true} />;
                 break;
             case "LATEX":
                 returnDiv = <BlockMath>{data.data}</BlockMath>;
