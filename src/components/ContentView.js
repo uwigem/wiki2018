@@ -12,8 +12,12 @@ export class ContentView extends Component {
         this.state = {
             contentData: null,
             setEditData: null,
-            firebase: null
+            firebase: null,
+            tempEditType: "",
+            tempEditContent: ""
         };
+
+        this.possibleTypes = ["MARKDOWN", "LATEX", "IMAGE", "SPECIAL"];
     }
 
     componentWillMount() {
@@ -95,9 +99,33 @@ export class ContentView extends Component {
         return (<div key={"segment" + index} className={`${this.props.edit ? "editBorder" : ""} ${isEdit ? "greenBorder" : ""}`}>
             {returnDiv}
             {this.props.edit &&
-                <div><button onClick={() => {
-                    this.props.setEdit(this.props.pageTitle, index);
-                }}>edit</button></div>
+                <div>
+
+                    {!isEdit &&
+
+                        <button onClick={() => {
+                            this.props.setEdit(this.props.pageTitle, index);
+                            this.setState({ tempEditContent: "", tempEditType: "" });
+                        }}>edit</button>
+
+                    }
+
+                    {isEdit &&
+                        <div>
+                            <select value={this.state.tempEditType !== "" ? this.state.tempEditType : data.type} onChange={(e) => {
+                                this.setState({ tempEditType: e.target.value });
+                            }}>
+                                {this.possibleTypes.map((d) => {
+                                    return <option value={d} key={d}>{d}</option>
+                                })}
+                            </select>
+                            <button onClick={() => {
+                                this.setState({ setEditData: null, tempEditContent: "", tempEditType: "" });
+                            }}>cancel</button>
+                        </div>
+                    }
+
+                </div>
             }
         </div>)
     }
