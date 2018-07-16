@@ -34,8 +34,6 @@ export class ContentView extends Component {
                 var user = result.user;
                 // console.log(user.email);
                 let splitEmail = user.email.split("@")[1];
-                console.log(splitEmail);
-                console.log(splitEmail === "uw.edu");
                 if (splitEmail === "uw.edu" ||
                     splitEmail === "washington.edu" ||
                     splitEmail === "u.washington.edu") {
@@ -54,7 +52,7 @@ export class ContentView extends Component {
                 // The firebase.auth.AuthCredential type that was used.
                 var credential = error.credential;
                 // ...
-                console.log(email);
+                console.log("error");
             });
         }
     }
