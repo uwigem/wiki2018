@@ -14,7 +14,8 @@ export class ContentView extends Component {
             setEditData: null,
             firebase: null,
             tempEditType: "",
-            tempEditContent: ""
+            tempEditContent: "",
+            canEdit: false
         };
 
         this.possibleTypes = ["MARKDOWN", "LATEX", "IMAGE", "SPECIAL"];
@@ -103,19 +104,40 @@ export class ContentView extends Component {
             {returnDiv}
             {this.props.edit &&
                 <div>
-
                     {!isEdit &&
+                        <div>
+                            <button onClick={() => {
+                                this.props.setEdit(this.props.pageTitle, index);
+                                this.setState({ tempEditContent: null, tempEditType: null });
+                            }}>edit</button>
 
-                        <button onClick={() => {
-                            this.props.setEdit(this.props.pageTitle, index);
-                            this.setState({ tempEditContent: "", tempEditType: "" });
-                        }}>edit</button>
+                            <button style={{ margin: 10 }} onClick={() => {
+                                let listOfData = newContentData;
+                                listOfData.content.splice(index, 0, { type: "MARKDOWN", data: "Insert text" });
+                                this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
+                                this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
+                            }}>insert before</button>
+
+                            <button style={{ margin: 10 }} onClick={() => {
+                                let listOfData = newContentData;
+                                listOfData.content.splice(index + 1, 0, { type: "MARKDOWN", data: "Insert text" });
+                                this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
+                                this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
+                            }}>insert after</button>
+
+                            <button onClick={() => {
+                                let listOfData = newContentData;
+                                listOfData.content.splice(index, 1);
+                                this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
+                                this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
+                            }}>delete</button>
+                        </div>
 
                     }
 
                     {isEdit &&
                         <div>
-                            <select value={this.state.tempEditType !== "" ? this.state.tempEditType : data.type} onChange={(e) => {
+                            <select value={this.state.tempEditType !== null ? this.state.tempEditType : data.type} onChange={(e) => {
                                 this.setState({ tempEditType: e.target.value });
                             }}>
                                 {this.possibleTypes.map((d) => {
@@ -125,17 +147,17 @@ export class ContentView extends Component {
                             <button onClick={() => {
                                 let listOfData = newContentData;
                                 listOfData.content[index] = {
-                                    data: this.state.tempEditContent !== "" ? this.state.tempEditContent : data.data,
-                                    type: this.state.tempEditType !== "" ? this.state.tempEditType : data.type
+                                    data: this.state.tempEditContent !== null ? this.state.tempEditContent : data.data,
+                                    type: this.state.tempEditType !== null ? this.state.tempEditType : data.type
                                 };
                                 this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
-                                this.setState({ setEditData: null, tempEditContent: "", tempEditType: "" });
+                                this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
                             }}>submit</button>
                             <button onClick={() => {
-                                this.setState({ setEditData: null, tempEditContent: "", tempEditType: "" });
+                                this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
                             }}>cancel</button>
                             <br />
-                            <textarea style={{ margin: "auto" }} cols={100} rows={30} value={this.state.tempEditContent !== "" ? this.state.tempEditContent : data.data}
+                            <textarea style={{ margin: "auto" }} cols={100} rows={30} value={this.state.tempEditContent !== null ? this.state.tempEditContent : data.data}
                                 onChange={(e) => {
                                     this.setState({ tempEditContent: e.target.value });
                                 }} />
@@ -149,13 +171,32 @@ export class ContentView extends Component {
 
     render() {
         let newContentData = this.filterToPage();
+        let tempPass = "";
         return (
             <div style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}>
-                {newContentData &&
-                    newContentData.content.map((d, i) => {
-                        return this.generateSegment(d, i, newContentData);
-                    })
+                {this.props.edit && !this.state.canEdit &&
+                    <div>
+                        ENTER PASSWORD: <input type={"password"} onChange={(e) => { tempPass = e.target.value }} /> <button onClick={() => {
+                            this.props.firebase.database().ref(`key`).once('value').then((s) => {
+                                if (s.val() === tempPass) {
+                                    this.setState({ canEdit: true });
+                                } else {
+                                    console.log("rip u");
+                                }
+                            })
+                        }}>submit</button>
+                    </div>
                 }
+                {((this.props.edit && this.state.canEdit) || !this.props.edit) &&
+                    <div>
+                        {newContentData &&
+                            newContentData.content.map((d, i) => {
+                                return this.generateSegment(d, i, newContentData);
+                            })
+                        }
+                    </div>
+                }
+
             </div>
         );
     }
