@@ -19,7 +19,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/ContentTest";
+        this.debugURL = "";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -167,14 +167,20 @@ class App extends Component {
                             }
 
                             {/* TEMPORARY MAIN PAGE */}
-                            {this.pageTitle === "/TempMain" &&
-                                //<TempMainPageContent />
-                                <div>
-                                    <MainPageContent />
+                            {this.pageTitle !== "" && this.pageTitle !== "/Editor" &&
+                                < div >
+                                    <ContentView setEdit={this.setEdit}
+                                        setEditData={this.state.setEditData}
+                                        edit={false}
+                                        pageTitle={this.pageTitle}
+                                        a={a}
+                                        data={this.state.data}
+                                        contentData={contentData}
+                                        firebase={this.firebasePassIn} />
                                 </div>
                             }
 
-                            {this.pageTitle === "/ContentTest" &&
+                            {this.pageTitle === "/Editor" &&
                                 <div>
                                     <ContentView setEdit={this.setEdit}
                                         setEditData={this.state.setEditData}

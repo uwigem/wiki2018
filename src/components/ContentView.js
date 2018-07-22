@@ -4,6 +4,7 @@ import { BlockMath } from 'react-katex';
 import ReactMarkdown from 'react-markdown';
 import './ContentView.css';
 import CodeBlock from './CodeBlock';
+import { MainPageContent } from './MainPageContent';
 
 // ContentView is the main content hub that controls a certain page's
 // content. It also contains some logic for editing.
@@ -17,7 +18,9 @@ export class ContentView extends Component {
             tempEditType: "",
             tempEditContent: "",
             canEdit: false,
-            currentEmail: ''
+            currentEmail: '',
+            pageTitle: '',
+            newPage: ''
         };
 
         this.possibleTypes = ["MARKDOWN", "LATEX", "IMAGE", "SPECIAL"];
@@ -25,7 +28,12 @@ export class ContentView extends Component {
 
     // on mount, check for email
     componentWillMount() {
-        this.setState({ contentData: this.props.contentData, setEditData: this.props.setEditData, firebase: this.props.firebase });
+        this.setState({
+            contentData: this.props.contentData,
+            setEditData: this.props.setEditData,
+            firebase: this.props.firebase,
+            pageTitle: this.props.pageTitle
+        });
 
         if (this.props.edit) {
             this.props.firebase.auth().onAuthStateChanged((user) => {
@@ -35,7 +43,7 @@ export class ContentView extends Component {
                     let provider = new this.props.firebase.auth.GoogleAuthProvider();
                     this.props.firebase.auth().signInWithPopup(provider).then((result) => {
                         // This gives you a Google Access Token. You can use it to access the Google API.
-                        var token = result.credential.accessToken;
+                        // var token = result.credential.accessToken;
                         // The signed-in user info.
                         var user = result.user;
                         // console.log(user.email);
@@ -58,7 +66,7 @@ export class ContentView extends Component {
                         // The firebase.auth.AuthCredential type that was used.
                         var credential = error.credential;
                         // ...
-                        console.log("error, email did not work");
+                        console.log(errorCode, errorMessage, email, credential, "error, email did not work");
                     });
                 }
             });
@@ -67,7 +75,11 @@ export class ContentView extends Component {
 
     // update if receive connection to firebase
     componentWillReceiveProps(nextProps) {
-        this.setState({ contentData: nextProps.contentData, setEditData: nextProps.setEditData, firebase: this.props.firebase });
+        this.setState({
+            contentData: nextProps.contentData,
+            setEditData: nextProps.setEditData,
+            firebase: this.props.firebase
+        });
     }
 
     /**
@@ -81,7 +93,7 @@ export class ContentView extends Component {
         if (this.state.contentData) {
             let index = 0;
             for (let content of this.state.contentData) {
-                if (content.pageTitle === this.props.pageTitle) {
+                if (content.pageTitle === this.state.pageTitle) {
                     this.pageIndex = index;
                     return content;
                 }
@@ -101,7 +113,7 @@ export class ContentView extends Component {
         let returnDiv = null;
         switch (name) {
             case "HOMEPAGE":
-                returnDiv = <div>HOME PAGE</div>
+                returnDiv = <div><MainPageContent /></div>;
                 break;
             default:
                 returnDiv = <div>stub div</div>;
@@ -151,7 +163,7 @@ export class ContentView extends Component {
                     {!isEdit &&
                         <div>
                             <button onClick={() => {
-                                this.props.setEdit(this.props.pageTitle, index);
+                                this.props.setEdit(this.state.pageTitle, index);
                                 this.setState({ tempEditContent: null, tempEditType: null });
                             }}>edit</button>
 
@@ -213,9 +225,28 @@ export class ContentView extends Component {
         </div>)
     }
 
+    submitNewPage() {
+        if (this.state.newPage && this.state.newPage[0] === "/") {
+            let newPageToAdd = { pageTitle: this.state.newPage };
+            let modified = this.state.contentData;
+            modified.push(newPageToAdd);
+            this.props.firebase.database().ref(`pageData`).set(modified, () => {
+                this.setState({ newPage: '', pageTitle: this.state.newPage });
+            });
+        } else {
+            alert("error, invalid string");
+        }
+
+    }
+
     render() {
         let newContentData = this.filterToPage();
-        let tempPass = "";
+
+        /** doesn't have to be optimized */
+        let pages = this.state.contentData ? this.state.contentData.reduce((acc, d) => {
+            acc.push(d.pageTitle);
+            return acc;
+        }, []) : [];
 
         if (newContentData && !newContentData.content) {
             newContentData.content = [];
@@ -225,6 +256,25 @@ export class ContentView extends Component {
             <div style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}>
                 {((this.props.edit && this.state.canEdit) || !this.props.edit) &&
                     <div>
+                        {this.props.edit &&
+                            <div>
+                                <h1>Choose a page to edit:</h1>
+                                <select value={this.state.pageTitle ? this.state.pageTitle : this.props.pageTitle} onChange={(e) => {
+                                    this.setState({ pageTitle: e.target.value });
+                                }}>
+                                    {pages.map((d) => {
+                                        return <option value={d} key={d}>{d}</option>
+                                    })}
+                                </select>
+                                <br /><br />
+
+                                <h1>Create new page</h1>
+                                <p>Must have / before it, and correct capitalization</p>
+                                <input value={this.state.newPage} onChange={e => { this.setState({ newPage: e.target.value }) }} />
+                                <button onClick={() => { this.submitNewPage() }} >submit new page</button>
+                                <br /><br />
+                            </div>
+                        }
                         {newContentData &&
                             newContentData.content.map((d, i) => {
                                 return this.generateSegment(d, i, newContentData);
