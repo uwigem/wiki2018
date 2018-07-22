@@ -139,7 +139,7 @@ export class ContentView extends Component {
                     escapeHtml={true} />;
                 break;
             case "LATEX":
-                returnDiv = <div></div>//<BlockMath>{data.data}</BlockMath>;
+                returnDiv = <BlockMath>{data.data}</BlockMath>;
                 break;
             case "IMAGE":
                 returnDiv = null//<ContentImage image={data.data} />;
