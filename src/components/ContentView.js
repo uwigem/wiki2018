@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import 'katex/dist/katex.min.css';
-import { BlockMath } from 'react-katex';
+// import 'katex/dist/katex.min.css';
+// import { BlockMath } from 'react-katex';
 import ReactMarkdown from 'react-markdown';
 import './ContentView.css';
 import CodeBlock from './CodeBlock';
@@ -139,7 +139,7 @@ export class ContentView extends Component {
                     escapeHtml={true} />;
                 break;
             case "LATEX":
-                returnDiv = <BlockMath>{data.data}</BlockMath>;
+                returnDiv = <div></div>//<BlockMath>{data.data}</BlockMath>;
                 break;
             case "IMAGE":
                 returnDiv = null//<ContentImage image={data.data} />;
