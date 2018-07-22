@@ -97,14 +97,14 @@ a[href ^="https://"] {
     background: #C6c6c6;
 }
 
-li,
+/* li,
 ul {
     margin: 0;
     line-height: normal;
     list-style-type: none;
     list-style-image: none;
     display: block;
-}
+} */
 
 .mw-content-ltr ul,
 .mw-content-rtl .mw-content-ltr ul {
