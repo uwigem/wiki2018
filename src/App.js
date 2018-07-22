@@ -7,6 +7,7 @@ import { MainPageContent } from './components/MainPageContent';
 import { ContentView } from './components/ContentView';
 import Data from './data/Data';
 
+// comment out for production build
 import firebase from 'firebase';
 
 window.addEventListener('unload', function () { });
@@ -19,7 +20,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "";
+        this.debugURL = "/Editor";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -66,7 +67,7 @@ class App extends Component {
         this.theme = theme;
 
         this.firebasePassIn = null;
-        // TODO: REPLACE FIREBASE BEFORE WIKI FREEZE
+        // COMMENT OUT FOR PRODUCTION
         this.firebasePassIn = firebase;
         let dataRef = firebase.database().ref("/");
         dataRef.once("value", (snapshot) => {

@@ -66,7 +66,19 @@ export default class Data {
     }
 }
 
-var contentData = [];
+var contentData = [{
+    "content": [{
+        "data": "fdsafdsagda",
+        "type": "MARKDOWN"
+    }],
+    "pageTitle": "/ContentTest"
+}, {
+    "content": [{
+        "data": "HOMEPAGE",
+        "type": "SPECIAL"
+    }],
+    "pageTitle": "/TempMain"
+}];
 
 /**
  * display constants. This has a very different use case than CSS does.

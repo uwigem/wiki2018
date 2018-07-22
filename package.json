@@ -1,21 +1,24 @@
 {
-  "name": "wiki2018",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "^1.2.1",
-    "@material-ui/icons": "^1.1.0",
-    "firebase": "^5.2.0",
-    "highlight.js": "^9.12.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-markdown": "^3.3.4",
-    "react-scripts": "1.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "name": "wiki2018",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@material-ui/core": "^1.2.1",
+        "@material-ui/icons": "^1.1.0",
+        "firebase": "^5.2.0",
+        "highlight.js": "^9.12.0",
+        "react": "^16.3.2",
+        "react-dom": "^16.3.2",
+        "react-katex": "^2.0.2",
+        "react-markdown": "^3.3.4",
+        "react-scripts": "1.1.4",
+        "remark": "^9.0.0",
+        "remark-react": "^4.0.3"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
+    }
 }
