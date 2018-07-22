@@ -23,6 +23,7 @@ export class ContentView extends Component {
         this.possibleTypes = ["MARKDOWN", "LATEX", "IMAGE", "SPECIAL"];
     }
 
+    // on mount, check for email
     componentWillMount() {
         this.setState({ contentData: this.props.contentData, setEditData: this.props.setEditData, firebase: this.props.firebase });
 
@@ -64,6 +65,7 @@ export class ContentView extends Component {
         }
     }
 
+    // update if receive connection to firebase
     componentWillReceiveProps(nextProps) {
         this.setState({ contentData: nextProps.contentData, setEditData: nextProps.setEditData, firebase: this.props.firebase });
     }
