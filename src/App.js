@@ -70,7 +70,7 @@ class App extends Component {
         // COMMENT OUT FOR PRODUCTION
         this.firebasePassIn = firebase;
         let dataRef = firebase.database().ref("/");
-        dataRef.once("value", (snapshot) => {
+        dataRef.on("value", (snapshot) => {
             this.firebaseIsSet = true;
             this.setState({ contentData: snapshot.val() });
         });
@@ -186,7 +186,7 @@ class App extends Component {
                                     <ContentView setEdit={this.setEdit}
                                         setEditData={this.state.setEditData}
                                         edit={true}
-                                        pageTitle={this.pageTitle}
+                                        pageTitle={contentData[0].pageTitle}
                                         a={a}
                                         data={this.state.data}
                                         contentData={contentData}
