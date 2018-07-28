@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'katex/dist/katex.min.css';
+import './katex.css';
 import { BlockMath } from 'react-katex';
 import './ContentView.css';
 import { MainPageContent } from './MainPageContent';
@@ -101,6 +101,22 @@ export class ContentView extends Component {
             }
         }
         return null;
+    }
+
+    storeWhoEdit() {
+        let email = this.state.currentEmail;
+        let tempEditContent = this.state.tempEditContent;
+        let pageTitle = this.state.pageTitle;
+        let fbUID = this.props.firebase.auth().currentUser ? this.props.firebase.auth().currentUser : null;
+        let uid = fbUID ? fbUID.uid : '';
+        let displayName = fbUID && fbUID.displayName ? fbUID.displayName : '';
+        let store = {
+            email, tempEditContent, uid, displayName
+        };
+        this.props.firebase.database().ref(`editData/${pageTitle}`).push({...store, timestamp: this.props.firebase.database.ServerValue.TIMESTAMP}, () => {
+            this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
+        });
+        
     }
 
     /**
@@ -206,7 +222,7 @@ export class ContentView extends Component {
                                     type: this.state.tempEditType !== null ? this.state.tempEditType : data.type
                                 };
                                 this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
-                                this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
+                                this.storeWhoEdit();
                             }}>submit</button>
                             <button onClick={() => {
                                 this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });

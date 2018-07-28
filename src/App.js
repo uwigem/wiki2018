@@ -136,6 +136,7 @@ class App extends Component {
     render() {
         let a = this.displayLoadingMessage;
         let contentData = this.getContentData();
+        let pageIsEditor = this.pageTitle === "/Editor";
         return (
             <div className="App">
                 <MuiThemeProvider theme={this.theme}>
@@ -167,26 +168,13 @@ class App extends Component {
                                 </div>
                             }
 
-                            {/* TEMPORARY MAIN PAGE */}
-                            {this.pageTitle !== "" && this.pageTitle !== "/Editor" &&
-                                < div >
-                                    <ContentView setEdit={this.setEdit}
-                                        setEditData={this.state.setEditData}
-                                        edit={false}
-                                        pageTitle={this.pageTitle}
-                                        a={a}
-                                        data={this.state.data}
-                                        contentData={contentData}
-                                        firebase={this.firebasePassIn} />
-                                </div>
-                            }
-
-                            {this.pageTitle === "/Editor" &&
+                            {/* keeping this failsafe in for now */}
+                            {this.pageTitle !== "" && 
                                 <div>
                                     <ContentView setEdit={this.setEdit}
                                         setEditData={this.state.setEditData}
-                                        edit={true}
-                                        pageTitle={contentData[0].pageTitle}
+                                        edit={pageIsEditor}
+                                        pageTitle={pageIsEditor ? contentData[0].pageTitle : this.pageTitle}
                                         a={a}
                                         data={this.state.data}
                                         contentData={contentData}
