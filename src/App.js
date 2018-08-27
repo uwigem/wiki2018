@@ -22,7 +22,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "";
+        this.debugURL = "/TempMain";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -148,7 +148,6 @@ class App extends Component {
                     }
 
                     <CustomAppBar name={this.name} pageTitle={this.pageTitle} data={this.state.data} a={a} />
-                    <div style={{ marginTop: "40px" }}></div>
 
                     {!this.state.loading &&
                         <div>

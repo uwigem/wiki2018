@@ -3,6 +3,7 @@ import './katex.css';
 import { BlockMath } from 'react-katex';
 import './ContentView.css';
 import { MainPageContent } from './MainPageContent';
+import { MainPageContentTest } from './MainPageContentTest';
 import { ContentImage } from './ContentImage';
 import { CRAFTY } from './CRAFTY';
 import remark from 'remark';
@@ -132,7 +133,7 @@ export class ContentView extends Component {
         let name = splitData[0].trim();
         switch (name) {
             case "HOMEPAGE":
-                returnDiv = <div style={{ marginLeft: '5%', marginRight: '5%' }}><MainPageContent /></div>;
+                returnDiv = <div><MainPageContentTest /></div>;
                 break;
             case "CRAFTY":
                 returnDiv = <div><CRAFTY text={splitData.slice(1).join()} /></div>;
