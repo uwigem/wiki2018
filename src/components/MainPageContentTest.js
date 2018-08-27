@@ -54,8 +54,7 @@ export class MainPageContentTest extends Component {
                         </Typography>
                         <Typography component="p" style={{ textAlign: "left" }}>
                             {content.map((d, i) => {
-                                console.log(d);
-                                return <span key={'par' + i}>{d}<br /><br /></span>
+                                return <span key={'par' + i}>{d.trim()}<br /><br /></span>
                             })}
                         </Typography>
                     </CardContent>
