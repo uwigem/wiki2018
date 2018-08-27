@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './CRAFTY.css'
+import './Crafty.css'
 
 export class CRAFTY extends Component {
     render() {
