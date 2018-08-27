@@ -22,9 +22,6 @@ export class MainPageContentTest extends Component {
         let contentTitle = p.CONTENTTITLE ? p.CONTENTTITLE : 'Washington iGEM 2018 Project';
         let contentSubtitle = p.CONTENTSUBTITLE ? p.CONTENTSUBTITLE : 'Chemically Induced Dimerization of Nanobodies for the Development of Versatile Biosensors';
         let content = p.CONTENT ? p.CONTENT.split(';') : [''];
-        console.log(p);
-        console.log(p.CONTENT);
-        console.log(content);
         return (
             <div>
                 <div style={{
@@ -41,9 +38,9 @@ export class MainPageContentTest extends Component {
                 }}>
                     <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>{title}</div>
                     <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
-                    <Button variant="contained" color="primary" href={'#sect1'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
+                    <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
                 </div>
-                <ScrollableAnchor id={'sect1'}><div></div></ScrollableAnchor>
+                <ScrollableAnchor id={'overview'}><div></div></ScrollableAnchor>
                 <div style={{ marginTop: 70 }}></div>
                 <Card style={{ minWidth: 250, maxWidth: "80%", margin: "auto", marginTop: 0, textAlign: 'center' }}>
                     <CardContent>
