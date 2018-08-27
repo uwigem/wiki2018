@@ -8,7 +8,9 @@ import { ContentView } from './components/ContentView';
 import Data from './data/Data';
 
 // comment out for production build
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 
 window.addEventListener('unload', function () { });
 
@@ -169,7 +171,7 @@ class App extends Component {
                             }
 
                             {/* keeping this failsafe in for now */}
-                            {this.pageTitle !== "" && 
+                            {this.pageTitle !== "" &&
                                 <div>
                                     <ContentView setEdit={this.setEdit}
                                         setEditData={this.state.setEditData}

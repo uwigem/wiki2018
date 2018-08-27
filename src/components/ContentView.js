@@ -3,6 +3,7 @@ import './katex.css';
 import { BlockMath } from 'react-katex';
 import './ContentView.css';
 import { MainPageContent } from './MainPageContent';
+import { ContentImage } from './ContentImage';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
 
@@ -113,10 +114,10 @@ export class ContentView extends Component {
         let store = {
             email, tempEditContent, uid, displayName
         };
-        this.props.firebase.database().ref(`editData/${pageTitle}`).push({...store, timestamp: this.props.firebase.database.ServerValue.TIMESTAMP}, () => {
+        this.props.firebase.database().ref(`editData/${pageTitle}`).push({ ...store, timestamp: this.props.firebase.database.ServerValue.TIMESTAMP }, () => {
             this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
         });
-        
+
     }
 
     /**
@@ -157,7 +158,15 @@ export class ContentView extends Component {
                 returnDiv = <BlockMath>{data.data}</BlockMath>;
                 break;
             case "IMAGE":
-                returnDiv = null//<ContentImage image={data.data} />;
+                let params = data.data.split(',');
+                let restParams = params.slice(1);
+                let restParamsObj = restParams.map(d => {
+                    let KV = d.split(":");
+                    let K = KV[0];
+                    let V = KV[1];
+                    return { K, V }
+                });
+                returnDiv = <ContentImage imageUrl={params[0]} params={restParamsObj} />;
                 break;
             case "SPECIAL":
                 returnDiv = this.createSpecial(data.data);
