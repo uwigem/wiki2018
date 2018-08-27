@@ -129,11 +129,20 @@ export class ContentView extends Component {
      */
     createSpecial(data) {
         let returnDiv = null;
-        let splitData = data.split(',');
+
+        let splitData = data.split('\n');
         let name = splitData[0].trim();
         switch (name) {
             case "HOMEPAGE":
-                returnDiv = <div><MainPageContentTest /></div>;
+                let restParams = splitData.slice(1);
+                let restParamsObj = {};
+                restParams.forEach(d => {
+                    let KV = d.split("=");
+                    let K = KV[0].trim();
+                    let V = KV[1].trim();
+                    restParamsObj[K] = V;
+                });
+                returnDiv = <div><MainPageContentTest params={restParamsObj} /></div>;
                 break;
             case "CRAFTY":
                 returnDiv = <div><CRAFTY text={splitData.slice(1).join()} /></div>;

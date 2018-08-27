@@ -10,40 +10,53 @@ configureAnchors({ offset: -64, scrollDuration: 1000 });
 // LoadingScreen is the page that appears when the page is loading.
 export class MainPageContentTest extends Component {
     render() {
+        let p = this.props.params;
+        let bg = p.BACKGROUND ? p.BACKGROUND : 'http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg'
+        let bgLightness = p.BACKGROUNDLIGHTNESS ? p.BACKGROUNDLIGHTNESS : 0;
+        let bgOpacity = p.BACKGROUNDOPACITY ? p.BACKGROUNDOPACITY : 0.60;
+        let titleHeight = p.TITLEHEIGHT ? p.TITLEHEIGHT : 12;
+        let subtitleHeight = p.SUBTITLEHEIGHT ? p.SUBTITLEHEIGHT : 7;
+        let title = p.TITLE ? p.TITLE : "Stronger Together";
+        let subtitle = p.SUBTITLE ? p.SUBTITLE : "";
+        let buttonText = p.BUTTONTEXT ? p.BUTTONTEXT : 'Overview';
+        let contentTitle = p.CONTENTTITLE ? p.CONTENTTITLE : 'Washington iGEM 2018 Project';
+        let contentSubtitle = p.CONTENTSUBTITLE ? p.CONTENTSUBTITLE : 'Chemically Induced Dimerization of Nanobodies for the Development of Versatile Biosensors';
+        let content = p.CONTENT ? p.CONTENT.split(';') : [''];
+        console.log(p);
+        console.log(p.CONTENT);
+        console.log(content);
         return (
             <div>
                 <div style={{
                     width: '100%',
                     height: window.innerHeight + 18, // Hardcoded number, for the iGEM navigation bar.
                     backgroundAttachment: 'fixed',
-                    background: "url(http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg) center center",
+                    background: `url(${bg}) center center`,
                     backgroundSize: 'auto 100%',
                     textAlign: 'center',
                     margin: 'auto',
                     paddingTop: '30vh',
-                    backgroundColor: "hsla(0,0%,0%,0.60)",
+                    backgroundColor: `hsla(0,0%,${bgLightness}%,${bgOpacity})`,
                     backgroundBlendMode: 'overlay',
                 }}>
-                    <div style={{ color: 'white', fontSize: '12vh' }}>Stronger Together</div>
-                    <div style={{ color: 'white', fontSize: '7vh' }}></div>
-                    <Button variant="contained" color="primary" href={'#sect1'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>Overview</Button>
+                    <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>{title}</div>
+                    <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
+                    <Button variant="contained" color="primary" href={'#sect1'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
                 </div>
                 <ScrollableAnchor id={'sect1'}><div></div></ScrollableAnchor>
                 <div style={{ marginTop: 70 }}></div>
                 <Card style={{ minWidth: 250, maxWidth: "80%", margin: "auto", marginTop: 0, textAlign: 'center' }}>
                     <CardContent>
                         <Typography gutterBottom variant="headline" component="h2">
-                            Washington iGEM 2018 Project Abstract
-                            <br />Chemically Induced Dimerization of Nanobodies for the Development of Versatile Biosensors
+                            {contentTitle}
+                            <br />
+                            {contentSubtitle}
                         </Typography>
                         <Typography component="p" style={{ textAlign: "left" }}>
-                            One of the pressing challenges of modern science is the detection of small molecule targets. This has applications in a variety of fields, such as point-of-care diagnostics and metabolic engineering. Although most small molecules can be detected through Enzyme-Linked Immunosorbent Assay (ELISA), accessibility is limited by the time-consuming nature of the procedure. We hope to use a chemically induced dimerization system of nanobodies to detect small molecule targets and apply this system to the development of simple diagnostic assays, such as lateral flow assays or fluorescent microarrays, and innovations in metabolic engineering.
-                            <br /><br />
-                            Nanobodies are antibody fragments from single domain antibodies found in camelids and sharks. They are the variable regions of antibodies that are responsible for specific binding to target molecules. Researchers in the Institute for Protein Design (IPD) at the University of Washington have created extensive libraries of phages displaying nanobodies for high throughput screening of binding targets, making them a versatile tool for molecule detection. We have partnered with Dr. Liangcai Gu from the IPD to investigate novel applications of a high-throughput nanobody library numbering ten billion unique types. In our project, we will identify specific nanobodies that bind to desired target molecules of high importance and demonstrate the application of nanobody technology to the development of a biosensor.
-                            <br /><br />
-                            Traditionally, monoclonal antibodies have been used to detect specific molecules and used in products such as ELISA kits. However, one significant barrier to developing new monoclonal antibodies is that they require introduction of an antigen to an animal before large scale production can begin. We are bypassing this expensive and time-consuming step and the associated ethical concerns by screening through a pre-existing library of nanobodies to rapidly identify those that can bind desired target molecules with high specificity.
-                            <br /><br />
-                            Our team will be screening our nanobody library against two chosen molecules to find binding nanobodies. Then, we will screen the library for secondary nanobodies that bind to the primary nanobody-antigen complex, thus forming a dimer. After identifying these nanobodies, these nanobodies can be fused to other proteins to form biosensors. Specifically, we intend to repurpose activating and DNA binding domain proteins used in yeast 2-hybrid systems to create a transcriptional biosensor.
+                            {content.map((d, i) => {
+                                console.log(d);
+                                return <span key={'par' + i}>{d}<br /><br /></span>
+                            })}
                         </Typography>
                     </CardContent>
                 </Card>
