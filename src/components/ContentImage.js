@@ -6,27 +6,28 @@ export class ContentImage extends Component {
     }
 
     componentWillMount() {
-        let styles = {};
-        this.props.params.forEach(d => {
-            let obj = {};
-            obj[d.K] = d.V;
-            styles = { ...styles, ...obj };
-        });
-        this.setState({ styles });
+        this.parseStyles(this.props);
     }
 
     componentWillReceiveProps(nextProps) {
+        this.parseStyles(nextProps);
+    }
+
+    parseStyles = (prop) => {
         let styles = {};
-        this.props.params.forEach(d => {
+        prop.params.forEach(d => {
             let obj = {};
-            obj[d.K] = d.V;
+            let val = d.V
+            if (!isNaN(Number(d.V))) {
+                val = Number(d.V);
+            }
+            obj[d.K] = val;
             styles = { ...styles, ...obj };
         });
         this.setState({ styles });
     }
 
     render() {
-        console.log(this.state.styles);
-        return <img src={this.props.imageUrl} style={this.state.styles} />
+        return <div style={{ width: '100%', textAlign: 'center' }}><img src={this.props.imageUrl} style={this.state.styles} /></div>
     }
 }

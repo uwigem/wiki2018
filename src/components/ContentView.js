@@ -162,8 +162,8 @@ export class ContentView extends Component {
                 let restParams = params.slice(1);
                 let restParamsObj = restParams.map(d => {
                     let KV = d.split(":");
-                    let K = KV[0];
-                    let V = KV[1];
+                    let K = KV[0].trim();
+                    let V = KV[1].trim();
                     return { K, V }
                 });
                 returnDiv = <ContentImage imageUrl={params[0]} params={restParamsObj} />;
