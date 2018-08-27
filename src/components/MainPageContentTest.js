@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import Button from '@material-ui/core/Button';
+import './MainPageContent.css'
 
 
 configureAnchors({ offset: -64, scrollDuration: 1000 });
@@ -15,17 +16,17 @@ export class MainPageContentTest extends Component {
                     width: '100%',
                     height: window.innerHeight + 18, // Hardcoded number, for the iGEM navigation bar.
                     backgroundAttachment: 'fixed',
-                    background: "url(https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg)",
-                    backgroundSize: '1700px',
+                    background: "url(http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg) center center",
+                    backgroundSize: 'auto 100%',
                     textAlign: 'center',
                     margin: 'auto',
-                    paddingTop: '30%',
+                    paddingTop: '30vh',
                     backgroundColor: "hsla(0,0%,0%,0.60)",
                     backgroundBlendMode: 'overlay',
                 }}>
                     <div style={{ color: 'white', fontSize: '12vh' }}>Stronger Together</div>
                     <div style={{ color: 'white', fontSize: '7vh' }}></div>
-                    <Button variant="contained" color="primary" href={'#sect1'}>Overview</Button>
+                    <Button variant="contained" color="primary" href={'#sect1'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>Overview</Button>
                 </div>
                 <ScrollableAnchor id={'sect1'}><div></div></ScrollableAnchor>
                 <div style={{ marginTop: 70 }}></div>
