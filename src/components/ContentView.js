@@ -117,7 +117,6 @@ export class ContentView extends Component {
         this.props.firebase.database().ref(`editData/${pageTitle}`).push({ ...store, timestamp: this.props.firebase.database.ServerValue.TIMESTAMP }, () => {
             this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
         });
-
     }
 
     /**
@@ -159,14 +158,14 @@ export class ContentView extends Component {
                 break;
             case "IMAGE":
                 let params = data.data.split(',');
-                let restParams = params.slice(1);
+                let restParams = params.slice(2);
                 let restParamsObj = restParams.map(d => {
                     let KV = d.split(":");
                     let K = KV[0].trim();
                     let V = KV[1].trim();
                     return { K, V }
                 });
-                returnDiv = <ContentImage imageUrl={params[0]} params={restParamsObj} />;
+                returnDiv = <ContentImage imageUrl={params[0].trim()} alt={params[1].trim()} params={restParamsObj} />;
                 break;
             case "SPECIAL":
                 returnDiv = this.createSpecial(data.data);
