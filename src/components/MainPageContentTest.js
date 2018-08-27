@@ -11,7 +11,7 @@ export class MainPageContentTest extends Component {
             <div>
                 <div style={{
                     width: '100%',
-                    height: window.innerHeight,
+                    height: window.innerHeight + 18, // Hardcoded number, for the iGEM navigation bar.
                     backgroundAttachment: 'fixed',
                     background: "url(https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg)",
                     backgroundSize: '1700px',
