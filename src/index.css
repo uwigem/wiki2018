@@ -23,13 +23,23 @@ header {
     padding: 0 !important;
 }
 
+@font-face {
+    font-family: "Abel";
+    src: url(http://2018.igem.org/wiki/images/7/7d/T--Washington--AbelFont.TTF) format("TrueType");
+}
+
+@font-face {
+    font-family: "Seg";
+    src: url(http://2018.igem.org/wiki/images/c/ce/T--Washington--SegoeUIL.ttf) format("TrueType");
+}
+
 .App,
 #root {
     margin: 0px;
     margin-top: -18px;
     padding: 0;
     height: 100vh;
-    font-family: sans-serif;
+    font-family: Seg sans-serif;
     width: 100%;
     background-color: var(--backgroundColor);
     color: var(--mainColor);

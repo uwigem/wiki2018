@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
-import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor'
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
+import Button from '@material-ui/core/Button';
+
 
 configureAnchors({ offset: -64, scrollDuration: 1000 });
 
@@ -21,7 +23,9 @@ export class MainPageContentTest extends Component {
                     backgroundColor: "hsla(0,0%,0%,0.60)",
                     backgroundBlendMode: 'overlay',
                 }}>
-                    <div style={{ color: 'white' }}>Test<br /><a href={'#sect1'}>test link</a></div>
+                    <div style={{ color: 'white', fontSize: '12vh' }}>Stronger Together</div>
+                    <div style={{ color: 'white', fontSize: '7vh' }}></div>
+                    <Button variant="contained" color="primary" href={'#sect1'}>Overview</Button>
                 </div>
                 <ScrollableAnchor id={'sect1'}><div></div></ScrollableAnchor>
                 <div style={{ marginTop: 70 }}></div>
