@@ -1,12 +1,36 @@
 import React, { Component } from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
+import Button from '@material-ui/core/Button';
+import './MainPageContent.css'
+
+
+configureAnchors({ offset: -64, scrollDuration: 1000 });
 
 // LoadingScreen is the page that appears when the page is loading.
 export class MainPageContent extends Component {
     render() {
         return (
             <div>
-                <Card style={{ minWidth: 250, maxWidth: "80%", margin: "auto", marginTop: 90, textAlign: 'center' }}>
+                <div style={{
+                    width: '100%',
+                    height: window.innerHeight + 18, // Hardcoded number, for the iGEM navigation bar.
+                    backgroundAttachment: 'fixed',
+                    background: "url(http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg) center center",
+                    backgroundSize: 'auto 100%',
+                    textAlign: 'center',
+                    margin: 'auto',
+                    paddingTop: '30vh',
+                    backgroundColor: "hsla(0,0%,0%,0.60)",
+                    backgroundBlendMode: 'overlay',
+                }}>
+                    <div style={{ color: 'white', fontSize: '12vh' }}>Stronger Together</div>
+                    <div style={{ color: 'white', fontSize: '7vh' }}></div>
+                    <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>Overview</Button>
+                </div>
+                <ScrollableAnchor id={'overview'}><div></div></ScrollableAnchor>
+                <div style={{ marginTop: 70 }}></div>
+                <Card style={{ minWidth: 250, maxWidth: "80%", margin: "auto", marginTop: 0, textAlign: 'center' }}>
                     <CardContent>
                         <Typography gutterBottom variant="headline" component="h2">
                             Washington iGEM 2018 Project Abstract
@@ -23,6 +47,8 @@ export class MainPageContent extends Component {
                         </Typography>
                     </CardContent>
                 </Card>
+                <br />
+                <div style={{ height: '100vh' }}></div>
             </div>
         );
     }
