@@ -4,6 +4,7 @@ import { BlockMath } from 'react-katex';
 import './ContentView.css';
 import { MainPageContent } from './MainPageContent';
 import { ContentImage } from './ContentImage';
+import { CRAFTY } from './CRAFTY';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
 
@@ -122,14 +123,19 @@ export class ContentView extends Component {
     /**
      * createSpecial is used for generating special divs from our schema.
      * For example, the home page's large title page, team page, etc.
-     * @param {string} name name of the special object 
+     * @param {string} data name of the special object 
      * @return {object} special object, or stub div if undefined. 
      */
-    createSpecial(name) {
+    createSpecial(data) {
         let returnDiv = null;
+        let splitData = data.split(',');
+        let name = splitData[0].trim();
         switch (name) {
             case "HOMEPAGE":
-                returnDiv = <div><MainPageContent /></div>;
+                returnDiv = <div style={{ marginLeft: '5%', marginRight: '5%' }}><MainPageContent /></div>;
+                break;
+            case "CRAFTY":
+                returnDiv = <div><CRAFTY text={splitData.slice(1).join()}/></div>;
                 break;
             default:
                 returnDiv = <div>stub div</div>;
@@ -149,12 +155,12 @@ export class ContentView extends Component {
         let returnDiv = null;
         switch (data.type) {
             case "MARKDOWN":
-                returnDiv = <div>
+                returnDiv = <div style={{ marginLeft: '5%', marginRight: '5%' }}>
                     {remark().use(reactRenderer).processSync(data.data).contents}
                 </div>
                 break;
             case "LATEX":
-                returnDiv = <BlockMath>{data.data}</BlockMath>;
+                returnDiv = <BlockMath style={{ marginLeft: '5%', marginRight: '5%' }}>{data.data}</BlockMath>;
                 break;
             case "IMAGE":
                 let params = data.data.split(',');
@@ -165,7 +171,7 @@ export class ContentView extends Component {
                     let V = KV[1].trim();
                     return { K, V }
                 });
-                returnDiv = <ContentImage imageUrl={params[0].trim()} alt={params[1].trim()} params={restParamsObj} />;
+                returnDiv = <ContentImage style={{ marginLeft: '5%', marginRight: '5%' }} imageUrl={params[0].trim()} alt={params[1].trim()} params={restParamsObj} />;
                 break;
             case "SPECIAL":
                 returnDiv = this.createSpecial(data.data);
@@ -276,7 +282,7 @@ export class ContentView extends Component {
         }
 
         return (
-            <div style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}>
+            <div> {/*style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}*/}
                 {((this.props.edit && this.state.canEdit) || !this.props.edit) &&
                     <div>
                         {this.props.edit &&
