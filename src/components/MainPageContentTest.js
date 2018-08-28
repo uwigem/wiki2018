@@ -49,11 +49,11 @@ export class MainPageContentTest extends Component {
                             <br />
                             {contentSubtitle}
                         </Typography>
-                        <Typography component="p" style={{ textAlign: "left" }}>
-                            {content.map((d, i) => {
-                                return <span key={'par' + i}>{d.trim()}<br /><br /></span>
-                            })}
-                        </Typography>
+                        {content.map((d, i) => {
+                            return <Typography component="p" key={'par' + i} style={{ textAlign: "left", marginTop: 10 }}>
+                                {d.trim()}
+                            </Typography>
+                        })}
                     </CardContent>
                 </Card>
                 <br />

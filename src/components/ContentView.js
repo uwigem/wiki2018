@@ -6,6 +6,7 @@ import { MainPageContent } from './MainPageContent';
 import { MainPageContentTest } from './MainPageContentTest';
 import { ContentImage } from './ContentImage';
 import { CRAFTY } from './CRAFTY';
+import { Team } from './Team';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
 
@@ -129,7 +130,6 @@ export class ContentView extends Component {
      */
     createSpecial(data) {
         let returnDiv = null;
-
         let splitData = data.split('\n');
         let name = splitData[0].trim();
         switch (name) {
@@ -146,6 +146,22 @@ export class ContentView extends Component {
                 break;
             case "CRAFTY":
                 returnDiv = <div><CRAFTY text={splitData.slice(1).join()} /></div>;
+                break;
+            case "TEAM":
+                let restParamsTeam = splitData.slice(1);
+                let restParamsArr = [];
+                restParamsTeam.forEach(d => {
+                    let KVs = d.split(";");
+                    let obj = {};
+                    KVs.forEach(e => {
+                        let KV = e.split("=")
+                        let K = KV[0].trim();
+                        let V = KV[1].trim();
+                        obj[K] = V;
+                    });
+                    restParamsArr.push(obj);
+                })
+                returnDiv = <div><Team data={restParamsArr} /></div>
                 break;
             default:
                 returnDiv = <div>stub div</div>;
