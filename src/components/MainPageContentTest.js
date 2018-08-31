@@ -67,8 +67,7 @@ export class MainPageContentTest extends Component {
                         </Fade>
                     </CardContent>
                 </Card>
-                <br />
-                <div style={{ height: '100vh' }}></div>
+                <div style={{ marginTop: 70 }}></div>
             </div >
         );
     }

@@ -172,7 +172,7 @@ class App extends Component {
 
                             {/* keeping this failsafe in for now */}
                             {this.pageTitle !== "" &&
-                                <div>
+                                <div style={{ minHeight: '100vh' }}> {/* Change minimum height */}
                                     <ContentView setEdit={this.setEdit}
                                         setEditData={this.state.setEditData}
                                         edit={pageIsEditor}

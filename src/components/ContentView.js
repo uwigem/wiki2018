@@ -9,6 +9,7 @@ import { CRAFTY } from './CRAFTY';
 import { Team } from './Team';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
+import Fade from 'react-reveal/Fade';
 
 // ContentView is the main content hub that controls a certain page's
 // content. It also contains some logic for editing.
@@ -187,7 +188,9 @@ export class ContentView extends Component {
         switch (data.type) {
             case "MARKDOWN":
                 returnDiv = <div style={{ marginLeft: '5%', marginRight: '5%' }}>
-                    {remark().use(reactRenderer).processSync(data.data).contents}
+                    <Fade clear cascade>
+                        {remark().use(reactRenderer).processSync(data.data).contents}
+                    </Fade>
                 </div>
                 break;
             case "LATEX":
