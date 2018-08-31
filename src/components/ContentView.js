@@ -107,6 +107,11 @@ export class ContentView extends Component {
         return null;
     }
 
+    /**
+     * storeWhoEdit will store a user's edit and also keep track of what time
+     * it was edited. It also stores the change, so we can back up if we want.
+     * This function will allow us to see any sabotage and revoke access.
+     */
     storeWhoEdit() {
         let email = this.state.currentEmail;
         let tempEditContent = this.state.tempEditContent;
@@ -280,6 +285,10 @@ export class ContentView extends Component {
         </div>)
     }
 
+    /**
+     * submitNewPage will take whatever is in the input box and create a new page
+     * @pre the new page must begin with a "/"
+     */
     submitNewPage() {
         if (this.state.newPage && this.state.newPage[0] === "/") {
             let newPageToAdd = { pageTitle: this.state.newPage };
