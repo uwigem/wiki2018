@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import './Footbar.css';
 
 export class Footbar extends Component {
@@ -14,9 +15,24 @@ export class Footbar extends Component {
 
         this.items = [
             {
+                icon: faFacebook,
+                link: "https://www.facebook.com/WashingtoniGEM/",
+                alt: "Washington iGEM Facebook"
+            },
+            {
+                icon: faInstagram,
+                link: "https://www.instagram.com/washington_igem/",
+                alt: "Washington iGEM Instagram"
+            },
+            {
                 icon: faGithub,
                 link: "https://github.com/uwigem",
                 alt: 'Washington iGEM Github'
+            },
+            {
+                icon: faEnvelope,
+                link: "mailto:uwigem@uw.edu",
+                alt: 'Washington iGEM Email'
             }
         ]
     }
@@ -41,12 +57,12 @@ export class Footbar extends Component {
             <Grid fluid>
                 <Row center="xs" middle="xs" style={{ height }}>
                     {this.items.map((d, i) => {
-                        return <Col>
-                            <FontAwesomeIcon icon={d.icon} size={"3x"}
+                        return <Col key={'footbar' + i}>
+                            {!d.logo && <a href={d.link} alt={d.alt}><FontAwesomeIcon icon={d.icon} size={"3x"}
                                 className={`icon`}
-                                style={{ color: this.state.hover[i] ? 'red' : 'white' }}
+                                style={{ color: this.state.hover[i] ? '#420dab' : 'white', margin: 10 }}
                                 onMouseEnter={() => { this.addHover(i) }}
-                                onMouseLeave={() => { this.removeHover(i) }} />
+                                onMouseLeave={() => { this.removeHover(i) }} /></a>}
                         </Col>
                     })}
 
