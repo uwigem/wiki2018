@@ -1,0 +1,14 @@
+.icon {
+    color: white;
+    -o-transition: .2s;
+    -ms-transition: .2s;
+    -moz-transition: .2s;
+    -webkit-transition: .2s;
+    /* ...and now for the proper property */
+    transition: .2s;
+    cursor: pointer;
+}
+
+.red {
+    color: red;
+}
