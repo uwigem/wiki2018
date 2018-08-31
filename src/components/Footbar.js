@@ -33,6 +33,8 @@ export class Footbar extends Component {
         this.setState({ hover });
     }
 
+    // ${this.state.hover[i] ? 'red' : ''}
+
     render() {
         let height = "30vh"
         return <div style={{ width: '100%', height, backgroundColor: 'black', textAlign: 'center' }}>
@@ -41,7 +43,8 @@ export class Footbar extends Component {
                     {this.items.map((d, i) => {
                         return <Col>
                             <FontAwesomeIcon icon={d.icon} size={"3x"}
-                                className={`icon ${this.state.hover[i] ? 'red' : ''}`}
+                                className={`icon`}
+                                style={{ color: this.state.hover[i] ? 'red' : 'white' }}
                                 onMouseEnter={() => { this.addHover(i) }}
                                 onMouseLeave={() => { this.removeHover(i) }} />
                         </Col>
