@@ -3,6 +3,7 @@ import { Card, CardContent, Typography } from '@material-ui/core';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import Button from '@material-ui/core/Button';
 import './MainPageContent.css'
+import Fade from 'react-reveal/Fade';
 
 
 configureAnchors({ offset: -64, scrollDuration: 1000 });
@@ -36,29 +37,39 @@ export class MainPageContentTest extends Component {
                     backgroundColor: `hsla(0,0%,${bgLightness}%,${bgOpacity})`,
                     backgroundBlendMode: 'overlay',
                 }}>
-                    <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>{title}</div>
-                    <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
-                    <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
+                    <Fade cascade duration={1000}>
+                        <div>
+                            <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>{title}</div>
+                            <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
+                            <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
+                        </div>
+                    </Fade>
                 </div>
                 <ScrollableAnchor id={'overview'}><div></div></ScrollableAnchor>
                 <div style={{ marginTop: 70 }}></div>
                 <Card style={{ minWidth: 250, maxWidth: "80%", margin: "auto", marginTop: 0, textAlign: 'center' }}>
                     <CardContent>
-                        <Typography gutterBottom variant="headline" component="h2">
-                            {contentTitle}
-                            <br />
-                            {contentSubtitle}
-                        </Typography>
-                        {content.map((d, i) => {
-                            return <Typography component="p" key={'par' + i} style={{ textAlign: "left", marginTop: 10 }}>
-                                {d.trim()}
+                        <Fade cascade duration={1000}>
+                            <Typography gutterBottom variant="headline" component="h2">
+                                {contentTitle}
+                                <br />
+                                {contentSubtitle}
                             </Typography>
-                        })}
+                        </Fade>
+                        <Fade cascade duration={1000}>
+                            <div>
+                                {content.map((d, i) => {
+                                    return <Typography component="p" key={'par' + i} style={{ textAlign: "left", marginTop: 10 }}>
+                                        {d.trim()}
+                                    </Typography>
+                                })}
+                            </div>
+                        </Fade>
                     </CardContent>
                 </Card>
                 <br />
                 <div style={{ height: '100vh' }}></div>
-            </div>
+            </div >
         );
     }
 }
