@@ -3,6 +3,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import Zoom from 'react-reveal/Zoom';
 import './Footbar.css';
 
 export class Footbar extends Component {
@@ -56,15 +57,17 @@ export class Footbar extends Component {
         return <div style={{ width: '100%', height, backgroundColor: 'black', textAlign: 'center' }}>
             <Grid fluid>
                 <Row center="xs" middle="xs" style={{ height }}>
-                    {this.items.map((d, i) => {
-                        return <Col key={'footbar' + i}>
-                            {!d.logo && <a href={d.link} alt={d.alt}><FontAwesomeIcon icon={d.icon} size={"3x"}
-                                className={`icon`}
-                                style={{ color: this.state.hover[i] ? '#420dab' : 'white', margin: 10 }}
-                                onMouseEnter={() => { this.addHover(i) }}
-                                onMouseLeave={() => { this.removeHover(i) }} /></a>}
-                        </Col>
-                    })}
+                    <Zoom clear cascade duration={2000}>
+                        {this.items.map((d, i) => {
+                            return <Col key={'footbar' + i}>
+                                {!d.logo && <a href={d.link} alt={d.alt}><FontAwesomeIcon icon={d.icon} size={"3x"}
+                                    className={`icon`}
+                                    style={{ color: this.state.hover[i] ? '#420dab' : 'white', margin: 10 }}
+                                    onMouseEnter={() => { this.addHover(i) }}
+                                    onMouseLeave={() => { this.removeHover(i) }} /></a>}
+                            </Col>
+                        })}
+                    </Zoom>
 
                 </Row>
             </Grid>
