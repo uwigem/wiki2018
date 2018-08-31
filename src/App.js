@@ -5,6 +5,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { CustomAppBar } from './components/CustomAppBar';
 import { MainPageContent } from './components/MainPageContent';
 import { ContentView } from './components/ContentView';
+import { Footbar } from './components/Footbar';
 import Data from './data/Data';
 
 // comment out for production build
@@ -182,6 +183,7 @@ class App extends Component {
                                         firebase={this.firebasePassIn} />
                                 </div>
                             }
+                            <Footbar />
                         </div>
                     }
 
