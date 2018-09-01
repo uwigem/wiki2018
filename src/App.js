@@ -70,6 +70,10 @@ class App extends Component {
         this.theme = theme;
 
         this.firebasePassIn = null;
+
+        // Note: if anything ever happens to me (William), you can print out what is on firebase
+        // and plug that in to Data.js. Then when you comment this part out, and the import statement
+        // out, then you can get all the data.
         // COMMENT OUT FOR PRODUCTION
         this.firebasePassIn = firebase;
         let dataRef = firebase.database().ref("/");

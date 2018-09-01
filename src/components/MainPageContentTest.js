@@ -10,10 +10,25 @@ configureAnchors({ offset: -64, scrollDuration: 1000 });
 
 // LoadingScreen is the page that appears when the page is loading.
 export class MainPageContentTest extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            imageLoaded: false
+        }
+
+        let imageLoad = new Image();
+        imageLoad.src = this.props.params.BACKGROUND ? this.props.params.BACKGROUND : 'http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg';
+        imageLoad.onload = this.imageLoaded;
+    }
+
+    imageLoaded = () => {
+        this.setState({ imageLoaded: true });
+    }
+
     render() {
         let p = this.props.params;
-        let bg = p.BACKGROUND ? p.BACKGROUND : 'http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg'
         let bgLightness = p.BACKGROUNDLIGHTNESS ? p.BACKGROUNDLIGHTNESS : 0;
+        let bg = p.BACKGROUND ? p.BACKGROUND : 'http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg';
         let bgOpacity = p.BACKGROUNDOPACITY ? p.BACKGROUNDOPACITY : 0.60;
         let titleHeight = p.TITLEHEIGHT ? p.TITLEHEIGHT : 12;
         let subtitleHeight = p.SUBTITLEHEIGHT ? p.SUBTITLEHEIGHT : 7;
@@ -25,49 +40,51 @@ export class MainPageContentTest extends Component {
         let content = p.CONTENT ? p.CONTENT.split(';') : [''];
         return (
             <div>
-                <div style={{
-                    width: '100%',
-                    height: window.innerHeight + 18, // Hardcoded number, for the iGEM navigation bar.
-                    backgroundAttachment: 'fixed',
-                    background: `url(${bg}) center center`,
-                    backgroundSize: 'auto 100%',
-                    textAlign: 'center',
-                    margin: 'auto',
-                    paddingTop: '30vh',
-                    backgroundColor: `hsla(0,0%,${bgLightness}%,${bgOpacity})`,
-                    backgroundBlendMode: 'overlay',
-                }}>
-                    <Fade cascade duration={1000}>
-                        <div>
-                            <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>{title}</div>
-                            <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
-                            <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
-                        </div>
-                    </Fade>
-                </div>
-                <ScrollableAnchor id={'overview'}><div></div></ScrollableAnchor>
-                <div style={{ marginTop: 70 }}></div>
-                <Card style={{ minWidth: 250, maxWidth: "80%", margin: "auto", marginTop: 0, textAlign: 'center' }}>
-                    <CardContent>
-                        <Fade cascade duration={1000}>
-                            <Typography gutterBottom variant="headline" component="h2">
-                                {contentTitle}
-                                <br />
-                                {contentSubtitle}
-                            </Typography>
-                        </Fade>
+                <Fade when={this.state.imageLoaded}>
+                    <div style={{
+                        width: '100%',
+                        height: window.innerHeight + 18, // Hardcoded number, for the iGEM navigation bar.
+                        backgroundAttachment: 'fixed',
+                        background: `url(${bg}) center center`,
+                        backgroundSize: 'auto 100%',
+                        textAlign: 'center',
+                        margin: 'auto',
+                        paddingTop: '30vh',
+                        backgroundColor: `hsla(0,0%,${bgLightness}%,${bgOpacity})`,
+                        backgroundBlendMode: 'overlay',
+                    }}>
                         <Fade cascade duration={1000}>
                             <div>
-                                {content.map((d, i) => {
-                                    return <Typography component="p" key={'par' + i} style={{ textAlign: "left", marginTop: 10 }}>
-                                        {d.trim()}
-                                    </Typography>
-                                })}
+                                <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>{title}</div>
+                                <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
+                                <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
                             </div>
                         </Fade>
-                    </CardContent>
-                </Card>
-                <div style={{ marginTop: 70 }}></div>
+                    </div>
+                    <ScrollableAnchor id={'overview'}><div></div></ScrollableAnchor>
+                    <div style={{ marginTop: 70 }}></div>
+                    <Card style={{ minWidth: 250, maxWidth: "80%", margin: "auto", marginTop: 0, textAlign: 'center' }}>
+                        <CardContent>
+                            <Fade cascade duration={1000}>
+                                <Typography gutterBottom variant="headline" component="h2">
+                                    {contentTitle}
+                                    <br />
+                                    {contentSubtitle}
+                                </Typography>
+                            </Fade>
+                            <Fade cascade duration={1000}>
+                                <div>
+                                    {content.map((d, i) => {
+                                        return <Typography component="p" key={'par' + i} style={{ textAlign: "left", marginTop: 10 }}>
+                                            {d.trim()}
+                                        </Typography>
+                                    })}
+                                </div>
+                            </Fade>
+                        </CardContent>
+                    </Card>
+                    <div style={{ marginTop: 70 }}></div>
+                </Fade>
             </div >
         );
     }
