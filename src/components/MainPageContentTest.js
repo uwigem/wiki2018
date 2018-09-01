@@ -6,23 +6,39 @@ import './MainPageContent.css'
 import Fade from 'react-reveal/Fade';
 
 
-configureAnchors({ offset: -64, scrollDuration: 1000 });
+configureAnchors({ offset: -62, scrollDuration: 1000 });
 
 // LoadingScreen is the page that appears when the page is loading.
 export class MainPageContentTest extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            imageLoaded: false
+            imageLoaded: false,
+            translate: 'scale(1.1)'
         }
         this.defaultImage = 'http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg';
         let imageLoad = new Image();
         imageLoad.src = this.props.params.BACKGROUND ? this.props.params.BACKGROUND : this.defaultImage;
         imageLoad.onload = this.imageLoaded;
+
+        this.x = 0;
+        this.y = 0;
+        this.lFollowX = 0;
+        this.lFollowY = 0;
+        this.friction = 1 / 30;
+
+        setInterval(() => { this.moveBackground(); }, 15);
     }
 
     imageLoaded = () => {
         this.setState({ imageLoaded: true });
+    }
+
+    moveBackground = () => {
+        this.x += (this.lFollowX - this.x) * this.friction;
+        this.y += (this.lFollowY - this.y) * this.friction;
+        let translate = `translate(${this.x}px, ${this.y}px) scale(1.1)`
+        this.setState({ translate });
     }
 
     render() {
@@ -39,22 +55,37 @@ export class MainPageContentTest extends Component {
         let contentSubtitle = p.CONTENTSUBTITLE ? p.CONTENTSUBTITLE : 'Chemically Induced Dimerization of Nanobodies for the Development of Versatile Biosensors';
         let content = p.CONTENT ? p.CONTENT.split(';') : [''];
         return (
-            <div>
+            <div >
                 <Fade when={this.state.imageLoaded}>
                     <div style={{
                         width: '100%',
                         height: window.innerHeight + 18, // Hardcoded number, for the iGEM navigation bar.
-                        backgroundAttachment: 'fixed',
-                        background: `url(${bg}) center center`,
-                        backgroundSize: 'auto 100%',
                         textAlign: 'center',
                         margin: 'auto',
-                        paddingTop: '30vh',
-                        backgroundColor: `hsla(0,0%,${bgLightness}%,${bgOpacity})`,
-                        backgroundBlendMode: 'overlay',
+                        overflow: 'hidden',
+                        position: 'relative'
+                    }} onMouseMove={(e) => {
+                        let lMouseX = Math.max(-100, Math.min(100, e.target.clientWidth / 2 - e.clientX));
+                        let lMouseY = Math.max(-100, Math.min(100, e.target.clientHeight / 2 - e.clientY));
+                        this.lFollowX = (20 * lMouseX) / 100
+                        this.lFollowY = (20 * lMouseY) / 100
                     }}>
+                        <div style={{
+                            width: '100%',
+                            height: '100%',
+                            backgroundAttachment: 'fixed',
+                            background: `url(${bg}) no-repeat center center`,
+                            backgroundColor: `hsla(0,0%,${bgLightness}%,${bgOpacity})`,
+                            backgroundBlendMode: 'overlay',
+                            backgroundSize: 'cover',
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            WebkitTransform: this.state.translate,
+                            transform: this.state.translate,
+                        }}></div>
                         <Fade cascade duration={1000}>
-                            <div>
+                            <div style={{ paddingTop: '30vh' }}>
                                 <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>{title}</div>
                                 <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
                                 <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
