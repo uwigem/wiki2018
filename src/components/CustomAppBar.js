@@ -6,6 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { AppBarMenuList } from './AppBarMenuList';
 import { IconButton } from '@material-ui/core';
 import { Sidebar } from './Sidebar'
+import './CustomAppBar.css';
 
 /**
  * CustomAppBar controls the display and functionality of the
@@ -18,7 +19,9 @@ export class CustomAppBar extends Component {
         this.state = {
             sidebarEnabled: false,
             minimized: false,
-            drawerOpen: false
+            drawerOpen: false,
+            hovered: false,
+            pageTop: true
         }
         this.updateDim = this.updateDim.bind(this);
         this.toggleDrawer = this.toggleDrawer.bind(this);
@@ -34,6 +37,32 @@ export class CustomAppBar extends Component {
         }
         this.logoHeight = 30;
         this.minWidth = 660;
+        this.hoveredColor = 'rgba(66,13,171,1)';
+        this.notHoveredColor = 'rgba(66,13,171,0.01)';
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300 && this.state.pageTop && !this.state.minimized) {
+                this.removePageTop();
+            } else if (window.pageYOffset <= 300) {
+                this.setPageTop();
+            }
+        })
+    }
+
+    setHovered = () => {
+        this.setState({ hovered: true });
+    }
+
+    removeHovered = () => {
+        this.setState({ hovered: false });
+    }
+
+    setPageTop = () => {
+        this.setState({ pageTop: true });
+    }
+
+    removePageTop = () => {
+        this.setState({ pageTop: false });
     }
 
     /**
@@ -83,14 +112,23 @@ export class CustomAppBar extends Component {
         let a = this.props.a;
         return (
             <div style={this.appbarStyle}>
-                <AppBar>
+                <AppBar className={'navHov'} style={{ backgroundColor: this.state.pageTop || this.state.hovered ? this.hoveredColor : this.notHoveredColor }}
+                    onMouseEnter={this.setHovered} onMouseLeave={this.removeHovered}>
                     <Toolbar>
                         <Typography style={this.logoStyle} variant="title" color="primary">
                             <img height={this.logoHeight} alt="Washington Logo" src={this.props.data.getLogo()} />
                         </Typography>
                         {/* If screen bigger than this.minwidth, show a button list along the nav bar */}
                         {!this.state.minimized && this.props.data.getNavbarData().map((nav, index) => {
-                            return <AppBarMenuList a={a} data={this.props.data} name={this.props.name} pageTitle={this.props.pageTitle} nav={nav} key={`abmL-${index}`} />
+                            return <AppBarMenuList
+                                a={a}
+                                data={this.props.data}
+                                name={this.props.name}
+                                pageTitle={this.props.pageTitle}
+                                nav={nav}
+                                key={`abmL-${index}`}
+                                hovered={this.state.hovered}
+                                removeHovered={this.removeHovered} />
                         })}
                         {/* If the screen is less, show a hamburger button that shows a sidebar */}
                         {this.state.minimized &&

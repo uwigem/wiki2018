@@ -46,6 +46,7 @@ export class AppBarMenuList extends Component {
 
     handleClose = () => {
         this.setState({ anchorEl: null });
+        this.props.removeHovered();
     };
 
     handleLink = () => {

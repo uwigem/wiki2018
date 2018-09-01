@@ -15,9 +15,9 @@ export class MainPageContentTest extends Component {
         this.state = {
             imageLoaded: false
         }
-
+        this.defaultImage = 'http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg';
         let imageLoad = new Image();
-        imageLoad.src = this.props.params.BACKGROUND ? this.props.params.BACKGROUND : 'http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg';
+        imageLoad.src = this.props.params.BACKGROUND ? this.props.params.BACKGROUND : this.defaultImage;
         imageLoad.onload = this.imageLoaded;
     }
 
@@ -28,7 +28,7 @@ export class MainPageContentTest extends Component {
     render() {
         let p = this.props.params;
         let bgLightness = p.BACKGROUNDLIGHTNESS ? p.BACKGROUNDLIGHTNESS : 0;
-        let bg = p.BACKGROUND ? p.BACKGROUND : 'http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg';
+        let bg = p.BACKGROUND ? p.BACKGROUND : this.defaultImage;
         let bgOpacity = p.BACKGROUNDOPACITY ? p.BACKGROUNDOPACITY : 0.60;
         let titleHeight = p.TITLEHEIGHT ? p.TITLEHEIGHT : 12;
         let subtitleHeight = p.SUBTITLEHEIGHT ? p.SUBTITLEHEIGHT : 7;
