@@ -112,8 +112,8 @@ export class CustomAppBar extends Component {
     render() {
         let a = this.props.a;
         return (
-            <div style={this.appbarStyle}>
-                <AppBar className={'navHov'} style={{ backgroundColor: this.state.pageTop || this.state.hovered ? this.hoveredColor : this.notHoveredColor }}
+            <div style={{ ...this.appbarStyle }}>
+                <AppBar className={'navHov'} style={{ backgroundColor: this.state.pageTop || this.state.hovered ? this.hoveredColor : this.notHoveredColor, boxShadow: 'none' }}
                     onMouseEnter={this.setHovered} onMouseLeave={this.removeHovered}>
                     <Toolbar>
                         <Typography style={this.logoStyle} variant="title" color="primary">
