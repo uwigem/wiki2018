@@ -7,7 +7,8 @@ import './MainPageContent.css'
 
 configureAnchors({ offset: -64, scrollDuration: 1000 });
 
-// LoadingScreen is the page that appears when the page is loading.
+// MainPageContent is the actual main page. This is hardcoded because it
+// is a crucial page. 
 export class MainPageContent extends Component {
     render() {
         return (

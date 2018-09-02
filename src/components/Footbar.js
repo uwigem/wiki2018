@@ -6,10 +6,15 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import Zoom from 'react-reveal/Zoom';
 import './Footbar.css';
 
+// Footbar is the component that will sit at the bottom of every web page.
+// A precondition is that the page is more than 100vh long, which should be
+// mandated by a certain style in App.js
 export class Footbar extends Component {
     constructor() {
         super();
 
+        // hover state for footbar icons are stored in an array,
+        // just like the items themselves.
         this.state = {
             hover: []
         }
@@ -38,12 +43,20 @@ export class Footbar extends Component {
         ]
     }
 
+    /**
+     * addHover will set the hover state of the specified icon to *true*
+     * @param {number} index index of icon to set state on
+     */
     addHover = (index) => {
         let hover = this.state.hover;
         hover[index] = true;
         this.setState({ hover });
     }
 
+    /**
+     * addHover will set the hover state of the specified icon to *false*
+     * @param {number} index index of icon to set state on
+     */
     removeHover = (index) => {
         let hover = this.state.hover;
         hover[index] = false;

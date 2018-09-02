@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+
+// ContentImage is a SPECIAL ContentView component which allows for 
+// images to be shown with custom CSS styles based on the key values
+// Usage can be found on github:
+// https://github.com/uwigem/wiki2018/issues/13#issuecomment-416096076
 export class ContentImage extends Component {
     constructor() {
         super();
@@ -13,6 +18,11 @@ export class ContentImage extends Component {
         this.parseStyles(nextProps);
     }
 
+    /**
+     * parseStyles will parse the styles given from props
+     * and store it into a state variable
+     * @param prop the set of props to parse the styles from
+     */
     parseStyles = (prop) => {
         let styles = {};
         prop.params.forEach(d => {

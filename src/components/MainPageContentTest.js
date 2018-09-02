@@ -8,7 +8,11 @@ import Fade from 'react-reveal/Fade';
 
 configureAnchors({ offset: -62, scrollDuration: 1000 });
 
-// LoadingScreen is the page that appears when the page is loading.
+// MainPageContentTest is the main page test component before
+// becoming the actual main page.
+//
+// Credit for background perspective logic goes to Kriszta: 
+//      https://codepen.io/vajkri/pen/grgQmb
 export class MainPageContentTest extends Component {
     constructor(props) {
         super(props);
@@ -27,18 +31,32 @@ export class MainPageContentTest extends Component {
         this.lFollowY = 0;
         this.friction = 1 / 30;
 
-        setInterval(() => { this.moveBackground(); }, 15);
+        setInterval(() => { this.moveBackground(); }, 15); // This will update the parallax background at ~60 fps
     }
 
+    // Set's the image loaded state to be true
     imageLoaded = () => {
         this.setState({ imageLoaded: true });
     }
 
+    // Will move the background based on the follow numbers
     moveBackground = () => {
         this.x += (this.lFollowX - this.x) * this.friction;
         this.y += (this.lFollowY - this.y) * this.friction;
         let translate = `translate(${this.x}px, ${this.y}px) scale(1.1)`
         this.setState({ translate });
+    }
+
+    /**
+     * moveBackgroundEvent is called when the user hovers over the large home screen div.
+     * It sets the mouse numbers based on the div height and width, and changes follow numbers
+     * @param {event} e
+     */
+    moveBackgroundEvent = (e) => {
+        let lMouseX = Math.max(-100, Math.min(100, e.target.clientWidth / 2 - e.clientX));
+        let lMouseY = Math.max(-100, Math.min(100, e.target.clientHeight / 2 - e.clientY));
+        this.lFollowX = (20 * lMouseX) / 100
+        this.lFollowY = (20 * lMouseY) / 100
     }
 
     render() {
@@ -64,12 +82,7 @@ export class MainPageContentTest extends Component {
                         margin: 'auto',
                         overflow: 'hidden',
                         position: 'relative'
-                    }} onMouseMove={(e) => {
-                        let lMouseX = Math.max(-100, Math.min(100, e.target.clientWidth / 2 - e.clientX));
-                        let lMouseY = Math.max(-100, Math.min(100, e.target.clientHeight / 2 - e.clientY));
-                        this.lFollowX = (20 * lMouseX) / 100
-                        this.lFollowY = (20 * lMouseY) / 100
-                    }}>
+                    }} onMouseMove={this.moveBackgroundEvent}>
                         <div style={{
                             width: '100%',
                             height: '100%',
