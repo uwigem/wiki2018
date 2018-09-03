@@ -4,9 +4,10 @@ import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import Button from '@material-ui/core/Button';
 import './MainPageContent.css'
 import Fade from 'react-reveal/Fade';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
-configureAnchors({ offset: -62, scrollDuration: 1000 });
+configureAnchors({ offset: 0, scrollDuration: 1000 });
 
 // MainPageContentTest is the main page test component before
 // becoming the actual main page.
@@ -19,7 +20,8 @@ export class MainPageContentTest extends Component {
         this.state = {
             imageLoaded: false,
             translate: 'scale(1.1)',
-            translateText: 'scale(1.1)'
+            translateText: 'scale(1.0)',
+            minimized: false
         }
         this.defaultImage = 'http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg';
         let imageLoad = new Image();
@@ -33,13 +35,30 @@ export class MainPageContentTest extends Component {
         this.lFollowX = 0;
         this.lFollowY = 0;
         this.friction = 1 / 30;
+        this.minWidth = 800;
 
         setInterval(() => { this.moveBackground(); }, 15); // This will update the parallax background at ~60 fps
+
+        window.addEventListener("resize", this.updateDim);
+
     }
 
+    updateDim = () => {
+        if (window.innerWidth <= this.minWidth && !this.state.minimized) {
+            this.setState({ minimized: true });
+        } else if (window.innerWidth > this.minWidth && this.state.minimized) {
+            this.setState({ minimized: false, drawerOpen: false });
+        }
+    }
     // Set's the image loaded state to be true
     imageLoaded = () => {
         this.setState({ imageLoaded: true });
+    }
+
+    componentWillMount = () => {
+        if (window.innerWidth <= this.minWidth) {
+            this.setState({ minimized: true });
+        }
     }
 
     // Will move the background based on the follow numbers
@@ -49,7 +68,7 @@ export class MainPageContentTest extends Component {
         this.tX += (this.lFollowX - this.x) * this.friction * 2;
         this.tY += (this.lFollowY - this.y) * this.friction * 2;
         let translate = `translate(${this.x}px, ${this.y}px) scale(1.1)`;
-        let translateText = `translate(${this.tX}px, ${this.tY}px) scale(1.1)`
+        let translateText = `translate(${this.tX}px, ${this.tY}px) scale(1.0)`
         this.setState({ translate, translateText });
     }
 
@@ -103,16 +122,38 @@ export class MainPageContentTest extends Component {
                             WebkitTransform: this.state.translate,
                             transform: this.state.translate,
                         }}></div>
-                        <Fade cascade duration={1000}>
-                            <div style={{
-                                paddingTop: '30vh', WebkitTransform: this.state.translateText,
-                                transform: this.state.translateText,
-                            }}>
-                                <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>{title}</div>
-                                <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
-                                <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
+                        {/* <Fade cascade duration={1000}> */}
+                        <div style={{
+                            paddingTop: this.state.minimized ? '10vh' : '30vh', WebkitTransform: this.state.translateText,
+                            transform: this.state.translateText,
+                        }}>
+                            <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>
+                                <Grid fluid style={{ padding: 0, margin: 0 }}>
+                                    <Row>
+                                        <Col
+                                            md={this.state.minimized ? 12 : 6}
+                                            style={{
+                                                width: this.state.minimized ? '100%' : '50%',
+                                                textAlign: this.state.minimized ? 'center' : 'right',
+                                                paddingRight: this.state.minimized ? 0 : 10
+                                            }}>
+                                            <Fade left duration={1000} when={this.state.imageLoaded} style={{ display: 'inline' }}>{title.split(' ')[0]}</Fade>
+                                        </Col>
+                                        <Col md={this.state.minimized ? 12 : 6}
+                                            style={{
+                                                width: this.state.minimized ? '100%' : '50%',
+                                                textAlign: this.state.minimized ? 'center' : 'left',
+                                                paddingLeft: this.state.minimized ? 0 : 10
+                                            }}>
+                                            <Fade right duration={2000} when={this.state.imageLoaded} style={{ display: 'inline' }}>{title.split(' ')[1]}</Fade>
+                                        </Col>
+                                    </Row>
+                                </Grid>
                             </div>
-                        </Fade>
+                            <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
+                            <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
+                        </div>
+                        {/* </Fade> */}
                     </div>
                     <ScrollableAnchor id={'overview'}><div></div></ScrollableAnchor>
                     <div style={{ marginTop: 70 }}></div>
