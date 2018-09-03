@@ -63,9 +63,9 @@ export class MainPageContentTest extends Component {
     }
 
     // Will move the background based on the follow numbers
+    // check of pageYOffset reduces lag, only set state when the page is above a certain height
     moveBackground = () => {
-        if (window.pageYOffset < this.state.innerHeight) { // reduce lag
-            console.log(window.pageYOffset, this.state.innerHeight);
+        if (window.pageYOffset < this.state.innerHeight && !this.state.minimized) {
             this.x += (this.lFollowX - this.x) * this.friction;
             this.y += (this.lFollowY - this.y) * this.friction;
             this.tX += (this.lFollowX - this.x) * this.friction * 2;
@@ -181,7 +181,7 @@ export class MainPageContentTest extends Component {
                             </Fade>
                         </CardContent>
                     </Card>
-                    <div style={{ marginTop: 70 }}></div>
+                    <div style={{ marginTop: 300 }}></div>
                 </Fade>
             </div >
         );
