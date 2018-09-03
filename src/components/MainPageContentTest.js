@@ -18,7 +18,8 @@ export class MainPageContentTest extends Component {
         super(props);
         this.state = {
             imageLoaded: false,
-            translate: 'scale(1.1)'
+            translate: 'scale(1.1)',
+            translateText: 'scale(1.1)'
         }
         this.defaultImage = 'http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg';
         let imageLoad = new Image();
@@ -27,6 +28,8 @@ export class MainPageContentTest extends Component {
 
         this.x = 0;
         this.y = 0;
+        this.tX = 0;
+        this.tY = 0;
         this.lFollowX = 0;
         this.lFollowY = 0;
         this.friction = 1 / 30;
@@ -43,8 +46,11 @@ export class MainPageContentTest extends Component {
     moveBackground = () => {
         this.x += (this.lFollowX - this.x) * this.friction;
         this.y += (this.lFollowY - this.y) * this.friction;
-        let translate = `translate(${this.x}px, ${this.y}px) scale(1.1)`
-        this.setState({ translate });
+        this.tX += (this.lFollowX - this.x) * this.friction * 2;
+        this.tY += (this.lFollowY - this.y) * this.friction * 2;
+        let translate = `translate(${this.x}px, ${this.y}px) scale(1.1)`;
+        let translateText = `translate(${this.tX}px, ${this.tY}px) scale(1.1)`
+        this.setState({ translate, translateText });
     }
 
     /**
@@ -53,8 +59,8 @@ export class MainPageContentTest extends Component {
      * @param {event} e
      */
     moveBackgroundEvent = (e) => {
-        let lMouseX = Math.max(-100, Math.min(100, e.target.clientWidth / 2 - e.clientX));
-        let lMouseY = Math.max(-100, Math.min(100, e.target.clientHeight / 2 - e.clientY));
+        let lMouseX = Math.max(-100, Math.min(100, (window.innerWidth) / 2 - e.clientX));
+        let lMouseY = Math.max(-100, Math.min(100, (window.innerHeight) / 2 - e.clientY));
         this.lFollowX = (20 * lMouseX) / 100
         this.lFollowY = (20 * lMouseY) / 100
     }
@@ -98,7 +104,10 @@ export class MainPageContentTest extends Component {
                             transform: this.state.translate,
                         }}></div>
                         <Fade cascade duration={1000}>
-                            <div style={{ paddingTop: '30vh' }}>
+                            <div style={{
+                                paddingTop: '30vh', WebkitTransform: this.state.translateText,
+                                transform: this.state.translateText,
+                            }}>
                                 <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>{title}</div>
                                 <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
                                 <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
