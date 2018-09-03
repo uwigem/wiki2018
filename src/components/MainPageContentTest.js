@@ -21,7 +21,8 @@ export class MainPageContentTest extends Component {
             imageLoaded: false,
             translate: 'scale(1.1)',
             translateText: 'scale(1.0)',
-            minimized: false
+            minimized: false,
+            innerHeight: window.innerHeight
         }
         this.defaultImage = 'http://2018.igem.org/wiki/images/5/58/T--Washington--MB.jpg';
         let imageLoad = new Image();
@@ -40,7 +41,6 @@ export class MainPageContentTest extends Component {
         setInterval(() => { this.moveBackground(); }, 15); // This will update the parallax background at ~60 fps
 
         window.addEventListener("resize", this.updateDim);
-
     }
 
     updateDim = () => {
@@ -49,6 +49,7 @@ export class MainPageContentTest extends Component {
         } else if (window.innerWidth > this.minWidth && this.state.minimized) {
             this.setState({ minimized: false, drawerOpen: false });
         }
+        this.setState({ innerHeight: window.innerHeight });
     }
     // Set's the image loaded state to be true
     imageLoaded = () => {
@@ -63,13 +64,16 @@ export class MainPageContentTest extends Component {
 
     // Will move the background based on the follow numbers
     moveBackground = () => {
-        this.x += (this.lFollowX - this.x) * this.friction;
-        this.y += (this.lFollowY - this.y) * this.friction;
-        this.tX += (this.lFollowX - this.x) * this.friction * 2;
-        this.tY += (this.lFollowY - this.y) * this.friction * 2;
-        let translate = `translate(${this.x}px, ${this.y}px) scale(1.1)`;
-        let translateText = `translate(${this.tX}px, ${this.tY}px) scale(1.0)`
-        this.setState({ translate, translateText });
+        if (window.pageYOffset < this.state.innerHeight) { // reduce lag
+            console.log(window.pageYOffset, this.state.innerHeight);
+            this.x += (this.lFollowX - this.x) * this.friction;
+            this.y += (this.lFollowY - this.y) * this.friction;
+            this.tX += (this.lFollowX - this.x) * this.friction * 2;
+            this.tY += (this.lFollowY - this.y) * this.friction * 2;
+            let translate = `translate(${this.x}px, ${this.y}px) scale(1.1)`;
+            let translateText = `translate(${this.tX}px, ${this.tY}px) scale(1.0)`
+            this.setState({ translate, translateText });
+        }
     }
 
     /**
