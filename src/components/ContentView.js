@@ -7,6 +7,7 @@ import { MainPageContentTest } from './MainPageContentTest';
 import { ContentImage } from './ContentImage';
 import { CRAFTY } from './CRAFTY';
 import { Team } from './Team';
+import { HeaderBar } from './HeaderBar';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
 import Fade from 'react-reveal/Fade';
@@ -152,6 +153,17 @@ export class ContentView extends Component {
                 break;
             case "CRAFTY":
                 returnDiv = <div><CRAFTY text={splitData.slice(1).join()} /></div>;
+                break;
+            case "HEADER":
+                let restParamsH = splitData.slice(1);
+                let restParamsObj = {};
+                restParamsH.forEach(d => {
+                    let KV = d.split("=");
+                    let K = KV[0].trim();
+                    let V = KV[1].trim();
+                    restParamsObj[K] = V;
+                });
+                returnDiv = <div><HeaderBar params={restParamsObj} /></div>
                 break;
             case "TEAM":
                 let restParamsTeam = splitData.slice(1);

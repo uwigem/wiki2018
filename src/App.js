@@ -23,7 +23,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/TempMain";
+        this.debugURL = "/Editor";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,

@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
-configureAnchors({ offset: 0, scrollDuration: 1000 });
+configureAnchors({ offset: -18, scrollDuration: 1000 });
 
 // MainPageContentTest is the main page test component before
 // becoming the actual main page.
@@ -141,7 +141,7 @@ export class MainPageContentTest extends Component {
                                                 textAlign: this.state.minimized ? 'center' : 'right',
                                                 paddingRight: this.state.minimized ? 0 : 10
                                             }}>
-                                            <Fade left duration={1000} when={this.state.imageLoaded} style={{ display: 'inline' }}>{title.split(' ')[0]}</Fade>
+                                            <Fade left duration={700} when={this.state.imageLoaded} style={{ display: 'inline' }}>{title.split(' ')[0]}</Fade>
                                         </Col>
                                         <Col md={this.state.minimized ? 12 : 6}
                                             style={{
@@ -154,8 +154,12 @@ export class MainPageContentTest extends Component {
                                     </Row>
                                 </Grid>
                             </div>
-                            <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
-                            <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
+                            <Fade clear duration={1500} when={this.state.imageLoaded}>
+                                <div style={{ color: 'white', fontSize: `${subtitleHeight}vh` }}>{subtitle}</div>
+                            </Fade>
+                            <Fade clear duration={2000} when={this.state.imageLoaded}>
+                                <Button variant="contained" color="primary" href={'#overview'} style={{ textDecoration: 'none', color: 'white', marginTop: 20 }}>{buttonText}</Button>
+                            </Fade>
                         </div>
                         {/* </Fade> */}
                     </div>

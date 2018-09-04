@@ -203,6 +203,6 @@ var navbarData = [
     {
         title: "Team",
         names: ["Members", "Attributions"],
-        links: ["/Members", "/Attributions"]
+        links: ["/Team", "/Attributions"]
     }
 ];
