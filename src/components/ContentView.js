@@ -156,14 +156,14 @@ export class ContentView extends Component {
                 break;
             case "HEADER":
                 let restParamsH = splitData.slice(1);
-                let restParamsObj = {};
+                let restParamsObjH = {};
                 restParamsH.forEach(d => {
                     let KV = d.split("=");
                     let K = KV[0].trim();
                     let V = KV[1].trim();
-                    restParamsObj[K] = V;
+                    restParamsObjH[K] = V;
                 });
-                returnDiv = <div><HeaderBar params={restParamsObj} /></div>
+                returnDiv = <div><HeaderBar params={restParamsObjH} /></div>
                 break;
             case "TEAM":
                 let restParamsTeam = splitData.slice(1);
