@@ -5,7 +5,12 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
 /**
- * HeaderBar is the header for every single content page
+ * HeaderBar is the header for every single content page.
+ * 
+ * Note that it won't have the correct functionality on the editor page,
+ * but is totally supported as long as it is at the top of the page.
+ * This functionality can be made universal with some work, that I will
+ * be implementing as a standalone project.
  * 
  * @class
  */
