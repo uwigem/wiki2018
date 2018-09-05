@@ -332,7 +332,7 @@ export class ContentView extends Component {
         }
 
         return (
-            <div style={{ marginTop: this.props.pageTitle === "" || this.props.pageTitle === "/TempMain" ? "0px" : '100px' }}> {/*style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}*/}
+            <div style={{ marginTop: 0 }}> {/*style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}*/}
                 {((this.props.edit && this.state.canEdit) || !this.props.edit) &&
                     <div>
                         {this.props.edit &&

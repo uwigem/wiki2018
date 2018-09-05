@@ -32,8 +32,7 @@ export class HeaderBar extends Component {
         this.lFollowY = 0;
         this.friction = 1 / 30;
         this.minWidth = 800;
-        this.headerBarPercentage = 0.2;
-        this.headerBarHeight = `${this.headerBarPercentage * 100}vh`
+        this.headerBarPercentage = 0.3;
 
         setInterval(() => { this.moveBackground(); }, 15); // This will update the parallax background at ~60 fps
 
@@ -74,9 +73,56 @@ export class HeaderBar extends Component {
         }
     }
 
-    render() {
-        return <div>
+    /**
+     * moveBackgroundEvent is called when the user hovers over the large home screen div.
+     * It sets the mouse numbers based on the div height and width, and changes follow numbers
+     * @param {event} e
+     */
+    moveBackgroundEvent = (e) => {
+        let lMouseX = Math.max(-100, Math.min(100, (window.innerWidth) / 2 - e.clientX));
+        let lMouseY = Math.max(-100, Math.min(100, (this.headerBarPercentage * window.innerHeight) / 2 - e.clientY));
+        this.lFollowX = (20 * lMouseX) / 100
+        this.lFollowY = (20 * lMouseY) / 100
+    }
 
+    render() {
+        let p = this.props.params;
+        let bgLightness = p.BACKGROUNDLIGHTNESS ? p.BACKGROUNDLIGHTNESS : 0;
+        let bg = p.BACKGROUND ? p.BACKGROUND : this.defaultImage;
+        let bgOpacity = p.BACKGROUNDOPACITY ? p.BACKGROUNDOPACITY : 0.60;
+        let titleHeight = p.TEXTHEIGHT ? p.TEXTHEIGHT : 12;
+        let subtitleHeight = p.SUBTITLEHEIGHT ? p.SUBTITLEHEIGHT : 7;
+        let title = p.TEXT ? p.TEXT : "";
+        let subtitle = p.SUBTITLE ? p.SUBTITLE : "";
+        return <div>
+            <Fade when={this.state.imageLoaded}>
+                <div style={{
+                    width: '100%',
+                    height: this.headerBarPercentage * window.innerHeight + 18,
+                    textAlign: 'center',
+                    margin: 'auto',
+                    overflow: 'hidden',
+                    position: 'relative'
+                }}
+                    onMouseMove={this.moveBackgroundEvent}
+                >
+                    <div style={{
+                        width: '100%',
+                        height: '100%',
+                        backgroundAttachment: 'fixed',
+                        background: `url(${bg})`,
+                        backgroundColor: `hsla(0,0%,${bgLightness}%,${bgOpacity})`,
+                        backgroundBlendMode: 'overlay',
+                        backgroundSize: 'cover',
+                        position: 'absolute',
+                        top: 18,
+                        left: 0,
+                        WebkitTransform: this.state.translate,
+                        transform: this.state.translate,
+                    }}>
+                    </div>
+                </div>
+            </Fade>
         </div>
     }
 }
