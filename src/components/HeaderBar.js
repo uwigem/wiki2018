@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardContent, Typography } from '@material-ui/core';
 import Fade from 'react-reveal/Fade';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-
 
 /**
  * HeaderBar is the header for every single content page.
@@ -127,13 +124,13 @@ export class HeaderBar extends Component {
                     }}>
                     </div>
                     <div style={{
-                        paddingTop: 120,
+                        paddingTop: this.state.minimized ? 80 : 120,
                         WebkitTransform: this.state.translateText,
                         transform: this.state.translateText
                     }}>
                         <div style={{
                             color: 'white',
-                            fontSize: `${titleHeight}vh`,
+                            fontSize: `${this.state.minimized ? 8 : titleHeight}vh`,
                             textAlign: 'center',
                         }}>
                             <Fade clear duration={1500} when={this.state.imageLoaded}>
