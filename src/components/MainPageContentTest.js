@@ -101,6 +101,7 @@ export class MainPageContentTest extends Component {
         let contentTitle = p.CONTENTTITLE ? p.CONTENTTITLE : 'Washington iGEM 2018 Project';
         let contentSubtitle = p.CONTENTSUBTITLE ? p.CONTENTSUBTITLE : 'Chemically Induced Dimerization of Nanobodies for the Development of Versatile Biosensors';
         let content = p.CONTENT ? p.CONTENT.split(';') : [''];
+        let blur = p.BLUR ? p.BLUR : 5;
         return (
             <div >
                 <Fade when={this.state.imageLoaded}>
@@ -121,6 +122,7 @@ export class MainPageContentTest extends Component {
                             backgroundBlendMode: 'overlay',
                             backgroundSize: 'cover',
                             position: 'absolute',
+                            filter: `blur(${blur}px)`,
                             top: 0,
                             left: 0,
                             WebkitTransform: this.state.translate,

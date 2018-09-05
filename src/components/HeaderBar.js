@@ -96,6 +96,7 @@ export class HeaderBar extends Component {
         let subtitleHeight = p.SUBTITLEHEIGHT ? p.SUBTITLEHEIGHT : 7;
         let title = p.TEXT ? p.TEXT : "";
         let subtitle = p.SUBTITLE ? p.SUBTITLE : "";
+        let blur = p.BLUR ? p.BLUR : 5;
         return <div>
             <Fade when={this.state.imageLoaded}>
                 <div style={{
@@ -104,7 +105,7 @@ export class HeaderBar extends Component {
                     textAlign: 'center',
                     margin: 'auto',
                     overflow: 'hidden',
-                    position: 'relative'
+                    position: 'relative',
                 }}
                     onMouseMove={this.moveBackgroundEvent}
                 >
@@ -117,6 +118,7 @@ export class HeaderBar extends Component {
                         backgroundBlendMode: 'overlay',
                         backgroundSize: 'cover',
                         position: 'absolute',
+                        filter: `blur(${blur}px)`,
                         top: 18,
                         left: 0,
                         WebkitTransform: this.state.translate,
