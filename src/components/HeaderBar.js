@@ -131,7 +131,9 @@ export class HeaderBar extends Component {
                             fontSize: `${titleHeight}vh`,
                             textAlign: 'center',
                         }}>
-                            {title}
+                            <Fade clear duration={1500} when={this.state.imageLoaded}>
+                                {title}
+                            </Fade>
                         </div>
                     </div>
                 </div>
