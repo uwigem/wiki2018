@@ -121,6 +121,19 @@ export class HeaderBar extends Component {
                         transform: this.state.translate,
                     }}>
                     </div>
+                    <div style={{
+                        paddingTop: 120,
+                        WebkitTransform: this.state.translateText,
+                        transform: this.state.translateText
+                    }}>
+                        <div style={{
+                            color: 'white',
+                            fontSize: `${titleHeight}vh`,
+                            textAlign: 'center',
+                        }}>
+                            {title}
+                        </div>
+                    </div>
                 </div>
             </Fade>
         </div>
