@@ -76,7 +76,7 @@ export class Footbar extends Component {
 
     render() {
         let height = "30vh"
-        return <div style={{ width: '100%', minWidth: 420, height, backgroundColor: 'black', textAlign: 'center' }}>
+        return <div style={{ width: '100%', minWidth: 480, height, backgroundColor: 'black', textAlign: 'center', fontSize: 'default' }}>
             <Grid fluid>
                 <Row center="xs" middle="xs" style={{ height }}>
                     <Zoom clear cascade duration={2000}>
@@ -88,7 +88,6 @@ export class Footbar extends Component {
                                     onMouseEnter={() => { this.addHover(i) }}
                                     onMouseLeave={() => { this.removeHover(i) }} /></a>}
                                 {d.logo &&
-
                                     <a href={d.link} alt={d.alt}>
                                         <div style={{ margin: 10 }} onMouseEnter={() => { this.addHover(i) }}
                                             onMouseLeave={() => { this.removeHover(i) }}>
@@ -99,7 +98,6 @@ export class Footbar extends Component {
                                             }} />
                                         </div>
                                     </a>
-
                                 }
                             </Col>
                         })}
