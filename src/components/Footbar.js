@@ -32,7 +32,6 @@ export class Footbar extends Component {
             },
             {
                 logo: {
-                    white: 'http://2018.igem.org/wiki/images/b/bb/T--Washington--HLogo0.png',
                     purple: 'http://2018.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png'
                 },
                 link: 'http://2018.igem.org/Team:Washington',
@@ -77,7 +76,7 @@ export class Footbar extends Component {
 
     render() {
         let height = "30vh"
-        return <div style={{ width: '100%', height, backgroundColor: 'black', textAlign: 'center' }}>
+        return <div style={{ width: '100%', minWidth: 420, height, backgroundColor: 'black', textAlign: 'center' }}>
             <Grid fluid>
                 <Row center="xs" middle="xs" style={{ height }}>
                     <Zoom clear cascade duration={2000}>
@@ -95,7 +94,7 @@ export class Footbar extends Component {
                                             onMouseLeave={() => { this.removeHover(i) }}>
                                             <img src={d.logo.purple} style={{
                                                 width: 100,
-                                                filter: this.state.hover[i] ? '' : 'brightness(0) invert(1)',
+                                                filter: this.state.hover[i] ? 'brightness(1)' : 'brightness(0) invert(1)',
                                                 transition: 'filter 0.2s'
                                             }} />
                                         </div>
