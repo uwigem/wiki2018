@@ -8,6 +8,7 @@ import { ContentImage } from './ContentImage';
 import { CRAFTY } from './CRAFTY';
 import { Team } from './Team';
 import { HeaderBar } from './HeaderBar';
+import { SubImages } from './SubImages';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
 import Fade from 'react-reveal/Fade';
@@ -180,6 +181,23 @@ export class ContentView extends Component {
                     restParamsArr.push(obj);
                 })
                 returnDiv = <div><Team data={restParamsArr} /></div>
+                break;
+            case "SUBIMAGES":
+                let colors = splitData[1].split(',');
+                let restParamsSub = splitData.slice(2);
+                let restParamsArrSub = [];
+                restParamsSub.forEach(d => {
+                    let KVs = d.split(";");
+                    let obj = {};
+                    KVs.forEach(e => {
+                        let KV = e.split("=")
+                        let K = KV[0].trim();
+                        let V = KV[1].trim();
+                        obj[K] = V;
+                    });
+                    restParamsArrSub.push(obj);
+                })
+                returnDiv = <div><SubImages colors={colors} params={restParamsArrSub} /></div>
                 break;
             default:
                 returnDiv = <div>stub div</div>;

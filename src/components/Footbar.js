@@ -31,6 +31,14 @@ export class Footbar extends Component {
                 alt: "Washington iGEM Instagram"
             },
             {
+                logo: {
+                    white: 'http://2018.igem.org/wiki/images/b/bb/T--Washington--HLogo0.png',
+                    purple: 'http://2018.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png'
+                },
+                link: 'http://2018.igem.org/Team:Washington',
+                alt: "Team Washington"
+            },
+            {
                 icon: faGithub,
                 link: "https://github.com/uwigem",
                 alt: 'Washington iGEM Github'
@@ -80,6 +88,20 @@ export class Footbar extends Component {
                                     style={{ color: this.state.hover[i] ? '#420dab' : 'white', margin: 10 }}
                                     onMouseEnter={() => { this.addHover(i) }}
                                     onMouseLeave={() => { this.removeHover(i) }} /></a>}
+                                {d.logo &&
+
+                                    <a href={d.link} alt={d.alt}>
+                                        <div style={{ margin: 10 }} onMouseEnter={() => { this.addHover(i) }}
+                                            onMouseLeave={() => { this.removeHover(i) }}>
+                                            <img src={d.logo.purple} style={{
+                                                width: 100,
+                                                filter: this.state.hover[i] ? '' : 'brightness(0) invert(1)',
+                                                transition: 'filter 0.2s'
+                                            }} />
+                                        </div>
+                                    </a>
+
+                                }
                             </Col>
                         })}
                     </Zoom>
