@@ -93,9 +93,7 @@ export class HeaderBar extends Component {
         let bg = p.BACKGROUND ? p.BACKGROUND : this.defaultImage;
         let bgOpacity = p.BACKGROUNDOPACITY ? p.BACKGROUNDOPACITY : 0.60;
         let titleHeight = p.TEXTHEIGHT ? p.TEXTHEIGHT : 12;
-        let subtitleHeight = p.SUBTITLEHEIGHT ? p.SUBTITLEHEIGHT : 7;
         let title = p.TEXT ? p.TEXT : "";
-        let subtitle = p.SUBTITLE ? p.SUBTITLE : "";
         let blur = p.BLUR ? p.BLUR : 5;
         return <div>
             <Fade when={this.state.imageLoaded}>

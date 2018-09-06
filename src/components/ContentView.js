@@ -336,7 +336,7 @@ export class ContentView extends Component {
                 {((this.props.edit && this.state.canEdit) || !this.props.edit) &&
                     <div>
                         {this.props.edit &&
-                            <div>
+                            <div style={{ marginTop: 80 }}>
                                 <h1>Choose a page to edit:</h1>
                                 <select value={this.state.pageTitle ? this.state.pageTitle : this.props.pageTitle} onChange={(e) => {
                                     this.setState({ pageTitle: e.target.value });

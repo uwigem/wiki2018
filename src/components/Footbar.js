@@ -63,7 +63,9 @@ export class Footbar extends Component {
         this.setState({ hover });
     }
 
-    // ${this.state.hover[i] ? 'red' : ''}
+    teamLogo = () => {
+
+    }
 
     render() {
         let height = "30vh"
