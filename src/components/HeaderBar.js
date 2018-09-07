@@ -121,12 +121,18 @@ export class HeaderBar extends Component {
                         left: 0,
                         WebkitTransform: this.state.translate,
                         transform: this.state.translate,
+                        msTransform: this.state.translate,
+                        OTransform: this.state.translate,
+                        MozTransform: this.state.translate
                     }}>
                     </div>
                     <div style={{
                         paddingTop: this.state.minimized ? 80 : 120,
                         WebkitTransform: this.state.translateText,
-                        transform: this.state.translateText
+                        transform: this.state.translateText,
+                        msTransform: this.state.translateText,
+                        OTransform: this.state.translateText,
+                        MozTransform: this.state.translateText
                     }}>
                         <div style={{
                             color: 'white',

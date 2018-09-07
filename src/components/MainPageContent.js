@@ -127,11 +127,18 @@ export class MainPageContent extends Component {
                             left: 0,
                             WebkitTransform: this.state.translate,
                             transform: this.state.translate,
+                            msTransform: this.state.translate,
+                            OTransform: this.state.translate,
+                            MozTransform: this.state.translate
                         }}></div>
                         {/* <Fade cascade duration={1000}> */}
                         <div style={{
-                            paddingTop: this.state.minimized ? '10vh' : '30vh', WebkitTransform: this.state.translateText,
+                            paddingTop: this.state.minimized ? '10vh' : '30vh',
+                            WebkitTransform: this.state.translateText,
                             transform: this.state.translateText,
+                            msTransform: this.state.translateText,
+                            OTransform: this.state.translateText,
+                            MozTransform: this.state.translateText
                         }}>
                             <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>
                                 <Grid fluid style={{ padding: 0, margin: 0 }}>
