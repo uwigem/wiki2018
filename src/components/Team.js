@@ -62,7 +62,7 @@ export class Team extends Component {
     render() {
         let data = this.state.data;
         console.log(data);
-        return <div style={{ marginTop: 80 }}>
+        return <div style={{ marginTop: 80, marginBottom: 80 }}>
             <Grid fluid style={{ padding: 0, margin: 0 }}>
                 <Fade clear cascade>
                     <Row style={{ padding: 0, margin: 0 }}>
