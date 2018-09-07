@@ -1,0 +1,15 @@
+.icon {
+    -o-transition: .2s;
+    -ms-transition: .2s;
+    -moz-transition: .2s;
+    -webkit-transition: .2s;
+    /* ...and now for the proper property */
+    transition: .2s;
+    color: white;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.icon:hover {
+    color: #dab420;
+}

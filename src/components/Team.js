@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import Fade from 'react-reveal/Fade';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import './Team.css';
 
 export class Team extends Component {
     constructor(props) {
@@ -106,13 +109,28 @@ export class Team extends Component {
                                             margin: 'auto',
                                             left: 0,
                                             right: 0,
-                                            textAlign: 'center'
+                                            textAlign: 'center',
                                         }}>
                                             <div style={{
-                                                margin: 20,
+                                                padding: 20,
                                                 fontSize: 16,
-                                                height: '80%'
+                                                height: '80%',
+                                                overflowY: 'hidden'
                                             }}>{d.BIO}</div>
+                                            <div style={{
+                                                color: 'white',
+                                                padding: 0,
+                                                height: '20%'
+                                            }}>
+                                                {d.GITHUB &&
+                                                    <a href={d.GITHUB} className="icon">
+                                                        <FontAwesomeIcon icon={faGithub} size={"2x"} />
+                                                    </a>}
+                                                {d.LINKEDIN &&
+                                                    <a href={d.LINKEDIN} className="icon">
+                                                        <FontAwesomeIcon icon={faLinkedin} size={"2x"} />
+                                                    </a>}
+                                            </div>
                                         </div>
                                     </Fade>
                                     <Fade duration={500} clear when={this.state.expanded[i] !== true}>
