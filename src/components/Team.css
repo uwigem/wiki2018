@@ -13,3 +13,7 @@
 .icon:hover {
     color: #dab420;
 }
+
+a:visited {
+    color: inherit;
+}
