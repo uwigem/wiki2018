@@ -23,7 +23,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/Team";
+        this.debugURL = "";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -172,27 +172,19 @@ class App extends Component {
                                 <h1>Page is not asdftest</h1>
                             }
 
-                            {/* HOME PAGE */}
-                            {/* IT IS IMPERITIVE THAT WHEN WE PUSH THIS CODE, THE ABSTRACT WILL APPEAR */}
-                            {this.pageTitle === "" &&
-                                <div>
-                                    <MainPageContent />
-                                </div>
-                            }
-
                             {/* keeping this failsafe in for now */}
-                            {this.pageTitle !== "" &&
-                                <div style={{ minHeight: '100vh' }}> {/* Change minimum height */}
-                                    <ContentView setEdit={this.setEdit}
-                                        setEditData={this.state.setEditData}
-                                        edit={pageIsEditor}
-                                        pageTitle={pageIsEditor ? contentData[0].pageTitle : this.pageTitle}
-                                        a={a}
-                                        data={this.state.data}
-                                        contentData={contentData}
-                                        firebase={this.firebasePassIn} />
-                                </div>
-                            }
+
+                            <div style={{ minHeight: '100vh' }}> {/* Change minimum height */}
+                                <ContentView setEdit={this.setEdit}
+                                    setEditData={this.state.setEditData}
+                                    edit={pageIsEditor}
+                                    pageTitle={pageIsEditor ? contentData[0].pageTitle : this.pageTitle}
+                                    a={a}
+                                    data={this.state.data}
+                                    contentData={contentData}
+                                    firebase={this.firebasePassIn} />
+                            </div>
+
                             <Footbar />
                         </div>
                     }
