@@ -16,8 +16,11 @@ export class Footbar extends Component {
         // hover state for footbar icons are stored in an array,
         // just like the items themselves.
         this.state = {
-            hover: []
+            hover: [],
+            minimized: false
         }
+
+        this.minWidth = 420;
 
         this.items = [
             {
@@ -70,19 +73,40 @@ export class Footbar extends Component {
         this.setState({ hover });
     }
 
-    teamLogo = () => {
+    componentWillMount() {
+        window.addEventListener("resize", this.updateDim);
+        if (window.innerWidth <= this.minWidth) {
+            this.setState({ minimized: true });
+        }
+    }
 
+    /**
+     * updateDim will update the minimized state of the AppBar
+     * based on a minimum width, currently set to be 600
+     * based on the AppBar's default.
+     * 
+     * Will also automatically close the drawer. If we don't do that
+     * then we can open the drawer, stretch the page, have the drawer
+     * disappear, then minimize the page again, and the drawer would
+     * reappear
+     */
+    updateDim = () => {
+        if (window.innerWidth <= this.minWidth && !this.state.minimized) {
+            this.setState({ minimized: true });
+        } else if (window.innerWidth > this.minWidth && this.state.minimized) {
+            this.setState({ minimized: false });
+        }
     }
 
     render() {
         let height = "30vh"
-        return <div style={{ width: '100%', minWidth: 480, height, backgroundColor: 'black', textAlign: 'center', fontSize: 'default' }}>
+        return <div style={{ width: '100%', height, backgroundColor: 'black', textAlign: 'center', fontSize: 'default' }}>
             <Grid fluid>
                 <Row center="xs" middle="xs" style={{ height }}>
                     <Zoom clear cascade duration={2000}>
                         {this.items.map((d, i) => {
                             return <Col key={'footbar' + i}>
-                                {!d.logo && <a href={d.link} alt={d.alt}><FontAwesomeIcon icon={d.icon} size={"3x"}
+                                {!d.logo && <a href={d.link} alt={d.alt}><FontAwesomeIcon icon={d.icon} size={this.state.minimized ? "1x" : "2x"}
                                     className={`icon`}
                                     style={{ color: this.state.hover[i] ? '#420dab' : 'white', margin: 10 }}
                                     onMouseEnter={() => { this.addHover(i) }}
@@ -92,7 +116,7 @@ export class Footbar extends Component {
                                         <div style={{ margin: 10 }} onMouseEnter={() => { this.addHover(i) }}
                                             onMouseLeave={() => { this.removeHover(i) }}>
                                             <img src={d.logo.purple} style={{
-                                                width: 100,
+                                                width: this.state.minimized ? 40 : 80,
                                                 filter: this.state.hover[i] ? 'brightness(1)' : 'brightness(0) invert(1)',
                                                 transition: 'filter 0.2s'
                                             }} />
