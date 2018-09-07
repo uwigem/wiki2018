@@ -68,10 +68,21 @@ export class SubImages extends Component {
                                     color: this.state.hover[i] || this.state.expanded[i] ? 'white' : 'black'
                                 }} onMouseEnter={() => this.hover(i)}
                                     onMouseLeave={() => this.removeHover(i)}>
-                                    <Fade clear when={this.state.expanded[i] === true}>
-                                        <div style={{ position: 'absolute', margin: 10, textAlign: 'center' }}>ASD</div>
+                                    <Fade duration={500} clear when={this.state.expanded[i] === true}>
+                                        <div style={{
+                                            position: 'absolute',
+                                            margin: 'auto',
+                                            left: 0,
+                                            right: 0,
+                                            textAlign: 'center'
+                                        }}>
+                                            <div style={{
+                                                margin: 20,
+                                                fontSize: 16
+                                            }}>{d.DESCRIPTION}</div>
+                                        </div>
                                     </Fade>
-                                    <Fade clear when={this.state.expanded[i] !== true}>
+                                    <Fade duration={500} clear when={this.state.expanded[i] !== true}>
                                         <div style={{
                                             position: 'absolute',
                                             textAlign: 'center',
@@ -86,6 +97,9 @@ export class SubImages extends Component {
                                                 fontSize: 25,
                                                 letterSpacing: 3
                                             }}>{d.TITLE}</div>
+                                            <div style={{
+                                                marginTop: 10
+                                            }}>{d.SUBTITLE}</div>
                                         </div>
                                     </Fade>
                                 </div>
