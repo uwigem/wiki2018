@@ -3,7 +3,6 @@ import './katex.css';
 import { BlockMath } from 'react-katex';
 import './ContentView.css';
 import { MainPageContent } from './MainPageContent';
-import { MainPageContentTest } from './MainPageContentTest';
 import { ContentImage } from './ContentImage';
 import { CRAFTY } from './CRAFTY';
 import { Team } from './Team';
@@ -150,7 +149,7 @@ export class ContentView extends Component {
                     let V = KV[1].trim();
                     restParamsObj[K] = V;
                 });
-                returnDiv = <div><MainPageContentTest params={restParamsObj} /></div>;
+                returnDiv = <div><MainPageContent params={restParamsObj} /></div>;
                 break;
             case "CRAFTY":
                 returnDiv = <div><CRAFTY text={splitData.slice(1).join()} /></div>;

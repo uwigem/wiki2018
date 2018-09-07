@@ -9,8 +9,10 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 
 configureAnchors({ offset: -18, scrollDuration: 1000 });
 
-// MainPageContent is the actual main page. This is hardcoded because it
-// is a crucial page. 
+// MainPageContent is the actual main page.
+//
+// Credit for background perspective logic goes to Kriszta: 
+//      https://codepen.io/vajkri/pen/grgQmb
 export class MainPageContent extends Component {
 
     constructor(props) {

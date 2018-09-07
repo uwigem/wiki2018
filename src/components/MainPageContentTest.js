@@ -14,6 +14,8 @@ configureAnchors({ offset: -18, scrollDuration: 1000 });
 //
 // Credit for background perspective logic goes to Kriszta: 
 //      https://codepen.io/vajkri/pen/grgQmb
+//
+// Deprecated
 export class MainPageContentTest extends Component {
     constructor(props) {
         super(props);
