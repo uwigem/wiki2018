@@ -13,27 +13,12 @@ export class SubImages extends Component {
         this.cardBody = 71;
     }
 
-    toggleExpand = (i) => {
-        let tempExp = this.state.expanded;
-        tempExp[i] = !tempExp[i];
-        this.setState({ expanded: tempExp });
-    }
 
-    hover = (i) => {
-        let tempHov = this.state.hover;
-        tempHov[i] = true;
-        this.setState({ hover: tempHov })
-    }
-    removeHover = (i) => {
-        let tempHov = this.state.hover;
-        tempHov[i] = false;
-        this.setState({ hover: tempHov })
-    }
 
     render() {
         console.log(this.props)
         return <div>
-            <Grid fluid style={{ padding: 0, margin: 0 }}>
+            {/* <Grid fluid style={{ padding: 0, margin: 0 }}>
                 <Fade clear cascade>
                     <Row style={{ padding: 0, margin: 0 }}>
                         {this.props.params && this.props.params.map((d, i) => {
@@ -107,7 +92,7 @@ export class SubImages extends Component {
                         })}
                     </Row>
                 </Fade>
-            </Grid>
+            </Grid> */}
         </div>
     }
 }
