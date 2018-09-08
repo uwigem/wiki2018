@@ -12,10 +12,21 @@ export class Team extends Component {
             expanded: [],
             hover: [],
             data: [],
-            loaded: []
+            loaded: [],
+            filterTo: 'All',
         }
 
         this.cardBody = 71;
+        this.filteredCategories = ["All",
+            "Drylab",
+            "Wetlab",
+            "Outreach",
+            "Business",
+            "Design",
+            "Adviser",
+            "Leadership",
+            "Collaborations"];
+
     }
 
     toggleExpand = (i) => {
@@ -60,13 +71,27 @@ export class Team extends Component {
     }
 
     render() {
-        let data = this.state.data;
-        console.log(data);
+        // let dataFiltered = this.state.data
+        // console.log(dataFiltered)
+        let dataFiltered = this.state.data.reduce((acc, d, i) => {
+            if (this.state.filterTo === "All") {
+                acc.push(d);
+                return acc;
+            } else {
+                if (d.FILTER && d.FILTER.indexOf(this.state.filterTo) !== -1) {
+                    acc.push(d);
+                    return acc;
+                } else {
+                    return acc;
+                }
+            }
+        }, []);
+        let data = dataFiltered;
         return <div style={{ marginTop: 80, marginBottom: 80 }}>
             <Grid fluid style={{ padding: 0, margin: 0 }}>
                 <Fade clear cascade>
                     <Row style={{ padding: 0, margin: 0 }}>
-                        {data.map((d, i) => {
+                        {data && data.map((d, i) => {
                             return <Col md={4} key={'subimg' + i} style={{ textAlign: 'center', marginTop: 10 }}><div style={{
                                 width: '100%',
                                 maxWidth: 402,
