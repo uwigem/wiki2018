@@ -86,8 +86,27 @@ export class Team extends Component {
                 }
             }
         }, []);
-        let data = dataFiltered;
-        return <div style={{ marginTop: 80, marginBottom: 80 }}>
+        let data = dataFiltered.sort((a, b) => {
+            if (a.NAME < b.NAME) {
+                return -1;
+            } else if (b.NAME < a.NAME) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+        return <div>
+            <Grid fluid style={{ padding: 0, margin: 20, marginTop: 30, marginBottom: 20 }}>
+                <Fade clear cascade>
+                    <Row style={{ padding: 0, margin: 'auto', textAlign: 'center' }}>
+                        {this.filteredCategories.sort().map((d, i) => {
+                            return <Col xs key={'selector' + i}><div onClick={() => {
+                                this.setState({ filterTo: d });
+                            }} style={{ cursor: 'pointer', fontStyle: 'italic' }}>{d}</div></Col>
+                        })}
+                    </Row>
+                </Fade>
+            </Grid>
             <Grid fluid style={{ padding: 0, margin: 0 }}>
                 <Fade clear cascade>
                     <Row style={{ padding: 0, margin: 0 }}>
