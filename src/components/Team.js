@@ -29,17 +29,27 @@ export class Team extends Component {
 
     }
 
+    /**
+     * toggleExpand toggles the expansion of the description of user at position i
+     */
     toggleExpand = (i) => {
         let tempExp = this.state.expanded;
         tempExp[i] = !tempExp[i];
         this.setState({ expanded: tempExp });
     }
 
+    /**
+     * hover will set the hover state of the user at position i
+     */
     hover = (i) => {
         let tempHov = this.state.hover;
         tempHov[i] = true;
         this.setState({ hover: tempHov })
     }
+
+    /**
+     * removeHover will remove the hover state of the user at position i
+     */
     removeHover = (i) => {
         let tempHov = this.state.hover;
         tempHov[i] = false;
@@ -64,6 +74,10 @@ export class Team extends Component {
         })
     }
 
+    /**
+     * setLoaded sets the loaded state at the position i to true for the image,
+     * allowing for fade in to act.
+     */
     setLoaded = (i) => {
         let tempL = this.state.loaded;
         tempL[i] = true;
@@ -71,21 +85,7 @@ export class Team extends Component {
     }
 
     render() {
-        // let dataFiltered = this.state.data
-        // console.log(dataFiltered)
-        // let dataFiltered = this.state.data.reduce((acc, d, i) => {
-        //     if (this.state.filterTo === "All") {
-        //         acc.push(d);
-        //         return acc;
-        //     } else {
-        //         if (d.FILTER && d.FILTER.indexOf(this.state.filterTo) !== -1) {
-        //             acc.push(d);
-        //             return acc;
-        //         } else {
-        //             return acc;
-        //         }
-        //     }
-        // }, []);
+        // Sort data by first name.
         let data = this.state.data.sort((a, b) => {
             if (a.NAME < b.NAME) {
                 return -1;
