@@ -137,3 +137,20 @@ body {
 #top_menu_inside ul a {
     line-height: 1.5em;
 }
+
+table {
+    margin: auto;
+    background: none;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+tr:hover {
+    background-color: #ddd;
+}

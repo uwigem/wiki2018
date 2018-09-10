@@ -114,9 +114,7 @@ export class Team extends Component {
                             return <Col md={3} key={'subimg' + i} style={{
                                 textAlign: 'center',
                                 marginTop: 10,
-                                transition: 'height 0.5s',
-
-                                // this.state.filterTo === d.FILTER || this.state.filterTo === "All" ?
+                                transition: 'height 0.5s'
                             }}><div style={{
                                 width: '100%',
                                 maxWidth: 402,
@@ -207,7 +205,8 @@ export class Team extends Component {
                                             </div>
                                         </Fade>
                                     </div>
-                                </div></Col>
+                                </div>
+                            </Col>
                         })}
                     </Row>
                 </Fade>
@@ -215,4 +214,3 @@ export class Team extends Component {
         </div>
     }
 }
-

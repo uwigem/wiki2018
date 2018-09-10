@@ -23,7 +23,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/Team";
+        this.debugURL = "/ContentTest";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -33,7 +33,6 @@ class App extends Component {
         this.displayLoadingMessage = this.displayLoadingMessage.bind(this);
         this.getContentData = this.getContentData.bind(this);
         this.setEdit = this.setEdit.bind(this);
-
 
         // Images to prefetch:
         // http://2018.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png
