@@ -26,7 +26,8 @@ export class ContentView extends Component {
             canEdit: false,
             currentEmail: '',
             pageTitle: '',
-            newPage: ''
+            newPage: '',
+            isContent: false
         };
 
         this.possibleTypes = ["MARKDOWN", "LATEX", "IMAGE", "SPECIAL"];
@@ -323,11 +324,11 @@ export class ContentView extends Component {
      */
     submitNewPage() {
         if (this.state.newPage && this.state.newPage[0] === "/") {
-            let newPageToAdd = { pageTitle: this.state.newPage };
+            let newPageToAdd = { pageTitle: this.state.newPage, isContent: this.state.isContent };
             let modified = this.state.contentData;
             modified.push(newPageToAdd);
             this.props.firebase.database().ref(`pageData`).set(modified, () => {
-                this.setState({ newPage: '', pageTitle: this.state.newPage });
+                this.setState({ newPage: '', pageTitle: this.state.newPage, isContent: false });
             });
         } else {
             alert("error, invalid string");
@@ -367,7 +368,10 @@ export class ContentView extends Component {
                                 <h1>Create new page</h1>
                                 <p>Must have / before it, and correct capitalization</p>
                                 <input value={this.state.newPage} onChange={e => { this.setState({ newPage: e.target.value }) }} />
-                                <button onClick={() => { this.submitNewPage() }} >submit new page</button>
+                                <br />
+                                <input type="checkbox" checked={this.state.isContent} onChange={e => { this.setState({ isContent: !this.state.isContent }) }} />
+                                Is content
+                                <br /><button onClick={() => { this.submitNewPage() }} >submit new page</button>
                                 <br /><br />
                             </div>
                         }
@@ -389,7 +393,6 @@ export class ContentView extends Component {
                         }
                     </div>
                 }
-
             </div>
         );
     }
