@@ -11,6 +11,11 @@ import { SubImages } from './SubImages';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
 import Fade from 'react-reveal/Fade';
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
+import Scrollspy from 'react-scrollspy';
+import ReactDOM from 'react-dom';
+
+configureAnchors({ offset: -18, scrollDuration: 1000 });
 
 // ContentView is the main content hub that controls a certain page's
 // content. It also contains some logic for editing.
@@ -31,6 +36,11 @@ export class ContentView extends Component {
         };
 
         this.possibleTypes = ["MARKDOWN", "LATEX", "IMAGE", "SPECIAL"];
+        window.addEventListener('scroll', () => {
+            if (ReactDOM.findDOMNode(this.refs['spy-section-1'])) {
+                console.log(ReactDOM.findDOMNode(this.refs['spy-section-1']).getBoundingClientRect())
+            }
+        })
     }
 
     // on mount, check for email
@@ -154,6 +164,16 @@ export class ContentView extends Component {
                 break;
             case "CRAFTY":
                 returnDiv = <div><CRAFTY text={splitData.slice(1).join()} /></div>;
+                break;
+            case "SECTION":
+                let id = splitData[1];
+                console.log(id);
+                returnDiv = <div id={`spy-${id}`} ref={`spy-${id}`}>
+                    <ScrollableAnchor id={id}>
+                        <div >
+                        </div>
+                    </ScrollableAnchor>
+                </div>
                 break;
             case "HEADER":
                 let restParamsH = splitData.slice(1);
@@ -338,6 +358,7 @@ export class ContentView extends Component {
 
     render() {
         let newContentData = this.filterToPage();
+        console.log(newContentData); // newContentData.isContent === boolean
 
         /** doesn't have to be optimized */
         let pages = this.state.contentData ? this.state.contentData.reduce((acc, d) => {

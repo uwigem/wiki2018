@@ -5,3 +5,11 @@
 .greenBorder {
     border: 4px solid green;
 }
+
+.spy {
+    color: red;
+}
+
+curr {
+    color: blue;
+}

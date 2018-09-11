@@ -172,7 +172,7 @@ export class MainPageContent extends Component {
                         </div>
                         {/* </Fade> */}
                     </div>
-                    <ScrollableAnchor id={'overview'}><div></div></ScrollableAnchor>
+                    <ScrollableAnchor id={'overview'}><div id="overview-spy"></div></ScrollableAnchor>
                     <div style={{ marginTop: 70 }}></div>
                     <Card style={{ minWidth: 250, maxWidth: "80%", margin: "auto", marginTop: 0, textAlign: 'center' }}>
                         <CardContent>
