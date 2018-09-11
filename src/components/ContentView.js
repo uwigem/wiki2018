@@ -12,7 +12,6 @@ import remark from 'remark';
 import reactRenderer from 'remark-react';
 import Fade from 'react-reveal/Fade';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
-import Scrollspy from 'react-scrollspy';
 import ReactDOM from 'react-dom';
 
 configureAnchors({ offset: -18, scrollDuration: 1000 });

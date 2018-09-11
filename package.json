@@ -19,7 +19,6 @@
         "react-reveal": "^1.2.2",
         "react-scripts": "^1.1.5",
         "react-scrollable-anchor": "^0.6.1",
-        "react-scrollspy": "^3.3.5",
         "remark": "^9.0.0",
         "remark-react": "^4.0.3"
     },
