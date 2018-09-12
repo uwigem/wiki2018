@@ -359,6 +359,8 @@ export class ContentView extends Component {
         let newContentData = this.filterToPage();
         console.log(newContentData); // newContentData.isContent === boolean
 
+        let contentMapping = [];
+
         /** doesn't have to be optimized */
         let pages = this.state.contentData ? this.state.contentData.reduce((acc, d) => {
             acc.push(d.pageTitle);
@@ -367,6 +369,12 @@ export class ContentView extends Component {
 
         if (newContentData && !newContentData.content) {
             newContentData.content = [];
+        }
+
+        if (newContentData) {
+            contentMapping = newContentData.content.map((d, i) => {
+                return this.generateSegment(d, i, newContentData);
+            })
         }
 
         return (
@@ -395,10 +403,7 @@ export class ContentView extends Component {
                                 <br /><br />
                             </div>
                         }
-                        {newContentData &&
-                            newContentData.content.map((d, i) => {
-                                return this.generateSegment(d, i, newContentData);
-                            })
+                        {contentMapping && contentMapping
                         }
                         {this.props.edit &&
                             <div><button style={{ margin: 10 }} onClick={() => {
