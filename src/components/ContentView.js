@@ -395,8 +395,8 @@ export class ContentView extends Component {
                 {this.generateSegment(newContentData.content[0], 0, newContentData)}
                 <Grid fluid>
                     <Row>
-                        <Col>Sidebar insert here</Col>
-                        <Col>{newContentData.content.map((d, i) => {
+                        <Col md={2}>Sidebar insert here</Col>
+                        <Col md={7}>{newContentData.content.map((d, i) => {
                             if (i > 0) {
                                 return this.generateSegment(d, i, newContentData);
                             } else {
