@@ -13,6 +13,7 @@ import reactRenderer from 'remark-react';
 import Fade from 'react-reveal/Fade';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import ReactDOM from 'react-dom';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 configureAnchors({ offset: -18, scrollDuration: 1000 });
 
@@ -363,8 +364,8 @@ export class ContentView extends Component {
     render() {
         let newContentData = this.filterToPage();
         // console.log(newContentData); // newContentData.isContent === boolean
-        console.log(this.state.spyPositions);
 
+        let isContent = Object.keys(this.refs).length > 0;
         let contentMapping = [];
 
         /** doesn't have to be optimized */
@@ -377,10 +378,21 @@ export class ContentView extends Component {
             newContentData.content = [];
         }
 
-        if (newContentData) {
+        if (newContentData && !newContentData.isContent) {// && !isContent
             contentMapping = newContentData.content.map((d, i) => {
                 return this.generateSegment(d, i, newContentData);
             })
+        } else {
+            contentMapping = <div>
+                {/* All content with a scroll spy will always have a header */}
+                {this.generateSegment(newContentData.content[0], 0, newContentData)}
+                <Grid fluid>
+                    <Row>
+                        <Col>ayy</Col>
+                        <Col>lmao</Col>
+                    </Row>
+                </Grid>
+            </div>
         }
 
         return (
