@@ -31,14 +31,20 @@ export class ContentView extends Component {
             currentEmail: '',
             pageTitle: '',
             newPage: '',
-            isContent: false
+            isContent: false,
+            spyPositions: {}
         };
 
         this.possibleTypes = ["MARKDOWN", "LATEX", "IMAGE", "SPECIAL"];
         window.addEventListener('scroll', () => {
-            if (ReactDOM.findDOMNode(this.refs['spy-section-1'])) {
-                console.log(ReactDOM.findDOMNode(this.refs['spy-section-1']).getBoundingClientRect())
-            }
+            let temp = this.state.spyPositions;
+            Object.keys(this.refs).forEach(d => {
+                let domNode = ReactDOM.findDOMNode(this.refs[d]);
+                if (domNode) {
+                    temp[d] = domNode.getBoundingClientRect().y;
+                }
+            });
+            this.setState({ spyPositions: temp });
         })
     }
 
@@ -166,7 +172,6 @@ export class ContentView extends Component {
                 break;
             case "SECTION":
                 let id = splitData[1];
-                console.log(id);
                 returnDiv = <div id={`spy-${id}`} ref={`spy-${id}`}>
                     <ScrollableAnchor id={id}>
                         <div >
@@ -357,7 +362,8 @@ export class ContentView extends Component {
 
     render() {
         let newContentData = this.filterToPage();
-        console.log(newContentData); // newContentData.isContent === boolean
+        // console.log(newContentData); // newContentData.isContent === boolean
+        console.log(this.state.spyPositions);
 
         let contentMapping = [];
 
