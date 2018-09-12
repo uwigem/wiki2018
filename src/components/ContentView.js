@@ -382,14 +382,27 @@ export class ContentView extends Component {
             contentMapping = newContentData.content.map((d, i) => {
                 return this.generateSegment(d, i, newContentData);
             })
-        } else {
+        } else if (newContentData) {
+            let spyArr = [];
+            let contentArr = [];
+            newContentData.content.forEach((d, i) => {
+                if (d.type === "SPECIAL" && d.data.split("\n")[0] === "SECTION") {
+                    spyArr.push(d);
+                }
+            });
             contentMapping = <div>
                 {/* All content with a scroll spy will always have a header */}
                 {this.generateSegment(newContentData.content[0], 0, newContentData)}
                 <Grid fluid>
                     <Row>
-                        <Col>ayy</Col>
-                        <Col>lmao</Col>
+                        <Col>Sidebar insert here</Col>
+                        <Col>{newContentData.content.map((d, i) => {
+                            if (i > 0) {
+                                return this.generateSegment(d, i, newContentData);
+                            } else {
+                                return <div></div>
+                            }
+                        })}</Col>
                     </Row>
                 </Grid>
             </div>
