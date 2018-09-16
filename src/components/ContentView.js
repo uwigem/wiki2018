@@ -394,7 +394,7 @@ export class ContentView extends Component {
             newContentData.content = [];
         }
 
-        if (newContentData && !newContentData.isContent || this.state.minimized) {// && !isContent
+        if ((newContentData && !newContentData.isContent) || this.state.minimized) {// && !isContent
             contentMapping = newContentData.content.map((d, i) => {
                 return this.generateSegment(d, i, newContentData);
             })
@@ -412,7 +412,7 @@ export class ContentView extends Component {
                 <Grid fluid>
                     <Row>
                         <Col md={3}><Spybar spyArr={spyArr} positions={this.state.spyPositions} /></Col>
-                        <Col md={9}>{newContentData.content.map((d, i) => {
+                        <Col md={8}>{newContentData.content.map((d, i) => {
                             if (i > 0) {
                                 return this.generateSegment(d, i, newContentData);
                             } else {
