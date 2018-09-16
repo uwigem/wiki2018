@@ -138,6 +138,7 @@ export class HeaderBar extends Component {
                             color: 'white',
                             fontSize: `${this.state.minimized ? 8 : titleHeight}vh`,
                             textAlign: 'center',
+                            fontFamily: 'Leixo'
                         }}>
                             <Fade clear duration={1500} when={this.state.imageLoaded}>
                                 {title}

@@ -31,7 +31,7 @@ export class Spybar extends Component {
         });
 
         // Set up top offset position
-        let topOffset = 18.7;
+        let topOffset = 19;
 
         // Determine if it is active or not, re store it. 
         arr = arr.reduce((acc, d, i) => {
@@ -46,7 +46,7 @@ export class Spybar extends Component {
             }
             acc.push({ ...d, active });
             return acc;
-        }, [])
+        }, []);
 
 
         return <div style={{ paddingTop: 15, position: 'sticky', top: 60 }}>

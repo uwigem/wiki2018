@@ -33,13 +33,28 @@ header {
     src: url(http://2018.igem.org/wiki/images/c/ce/T--Washington--SegoeUIL.ttf) format("truetype");
 }
 
+@font-face {
+    font-family: "Leixo";
+    src: url(http://2018.igem.org/wiki/images/4/4a/T--Washington--LeixoFont.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url(http://2018.igem.org/wiki/images/1/11/T--Washington--RalewayRegular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "RalewayBold";
+    src: url(http://2018.igem.org/wiki/images/c/cb/T--Washington--RalewayBold.ttf) format("truetype");
+}
+
 .App,
 #root {
     margin: 0px;
     margin-top: -18px;
     padding: 0;
     height: 100vh;
-    font-family: Seg, sans-serif;
+    font-family: Raleway, sans-serif;
     width: 100%;
     background-color: var(--backgroundColor);
     color: var(--mainColor);
@@ -83,6 +98,7 @@ h5 {
     font-size: default;
     font-size: 24pt;
     font-weight: bold;
+    font-family: 'RalewayBold';
     color: var(--headerTagColor);
 }
 
