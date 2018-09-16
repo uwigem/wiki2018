@@ -11,13 +11,17 @@ export class Spybar extends Component {
             positions: {}
         }
     }
+
     componentWillMount() {
         this.setState({ spyArr: this.props.spyArr, positions: this.props.positions });
     }
+
     componentWillReceiveProps({ spyArr, positions }) {
         this.setState({ spyArr, positions });
     }
+
     render() {
+        // Congregate information
         let arr = this.state.spyArr.map((d, i) => {
             let split = d.data.split("\n");
             let sectionCode = split[1];
@@ -26,7 +30,10 @@ export class Spybar extends Component {
             return { sectionTitle, sectionY, href: `#${sectionCode}` };
         });
 
+        // Set up top offset position
         let topOffset = 18.7;
+
+        // Determine if it is active or not, re store it. 
         arr = arr.reduce((acc, d, i) => {
             let active = false;
             if (i === 0) {
@@ -37,11 +44,11 @@ export class Spybar extends Component {
                     active = true;
                 }
             }
-
             acc.push({ ...d, active });
             return acc;
         }, [])
-        console.log(arr);
+
+
         return <div style={{ paddingTop: 15, position: 'sticky', top: 60 }}>
             {arr.map((d, i) => {
                 return <div key={'spybar-' + i} style={{ marginTop: 10, height: 30, width: 'auto' }}>
@@ -53,18 +60,19 @@ export class Spybar extends Component {
                                     width: 40,
                                     height: 40,
                                     textAlign: 'center',
-                                    fontSize: d.active ? 30 : 20,
+                                    fontSize: d.active ? 20 : 15,
                                     opacity: d.active ? 1 : 0.5,
                                     transition: 'font-size 0.5s, opacity 0.5s',
                                     lineHeight: '40px'
                                 }}><FontAwesomeIcon icon={faCircle} style={{ margin: 'auto' }} /></span>
                                 <span style={{
-                                    fontSize: d.active ? 30 : 20,
+                                    fontSize: d.active ? 20 : 15,
                                     opacity: d.active ? 1 : 0.5,
                                     transition: 'font-size 0.5s, opacity 0.5s',
-                                    lineHeight: '40px'
+                                    lineHeight: '40px',
+                                    textOverflow: 'ellipsis'
                                 }}>
-                                    {d.sectionTitle}
+                                    {d.sectionTitle.length > 22 ? d.sectionTitle.substring(0, 19) + '...' : d.sectionTitle}
                                 </span>
                             </Row>
                         </a>
