@@ -8,3 +8,106 @@
     transition: .2s;
     cursor: pointer;
 }
+
+.cls-1,
+.cls-10,
+.cls-11,
+.cls-12,
+.cls-13,
+.cls-14,
+.cls-15,
+.cls-16,
+.cls-17,
+.cls-18,
+.cls-19,
+.cls-2,
+.cls-20,
+.cls-3,
+.cls-4,
+.cls-5,
+.cls-6,
+.cls-7,
+.cls-8 {
+    fill: #4b2e83;
+}
+
+.cls-1 {
+    opacity: 0.81;
+}
+
+.cls-3 {
+    opacity: 0.9;
+}
+
+.cls-4 {
+    opacity: 0.09;
+}
+
+.cls-5 {
+    opacity: 0.07;
+}
+
+.cls-6 {
+    opacity: 0.37;
+}
+
+.cls-7 {
+    opacity: 0.8;
+}
+
+.cls-8 {
+    opacity: 0.14;
+}
+
+.cls-9 {
+    fill: none;
+    opacity: 0;
+}
+
+.cls-10 {
+    opacity: 0.06;
+}
+
+.cls-11 {
+    opacity: 0.25;
+}
+
+.cls-12 {
+    opacity: 0.11;
+}
+
+.cls-13 {
+    opacity: 0.36;
+}
+
+.cls-14 {
+    opacity: 0.35;
+}
+
+.cls-15 {
+    opacity: 0.15;
+}
+
+.cls-16 {
+    opacity: 0.12;
+}
+
+.cls-17 {
+    opacity: 0.1;
+}
+
+.cls-18 {
+    opacity: 0.19;
+}
+
+.cls-19 {
+    opacity: 0.5;
+}
+
+.cls-20 {
+    opacity: 0.21;
+}
+
+.white-1 {
+    fill: #fff;
+}
