@@ -14,6 +14,7 @@ import Fade from 'react-reveal/Fade';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import ReactDOM from 'react-dom';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Spybar } from './Spybar';
 
 configureAnchors({ offset: -18, scrollDuration: 1000 });
 
@@ -395,7 +396,7 @@ export class ContentView extends Component {
                 {this.generateSegment(newContentData.content[0], 0, newContentData)}
                 <Grid fluid>
                     <Row>
-                        <Col md={2}>Sidebar insert here</Col>
+                        <Col md={2}><Spybar spyArr={spyArr} positions={this.state.spyPositions} /></Col>
                         <Col md={10}>{newContentData.content.map((d, i) => {
                             if (i > 0) {
                                 return this.generateSegment(d, i, newContentData);
