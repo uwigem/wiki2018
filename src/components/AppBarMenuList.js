@@ -23,13 +23,15 @@ export class AppBarMenuList extends Component {
         // styles
         this.buttonStyle = {
             margin: "2px",
-            textTransform: 'none'
+            textTransform: 'none',
+            fontFamily: 'RalewayBold'
         };
         this.anchorElSpacing = 45;
-        this.buttonVariant = "raised";
+        this.buttonVariant = "text";
         this.menuItemStyles = {
             color: "#000000",
-            textDecoration: "none"
+            textDecoration: "none",
+            fontFamily: 'RalewayBold'
         };
     }
 

@@ -55,7 +55,7 @@ export class CustomAppBar extends Component {
     }
 
     removeHovered = () => {
-        this.setState({ hovered: false });
+        // this.setState({ hovered: false });
     }
 
     setPageTop = () => {
@@ -63,7 +63,7 @@ export class CustomAppBar extends Component {
     }
 
     removePageTop = () => {
-        this.setState({ pageTop: false });
+        // this.setState({ pageTop: false });
     }
 
     /**

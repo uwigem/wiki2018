@@ -69,6 +69,9 @@ class App extends Component {
                 secondary: {
                     main: displayConstants.secondaryColor
                 }
+            },
+            typography: {
+                fontFamily: ["Raleway"]
             }
         });
 
