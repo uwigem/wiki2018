@@ -47,7 +47,10 @@ export class ContentView extends Component {
                 }
             });
             this.setState({ spyPositions: temp });
-        })
+        });
+
+        this.minWidth = 1000;
+        window.addEventListener("resize", this.updateDim);
     }
 
     // on mount, check for email
@@ -94,6 +97,10 @@ export class ContentView extends Component {
                     });
                 }
             });
+        }
+
+        if (window.innerWidth <= this.minWidth) {
+            this.setState({ minimized: true });
         }
     }
 
@@ -362,6 +369,14 @@ export class ContentView extends Component {
 
     }
 
+    updateDim = () => {
+        if (window.innerWidth <= this.minWidth && !this.state.minimized) {
+            this.setState({ minimized: true });
+        } else if (window.innerWidth > this.minWidth && this.state.minimized) {
+            this.setState({ minimized: false });
+        }
+    }
+
     render() {
         let newContentData = this.filterToPage();
         // console.log(newContentData); // newContentData.isContent === boolean
@@ -379,7 +394,7 @@ export class ContentView extends Component {
             newContentData.content = [];
         }
 
-        if (newContentData && !newContentData.isContent) {// && !isContent
+        if (newContentData && !newContentData.isContent || this.state.minimized) {// && !isContent
             contentMapping = newContentData.content.map((d, i) => {
                 return this.generateSegment(d, i, newContentData);
             })
@@ -401,7 +416,7 @@ export class ContentView extends Component {
                             if (i > 0) {
                                 return this.generateSegment(d, i, newContentData);
                             } else {
-                                return <div></div>
+                                return <div key={'blank' + i}></div>
                             }
                         })}</Col>
                     </Row>
