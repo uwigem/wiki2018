@@ -16,7 +16,7 @@ import ReactDOM from 'react-dom';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Spybar } from './Spybar';
 
-configureAnchors({ offset: -18, scrollDuration: 1000 });
+configureAnchors({ offset: -64, scrollDuration: 1000 }); // -18 for hide, -64 for no hide
 
 // ContentView is the main content hub that controls a certain page's
 // content. It also contains some logic for editing.
