@@ -133,7 +133,7 @@ export class MainPageContent extends Component {
                         }}></div>
                         {/* <Fade cascade duration={1000}> */}
                         <div style={{
-                            paddingTop: this.state.minimized ? '10vh' : '30vh',
+                            paddingTop: this.state.minimized ? '20vh' : '30vh',
                             WebkitTransform: this.state.translateText,
                             transform: this.state.translateText,
                             msTransform: this.state.translateText,
