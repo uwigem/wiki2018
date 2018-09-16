@@ -68,6 +68,7 @@ export class Spybar extends Component {
                                 <span style={{
                                     fontSize: d.active ? 20 : 15,
                                     opacity: d.active ? 1 : 0.5,
+                                    fontFamily: 'RalewayBold',
                                     transition: 'font-size 0.5s, opacity 0.5s',
                                     lineHeight: '40px',
                                     textOverflow: 'ellipsis'

@@ -140,7 +140,7 @@ export class MainPageContent extends Component {
                             OTransform: this.state.translateText,
                             MozTransform: this.state.translateText
                         }}>
-                            <div style={{ color: 'white', fontSize: `${titleHeight}vh` }}>
+                            <div style={{ color: 'white', fontSize: `${titleHeight}vh`, fontFamily: 'Leixo' }}>
                                 <Grid fluid style={{ padding: 0, margin: 0 }}>
                                     <Row>
                                         <Col

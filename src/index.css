@@ -170,3 +170,11 @@ td {
 tr:hover {
     background-color: #ddd;
 }
+
+pre,
+code {
+    padding: 0px;
+    border: none;
+    background: none;
+    line-height: inherit;
+}
