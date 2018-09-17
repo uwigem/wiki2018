@@ -31,7 +31,7 @@ export class Spybar extends Component {
         });
 
         // Set up top offset position
-        let topOffset = 19;
+        let topOffset = 66; // 19 on local, 66 on actual iGEM site
 
         // Determine if it is active or not, re store it. 
         arr = arr.reduce((acc, d, i) => {
