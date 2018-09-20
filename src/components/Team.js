@@ -102,7 +102,11 @@ export class Team extends Component {
                         {this.filteredCategories.sort().map((d, i) => {
                             return <Col xs key={'selector' + i}><div onClick={() => {
                                 this.setState({ filterTo: d });
-                            }} style={{ cursor: 'pointer', fontStyle: 'italic' }} className={"filterButton"}>{d}</div></Col>
+                            }} style={{
+                                cursor: 'pointer', fontStyle: 'italic',
+                                borderBottom: this.state.filterTo === d ? '3px solid black' : '',
+                                transition: 'border 0.2s'
+                            }} className={"filterButton"}>{d}</div></Col>
                         })}
                     </Row>
                 </Fade>
