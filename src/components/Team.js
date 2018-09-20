@@ -127,7 +127,7 @@ export class Team extends Component {
                                 overflow: 'hidden',
                                 cursor: 'pointer',
                                 position: 'relative',
-                                filter: this.state.filterTo === d.FILTER || this.state.filterTo === "All" ? '' : 'blur(5px)',
+                                filter: (d.FILTER && d.FILTER.indexOf(this.state.filterTo) !== -1) || this.state.filterTo === "All" ? '' : 'blur(5px)',
                                 boxShadow: '5px 5px 5px #999999',
                                 transition: 'filter 0.2s'
                             }} onClick={() => this.toggleExpand(i)}
