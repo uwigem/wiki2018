@@ -31,12 +31,13 @@ export class Team extends Component {
         window.addEventListener("resize", this.updateDim);
         this.maxThres = 1400;
         this.minThres = 768;
+        this.minminThres = 380;
     }
 
     updateDim = () => {
-        if (window.innerWidth <= this.maxThres && window.innerWidth > this.minThres && !this.state.smallerCardBody) {
+        if ((window.innerWidth < this.minminThres || (window.innerWidth <= this.maxThres && window.innerWidth > this.minThres)) && !this.state.smallerCardBody) {
             this.setState({ smallerCardBody: true, cardBody: 55 });
-        } else if ((window.innerWidth > this.maxThres || window.innerWidth <= this.minThres) && this.state.smallerCardBody) {
+        } else if ((window.innerWidth >= this.minminThres && (window.innerWidth > this.maxThres || window.innerWidth <= this.minThres)) && this.state.smallerCardBody) {
             this.setState({ smallerCardBody: false, cardBody: 71 });
         }
     }
@@ -85,9 +86,9 @@ export class Team extends Component {
             imageLoad.onload = () => this.setLoaded(i);
         })
 
-        if (window.innerWidth <= this.maxThres && window.innerWidth > this.minThres) {
+        if ((window.innerWidth < this.minminThres || (window.innerWidth <= this.maxThres && window.innerWidth > this.minThres))) {
             this.setState({ smallerCardBody: true, cardBody: 55 });
-        } else if (window.innerWidth > this.maxThres || window.innerWidth <= this.minThres) {
+        } else if ((window.innerWidth >= this.minminThres && (window.innerWidth > this.maxThres || window.innerWidth <= this.minThres))) {
             this.setState({ smallerCardBody: false, cardBody: 71 });
         }
     }
