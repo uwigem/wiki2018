@@ -98,9 +98,11 @@ export class Team extends Component {
      * allowing for fade in to act.
      */
     setLoaded = (i) => {
-        let tempL = this.state.loaded;
-        tempL[i] = true;
-        this.setState({ loaded: tempL });
+        if (!this.state.loaded[i]) {
+            let tempL = this.state.loaded;
+            tempL[i] = true;
+            this.setState({ loaded: tempL });
+        }
     }
 
     render() {
@@ -195,7 +197,9 @@ export class Team extends Component {
                                                 <div style={{
                                                     padding: 20,
                                                     fontSize: 16,
-                                                }}>{d.BIO}
+                                                }}>{d.BIO.split("\\n").map((e, j) => {
+                                                    return <p key={d.NAME + 'spl' + j} style={{ marginTop: 10 }}>{e.trim()}</p>
+                                                })}
 
                                                     <div style={{
                                                         color: 'white',
@@ -306,7 +310,9 @@ export class Team extends Component {
                                                 <div style={{
                                                     padding: 20,
                                                     fontSize: 16,
-                                                }}>{d.BIO}
+                                                }}>{d.BIO.split("\\n").map((e, j) => {
+                                                    return <p key={d.NAME + 'spl' + j} style={{ marginTop: 10 }}>{e.trim()}</p>
+                                                })}
 
                                                     <div style={{
                                                         color: 'white',

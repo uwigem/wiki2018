@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import './Spybar.css';
 
 export class Spybar extends Component {
     constructor(props) {
@@ -49,7 +50,7 @@ export class Spybar extends Component {
         }, []);
 
 
-        return <div style={{ paddingTop: 15, position: 'sticky', top: 60 }}>
+        return <div style={{ paddingTop: 15, position: 'sticky', top: 60 }} className={"spybar-master"}>
             {arr.map((d, i) => {
                 return <div key={'spybar-' + i} style={{ marginTop: 10, height: 30, width: 'auto' }}>
                     <Grid fluid>
