@@ -3,6 +3,7 @@ import { Grid, Col, Row } from 'react-flexbox-grid';
 import Fade from 'react-reveal/Fade';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { Scrollbars } from 'react-custom-scrollbars';
 import './Team.css';
 
 export class Team extends Component {
@@ -14,9 +15,9 @@ export class Team extends Component {
             data: [],
             loaded: [],
             filterTo: 'All',
+            cardBody: 71
         }
 
-        this.cardBody = 71;
         this.filteredCategories = ["All",
             "Drylab",
             "Wetlab",
@@ -27,6 +28,17 @@ export class Team extends Component {
             "Leadership",
             "Collaborations"];
 
+        window.addEventListener("resize", this.updateDim);
+        this.maxThres = 1400;
+        this.minThres = 768;
+    }
+
+    updateDim = () => {
+        if (window.innerWidth <= this.maxThres && window.innerWidth > this.minThres && !this.state.smallerCardBody) {
+            this.setState({ smallerCardBody: true, cardBody: 55 });
+        } else if ((window.innerWidth > this.maxThres || window.innerWidth <= this.minThres) && this.state.smallerCardBody) {
+            this.setState({ smallerCardBody: false, cardBody: 71 });
+        }
     }
 
     /**
@@ -72,6 +84,12 @@ export class Team extends Component {
             imageLoad.src = d.PICTURE;
             imageLoad.onload = () => this.setLoaded(i);
         })
+
+        if (window.innerWidth <= this.maxThres && window.innerWidth > this.minThres) {
+            this.setState({ smallerCardBody: true, cardBody: 55 });
+        } else if (window.innerWidth > this.maxThres || window.innerWidth <= this.minThres) {
+            this.setState({ smallerCardBody: false, cardBody: 71 });
+        }
     }
 
     /**
@@ -121,10 +139,12 @@ export class Team extends Component {
                                 transition: 'height 0.5s'
                             }}><div style={{
                                 width: '100%',
+                                // mess around with these for squareness
                                 maxWidth: 402,
-                                minWidth: 230,
-                                height: '25vw',
-                                minHeight: 402,
+                                minWidth: 180,
+                                height: 'auto',
+                                minHeight: 280,
+                                /////////
                                 backgroundColor: 'white',
                                 margin: 'auto',
                                 borderRadius: 20,
@@ -143,7 +163,7 @@ export class Team extends Component {
                                         width: '100%',
                                         top: 0,
                                         left: 0,
-                                        height: `${this.cardBody}%`,
+                                        height: `${this.state.cardBody}%`,
                                         backgroundColor: 'white',
                                         background: `url(${d.PICTURE}) no-repeat center center`,
                                         backgroundSize: 'cover'
@@ -153,41 +173,52 @@ export class Team extends Component {
                                         width: '100%',
                                         bottom: 0,
                                         left: 0,
-                                        height: this.state.expanded[i] ? '100%' : `${100 - this.cardBody}%`,
+                                        height: this.state.expanded[i] ? '100%' : `${100 - this.state.cardBody}%`,
                                         backgroundColor: this.state.hover[i] || this.state.expanded[i] ? '#420dab' : 'white',
                                         transition: 'height 0.5s, background-color 0.5s, color 0.5s',
                                         color: this.state.hover[i] || this.state.expanded[i] ? 'white' : 'black',
                                     }} className={"scrollBox"}>
-                                        <Fade duration={500} clear when={this.state.expanded[i] === true}>
-                                            <div style={{
+
+                                        {/* <div style={{
                                                 position: 'absolute',
                                                 margin: 'auto',
                                                 left: 0,
                                                 right: 0,
                                                 textAlign: 'center',
-                                            }}>
+                                            }}> */}
+                                        <Scrollbars style={{
+                                            position: 'absolute',
+                                            margin: 'auto',
+                                            left: 0,
+                                            right: 0,
+                                            textAlign: 'center',
+                                            height: '100%',
+                                            opacity: this.state.expanded[i] ? 1 : 0
+                                        }}>
+                                            <Fade duration={500} clear when={this.state.expanded[i] === true}>
                                                 <div style={{
                                                     padding: 20,
                                                     fontSize: 16,
-                                                    height: '80%',
-                                                    overflowY: 'hidden'
-                                                }}>{d.BIO}</div>
-                                                <div style={{
-                                                    color: 'white',
-                                                    padding: 0,
-                                                    height: '20%'
-                                                }}>
-                                                    {d.GITHUB &&
-                                                        <a href={d.GITHUB} className="icon">
-                                                            <FontAwesomeIcon icon={faGithub} size={"2x"} />
-                                                        </a>}
-                                                    {d.LINKEDIN &&
-                                                        <a href={d.LINKEDIN} className="icon">
-                                                            <FontAwesomeIcon icon={faLinkedin} size={"2x"} />
-                                                        </a>}
+                                                }}>{d.BIO}
+
+                                                    <div style={{
+                                                        color: 'white',
+                                                        padding: 0,
+                                                        marginTop: 10
+                                                    }}>
+                                                        {d.GITHUB &&
+                                                            <a href={d.GITHUB} className="icon">
+                                                                <FontAwesomeIcon icon={faGithub} size={"2x"} />
+                                                            </a>}
+                                                        {d.LINKEDIN &&
+                                                            <a href={d.LINKEDIN} className="icon">
+                                                                <FontAwesomeIcon icon={faLinkedin} size={"2x"} />
+                                                            </a>}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </Fade>
+                                            </Fade>
+                                        </Scrollbars>
+                                        {/* </div> */}
                                         <Fade duration={500} clear when={this.state.expanded[i] !== true}>
                                             <div style={{
                                                 position: 'absolute',
