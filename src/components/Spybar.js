@@ -49,20 +49,31 @@ export class Spybar extends Component {
             return acc;
         }, []);
 
-
-        return <div style={{ paddingTop: 15, position: 'sticky', top: 60 }} className={"spybar-master"}>
+        console.log(arr.length);
+        return <div style={{ paddingTop: 15, position: 'sticky', top: 60, backgroundColor: 'gray' }}>
+            <div style={{
+                position: 'absolute',
+                width: 7, // Tough math, don't change!
+                height: 40 * (arr.length - 1),
+                marginTop: 10,
+                bottom: 10,
+                left: 24.5,
+                zIndex: -1,
+                backgroundColor: '#9C81D0'
+            }}></div>
             {arr.map((d, i) => {
                 return <div key={'spybar-' + i} style={{ marginTop: 10, height: 30, width: 'auto' }}>
                     <Grid fluid>
                         <a style={{ textDecoration: 'none', color: 'black' }} href={d.href}>
                             <Row middle="xs">
                                 <span style={{
-                                    color: '#420dab',
+                                    // color: '#420dab',
+                                    color: d.active ? "#420dab" : "#9C81D0",
                                     width: 40,
                                     height: 40,
                                     textAlign: 'center',
                                     fontSize: d.active ? 20 : 15,
-                                    opacity: d.active ? 1 : 0.5,
+                                    // opacity: d.active ? 1 : 0.5,
                                     transition: 'font-size 0.5s, opacity 0.5s',
                                     lineHeight: '40px'
                                 }}><FontAwesomeIcon icon={faCircle} style={{ margin: 'auto' }} /></span>
