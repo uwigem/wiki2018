@@ -139,12 +139,10 @@ export class Team extends Component {
                                 transition: 'height 0.5s'
                             }}><div style={{
                                 width: '100%',
-                                // mess around with these for squareness
                                 maxWidth: 402,
                                 minWidth: 180,
                                 height: 'auto',
                                 minHeight: 280,
-                                /////////
                                 backgroundColor: 'white',
                                 margin: 'auto',
                                 borderRadius: 20,

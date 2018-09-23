@@ -105,7 +105,7 @@ export class HeaderBar extends Component {
                     overflow: 'hidden',
                     position: 'relative',
                 }}
-                    onMouseMove={this.moveBackgroundEvent}
+                // onMouseMove={this.moveBackgroundEvent}
                 >
                     <div style={{
                         width: '100%',

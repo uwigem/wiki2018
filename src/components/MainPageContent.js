@@ -112,7 +112,9 @@ export class MainPageContent extends Component {
                         margin: 'auto',
                         overflow: 'hidden',
                         position: 'relative'
-                    }} onMouseMove={this.moveBackgroundEvent}>
+                    }}
+                    // onMouseMove={this.moveBackgroundEvent}
+                    >
                         <div style={{
                             width: '100%',
                             height: '100%',
