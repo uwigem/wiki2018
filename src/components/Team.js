@@ -130,7 +130,7 @@ export class Team extends Component {
                     </Row>
                 </Fade>
             </Grid>
-            Members
+            <div style={{ margin: 'auto', width: '100%', textAlign: 'center', fontSize: 50 }}>Members</div>
             <Grid fluid style={{ padding: 0, margin: 0 }}>
                 <Fade clear cascade>
                     <Row style={{ padding: 0, margin: 0 }}>
@@ -182,14 +182,6 @@ export class Team extends Component {
                                         transition: 'height 0.5s, background-color 0.5s, color 0.5s',
                                         color: this.state.hover[i] || this.state.expanded[i] ? 'white' : 'black',
                                     }} className={"scrollBox"}>
-
-                                        {/* <div style={{
-                                                position: 'absolute',
-                                                margin: 'auto',
-                                                left: 0,
-                                                right: 0,
-                                                textAlign: 'center',
-                                            }}> */}
                                         <Scrollbars style={{
                                             position: 'absolute',
                                             margin: 'auto',
@@ -222,7 +214,6 @@ export class Team extends Component {
                                                 </div>
                                             </Fade>
                                         </Scrollbars>
-                                        {/* </div> */}
                                         <Fade duration={500} clear when={this.state.expanded[i] !== true}>
                                             <div style={{
                                                 position: 'absolute',
@@ -250,7 +241,7 @@ export class Team extends Component {
                     </Row>
                 </Fade>
             </Grid>
-            Advisers
+            <div style={{ margin: 'auto', width: '100%', textAlign: 'center', fontSize: 50 }}>Advisers</div>
             <Grid fluid style={{ padding: 0, margin: 0 }}>
                 <Fade clear cascade>
                     <Row style={{ padding: 0, margin: 0 }}>
@@ -302,14 +293,6 @@ export class Team extends Component {
                                         transition: 'height 0.5s, background-color 0.5s, color 0.5s',
                                         color: this.state.hover[i] || this.state.expanded[i] ? 'white' : 'black',
                                     }} className={"scrollBox"}>
-
-                                        {/* <div style={{
-                                                position: 'absolute',
-                                                margin: 'auto',
-                                                left: 0,
-                                                right: 0,
-                                                textAlign: 'center',
-                                            }}> */}
                                         <Scrollbars style={{
                                             position: 'absolute',
                                             margin: 'auto',
@@ -342,7 +325,6 @@ export class Team extends Component {
                                                 </div>
                                             </Fade>
                                         </Scrollbars>
-                                        {/* </div> */}
                                         <Fade duration={500} clear when={this.state.expanded[i] !== true}>
                                             <div style={{
                                                 position: 'absolute',
