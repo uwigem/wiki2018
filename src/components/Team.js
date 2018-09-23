@@ -26,7 +26,8 @@ export class Team extends Component {
             "Design",
             "Adviser",
             "Leadership",
-            "Collaborations"];
+            "Collaborations",
+            "Presenters"];
 
         window.addEventListener("resize", this.updateDim);
         this.maxThres = 1400;
