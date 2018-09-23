@@ -41,13 +41,13 @@ export class CustomAppBar extends Component {
         this.notHoveredColor = 'rgba(66,13,171,0.01)';
         this.pageTopThresHeight = 300;
 
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > this.pageTopThresHeight && this.state.pageTop && !this.state.minimized) {
-                this.removePageTop();
-            } else if (window.pageYOffset <= this.pageTopThresHeight) {
-                this.setPageTop();
-            }
-        })
+        // window.addEventListener('scroll', () => {
+        //     if (window.pageYOffset > this.pageTopThresHeight && this.state.pageTop && !this.state.minimized) {
+        //         this.removePageTop();
+        //     } else if (window.pageYOffset <= this.pageTopThresHeight) {
+        //         this.setPageTop();
+        //     }
+        // })
     }
 
     setHovered = () => {

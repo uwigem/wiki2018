@@ -130,14 +130,19 @@ export class Team extends Component {
                     </Row>
                 </Fade>
             </Grid>
+            Members
             <Grid fluid style={{ padding: 0, margin: 0 }}>
                 <Fade clear cascade>
                     <Row style={{ padding: 0, margin: 0 }}>
                         {data && data.map((d, i) => {
+                            if (d.FILTER && d.FILTER.indexOf('Adviser') !== -1) {
+                                return null;
+                            }
                             return <Col md={3} key={'subimg' + i} style={{
                                 textAlign: 'center',
                                 marginTop: 10,
-                                transition: 'height 0.5s'
+                                transition: 'height 0.5s',
+                                marginBottom: 10
                             }}><div style={{
                                 width: '100%',
                                 maxWidth: 402,
@@ -230,7 +235,127 @@ export class Team extends Component {
                                                     textTransform: 'uppercase',
                                                     marginTop: 10,
                                                     fontWeight: 'bold',
-                                                    fontSize: 25,
+                                                    fontSize: 20,
+                                                    letterSpacing: 3
+                                                }}>{d.NAME}</div>
+                                                <div style={{
+                                                    marginTop: 10
+                                                }}>{d.ROLE}</div>
+                                            </div>
+                                        </Fade>
+                                    </div>
+                                </div>
+                            </Col>
+                        })}
+                    </Row>
+                </Fade>
+            </Grid>
+            Advisers
+            <Grid fluid style={{ padding: 0, margin: 0 }}>
+                <Fade clear cascade>
+                    <Row style={{ padding: 0, margin: 0 }}>
+                        {data && data.map((d, i) => {
+                            if (d.FILTER && d.FILTER.indexOf('Adviser') === -1) {
+                                return null;
+                            }
+                            return <Col md={3} key={'subimg' + i} style={{
+                                textAlign: 'center',
+                                marginTop: 10,
+                                transition: 'height 0.5s',
+                                marginBottom: 10
+                            }}><div style={{
+                                width: '100%',
+                                maxWidth: 402,
+                                minWidth: 180,
+                                height: 'auto',
+                                minHeight: 280,
+                                backgroundColor: 'white',
+                                margin: 'auto',
+                                borderRadius: 20,
+                                overflow: 'hidden',
+                                cursor: 'pointer',
+                                position: 'relative',
+                                filter: (d.FILTER && d.FILTER.indexOf(this.state.filterTo) !== -1) || this.state.filterTo === "All" ? '' : 'blur(5px)',
+                                boxShadow: '5px 5px 5px #999999',
+                                transition: 'filter 0.2s'
+                            }} onClick={() => this.toggleExpand(i)}
+                                onMouseEnter={() => this.hover(i)}
+                                onMouseLeave={() => this.removeHover(i)}
+                            >
+                                    <Fade when={this.state.loaded[i]}><div style={{
+                                        position: 'absolute',
+                                        width: '100%',
+                                        top: 0,
+                                        left: 0,
+                                        height: `${this.state.cardBody}%`,
+                                        backgroundColor: 'white',
+                                        background: `url(${d.PICTURE}) no-repeat center center`,
+                                        backgroundSize: 'cover'
+                                    }}></div></Fade>
+                                    <div style={{
+                                        position: 'absolute',
+                                        width: '100%',
+                                        bottom: 0,
+                                        left: 0,
+                                        height: this.state.expanded[i] ? '100%' : `${100 - this.state.cardBody}%`,
+                                        backgroundColor: this.state.hover[i] || this.state.expanded[i] ? '#420dab' : 'white',
+                                        transition: 'height 0.5s, background-color 0.5s, color 0.5s',
+                                        color: this.state.hover[i] || this.state.expanded[i] ? 'white' : 'black',
+                                    }} className={"scrollBox"}>
+
+                                        {/* <div style={{
+                                                position: 'absolute',
+                                                margin: 'auto',
+                                                left: 0,
+                                                right: 0,
+                                                textAlign: 'center',
+                                            }}> */}
+                                        <Scrollbars style={{
+                                            position: 'absolute',
+                                            margin: 'auto',
+                                            left: 0,
+                                            right: 0,
+                                            textAlign: 'center',
+                                            height: '100%',
+                                            opacity: this.state.expanded[i] ? 1 : 0
+                                        }}>
+                                            <Fade duration={500} clear when={this.state.expanded[i] === true}>
+                                                <div style={{
+                                                    padding: 20,
+                                                    fontSize: 16,
+                                                }}>{d.BIO}
+
+                                                    <div style={{
+                                                        color: 'white',
+                                                        padding: 0,
+                                                        marginTop: 10
+                                                    }}>
+                                                        {d.GITHUB &&
+                                                            <a href={d.GITHUB} className="icon">
+                                                                <FontAwesomeIcon icon={faGithub} size={"2x"} />
+                                                            </a>}
+                                                        {d.LINKEDIN &&
+                                                            <a href={d.LINKEDIN} className="icon">
+                                                                <FontAwesomeIcon icon={faLinkedin} size={"2x"} />
+                                                            </a>}
+                                                    </div>
+                                                </div>
+                                            </Fade>
+                                        </Scrollbars>
+                                        {/* </div> */}
+                                        <Fade duration={500} clear when={this.state.expanded[i] !== true}>
+                                            <div style={{
+                                                position: 'absolute',
+                                                textAlign: 'center',
+                                                margin: 'auto',
+                                                left: 0,
+                                                right: 0
+                                            }}>
+                                                <div style={{
+                                                    textTransform: 'uppercase',
+                                                    marginTop: 10,
+                                                    fontWeight: 'bold',
+                                                    fontSize: 20,
                                                     letterSpacing: 3
                                                 }}>{d.NAME}</div>
                                                 <div style={{
