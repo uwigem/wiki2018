@@ -108,9 +108,13 @@ export class Team extends Component {
     render() {
         // Sort data by first name.
         let data = this.state.data.sort((a, b) => {
-            if (a.NAME < b.NAME) {
+            let splitA = a.NAME.split(" ");
+            let splitB = b.NAME.split(" ");
+            let lNameA = splitA[splitA.length - 1];
+            let lNameB = splitB[splitB.length - 1];
+            if (lNameA < lNameB) {
                 return -1;
-            } else if (b.NAME < a.NAME) {
+            } else if (lNameB < lNameA) {
                 return 1;
             } else {
                 return 0;

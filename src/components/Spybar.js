@@ -50,7 +50,7 @@ export class Spybar extends Component {
         }, []);
 
         console.log(arr.length);
-        return <div style={{ paddingTop: 15, position: 'sticky', top: 60, backgroundColor: 'gray' }}>
+        return <div style={{ paddingTop: 15, position: 'sticky', top: 60 }}>
             <div style={{
                 position: 'absolute',
                 width: 7, // Tough math, don't change!
