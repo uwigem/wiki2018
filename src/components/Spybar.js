@@ -9,12 +9,24 @@ export class Spybar extends Component {
         super(props);
         this.state = {
             spyArr: [],
-            positions: {}
+            positions: {},
+            x: window.innerWidth / 3
         }
+
+        window.addEventListener("resize", () => {
+            if (this.mounted) {
+                this.setState({ x: window.innerWidth / 3 });
+            }
+        });
     }
 
     componentWillMount() {
         this.setState({ spyArr: this.props.spyArr, positions: this.props.positions });
+        this.mounted = true;
+    }
+
+    componentWillUnmount() {
+        this.mounted = false;
     }
 
     componentWillReceiveProps({ spyArr, positions }) {
@@ -23,7 +35,7 @@ export class Spybar extends Component {
 
     render() {
         // Congregate information
-        let arr = this.state.spyArr.map((d, i) => {
+        let arr = this.state.spyArr.map(d => {
             let split = d.data.split("\n");
             let sectionCode = split[1];
             let sectionTitle = split[2];
@@ -49,7 +61,24 @@ export class Spybar extends Component {
             return acc;
         }, []);
 
-        console.log(arr.length);
+        let maxLength;
+        let x = this.state.x;
+        if (x < 350) {
+            maxLength = 20;
+        } else if (x < 400) {
+            maxLength = 25;
+        } else if (x < 500) {
+            maxLength = 25;
+        } else if (x < 525) {
+            maxLength = 32;
+        } else if (x < 550) {
+            maxLength = 35;
+        } else if (x < 600) {
+            maxLength = 40;
+        } else {
+            maxLength = 47;
+        }
+
         return <div style={{ paddingTop: 15, position: 'sticky', top: 60 }}>
             <div style={{
                 position: 'absolute',
@@ -85,7 +114,7 @@ export class Spybar extends Component {
                                     lineHeight: '40px',
                                     textOverflow: 'ellipsis'
                                 }}>
-                                    {d.sectionTitle.length > 22 ? d.sectionTitle.substring(0, 19) + '...' : d.sectionTitle}
+                                    {d.sectionTitle.length > maxLength ? d.sectionTitle.substring(0, maxLength - 3) + '...' : d.sectionTitle}
                                 </span>
                             </Row>
                         </a>

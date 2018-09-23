@@ -235,7 +235,9 @@ export class Team extends Component {
                                                     marginTop: 10,
                                                     fontWeight: 'bold',
                                                     fontSize: 20,
-                                                    letterSpacing: 3
+                                                    letterSpacing: 3,
+                                                    textOverflow: 'ellipsis',
+                                                    overflow: 'hidden',
                                                 }}>{d.NAME}</div>
                                                 <div style={{
                                                     marginTop: 10
