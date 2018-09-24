@@ -41,16 +41,25 @@ export class ContentView extends Component {
         this.possibleTypes = ["MARKDOWN", "LATEX", "IMAGE", "SPECIAL"];
         window.scrollTo(0, 0);
 
+        // Scroll spy. Does nothing if no references. Takes initial positions of
+        // references and then updates a position of them on the screen every time
+        // user scrolls
         window.addEventListener('scroll', () => {
-            let temp = this.state.spyPositions;
-            let tempY = window.scrollY;
             let r = this.state.initPositions;
-            Object.keys(r).forEach(d => {
-                temp[d] = r[d] - tempY;
-            });
-            this.setState({ spyPositions: temp });
+            let objKeys = Object.keys(r);
+            if (objKeys.length > 0) {
+                let temp = this.state.spyPositions;
+                let tempY = window.scrollY;
+                objKeys.forEach(d => {
+                    temp[d] = r[d] - tempY;
+                });
+                this.setState({ spyPositions: temp });
+            }
         });
 
+        // Set an interval to grab references once they appear. Checks every
+        // 20 milliseconds until it happens, then it clears the interval.
+        // This is crucial for the scroll spy to work.
         let getRefs = window.setInterval(() => {
             let objKeys = Object.keys(this.refs);
             if (objKeys.length > 0) {
