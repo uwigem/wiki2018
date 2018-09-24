@@ -37,8 +37,8 @@ export class CustomAppBar extends Component {
         }
         this.logoHeight = 30;
         this.minWidth = 660;
-        this.hoveredColor = 'rgba(66,13,171,1)';
-        this.notHoveredColor = 'rgba(66,13,171,0.01)';
+        this.hoveredColor = '#ffcc16';
+        // this.notHoveredColor = 'rgba(66,13,171,0.01)';
         this.pageTopThresHeight = 300;
 
         // window.addEventListener('scroll', () => {

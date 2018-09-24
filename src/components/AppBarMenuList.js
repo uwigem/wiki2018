@@ -24,7 +24,8 @@ export class AppBarMenuList extends Component {
         this.buttonStyle = {
             margin: "2px",
             textTransform: 'none',
-            fontFamily: 'RalewayBold'
+            fontFamily: 'RalewayBold',
+            marginLeft: 15
         };
         this.anchorElSpacing = 45;
         this.buttonVariant = "text";

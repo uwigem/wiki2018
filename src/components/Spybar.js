@@ -18,6 +18,9 @@ export class Spybar extends Component {
                 this.setState({ x: window.innerWidth / 3 });
             }
         });
+
+        this.unselectedColor = '#ffcc16';
+        this.selectedColor = '#fbb03b';
     }
 
     componentWillMount() {
@@ -88,7 +91,7 @@ export class Spybar extends Component {
                 bottom: 10,
                 left: 24.5,
                 zIndex: -1,
-                backgroundColor: '#9C81D0'
+                backgroundColor: this.unselectedColor
             }}></div>
             {arr.map((d, i) => {
                 return <div key={'spybar-' + i} style={{ marginTop: 10, height: 30, width: 'auto' }}>
@@ -97,7 +100,7 @@ export class Spybar extends Component {
                             <Row middle="xs">
                                 <span style={{
                                     // color: '#420dab',
-                                    color: d.active ? "#420dab" : "#9C81D0",
+                                    color: d.active ? this.selectedColor : this.unselectedColor,
                                     width: 40,
                                     height: 40,
                                     textAlign: 'center',
