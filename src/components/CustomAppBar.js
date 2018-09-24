@@ -51,7 +51,7 @@ export class CustomAppBar extends Component {
     }
 
     setHovered = () => {
-        this.setState({ hovered: true });
+        // this.setState({ hovered: true });
     }
 
     removeHovered = () => {
@@ -59,7 +59,7 @@ export class CustomAppBar extends Component {
     }
 
     setPageTop = () => {
-        this.setState({ pageTop: true });
+        // this.setState({ pageTop: true });
     }
 
     removePageTop = () => {
@@ -114,7 +114,9 @@ export class CustomAppBar extends Component {
         return (
             <div style={{ ...this.appbarStyle }}>
                 <AppBar className={'navHov'} style={{ backgroundColor: this.state.pageTop || this.state.hovered ? this.hoveredColor : this.notHoveredColor, boxShadow: 'none' }}
-                    onMouseEnter={this.setHovered} onMouseLeave={this.removeHovered}>
+                    onMouseEnter={this.setHovered} 
+                    onMouseLeave={this.removeHovered}
+                    >
                     <Toolbar>
                         <Typography style={this.logoStyle} variant="title" color="primary">
                             {/* Image fallback

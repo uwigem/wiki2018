@@ -34,20 +34,37 @@ export class ContentView extends Component {
             pageTitle: '',
             newPage: '',
             isContent: false,
-            spyPositions: {}
+            spyPositions: {},
+            initPositions: {}
         };
 
         this.possibleTypes = ["MARKDOWN", "LATEX", "IMAGE", "SPECIAL"];
+        window.scrollTo(0, 0);
+
         window.addEventListener('scroll', () => {
             let temp = this.state.spyPositions;
-            Object.keys(this.refs).forEach(d => {
-                let domNode = ReactDOM.findDOMNode(this.refs[d]);
-                if (domNode) {
-                    temp[d] = domNode.getBoundingClientRect().y;
-                }
+            let tempY = window.scrollY;
+            let r = this.state.initPositions;
+            Object.keys(r).forEach(d => {
+                temp[d] = r[d] - tempY;
             });
             this.setState({ spyPositions: temp });
         });
+
+        let getRefs = window.setInterval(() => {
+            let objKeys = Object.keys(this.refs);
+            if (objKeys.length > 0) {
+                let temp = this.state.initPositions;
+                objKeys.forEach(d => {
+                    let domNode = ReactDOM.findDOMNode(this.refs[d]);
+                    if (domNode) {
+                        temp[d] = domNode.getBoundingClientRect().y;
+                    }
+                });
+                this.setState({ initPositions: temp });
+                window.clearInterval(getRefs);
+            }
+        }, 20);
 
         this.minWidth = 1000;
         window.addEventListener("resize", this.updateDim);
@@ -378,10 +395,11 @@ export class ContentView extends Component {
     }
 
     render() {
+        // console.log(this.state.spyPositions);
         let newContentData = this.filterToPage();
         // console.log(newContentData); // newContentData.isContent === boolean
 
-        let isContent = Object.keys(this.refs).length > 0;
+        // let isContent = Object.keys(this.refs).length > 0;
         let contentMapping = [];
 
         /** doesn't have to be optimized */
