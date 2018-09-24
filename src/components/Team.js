@@ -312,7 +312,7 @@ export class Team extends Component {
                                             textAlign: 'center',
                                             height: '100%',
                                             opacity: this.state.expanded[i] ? 1 : 0
-                                        }}>
+                                        }} >
                                             <Fade duration={500} clear when={this.state.expanded[i] === true}>
                                                 <div style={{
                                                     padding: 20,
