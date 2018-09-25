@@ -19,8 +19,10 @@ export class Spybar extends Component {
             }
         });
 
-        this.unselectedColor = '#ffcc16';
-        this.selectedColor = '#fbb03b';
+        this.unselectedColor = '#9c81d0';
+        this.selectedColor = '#420dab';
+        // this.unselectedColor = '#ffcc16';
+        // this.selectedColor = '#fbb03b';
     }
 
     componentWillMount() {

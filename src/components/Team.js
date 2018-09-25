@@ -33,6 +33,7 @@ export class Team extends Component {
         this.maxThres = 1400;
         this.minThres = 768;
         this.minminThres = 380;
+        this.mainColor = '#420dab';
     }
 
     updateDim = () => {
@@ -185,7 +186,7 @@ export class Team extends Component {
                                         bottom: 0,
                                         left: 0,
                                         height: this.state.expanded[i] ? '100%' : `${100 - this.state.cardBody}%`,
-                                        backgroundColor: this.state.hover[i] || this.state.expanded[i] ? '#420dab' : 'white',
+                                        backgroundColor: this.state.hover[i] || this.state.expanded[i] ? this.mainColor : 'white',
                                         transition: 'height 0.5s, background-color 0.5s, color 0.5s',
                                         color: this.state.hover[i] || this.state.expanded[i] ? 'white' : 'black',
                                     }} className={"scrollBox"}>
@@ -300,7 +301,7 @@ export class Team extends Component {
                                         bottom: 0,
                                         left: 0,
                                         height: this.state.expanded[i] ? '100%' : `${100 - this.state.cardBody}%`,
-                                        backgroundColor: this.state.hover[i] || this.state.expanded[i] ? '#420dab' : 'white',
+                                        backgroundColor: this.state.hover[i] || this.state.expanded[i] ? this.mainColor : 'white',
                                         transition: 'height 0.5s, background-color 0.5s, color 0.5s',
                                         color: this.state.hover[i] || this.state.expanded[i] ? 'white' : 'black',
                                     }} className={"scrollBox"}>
