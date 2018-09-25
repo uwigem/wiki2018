@@ -5,6 +5,10 @@
     --backgroundColor: rgb(245, 245, 245);
 }
 
+a {
+    outline: 0;
+}
+
 .debugheader {
     height: 18px;
     background-color: var(--debugHeaderColor);
