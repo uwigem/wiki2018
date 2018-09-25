@@ -222,25 +222,27 @@ var navbarData = [
     },
     {
         title: "Project",
-        names: ["Description", "Design", "Experiments", "Parts", "Protocols", "Notebook", "Safety", "BioBricks", "InterLab", "ASDFTest", "ASDFTestA"],
-        links: ["/Description", "/Design", "/Experiments", "/Parts", "/Protocols", "/Notebook", "/Safety", "/Parts", "/InterLab", "/ASDFTest", "/ASDFTestA"]
-        // note biobrick's page is named parts
-        // look into basic part vs composite part vs part collection etc
-        // maybe biobrick is split into its own section
-    },
-    {
-        title: "Modeling",
-        names: ["Model"],
-        links: ["/Model"]
+        names: ["Project Description", "Design", "Experiments", "Notebook", "InterLab", "Model", "Results", "Parts"],
+        links: ["/Description", "/Design", "/Experiments", "/Notebook", "/InterLab", "/Model", "/Results", "/Parts"]
     },
     {
         title: "Human Practices",
-        names: ["Human Practices", "Education & Engagement", "Entrepreneurship", "Collaborations"],
-        links: ["/Human_Practices", "/Public_Engagement", "/Entrepreneurship", "/Collaborations"]
+        names: ["Human Practices", "Collaborations", "Education & Engagement", "Entrepreneurship"],
+        links: ["/Human_Practices", "/Collaborations", "/Public_Engagement", "/Entrepreneurship"]
     },
     {
-        title: "Team",
-        names: ["Members", "Attributions"],
-        links: ["/Team", "/Attributions"]
-    }
+        title: "Safety",
+        names: ["Safety"],
+        links: ["/Safety"]
+    },
+    {
+        title: "People",
+        names: ["Team", "Attributions", "Sponsors", "Gallery"],
+        links: ["/Team", "/Attributions", "/Sponsors", "/Gallery"]
+    },
+    {
+        title: "Judging",
+        names: ["Medal Requirements"],
+        links: ["/Medal_Requirements"]
+    },
 ];
