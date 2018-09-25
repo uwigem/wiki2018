@@ -401,6 +401,18 @@ export class ContentView extends Component {
         } else if (window.innerWidth > this.minWidth && this.state.minimized) {
             this.setState({ minimized: false });
         }
+
+        let objKeys = Object.keys(this.refs);
+        if (objKeys.length > 0) {
+            let temp = this.state.initPositions;
+            objKeys.forEach(d => {
+                let domNode = ReactDOM.findDOMNode(this.refs[d]);
+                if (domNode) {
+                    temp[d] = domNode.getBoundingClientRect().y;
+                }
+            });
+            this.setState({ initPositions: temp });
+        }
     }
 
     render() {
