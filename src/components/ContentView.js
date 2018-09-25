@@ -427,7 +427,7 @@ export class ContentView extends Component {
             })
         } else if (newContentData) {
             let spyArr = [];
-            let contentArr = [];
+            // let contentArr = [];
             newContentData.content.forEach((d, i) => {
                 if (d.type === "SPECIAL" && d.data.split("\n")[0] === "SECTION") {
                     spyArr.push(d);

@@ -33,4 +33,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
+window.W_IGEM_VERSION = '1.0.0'
+
 ReactDOM.render(<App />, document.getElementById('root'));

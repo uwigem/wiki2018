@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Grid, Row } from 'react-flexbox-grid';
 import './Spybar.css';
 
 export class Spybar extends Component {
@@ -48,6 +48,7 @@ export class Spybar extends Component {
 
         // Set up top offset position
         let topOffset = 66; // 19 on local, 66 on actual iGEM site
+        console.log(this.state.positions);
 
         // Determine if it is active or not, re store it. 
         arr = arr.reduce((acc, d, i) => {
@@ -69,17 +70,17 @@ export class Spybar extends Component {
         if (x < 350) {
             maxLength = 20;
         } else if (x < 400) {
-            maxLength = 25;
+            maxLength = 22;
         } else if (x < 500) {
             maxLength = 25;
         } else if (x < 525) {
             maxLength = 32;
         } else if (x < 550) {
-            maxLength = 35;
+            maxLength = 32;
         } else if (x < 600) {
-            maxLength = 40;
+            maxLength = 35;
         } else {
-            maxLength = 47;
+            maxLength = 40;
         }
 
         return <div style={{ paddingTop: 15, position: 'sticky', top: 60 }}>

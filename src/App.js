@@ -3,7 +3,7 @@ import { DebugHeader } from './debugfiles/DebugHeader';
 import { LoadingScreen } from './components/LoadingScreen';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { CustomAppBar } from './components/CustomAppBar';
-import { MainPageContent } from './components/MainPageContent';
+// import { MainPageContent } from './components/MainPageContent';
 import { ContentView } from './components/ContentView';
 import { Footbar } from './components/Footbar';
 import Data from './data/Data';
