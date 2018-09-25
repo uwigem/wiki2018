@@ -67,7 +67,7 @@ export class ContentView extends Component {
                 objKeys.forEach(d => {
                     let domNode = ReactDOM.findDOMNode(this.refs[d]);
                     if (domNode) {
-                        temp[d] = domNode.getBoundingClientRect().y;
+                        temp[d] = domNode.getBoundingClientRect().top;
                     }
                 });
                 this.setState({ initPositions: temp });
