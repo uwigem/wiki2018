@@ -258,6 +258,16 @@ export class ContentView extends Component {
                 })
                 returnDiv = <div><SubImages colors={colors} params={restParamsArrSub} /></div>
                 break;
+            case "SEP":
+                returnDiv = <div style={{
+                    margin: 'auto',
+                    marginTop: 30,
+                    marginBottom: 5,
+                    width: '33%',
+                    height: 5,
+                    backgroundColor: '#420dab'
+                }}> </div>;
+                break;
             default:
                 returnDiv = <div>stub div</div>;
                 break;
