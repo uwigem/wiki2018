@@ -242,7 +242,7 @@ export class ContentView extends Component {
                 returnDiv = <div><Team data={restParamsArr} /></div>
                 break;
             case "SUBIMAGES":
-                let colors = splitData[1].split(',');
+                let maxImagesPerRow = Number(splitData[1].split("=")[1].trim());
                 let restParamsSub = splitData.slice(2);
                 let restParamsArrSub = [];
                 restParamsSub.forEach(d => {
@@ -256,7 +256,7 @@ export class ContentView extends Component {
                     });
                     restParamsArrSub.push(obj);
                 })
-                returnDiv = <div><SubImages colors={colors} params={restParamsArrSub} /></div>
+                returnDiv = <div><SubImages maxImagesPerRow={maxImagesPerRow} params={restParamsArrSub} /></div>
                 break;
             case "SEP":
                 returnDiv = <div style={{
