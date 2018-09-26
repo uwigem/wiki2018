@@ -62,8 +62,19 @@ export class SubImages extends Component {
                 <Fade clear cascade>
                     <Row style={{ padding: 0, margin: 0 }}>
                         {data && data.map((d, i) => {
-                            return <Col md={Math.round(12 / this.state.maxImagesPerRow)} key={'img' + i}>
-                                {d.SUBTITLE}
+                            return <Col md={Math.round(12 / this.state.maxImagesPerRow)} key={'img' + i} style={{
+                                marginTop: 10,
+                            }}>
+                                <div style={{
+                                    width: '100%',
+                                    maxWidth: 402,
+                                    minWidth: 180,
+                                    height: 'auto',
+                                    minHeight: 280,
+                                    margin: 'auto',
+                                    backgroundColor: `#${i}${i}ffff`
+                                }}></div>
+                                {/* {d.SUBTITLE} */}
                             </Col>
                         })}
                     </Row>
