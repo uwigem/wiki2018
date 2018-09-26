@@ -5,6 +5,9 @@ import './CodeBlock.css'
 /**
  * CodeBlock is boilerplate code provided by the React-Markdown to support
  * syntax highlighting in code.
+ * 
+ * This is boilerplate code that I will not be commenting. To completely understand
+ * it, please check out React-Markdown libraries
  * @class
  */
 export default class CodeBlock extends Component {

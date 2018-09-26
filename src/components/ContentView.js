@@ -405,6 +405,10 @@ export class ContentView extends Component {
 
     }
 
+    /**
+     * Updates the dimension of the page. Recalculates the overall positions of content on the page
+     * for if there are any items that require a spy bar
+     */
     updateDim = () => {
         if (window.innerWidth <= this.minWidth && !this.state.minimized) {
             this.setState({ minimized: true });
@@ -418,7 +422,7 @@ export class ContentView extends Component {
             objKeys.forEach(d => {
                 let domNode = ReactDOM.findDOMNode(this.refs[d]);
                 if (domNode) {
-                    temp[d] = domNode.getBoundingClientRect().y;
+                    temp[d] = domNode.getBoundingClientRect().top + window.scrollY;
                 }
             });
             this.setState({ initPositions: temp });
@@ -433,7 +437,7 @@ export class ContentView extends Component {
         // let isContent = Object.keys(this.refs).length > 0;
         let contentMapping = [];
 
-        /** doesn't have to be optimized */
+        /** doesn't have to be too optimized */
         let pages = this.state.contentData ? this.state.contentData.reduce((acc, d) => {
             acc.push(d.pageTitle);
             return acc;

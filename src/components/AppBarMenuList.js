@@ -20,7 +20,7 @@ export class AppBarMenuList extends Component {
 
         this.getLink = this.getLink.bind(this);
 
-        // styles
+        // styles for below
         this.buttonStyle = {
             margin: "2px",
             textTransform: 'none',
@@ -36,6 +36,9 @@ export class AppBarMenuList extends Component {
         };
     }
 
+    /** 
+     * When component mounts, get the default button heights to set
+     */
     componentWillMount() {
         this.appbarStyle = {
             paddingTop: this.props.data.getButtonHeight()
@@ -43,15 +46,25 @@ export class AppBarMenuList extends Component {
         this.a = this.props.a;
     }
 
+    /**
+     * When something is clicked, set the anchorEl state to be the target
+     * @param {event} event event of item
+     */
     handleClick = (event) => {
         this.setState({ anchorEl: event.currentTarget });
     };
 
+    /**
+     * handleClose runs when the menus are closed
+     */
     handleClose = () => {
         this.setState({ anchorEl: null });
         this.props.removeHovered();
     };
 
+    /**
+     * handleLink is called when something is pressed. Initiates the 'page loading' screen
+     */
     handleLink = () => {
         this.a();
         this.handleClose();
