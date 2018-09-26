@@ -41,6 +41,9 @@ export class HeaderBar extends Component {
         window.addEventListener("resize", this.updateDim);
     }
 
+    /**
+     * updateDim will update the dimensions of the page that are stored in state.
+     */
     updateDim = () => {
         if (window.innerWidth <= this.minWidth && !this.state.minimized) {
             this.setState({ minimized: true });
@@ -63,6 +66,8 @@ export class HeaderBar extends Component {
 
     // Will move the background based on the follow numbers
     // check of pageYOffset reduces lag, only set state when the page is above a certain height
+    //
+    // CURRENTLY DEPRECATED
     moveBackground = () => {
         // if (window.pageYOffset < this.state.innerHeight * this.headerBarPercentage && !this.state.minimized) {
         //     this.x += (this.lFollowX - this.x) * this.friction;
@@ -78,15 +83,20 @@ export class HeaderBar extends Component {
     /**
      * moveBackgroundEvent is called when the user hovers over the large home screen div.
      * It sets the mouse numbers based on the div height and width, and changes follow numbers
+     * 
+     * CURRENTLY DEPRECATED
      * @param {event} e
      */
     moveBackgroundEvent = (e) => {
-        let lMouseX = Math.max(-100, Math.min(100, (window.innerWidth) / 2 - e.clientX));
-        let lMouseY = Math.max(-100, Math.min(100, (this.headerBarPercentage * window.innerHeight) / 2 - e.clientY));
-        this.lFollowX = (20 * lMouseX) / 100
-        this.lFollowY = (20 * lMouseY) / 100
+        // let lMouseX = Math.max(-100, Math.min(100, (window.innerWidth) / 2 - e.clientX));
+        // let lMouseY = Math.max(-100, Math.min(100, (this.headerBarPercentage * window.innerHeight) / 2 - e.clientY));
+        // this.lFollowX = (20 * lMouseX) / 100
+        // this.lFollowY = (20 * lMouseY) / 100
     }
 
+    /**
+     * Render everything based on the content page.
+     */
     render() {
         let p = this.props.params;
         let bgLightness = p.BACKGROUNDLIGHTNESS ? p.BACKGROUNDLIGHTNESS : 0;

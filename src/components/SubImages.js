@@ -13,8 +13,6 @@ export class SubImages extends Component {
         this.cardBody = 71;
     }
 
-
-
     render() {
         console.log(this.props)
         return <div>

@@ -73,6 +73,9 @@ export class Footbar extends Component {
         this.setState({ hover });
     }
 
+    /**
+     * Set up an event listener that updates the calculated dimensions of the page
+     */
     componentWillMount() {
         window.addEventListener("resize", this.updateDim);
     }
@@ -95,6 +98,9 @@ export class Footbar extends Component {
         }
     }
 
+    /**
+     * There is an embedded SVG below. In the future, we may want to factor this out into its own component.
+     */
     render() {
         let height = "30vh"
         return <div style={{ width: '100%', height, backgroundColor: 'black', textAlign: 'center', fontSize: 'default' }}>
@@ -146,13 +152,6 @@ export class Footbar extends Component {
                     </Zoom>
                 </Row>
             </Grid>
-            {/* Below is side split code, move to different component */}
-            {/* <Grid fluid style={{ padding: 0, margin: 0, height: '100%' }}>
-                <Row style={{ padding: 0, margin: 0, height: '100%' }}>
-                    <Col style={{ backgroundColor: 'gray', width: '50%', height: '100%' }}></Col>
-                    <Col style={{ backgroundColor: 'darkgray', width: '50%', height: '100%' }}></Col>
-                </Row>
-            </Grid> */}
         </div>
     }
 }

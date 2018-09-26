@@ -43,6 +43,9 @@ export class MainPageContent extends Component {
         window.addEventListener("resize", this.updateDim);
     }
 
+    /**
+     * Update the dimensions of the page. Repeated from a different component but it's whatever
+     */
     updateDim = () => {
         if (window.innerWidth <= this.minWidth && !this.state.minimized) {
             this.setState({ minimized: true });

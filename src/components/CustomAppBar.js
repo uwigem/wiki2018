@@ -51,6 +51,7 @@ export class CustomAppBar extends Component {
         // })
     }
 
+    /** Deprecated commands below. Will be used for any parallax text in the future */
     setHovered = () => {
         // this.setState({ hovered: true });
     }

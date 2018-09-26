@@ -128,8 +128,5 @@ export class Spybar extends Component {
                 </div>
             })}
         </div>
-
-        // <div style="position: absolute; left: 13px; top: 10px; height:
-        // 70px; width: 2px; background: #0096ff; z-index: -1;"></div>
     }
 }

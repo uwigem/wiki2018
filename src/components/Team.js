@@ -36,6 +36,9 @@ export class Team extends Component {
         this.mainColor = '#420dab';
     }
 
+    /**
+     * Update the window sizes for multiple different widths specific to the team page.
+     */
     updateDim = () => {
         if ((window.innerWidth < this.minminThres || (window.innerWidth <= this.maxThres && window.innerWidth > this.minThres)) && !this.state.smallerCardBody) {
             this.setState({ smallerCardBody: true, cardBody: 55 });
@@ -80,6 +83,9 @@ export class Team extends Component {
         })
     }
 
+    /**
+     * Dynamic image loading and also setting window sizes preemptively
+     */
     componentWillMount() {
         this.setState({ data: this.props.data });
         this.props.data.forEach((d, i) => {

@@ -283,6 +283,8 @@ export class ContentView extends Component {
      * @return {object} returns the object associated with the type.
      */
     generateSegment(data, index, newContentData) {
+        // This part will parse the content and store some of the default segment types
+        // otherwise it calls on this.createSpecial() which will give some further types.
         let returnDiv = null;
         switch (data.type) {
             case "MARKDOWN":
@@ -313,11 +315,15 @@ export class ContentView extends Component {
                 returnDiv = <div>stub div</div>;
                 break;
         }
-        // nested ternary operator below maybe? :o
+
+        // Checks if the isEdit is active for this segment
         let isEdit = false;
         if (this.props.edit && this.state.setEditData && this.state.setEditData.index === index) {
             isEdit = true;
         }
+
+        // Returns the segment wrapped around a lot of editing logic.
+        // This is never used if using hard-coded data.
         return (<div key={"segment" + index} className={`${this.props.edit ? "editBorder" : ""} ${isEdit ? "greenBorder" : ""}`}>
             {returnDiv}
             {this.props.edit &&
@@ -430,6 +436,8 @@ export class ContentView extends Component {
     }
 
     render() {
+        // Do initial calculations to check for spy content
+
         // console.log(this.state.spyPositions);
         let newContentData = this.filterToPage();
         // console.log(newContentData); // newContentData.isContent === boolean
@@ -477,6 +485,7 @@ export class ContentView extends Component {
             </div>
         }
 
+        // render everything-- if edit page then we have extra things for the user to create pages.
         return (
             <div style={{ marginTop: 0 }}> {/*style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}*/}
                 {((this.props.edit && this.state.canEdit) || !this.props.edit) &&
