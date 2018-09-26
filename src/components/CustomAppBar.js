@@ -36,7 +36,7 @@ export class CustomAppBar extends Component {
             textAlign: 'left'
         }
         this.logoHeight = 30;
-        this.minWidth = 660;
+        this.minWidth = 768;
         // this.hoveredColor = '#ffcc16';
         this.hoveredColor = '#420dab';
         // this.notHoveredColor = 'rgba(66,13,171,0.01)';

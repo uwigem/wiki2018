@@ -36,7 +36,7 @@ export class MainPageContent extends Component {
         this.lFollowX = 0;
         this.lFollowY = 0;
         this.friction = 1 / 30;
-        this.minWidth = 800;
+        this.minWidth = 1054;
 
         setInterval(() => { this.moveBackground(); }, 15); // This will update the parallax background at ~60 fps
 

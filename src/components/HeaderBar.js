@@ -64,15 +64,15 @@ export class HeaderBar extends Component {
     // Will move the background based on the follow numbers
     // check of pageYOffset reduces lag, only set state when the page is above a certain height
     moveBackground = () => {
-        if (window.pageYOffset < this.state.innerHeight * this.headerBarPercentage && !this.state.minimized) {
-            this.x += (this.lFollowX - this.x) * this.friction;
-            this.y += (this.lFollowY - this.y) * this.friction;
-            this.tX += (this.lFollowX - this.x) * this.friction * 2;
-            this.tY += (this.lFollowY - this.y) * this.friction * 2;
-            let translate = `translate(${this.x}px, ${this.y}px) scale(1.1)`;
-            let translateText = `translate(${this.tX}px, ${this.tY}px) scale(1.0)`
-            this.setState({ translate, translateText });
-        }
+        // if (window.pageYOffset < this.state.innerHeight * this.headerBarPercentage && !this.state.minimized) {
+        //     this.x += (this.lFollowX - this.x) * this.friction;
+        //     this.y += (this.lFollowY - this.y) * this.friction;
+        //     this.tX += (this.lFollowX - this.x) * this.friction * 2;
+        //     this.tY += (this.lFollowY - this.y) * this.friction * 2;
+        //     let translate = `translate(${this.x}px, ${this.y}px) scale(1.1)`;
+        //     let translateText = `translate(${this.tX}px, ${this.tY}px) scale(1.0)`
+        //     this.setState({ translate, translateText });
+        // }
     }
 
     /**
@@ -95,6 +95,9 @@ export class HeaderBar extends Component {
         let titleHeight = p.TEXTHEIGHT ? p.TEXTHEIGHT : 12;
         let title = p.TEXT ? p.TEXT : "";
         let blur = p.BLUR ? p.BLUR : 5;
+        let minTitleHeight = p.MINTITLEHEIGHT ? p.MINTITLEHEIGHT : 8;
+        let mPT = p.MINPADDINGTOP ? p.MINPADDINGTOP : 80;
+        let pT = p.PADDINGTOP ? p.PADDINGTOP : 120;
         return <div>
             <Fade when={this.state.imageLoaded}>
                 <div style={{
@@ -127,7 +130,7 @@ export class HeaderBar extends Component {
                     }}>
                     </div>
                     <div style={{
-                        paddingTop: this.state.minimized ? 80 : 120,
+                        paddingTop: this.state.minimized ? mPT + "px" : pT + "px",
                         WebkitTransform: this.state.translateText,
                         transform: this.state.translateText,
                         msTransform: this.state.translateText,
@@ -136,7 +139,7 @@ export class HeaderBar extends Component {
                     }}>
                         <div style={{
                             color: 'white',
-                            fontSize: `${this.state.minimized ? 8 : titleHeight}vh`,
+                            fontSize: `${this.state.minimized ? minTitleHeight : titleHeight}vh`,
                             textAlign: 'center',
                             fontFamily: 'Leixo'
                         }}>
