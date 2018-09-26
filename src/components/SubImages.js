@@ -14,6 +14,14 @@ export class SubImages extends Component {
         this.cardBody = 71;
     }
 
+    componentDidMount() {
+        this.setState({ data: this.props.data, maxImagesPerRow: this.props.maxImagesPerRow });
+    }
+
+    componentWillReceiveProps({ data, maxImagesPerRow }) {
+        this.setState({ data, maxImagesPerRow });
+    }
+
     /**
      * setLoaded sets the loaded state at the position i to true for the image,
      * allowing for fade in to act.
@@ -45,11 +53,19 @@ export class SubImages extends Component {
     }
 
     render() {
-        console.log(this.props)
-        return <div>
+        // get page width and set width of the content element so you know how much width
+        // is maximum for the images based on maximagesperrow
+        let data = this.state.data;
+        console.log(data);
+        return <div style={{ margin: 'auto', marginTop: 30, marginBottom: 30, textAlign: 'center' }}>
             <Grid fluid style={{ padding: 0, margin: 0 }}>
                 <Fade clear cascade>
                     <Row style={{ padding: 0, margin: 0 }}>
+                        {data && data.map((d, i) => {
+                            return <Col md={Math.round(12 / this.state.maxImagesPerRow)} key={'img' + i}>
+                                {d.SUBTITLE}
+                            </Col>
+                        })}
                     </Row>
                 </Fade>
             </Grid>

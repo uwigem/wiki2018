@@ -256,7 +256,7 @@ export class ContentView extends Component {
                     });
                     restParamsArrSub.push(obj);
                 })
-                returnDiv = <div><SubImages maxImagesPerRow={maxImagesPerRow} params={restParamsArrSub} /></div>
+                returnDiv = <div><SubImages maxImagesPerRow={maxImagesPerRow} data={restParamsArrSub} /></div>
                 break;
             case "SEP":
                 returnDiv = <div style={{
