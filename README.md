@@ -19,7 +19,7 @@
 ## Building and deploying
 1. `npm run build`
 2. `open build` on mac or `explorer build` on windows (just opens the folder in file navigation)
-3. navigate to the "static" folder, and open css/_____.css and copy paste it to http://2018.igem.org/Team:Washington/CSS
-4. navigate to the js folder and copy paste the contents of the javascript file to http://2018.igem.org/Team:Washington/Javascript
+3. navigate to the "static" folder, and open css/_____.css and copy paste it to http://2018.igem.org/Template:Washington/CSS
+4. navigate to the js folder and copy paste the contents of the javascript file to http://2018.igem.org/Template:Washington/Javascript
 5. Note, if you don't update any CSS files, you shouldn't need to update the CSS template.
 6. You should also add the base template to all the pages that exist (base template can be found currently on the /ASDFTest page on our iGEM site, but it still requires updates)
