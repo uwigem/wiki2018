@@ -374,7 +374,9 @@ export class ContentView extends Component {
                                     data: this.state.tempEditContent !== null ? this.state.tempEditContent : data.data,
                                     type: this.state.tempEditType !== null ? this.state.tempEditType : data.type
                                 };
-                                this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
+                                if (this.state.pageTitle !== "/Team" || this.state.currentEmail.indexOf("wkwok16") !== -1) {
+                                    this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
+                                }
                                 this.storeWhoEdit();
                             }}>submit</button>
                             <button onClick={() => {
