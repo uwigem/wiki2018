@@ -14,8 +14,13 @@ export class SubImages extends Component {
         this.cardBody = 71;
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.setState({ data: this.props.data, maxImagesPerRow: this.props.maxImagesPerRow });
+        this.props.data.forEach((d, i) => {
+            let imageLoad = new Image();
+            imageLoad.src = d.PICTURE;
+            imageLoad.onload = () => this.setLoaded(i);
+        })
     }
 
     componentWillReceiveProps({ data, maxImagesPerRow }) {
@@ -53,8 +58,6 @@ export class SubImages extends Component {
     }
 
     render() {
-        // get page width and set width of the content element so you know how much width
-        // is maximum for the images based on maximagesperrow
         let data = this.state.data;
         console.log(data);
         return <div style={{ margin: 'auto', marginTop: 30, marginBottom: 30, textAlign: 'center' }}>
