@@ -239,11 +239,11 @@ export class Team extends Component {
                                                                 marginTop: 10
                                                             }}>
                                                                 {d.GITHUB &&
-                                                                    <a href={d.GITHUB} className="icon">
+                                                                    <a href={d.GITHUB} target="_blank" className="icon">
                                                                         <FontAwesomeIcon icon={faGithub} size={"2x"} />
                                                                     </a>}
                                                                 {d.LINKEDIN &&
-                                                                    <a href={d.LINKEDIN} className="icon">
+                                                                    <a href={d.LINKEDIN} target="_blank" className="icon">
                                                                         <FontAwesomeIcon icon={faLinkedin} size={"2x"} />
                                                                     </a>}
                                                             </div>
