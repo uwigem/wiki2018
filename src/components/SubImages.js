@@ -41,24 +41,6 @@ export class SubImages extends Component {
         }
     }
 
-    /**
-     * hover will set the hover state of the user at position i
-     */
-    hover = (i) => {
-        let tempHov = this.state.hover;
-        tempHov[i] = true;
-        this.setState({ hover: tempHov })
-    }
-
-    /**
-     * removeHover will remove the hover state of the user at position i
-     */
-    removeHover = (i) => {
-        let tempHov = this.state.hover;
-        tempHov[i] = false;
-        this.setState({ hover: tempHov })
-    }
-
     render() {
         let data = this.state.data;
         return <div style={{ margin: 'auto', marginTop: 30, marginBottom: 30, textAlign: 'center' }}>
