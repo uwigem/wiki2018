@@ -33,7 +33,8 @@ export class CustomAppBar extends Component {
         }
         this.logoStyle = {
             flex: 1,
-            textAlign: 'left'
+            textAlign: 'left',
+            marginBottom: -5
         }
         this.logoHeight = 30;
         this.minWidth = 768;
