@@ -146,7 +146,7 @@ export class Team extends Component {
             </Grid>
 
             {this.sections.map((sect, sectIndex) => {
-                return <div key={'sect' + sectIndex}>
+                return <div key={'sect' + sectIndex} style={{ marginBottom: 20 }}>
                     <div style={{ margin: 'auto', width: '100%', textAlign: 'center', fontSize: 50 }}>{sect}</div>
                     <Grid fluid style={{ padding: 0, margin: 0 }}>
                         <Fade clear cascade>
@@ -170,6 +170,8 @@ export class Team extends Component {
                                     if (filter) {
                                         return null;
                                     }
+                                    let x = d.XPOS ? d.XPOS : 50;
+                                    let y = d.YPOS ? d.YPOS : 50;
                                     return <Col md={3} key={'subimg' + i} style={{
                                         textAlign: 'center',
                                         marginTop: 10,
@@ -201,7 +203,7 @@ export class Team extends Component {
                                                 left: 0,
                                                 height: `${this.state.cardBody}%`,
                                                 backgroundColor: 'white',
-                                                background: `url(${d.PICTURE}) no-repeat center center`,
+                                                background: `url(${d.PICTURE}) no-repeat ${x}% ${y}%`,
                                                 backgroundSize: 'cover'
                                             }}></div></Fade>
                                             <div style={{
