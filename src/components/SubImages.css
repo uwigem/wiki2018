@@ -1,0 +1,17 @@
+.linkSubImage:hover {
+    border: 2px solid #420dab;
+}
+
+.linkSubImage {
+    transition: border 0.2s;
+}
+
+.linkSubImageTotal {
+    transition: color 0.2s;
+    color: black;
+    font-weight: bold;
+}
+
+.linkSubImageTotal:hover {
+    color: #420dab;
+}

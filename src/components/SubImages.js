@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
-import Fade from 'react-reveal/Fade'
+import Fade from 'react-reveal/Fade';
+import './SubImages.css';
+
 
 export class SubImages extends Component {
     constructor(props) {
@@ -59,25 +61,57 @@ export class SubImages extends Component {
 
     render() {
         let data = this.state.data;
-        console.log(data);
         return <div style={{ margin: 'auto', marginTop: 30, marginBottom: 30, textAlign: 'center' }}>
             <Grid fluid style={{ padding: 0, margin: 0 }}>
                 <Fade clear cascade>
                     <Row style={{ padding: 0, margin: 0 }}>
                         {data && data.map((d, i) => {
+                            let x = d.XPOS ? d.XPOS : 50;
+                            let y = d.YPOS ? d.YPOS : 50;
                             return <Col md={Math.round(12 / this.state.maxImagesPerRow)} key={'img' + i} style={{
                                 marginTop: 10,
                             }}>
-                                <div style={{
-                                    width: '100%',
-                                    maxWidth: 402,
-                                    minWidth: 180,
-                                    height: 'auto',
-                                    minHeight: 280,
-                                    margin: 'auto',
-                                    backgroundColor: `#${i}${i}ffff`
-                                }} alt="test"> </div>
-                                {/* {d.SUBTITLE} */}
+                                <Fade when={this.state.loaded[i]}>
+                                    <div>
+                                        {d.LINK &&
+                                            <a href={d.LINK} target="_blank" style={{
+                                                textDecoration: 'none',
+                                            }} className={"linkSubImageTotal"}>
+                                                <div style={{
+                                                    width: '100%',
+                                                    maxWidth: 402,
+                                                    minWidth: 180,
+                                                    height: 'auto',
+                                                    minHeight: 280,
+                                                    margin: 'auto',
+                                                    backgroundColor: 'white',
+                                                    background: `url(${d.PICTURE}) no-repeat ${x}% ${y}%`,
+                                                    backgroundSize: 'cover',
+                                                    cursor: 'pointer'
+                                                }} className={'linkSubImage'}></div>
+                                                <div style={{
+                                                    padding: 5,
+                                                    fontSize: '10pt'
+                                                }}>{d.DESCRIPTION}</div>
+                                            </a>
+                                        }
+                                        {!d.LINK && <div>
+                                            <div style={{
+                                                width: '100%',
+                                                maxWidth: 402,
+                                                minWidth: 180,
+                                                height: 'auto',
+                                                minHeight: 280,
+                                                margin: 'auto',
+                                                backgroundColor: 'white',
+                                                background: `url(${d.PICTURE}) no-repeat ${x}% ${y}%`,
+                                                backgroundSize: 'cover',
+                                            }}></div>
+                                            <div style={{ padding: 5, fontSize: '10pt' }}>{d.DESCRIPTION}</div>
+                                        </div>
+                                        }
+                                    </div>
+                                </Fade>
                             </Col>
                         })}
                     </Row>
