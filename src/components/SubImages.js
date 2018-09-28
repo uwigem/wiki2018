@@ -76,7 +76,7 @@ export class SubImages extends Component {
                                     minHeight: 280,
                                     margin: 'auto',
                                     backgroundColor: `#${i}${i}ffff`
-                                }}></div>
+                                }} alt="test"> </div>
                                 {/* {d.SUBTITLE} */}
                             </Col>
                         })}
