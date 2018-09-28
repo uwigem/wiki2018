@@ -45,12 +45,15 @@ export class HeaderBar extends Component {
      * updateDim will update the dimensions of the page that are stored in state.
      */
     updateDim = () => {
-        if (window.innerWidth <= this.minWidth && !this.state.minimized) {
-            this.setState({ minimized: true });
-        } else if (window.innerWidth > this.minWidth && this.state.minimized) {
-            this.setState({ minimized: false, drawerOpen: false });
+        if (this.mounted) {
+            if (window.innerWidth <= this.minWidth && !this.state.minimized) {
+                this.setState({ minimized: true });
+            } else if (window.innerWidth > this.minWidth && this.state.minimized) {
+                this.setState({ minimized: false, drawerOpen: false });
+            }
+            this.setState({ innerHeight: window.innerHeight });
         }
-        this.setState({ innerHeight: window.innerHeight });
+
     }
 
     // Set's the image loaded state to be true
@@ -62,6 +65,11 @@ export class HeaderBar extends Component {
         if (window.innerWidth <= this.minWidth) {
             this.setState({ minimized: true });
         }
+        this.mounted = true;
+    }
+
+    componentWillUnmount() {
+        this.mounted = false;
     }
 
     // Will move the background based on the follow numbers
