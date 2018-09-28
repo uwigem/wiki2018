@@ -162,6 +162,10 @@ export class Team extends Component {
                                             break;
                                         case "Advisers":
                                             filter = d.FILTER && d.FILTER.indexOf('Adviser') === -1;
+                                            break;
+                                        default:
+                                            filter = d.FILTER && (d.FILTER.indexOf('Adviser') !== -1 || d.FILTER.indexOf('Leadership') !== -1)
+                                            break;
                                     }
                                     if (filter) {
                                         return null;
