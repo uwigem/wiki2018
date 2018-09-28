@@ -204,7 +204,7 @@ export class Team extends Component {
                                                 height: `${this.state.cardBody}%`,
                                                 backgroundColor: 'white',
                                                 background: `url(${d.PICTURE}) no-repeat ${x}% ${y}%`,
-                                                backgroundSize: 'cover'
+                                                backgroundSize: '100% auto'
                                             }}></div></Fade>
                                             <div style={{
                                                 position: 'absolute',
