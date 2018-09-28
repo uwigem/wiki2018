@@ -12,6 +12,8 @@ const nSupp = (a) => {
 You may continue to use the site, but please note that there will be bugs and poor performance. Sorry for any inconvenience, and thank you!`);
 }
 
+document.title = "Washington iGEM";
+
 switch (browser && browser.name) {
     case 'edge':
         nSupp(browser.name);
