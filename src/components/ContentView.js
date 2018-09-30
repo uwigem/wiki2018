@@ -15,6 +15,7 @@ import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import ReactDOM from 'react-dom';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Spybar } from './Spybar';
+import { Tabs } from './Tabs';
 
 configureAnchors({ offset: -64, scrollDuration: 1000 }); // -18 for hide, -64 for no hide
 
@@ -267,6 +268,16 @@ export class ContentView extends Component {
                     height: 5,
                     backgroundColor: '#420dab'
                 }}> </div>;
+                break;
+            case "TAB":
+                let tabData = data.split("===").slice(1);
+                let tabObjs = tabData.map(d => {
+                    let dSplit = d.split('\n');
+                    let title = dSplit[1]
+                    let data = dSplit.slice(2).join('\n');
+                    return { title, data };
+                });
+                returnDiv = <div><Tabs tabObjs={tabObjs} /></div>
                 break;
             default:
                 returnDiv = <div>stub div</div>;
