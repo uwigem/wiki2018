@@ -41,8 +41,7 @@ export class Tabs extends Component {
 
     render() {
         let it = this.state.tabObjs;
-        console.log(it);
-        return <div style={{ marginBottom: 20 }}><AppBar position="static">
+        return <div style={{ marginTop: 20, marginBottom: 20 }}><AppBar position="static">
             <TabsMUI value={this.state.value} onChange={this.handleChange}>
                 {it.map((d, i) => <Tab key={'tab' + i} value={i} label={d.title} />)}
             </TabsMUI>

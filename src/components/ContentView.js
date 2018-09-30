@@ -16,6 +16,7 @@ import ReactDOM from 'react-dom';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Spybar } from './Spybar';
 import { Tabs } from './Tabs';
+import { PDF } from './PDF';
 
 configureAnchors({ offset: -64, scrollDuration: 1000 }); // -18 for hide, -64 for no hide
 
@@ -277,8 +278,11 @@ export class ContentView extends Component {
                     let data = dSplit.slice(2).join('\n');
                     return { title, data };
                 });
-                console.log('tabobjs');
                 returnDiv = <div><Tabs tabObjs={tabObjs} /></div>
+                break;
+            case "PDF":
+                let pdfLink = splitData[1];
+                returnDiv = <div style={{ margin: '0', textAlign: 'center' }}><PDF pdfLink={pdfLink} /></div>
                 break;
             default:
                 returnDiv = <div>stub div</div>;
