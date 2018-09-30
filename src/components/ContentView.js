@@ -277,6 +277,7 @@ export class ContentView extends Component {
                     let data = dSplit.slice(2).join('\n');
                     return { title, data };
                 });
+                console.log('tabobjs');
                 returnDiv = <div><Tabs tabObjs={tabObjs} /></div>
                 break;
             default:

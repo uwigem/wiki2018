@@ -36,11 +36,12 @@ export class Tabs extends Component {
     }
 
     componentWillReceiveProps({ tabObjs }) {
-        this.setState({ tabObjs })
-
+        this.setState({ tabObjs });
     }
+
     render() {
         let it = this.state.tabObjs;
+        console.log(it);
         return <div style={{ marginBottom: 20 }}><AppBar position="static">
             <TabsMUI value={this.state.value} onChange={this.handleChange}>
                 {it.map((d, i) => <Tab key={'tab' + i} value={i} label={d.title} />)}
@@ -55,7 +56,7 @@ export class Tabs extends Component {
                     padding: 8 * 3,
                     display: this.state.value === i ? '' : 'none',
                     transition: 'display 0.5s'
-                }}>
+                }} key={'tabC' + i}>
                     <Fade clear when={this.state.value === i} duration={500} cascade>
                         {remark().use(reactRenderer).processSync(d.data).contents}
                     </Fade>
