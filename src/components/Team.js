@@ -27,7 +27,8 @@ export class Team extends Component {
             "Adviser",
             "Leadership",
             "Collaborations",
-            "Presenters"];
+            "Presenters",
+            "PIs"];
 
         window.addEventListener("resize", this.updateDim);
         this.maxThres = 1400;
@@ -35,7 +36,7 @@ export class Team extends Component {
         this.minminThres = 380;
         this.mainColor = '#420dab';
 
-        this.sections = ["Leadership", "Members", "Advisers"];
+        this.sections = ["Leadership", "Members", "Advisers", "PIs"];
     }
 
     /**
@@ -158,10 +159,13 @@ export class Team extends Component {
                                             filter = d.FILTER && d.FILTER.indexOf(sect) === -1;
                                             break;
                                         case "Members":
-                                            filter = d.FILTER && (d.FILTER.indexOf('Adviser') !== -1 || d.FILTER.indexOf('Leadership') !== -1)
+                                            filter = d.FILTER && (d.FILTER.indexOf('Adviser') !== -1 || d.FILTER.indexOf('Leadership') !== -1 || d.FILTER.indexOf('PIs') !== -1)
                                             break;
                                         case "Advisers":
                                             filter = d.FILTER && d.FILTER.indexOf('Adviser') === -1;
+                                            break;
+                                        case "PIs":
+                                            filter = d.FILTER && d.FILTER.indexOf('PIs') === -1;
                                             break;
                                         default:
                                             filter = d.FILTER && (d.FILTER.indexOf('Adviser') !== -1 || d.FILTER.indexOf('Leadership') !== -1)
