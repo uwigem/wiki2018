@@ -17,6 +17,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Spybar } from './Spybar';
 import { Tabs } from './Tabs';
 import { PDF } from './PDF';
+import { GalleryContent } from './GalleryContent';
 
 configureAnchors({ offset: -64, scrollDuration: 1000 }); // -18 for hide, -64 for no hide
 
@@ -284,6 +285,9 @@ export class ContentView extends Component {
                 let pdfLink = splitData[1];
                 returnDiv = <div style={{ margin: '0', textAlign: 'center' }}><PDF pdfLink={pdfLink} /></div>
                 break;
+            case "GALLERY":
+                let restParamsGallery = splitData.slice(1);
+                returnDiv = <div><GalleryContent restParams={restParamsGallery} /></div>
             default:
                 returnDiv = <div>stub div</div>;
                 break;
