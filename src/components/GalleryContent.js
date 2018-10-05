@@ -9,38 +9,48 @@ import Lightbox from 'react-images';
  * @class
  */
 export class GalleryContent extends Component {
-
-    constructor() {
-        super();
-        this.state = { currentImage: 0 };
-        this.closeLightbox = this.closeLightbox.bind(this);
-        this.openLightbox = this.openLightbox.bind(this);
-        this.gotoNext = this.gotoNext.bind(this);
-        this.gotoPrevious = this.gotoPrevious.bind(this);
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentImage: 0,
+            photos: props.photos
+        };
     }
-    openLightbox(event, obj) {
+
+    /** Begin boilerplate code */
+    openLightbox = (event, obj) => {
         this.setState({
             currentImage: obj.index,
             lightboxIsOpen: true,
         });
     }
-    closeLightbox() {
+
+    closeLightbox = () => {
         this.setState({
             currentImage: 0,
             lightboxIsOpen: false,
         });
     }
-    gotoPrevious() {
+
+    gotoPrevious = () => {
         this.setState({
             currentImage: this.state.currentImage - 1,
         });
     }
-    gotoNext() {
+
+    gotoNext = () => {
         this.setState({
             currentImage: this.state.currentImage + 1,
         });
     }
+    /** End boilerplate code */
+
     render() {
+        console.log(this.state.photos);
+        // console.log(this.props.restParams);
+
+        // set template data and have componentreceivedprops update for the database
+        let photos = [];
         return <div>
             <Gallery photos={photos} onClick={this.openLightbox} />
             <Lightbox images={photos}

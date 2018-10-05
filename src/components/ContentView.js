@@ -287,7 +287,21 @@ export class ContentView extends Component {
                 break;
             case "GALLERY":
                 let restParamsGallery = splitData.slice(1);
-                returnDiv = <div><GalleryContent restParams={restParamsGallery} /></div>
+                let restParamsArrGal = [];
+                restParamsGallery.forEach(d => {
+                    let KVs = d.split(";");
+                    let obj = {};
+                    KVs.forEach(e => {
+                        let KV = e.split("=")
+                        let K = KV[0].trim();
+                        let V = KV[1].trim();
+                        obj[K] = V;
+                    });
+                    restParamsArrGal.push(obj);
+                });
+                let photos = restParamsGallery.map(d => d.IMAGE);
+                returnDiv = <div><GalleryContent photos={photos} restParams={restParamsArrGal} /></div>;
+                break;
             default:
                 returnDiv = <div>stub div</div>;
                 break;
