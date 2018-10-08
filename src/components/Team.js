@@ -15,7 +15,7 @@ export class Team extends Component {
             data: [],
             loaded: [],
             filterTo: 'All',
-            cardBody: 71
+            cardBody: 80
         }
 
         this.filteredCategories = ["All",
@@ -37,6 +37,8 @@ export class Team extends Component {
         this.mainColor = '#420dab';
 
         this.sections = ["Leadership", "Members", "Advisers", "PIs"];
+        this.minBody = 70;
+        this.maxBody = 75;
     }
 
     /**
@@ -44,9 +46,9 @@ export class Team extends Component {
      */
     updateDim = () => {
         if ((window.innerWidth < this.minminThres || (window.innerWidth <= this.maxThres && window.innerWidth > this.minThres)) && !this.state.smallerCardBody) {
-            this.setState({ smallerCardBody: true, cardBody: 55 });
+            this.setState({ smallerCardBody: true, cardBody: this.minBody });
         } else if ((window.innerWidth >= this.minminThres && (window.innerWidth > this.maxThres || window.innerWidth <= this.minThres)) && this.state.smallerCardBody) {
-            this.setState({ smallerCardBody: false, cardBody: 71 });
+            this.setState({ smallerCardBody: false, cardBody: this.maxBody });
         }
     }
 
@@ -98,9 +100,9 @@ export class Team extends Component {
         })
 
         if ((window.innerWidth < this.minminThres || (window.innerWidth <= this.maxThres && window.innerWidth > this.minThres))) {
-            this.setState({ smallerCardBody: true, cardBody: 55 });
+            this.setState({ smallerCardBody: true, cardBody: this.minBody });
         } else if ((window.innerWidth >= this.minminThres && (window.innerWidth > this.maxThres || window.innerWidth <= this.minThres))) {
-            this.setState({ smallerCardBody: false, cardBody: 71 });
+            this.setState({ smallerCardBody: false, cardBody: this.maxBody });
         }
     }
 
@@ -180,13 +182,15 @@ export class Team extends Component {
                                         textAlign: 'center',
                                         marginTop: 10,
                                         transition: 'height 0.5s',
-                                        marginBottom: 10
+                                        marginBottom: 10,
+                                        maxWidth: 380,
+                                        minWidth: 280,
                                     }}><div style={{
                                         width: '100%',
-                                        maxWidth: 402,
-                                        minWidth: 180,
+                                        maxWidth: 380,
+                                        minWidth: 280,
                                         height: 'auto',
-                                        minHeight: 280,
+                                        minHeight: 380,
                                         backgroundColor: 'white',
                                         margin: 'auto',
                                         borderRadius: 20,
@@ -208,7 +212,7 @@ export class Team extends Component {
                                                 height: `${this.state.cardBody}%`,
                                                 backgroundColor: 'white',
                                                 background: `url(${d.PICTURE}) no-repeat ${x}% ${y}%`,
-                                                backgroundSize: '100% auto'
+                                                backgroundSize: '100%'
                                             }}></div></Fade>
                                             <div style={{
                                                 position: 'absolute',

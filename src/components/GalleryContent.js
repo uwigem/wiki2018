@@ -41,6 +41,7 @@ export class GalleryContent extends Component {
         });
     }
     render() {
+        let photos = [];
         return <div>
             <Gallery photos={photos} onClick={this.openLightbox} />
             <Lightbox images={photos}
