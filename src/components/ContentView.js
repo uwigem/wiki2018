@@ -295,7 +295,7 @@ export class ContentView extends Component {
                         let KV = e.split("=")
                         let K = KV[0].trim();
                         let V = KV[1].trim();
-                        if (K == "width" || K == "height") {
+                        if (K === "width" || K === "height") {
                             V = Number(V);
                         }
                         obj[K] = V;

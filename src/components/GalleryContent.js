@@ -50,9 +50,7 @@ export class GalleryContent extends Component {
     }
 
     render() {
-        console.log(this.state.photos);
         let { photos, currentImage } = this.state;
-        // photos = [];
         return <div>
             <Gallery photos={photos} onClick={this.openLightbox} />
             <Lightbox images={photos}
