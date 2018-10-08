@@ -295,12 +295,14 @@ export class ContentView extends Component {
                         let KV = e.split("=")
                         let K = KV[0].trim();
                         let V = KV[1].trim();
+                        if (K == "width" || K == "height") {
+                            V = Number(V);
+                        }
                         obj[K] = V;
                     });
                     restParamsArrGal.push(obj);
                 });
-                let photos = restParamsGallery.map(d => d.IMAGE);
-                returnDiv = <div><GalleryContent photos={photos} restParams={restParamsArrGal} /></div>;
+                returnDiv = <div><GalleryContent photos={restParamsArrGal} /></div>;
                 break;
             default:
                 returnDiv = <div>stub div</div>;

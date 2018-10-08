@@ -43,21 +43,23 @@ export class GalleryContent extends Component {
             currentImage: this.state.currentImage + 1,
         });
     }
+
     /** End boilerplate code */
+    componentWillReceiveProps({ photos }) {
+        this.setState({ photos });
+    }
 
     render() {
         console.log(this.state.photos);
-        // console.log(this.props.restParams);
-
-        // set template data and have componentreceivedprops update for the database
-        let photos = [];
+        let { photos, currentImage } = this.state;
+        // photos = [];
         return <div>
             <Gallery photos={photos} onClick={this.openLightbox} />
             <Lightbox images={photos}
                 onClose={this.closeLightbox}
                 onClickPrev={this.gotoPrevious}
                 onClickNext={this.gotoNext}
-                currentImage={this.state.currentImage}
+                currentImage={currentImage}
                 isOpen={this.state.lightboxIsOpen}
             />
         </div>
