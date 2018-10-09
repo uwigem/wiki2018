@@ -177,12 +177,11 @@ export class Team extends Component {
                                         return null;
                                     }
                                     let x = d.XPOS ? d.XPOS : 50;
-                                    let y = d.YPOS ? d.YPOS : 50;
+                                    let y = d.YPOS ? d.YPOS : 20;
                                     return <Col md={3} key={'subimg' + i} style={{
                                         textAlign: 'center',
-                                        marginTop: 10,
+                                        margin: 10,
                                         transition: 'height 0.5s',
-                                        marginBottom: 10,
                                         maxWidth: 380,
                                         minWidth: 280,
                                     }}><div style={{
