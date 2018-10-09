@@ -131,6 +131,7 @@ export class Team extends Component {
                 return 0;
             }
         });
+
         return <div>
             <Grid fluid style={{ padding: 0, margin: 20, marginTop: 30, marginBottom: 20 }}>
                 <Fade clear cascade>
@@ -203,7 +204,7 @@ export class Team extends Component {
                                         onMouseEnter={() => this.hover(i)}
                                         onMouseLeave={() => this.removeHover(i)}
                                     >
-                                            <Fade when={this.state.loaded[i]}><div style={{
+                                            <Fade when={this.state.loaded[i] === true}><div style={{
                                                 position: 'absolute',
                                                 width: '100%',
                                                 top: 0,
