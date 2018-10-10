@@ -192,16 +192,20 @@ export class Team extends Component {
                                         minWidth: 280,
                                         height: 'auto',
                                         minHeight: 380,
-                                        backgroundColor: 'white',
+                                        backgroundColor: d.PICTURE === "http://2018.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png" && this.state.loaded[i] ? 'lightgray' : 'white',
                                         margin: 'auto',
                                         borderRadius: 20,
                                         overflow: 'hidden',
-                                        cursor: 'pointer',
+                                        cursor: d.BIO === '' ? 'normal' : 'pointer',
                                         position: 'relative',
                                         filter: (d.FILTER && d.FILTER.indexOf(this.state.filterTo) !== -1) || this.state.filterTo === "All" ? '' : 'blur(5px)',
                                         boxShadow: '5px 5px 5px #999999',
-                                        transition: 'filter 0.2s'
-                                    }} onClick={() => this.toggleExpand(i)}
+                                        transition: 'filter 0.2s, background-color: 0.2s'
+                                    }} onClick={() => {
+                                        if (d.BIO !== '') {
+                                            this.toggleExpand(i);
+                                        }
+                                    }}
                                         onMouseEnter={() => this.hover(i)}
                                         onMouseLeave={() => this.removeHover(i)}
                                     >
