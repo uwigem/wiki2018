@@ -179,6 +179,7 @@ export class Team extends Component {
                                     }
                                     let x = d.XPOS ? d.XPOS : 50;
                                     let y = d.YPOS ? d.YPOS : 20;
+                                    let size = d.CUSTSIZE ? d.CUSTSIZE : 100;
                                     return <Col md={3} key={'subimg' + i} style={{
                                         textAlign: 'center',
                                         margin: 10,
@@ -212,7 +213,7 @@ export class Team extends Component {
                                                 height: `${this.state.cardBody}%`,
                                                 backgroundColor: 'white',
                                                 background: `url(${d.PICTURE}) no-repeat ${x}% ${y}%`,
-                                                backgroundSize: '100%'
+                                                backgroundSize: `${size}%`
                                             }}></div></Fade>
                                             <div style={{
                                                 position: 'absolute',
