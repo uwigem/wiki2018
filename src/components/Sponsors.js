@@ -9,7 +9,6 @@ export class Sponsors extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            expanded: [],
             hover: [],
             data: [],
             loaded: [],
@@ -49,15 +48,6 @@ export class Sponsors extends Component {
         } else if ((window.innerWidth >= this.minminThres && (window.innerWidth > this.maxThres || window.innerWidth <= this.minThres)) && this.state.smallerCardBody) {
             this.setState({ smallerCardBody: false, cardBody: this.maxBody });
         }
-    }
-
-    /**
-     * toggleExpand toggles the expansion of the description of user at position i
-     */
-    toggleExpand = (i) => {
-        let tempExp = this.state.expanded;
-        tempExp[i] = !tempExp[i];
-        this.setState({ expanded: tempExp });
     }
 
     /**
@@ -207,46 +197,12 @@ export class Sponsors extends Component {
                                                 width: '100%',
                                                 bottom: 0,
                                                 left: 0,
-                                                height: this.state.expanded[i] ? '100%' : `${100 - this.state.cardBody}%`,
-                                                backgroundColor: this.state.hover[i] || this.state.expanded[i] ? this.mainColor : 'white',
+                                                height: `${100 - this.state.cardBody}%`,
+                                                backgroundColor: this.state.hover[i] ? this.mainColor : 'white',
                                                 transition: 'height 0.5s, background-color 0.5s, color 0.5s',
-                                                color: this.state.hover[i] || this.state.expanded[i] ? 'white' : 'black',
+                                                color: this.state.hover[i] ? 'white' : 'black',
                                             }} className={"scrollBox"}>
-                                                <Scrollbars style={{
-                                                    position: 'absolute',
-                                                    margin: 'auto',
-                                                    left: 0,
-                                                    right: 0,
-                                                    textAlign: 'center',
-                                                    height: '100%',
-                                                    opacity: this.state.expanded[i] ? 1 : 0
-                                                }}>
-                                                    <Fade duration={500} clear when={this.state.expanded[i] === true}>
-                                                        <div style={{
-                                                            padding: 20,
-                                                            fontSize: 16,
-                                                        }}>{d.BIO.split("\\n").map((e, j) => {
-                                                            return <p key={d.NAME + 'spl' + j} style={{ marginTop: 10 }}>{e.trim()}</p>
-                                                        })}
-
-                                                            <div style={{
-                                                                color: 'white',
-                                                                padding: 0,
-                                                                marginTop: 10
-                                                            }}>
-                                                                {d.GITHUB &&
-                                                                    <a href={d.GITHUB} target="_blank" className="icon">
-                                                                        <FontAwesomeIcon icon={faGithub} size={"2x"} />
-                                                                    </a>}
-                                                                {d.LINKEDIN &&
-                                                                    <a href={d.LINKEDIN} target="_blank" className="icon">
-                                                                        <FontAwesomeIcon icon={faLinkedin} size={"2x"} />
-                                                                    </a>}
-                                                            </div>
-                                                        </div>
-                                                    </Fade>
-                                                </Scrollbars>
-                                                <Fade duration={500} clear when={this.state.expanded[i] !== true}>
+                                                <Fade duration={500} clear>
                                                     <div style={{
                                                         position: 'absolute',
                                                         textAlign: 'center',
