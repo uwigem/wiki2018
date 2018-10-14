@@ -18,6 +18,7 @@ import { Spybar } from './Spybar';
 import { Tabs } from './Tabs';
 import { PDF } from './PDF';
 import { GalleryContent } from './GalleryContent';
+import { Sponsors } from './Sponsors';
 
 configureAnchors({ offset: -64, scrollDuration: 1000 }); // -18 for hide, -64 for no hide
 
@@ -243,6 +244,22 @@ export class ContentView extends Component {
                     restParamsArr.push(obj);
                 })
                 returnDiv = <div><Team data={restParamsArr} /></div>
+                break;
+            case "SPONSORS":
+                let restParamsSpons = splitData.slice(1);
+                let restParamsArrSpons = [];
+                restParamsSpons.forEach(d => {
+                    let KVs = d.split(";");
+                    let obj = {};
+                    KVs.forEach(e => {
+                        let KV = e.split("=")
+                        let K = KV[0].trim();
+                        let V = KV[1].trim();
+                        obj[K] = V;
+                    });
+                    restParamsArrSpons.push(obj);
+                })
+                returnDiv = <div><Sponsors data={restParamsArrSpons} /></div>
                 break;
             case "SUBIMAGES":
                 let maxImagesPerRow = Number(splitData[1].split("=")[1].trim());
