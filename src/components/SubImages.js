@@ -69,7 +69,9 @@ export class SubImages extends Component {
                                                     backgroundColor: 'white',
                                                     background: `url(${d.PICTURE}) no-repeat ${x}% ${y}%`,
                                                     backgroundSize: 'cover',
-                                                    cursor: 'pointer'
+                                                    cursor: 'pointer',
+                                                    boxShadow: '5px 5px 10px gray',
+                                                    marginBottom: 10
                                                 }} className={'linkSubImage'}></div>
                                                 <div style={{
                                                     padding: 5,
@@ -88,6 +90,8 @@ export class SubImages extends Component {
                                                 backgroundColor: 'white',
                                                 background: `url(${d.PICTURE}) no-repeat ${x}% ${y}%`,
                                                 backgroundSize: 'cover',
+                                                boxShadow: '5px 5px 10px gray',
+                                                marginBottom: 10
                                             }}></div>
                                             <div style={{ padding: 5, fontSize: '10pt' }}>{d.DESCRIPTION}</div>
                                         </div>

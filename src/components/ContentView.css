@@ -13,3 +13,19 @@
 curr {
     color: blue;
 }
+
+.md a {
+    color: #420dab;
+}
+
+.md a:visited {
+    color: #420dab;
+}
+
+.md h2 {
+    font-size: 25px;
+}
+
+.md h3 {
+    font-size: 21px;
+}

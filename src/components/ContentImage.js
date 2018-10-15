@@ -38,6 +38,6 @@ export class ContentImage extends Component {
     }
 
     render() {
-        return <div style={{ width: '100%', textAlign: 'center' }}><img src={this.props.imageUrl} alt={this.props.alt} style={this.state.styles} /></div>
+        return <div style={{ marginTop: 20, marginBottom: 20, width: '100%', textAlign: 'center' }}><img src={this.props.imageUrl} alt={this.props.alt} style={this.state.styles} /></div>
     }
 }
