@@ -467,8 +467,8 @@ var navbarData = [
     },
     {
         title: "Human Practices",
-        names: ["Human Practices", "HP_Design", "Collaborations", "Education & Engagement", "Entrepreneurship"],
-        links: ["/Human_Practices", "/HP_Design", "/Collaborations", "/Public_Engagement", "/Entrepreneurship"]
+        names: ["Human Practices", "Collaborations", "Education & Engagement", "Entrepreneurship", "HP_Design", "Team Development"],
+        links: ["/Human_Practices", "/Collaborations", "/Public_Engagement", "/Entrepreneurship", "/HP_Design", "/Team_Development"]
     },
     {
         title: "Safety",

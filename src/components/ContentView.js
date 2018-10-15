@@ -553,7 +553,7 @@ export class ContentView extends Component {
 
         // render everything-- if edit page then we have extra things for the user to create pages.
         return (
-            <div style={{ marginTop: 0 }}> {/*style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}*/}
+            <div style={{ marginTop: 0, marginBottom: 40 }}> {/*style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}*/}
                 {((this.props.edit && this.state.canEdit) || !this.props.edit) &&
                     <div>
                         {this.props.edit &&
