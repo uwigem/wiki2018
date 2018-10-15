@@ -116,6 +116,8 @@ export class HeaderBar extends Component {
         let minTitleHeight = p.MINTITLEHEIGHT ? p.MINTITLEHEIGHT : 8;
         let mPT = p.MINPADDINGTOP ? p.MINPADDINGTOP : 80;
         let pT = p.PADDINGTOP ? p.PADDINGTOP : 120;
+        let x = p.XPOS ? p.XPOS : 50;
+        let y = p.YPOS ? p.YPOS : 50;
         return <div>
             <Fade when={this.state.imageLoaded}>
                 <div style={{
@@ -132,7 +134,7 @@ export class HeaderBar extends Component {
                         width: '100%',
                         height: '100%',
                         backgroundAttachment: 'fixed',
-                        background: `url(${bg})`,
+                        background: `url(${bg}) ${x}% ${y}%`,
                         backgroundColor: `hsla(0,0%,${bgLightness}%,${bgOpacity})`,
                         backgroundBlendMode: 'overlay',
                         backgroundSize: 'cover',

@@ -77,6 +77,21 @@ var contentData = [{
         "data": "ACCORDION\n===\nTITLE OF ACCORDION 1\n![image alt text goes here](http://2017.igem.org/wiki/images/f/f6/T--Washington--DesignEnclosure.jpg)\n\n\ndescription lorem ipsum blah blah\n===\nTITLE OF ACCORDION 2\n![image alt text goes here](http://2017.igem.org/wiki/images/f/f6/T--Washington--DesignEnclosure.jpg)\n\n\ndescription lorem ipsum blah blah",
         "type": "SPECIAL"
     }, {
+        "data": "Insert text",
+        "type": "MARKDOWN"
+    }, {
+        "data": "Insert text",
+        "type": "MARKDOWN"
+    }, {
+        "data": "abc",
+        "type": "MARKDOWN"
+    }, {
+        "data": "dc",
+        "type": "MARKDOWN"
+    }, {
+        "data": "Insert text",
+        "type": "MARKDOWN"
+    }, {
         "data": "# Overview\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur fermentum tortor vitae cursus. Ut convallis ultricies quam, non viverra orci auctor non. In auctor gravida interdum. Pellentesque nec ligula vehicula, porttitor tellus eu, iaculis dolor. Morbi eget faucibus sapien. Donec pretium pellentesque tempus. Aliquam ut ipsum feugiat, dapibus nibh ac, mattis est. Suspendisse a convallis ipsum. Vestibulum erat sem, aliquam mattis lorem id, ornare euismod magna.\n\nDuis laoreet magna at vehicula luctus. Quisque congue purus maximus eros egestas posuere. In eu felis sed sem aliquam dignissim sed vitae risus. Etiam eget tellus dictum enim ultrices gravida eget in ex. Etiam viverra nulla vel varius malesuada. Mauris iaculis lobortis diam, sed eleifend orci vulputate aliquet. Aliquam scelerisque tempus nisl. Integer pharetra, nisl quis feugiat scelerisque, ex justo pretium purus, rhoncus aliquet diam sem eu ligula. Aenean eu turpis vitae neque molestie ornare ac in sem. Nam vitae malesuada velit. Quisque eget bibendum mi. Fusce vitae aliquam eros. Curabitur sodales nibh vitae euismod scelerisque.\n\nAenean at urna vel justo eleifend tempor. Suspendisse rutrum ut odio a condimentum. Nullam vel ex tempus, efficitur justo malesuada, maximus nisl. Donec tincidunt eros et auctor rhoncus. Aliquam erat volutpat. Maecenas eget tempor dolor. Fusce varius quam id nisl scelerisque, eget lobortis enim ornare. Vestibulum ex nisi, convallis et augue sed, dictum ultricies magna. Aliquam erat volutpat. Proin tincidunt tortor sit amet bibendum tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam faucibus lectus vitae augue volutpat, vel lacinia nisi aliquet.\n\nVestibulum quis purus vulputate, imperdiet mauris in, congue mi. Sed varius sapien quis rhoncus ultrices. Donec nec molestie libero. Praesent fringilla sagittis arcu, non hendrerit sem iaculis et. Ut hendrerit accumsan ex, ac euismod enim maximus vitae. Vivamus vel dui arcu. Maecenas id felis eget enim tincidunt scelerisque. Nam non pulvinar nisl. Morbi urna libero, elementum eu aliquet non, pellentesque semper nunc. Vestibulum eros nunc, dapibus vel mi eget, scelerisque vehicula augue. Cras at nisi at elit gravida malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\nVivamus facilisis justo nisl, eget commodo neque aliquam eu. Morbi ut tempus metus. In sodales commodo tortor, eu finibus odio hendrerit vel. Phasellus aliquet auctor sodales. Etiam vitae justo blandit, pulvinar massa id, vulputate nulla. Donec gravida aliquam purus, ac dapibus leo mollis ut. Pellentesque tempus, augue a efficitur vehicula, libero augue vehicula nibh, vitae posuere magna mi at nunc. Donec varius augue vitae tortor ultricies, nec pellentesque odio condimentum. Cras scelerisque viverra tempus. Donec in arcu a urna eleifend eleifend vitae ac arcu. Proin sed pretium magna.",
         "type": "MARKDOWN"
     }, {
@@ -334,17 +349,44 @@ var contentData = [{
         "data": "HEADER\nTEXT=PUBLIC ENGAGEMENT\nBACKGROUND=http://2018.igem.org/wiki/images/7/7b/T--Washington--TEAMBanner.png\nBACKGROUNDOPACITY=0.60\nBACKGROUNDLIGHTNESS=10\nTEXTHEIGHT=8\nMINTITLEHEIGHT=6\nMINPADDINGTOP=120\nSUBTITLEHEIGHT=7\nBLUR=3",
         "type": "SPECIAL"
     }, {
-        "data": "SECTION\nlorem\nloremip",
+        "data": "SECTION\noverallfocus\nOverall Focus",
         "type": "SPECIAL"
     }, {
-        "data": "# Lorem\n\nLorem ipsum",
+        "data": "# Overall Focus",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SECTION\nevents\nEvents",
+        "type": "SPECIAL"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Events",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nbooklet\nSynthetic Biology Activity Booklet",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Synthetic Biology Activity Booklet\n\nWashington iGEM’s Synthetic Biology Activity Booklet aims to embrace the spirit of iGEM by making scientific learning more accessible internationally. We spent more than 100 hours writing and graphically illustrating our 100+ page activity booklet. Although none of the members who wrote and illustrated this booklet are studying graphic design, we taught ourselves Adobe Illustrator to create informative and eye-catching visuals to make learning easier, especially for English Language Learners and children with disabilities. \n\nAfter writing our activity booklet, we collaborated with other iGEM teams to translate our booklet into languages such as Spanish, Vietnamese, French, and Hindi. Through the translations, we hope to provide copies of our activities to students in their native language, both in the Seattle area (for English Language Learners) and internationally.\n\nAdditionally, our curriculum has already been distributed to several schools in the Seattle area as well as a school in India. We will also be meeting a UW professor in November to review our curriculum and ensure that it is ideal for effectively teaching synthetic biology to students from diverse backgrounds.\n\n## Quotes from Some Writers of the Booklet:\n* \"I don’t know about you guys, but I couldn’t read up to the fourth grade because I’m dyslexic. I would have loved having visual activities when I was younger. This is why I am so proud of our lessons for younger kids like the Lego DNA/Jellybean Peptide Activity and the Gel Electrophoresis Bunny Activity. These activities do an amazing job illustrating the concepts, allowing people who have a hard time reading have a better understanding of what is going on since they have visual diagrams and clues to follow along with while doing the activity.\" ~ Aimee Ellis\n\n* \"As awesome as synthetic biology is, or more broadly speaking - biology, it might not be for everyone. If you want to engage an audience you have to make them actively involved and not just lecture at them - this is especially true for younger groups. There are lots of textbooks out there that can teach people about biology, but not a lot of them are meant for the purpose of active learning. Our activity booklet is meant to get students actively involved and excited about biology no matter what kind of background they come from. Biology can be and IS for everyone.\" ~ Aerilynn Nguyen\n\n* \"Having grown up in a suburban “bubble” in the Seattle metropolitan area, I was shocked to learn about the inequities in the education system so close to my home. As I was looking at the statistics for students that received free and reduced lunch at potential schools that we were going to visit, the website would often compare the high percentage at those schools with the low percentage of students that needed free or reduced lunch at schools in the school district that I attended. This astonishing revelation was at the core of my desire to make scientific learning more equally accessible with the formation of this booklet.\" ~ Ishira Parikh\n\n## External links to the booklet (hosted on Google Drive)\n* [English](https://drive.google.com/file/d/1QTV1T5mVoGVDJiceAqnrysdved8rScxp/view)\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SECTION\nsitdownwithsynbio\nSit Down with Synbio",
+        "type": "SPECIAL"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Sit Down with Synbio",
         "type": "MARKDOWN"
     }],
     "isContent": true,
     "pageTitle": "/Public_Engagement"
 }, {
     "content": [{
-        "data": "HEADER\nTEXT=ENTREPRENEURSHIP\nBACKGROUND=http://2018.igem.org/wiki/images/7/7b/T--Washington--TEAMBanner.png\nBACKGROUNDOPACITY=0.60\nBACKGROUNDLIGHTNESS=10\nMINPADDINGTOP=120\nTEXTHEIGHT=9\nMINTITLEHEIGHT=5\nSUBTITLEHEIGHT=7\nBLUR=3",
+        "data": "HEADER\nTEXT=ENTREPRENEURSHIP\nBACKGROUND=http://2018.igem.org/wiki/images/8/80/T--Washington--Banner.png\nXPOS=50\nYPOS=25\nBACKGROUNDOPACITY=0.60\nBACKGROUNDLIGHTNESS=10\nMINPADDINGTOP=120\nTEXTHEIGHT=9\nMINTITLEHEIGHT=5\nSUBTITLEHEIGHT=7\nBLUR=3",
         "type": "SPECIAL"
     }, {
         "data": "SECTION\noverview\nOverview",
@@ -443,10 +485,40 @@ var contentData = [{
         "data": "HEADER\nTEXT=MEDAL REQUIREMENTS\nBACKGROUND=http://2018.igem.org/wiki/images/7/7b/T--Washington--TEAMBanner.png\nBACKGROUNDOPACITY=0.60\nBACKGROUNDLIGHTNESS=10\nTEXTHEIGHT=8\nSUBTITLEHEIGHT=7\nBLUR=3\nMINPADDINGTOP=120\nMINTITLEHEIGHT=5",
         "type": "SPECIAL"
     }, {
-        "data": "SECTION\nlorem\nloremip",
+        "data": "This year, we have completed the requirements to receive a gold medal, and are eligible for a number of special awards.",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SECTION\ngold\nGold",
         "type": "SPECIAL"
     }, {
-        "data": "# Lorem\n\nLorem ipsum",
+        "data": "# Gold\n\n✔ Integrated Human Practices - We engaged with stakeholders and the public and used what we learned to inform our project’s direction. Read more on our [Human Practices](http://2018.igem.org/Team:Washington/Human_Practices) page.\n\n✔ Model Your Project - Our project included a significant protein modeling component which tied in closely with our wetlab work. Learn more on our [Model](http://2018.igem.org/Team:Washington/Model) page.\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nsilver\nSilver",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Silver\n\n✔ Validated Part / Validated Contribution - We made four biobricks, some of which have characterization data. Visit our [Parts](http://2018.igem.org/Team:Washington/Parts) page to learn more.\n\n✔ Collaboration - We collaborated with multiple teams on InterLab, human practices, surveys, and through hosting the first-ever PNW iGEM Meetup. Read more on our [Collaborations](http://2018.igem.org/Team:Washington/Collaborations) page.\n\n✔ Human Practices Silver - We thought creatively and carefully about how our project could affect our world.  Read more on our [Human Practices](http://2018.igem.org/Team:Washington/Human_Practices) page.",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nbronze\nBronze",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Bronze\n\n✔ Registration and Giant Jamboree Attendance - We registered and are attending the Jamboree!\n\n✔ Competition Deliverables - We filled out our judging form and completed our wiki, poster, and presentation by the competition deadlines.\n\n✔ [Attributions](http://2018.igem.org/Team:Washington/Attributions) - Thank you again to everyone who helped us with our project!\n\n✔ Characterization / Contribution - We successfully completed the InterLab study, and our results are posted on our [InterLab page](http://2018.igem.org/Team:Washington/InterLab).",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nel_sp_awards\nEligible Special Awards",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Eligible Special Awards \n\n* Best Supporting Entrepreneurship Award\n* Best Model Award\n* Best Education & Public Engagement Award\n* Best Integrated Human Practices\n* Best Wiki\n* Best Poster\n* Best Presentation\n\n\n",
         "type": "MARKDOWN"
     }],
     "isContent": true,
@@ -461,6 +533,9 @@ var contentData = [{
     }, {
         "data": "# Intro\n\nIf a picture paints a thousand words, the motivation behind the design team was to paint our project as clearly as possible. Our aim was to create a team that would help bridge our team to the outside world – to both other scientists and non-scientific members of the community alike – to spread the knowledge of synthetic biology as well as our year-long research. This opportunity allowed us to be more conscientious of what we want our message to be and how to best portray that information for the intended audience.\n\nWe worked to illustrate materials for many events and projects throughout the year, from designing recruitment posters to creating the team logo, illustrating a logo and materials for the PNW Meetup, and illustrating the pages of the Outreach Booklet. We also made our project more presentable for the competition by designing and composing figures for the wiki and putting together the presentation poster. Ultimately, we formed a small team of scientists who were willing to teach themselves design skills using programs on Adobe such as Photoshop, Illustrator, and After Effects to undertake projects deemed valuable for sharing the story of CID dimerization and synthetic biology overall.",
         "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
     }, {
         "data": "SECTION\noutreachbooklet\nOutreach Booklet",
         "type": "SPECIAL"
@@ -484,6 +559,7 @@ var contentData = [{
     "isContent": false,
     "pageTitle": "/Team_Development"
 }]
+
 
 
 /**
