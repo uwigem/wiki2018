@@ -297,7 +297,7 @@ export class ContentView extends Component {
                     let data = dSplit.slice(2).join('\n');
                     return { title, data };
                 });
-                returnDiv = <div><Tabs tabObjs={tabObjs} /></div>
+                returnDiv = <div><Tabs tabObjs={tabObjs} updateDim={this.updateDim} /></div>
                 break;
             case "ACCORDION":
                 let accData = data.split("===").slice(1);

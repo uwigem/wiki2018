@@ -28,6 +28,7 @@ export class Tabs extends Component {
      * @param {number} value value of active tab selected
      */
     handleChange = (event, value) => {
+        this.props.updateDim();
         this.setState({ value });
     };
 
