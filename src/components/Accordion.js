@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AppBar from '@material-ui/core/AppBar';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -8,7 +7,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import remark from 'remark';
 import reactRenderer from 'remark-react';
-import Fade from 'react-reveal/Fade';
 import './Accordion.css';
 /**
  * Tabs is used for having markdown content within a few different tabs.
