@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
 import Fade from 'react-reveal/Fade';
+import './Tabs.css';
 
 /**
  * Tabs is used for having markdown content within a few different tabs.
@@ -59,7 +60,7 @@ export class Tabs extends Component {
                     lineHeight: 'normal',
                 }} key={'tabC' + i}>
                     <Fade clear when={this.state.value === i} duration={500} cascade>
-                        <div style={{ fontSize: '16px' }}>
+                        <div style={{ fontSize: '16px' }} className={"tabsContent"}>
                             {remark().use(reactRenderer).processSync(d.data).contents}
                         </div>
                     </Fade>
