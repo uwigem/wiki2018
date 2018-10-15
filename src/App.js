@@ -64,6 +64,15 @@ class App extends Component {
             "http://2018.igem.org/wiki/images/7/7d/T--Washington--VeraTeam.jpg",
             "http://2018.igem.org/wiki/images/0/0c/T--Washington--WilliamTeam.jpg",
             "http://2018.igem.org/wiki/images/4/40/T--Washington--YoshiTeam.jpg",
+            'http://2018.igem.org/wiki/images/3/3d/T--Washington--PNWMeetup.png',
+            "http://2018.igem.org/wiki/images/7/78/T--Washington--CollabKeynoteSpeech.png",
+            "http://2018.igem.org/wiki/images/2/2d/T--Washington--Panel.png",
+            "http://2018.igem.org/wiki/images/c/c0/T--Washington--Ingrid.png",
+            "http://2018.igem.org/wiki/images/5/5e/T--Washington--David.png",
+            'http://2018.igem.org/wiki/images/5/5b/T--Washington--CindyWu.png',
+            'http://2018.igem.org/wiki/images/4/45/T--Washington--Regina.png',
+            'http://2018.igem.org/wiki/images/e/ec/T--Washington--RoyaTalk.png',
+
         ]
     }
 
