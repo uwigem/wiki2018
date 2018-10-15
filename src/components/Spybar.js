@@ -70,9 +70,9 @@ export class Spybar extends Component {
         let maxLength;
         let x = this.state.x;
         if (x < 350) {
-            maxLength = 20;
+            maxLength = 16;
         } else if (x < 400) {
-            maxLength = 22;
+            maxLength = 18;
         } else if (x < 500) {
             maxLength = 25;
         } else if (x < 525) {

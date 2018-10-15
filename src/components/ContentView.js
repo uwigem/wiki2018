@@ -19,6 +19,7 @@ import { Tabs } from './Tabs';
 import { PDF } from './PDF';
 import { GalleryContent } from './GalleryContent';
 import { Sponsors } from './Sponsors';
+import { Accordion } from './Accordion';
 
 configureAnchors({ offset: -64, scrollDuration: 1000 }); // -18 for hide, -64 for no hide
 
@@ -297,6 +298,16 @@ export class ContentView extends Component {
                     return { title, data };
                 });
                 returnDiv = <div><Tabs tabObjs={tabObjs} /></div>
+                break;
+            case "ACCORDION":
+                let accData = data.split("===").slice(1);
+                let accObjs = accData.map(d => {
+                    let dSplit = d.split('\n');
+                    let title = dSplit[1]
+                    let data = dSplit.slice(2).join('\n');
+                    return { title, data };
+                });
+                returnDiv = <div><Accordion accObjs={accObjs} /></div>
                 break;
             case "PDF":
                 let pdfLink = splitData[1];
