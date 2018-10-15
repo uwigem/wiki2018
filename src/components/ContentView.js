@@ -403,6 +403,7 @@ export class ContentView extends Component {
                                 let listOfData = newContentData;
                                 listOfData.content.splice(index, 0, { type: "MARKDOWN", data: "Insert text" });
                                 this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
+                                this.props.setEdit(this.props.pageTitle, index)
                                 this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
                             }}>insert before</button>
 
@@ -410,6 +411,7 @@ export class ContentView extends Component {
                                 let listOfData = newContentData;
                                 listOfData.content.splice(index + 1, 0, { type: "MARKDOWN", data: "Insert text" });
                                 this.props.firebase.database().ref(`pageData/${this.pageIndex}`).set(listOfData);
+                                this.props.setEdit(this.props.pageTitle, index + 1);
                                 this.setState({ setEditData: null, tempEditContent: null, tempEditType: null });
                             }}>insert after</button>
 
@@ -502,6 +504,7 @@ export class ContentView extends Component {
     }
 
     render() {
+        // console.log(this.state);
         // Do initial calculations to check for spy content
 
         // console.log(this.state.spyPositions);
@@ -553,7 +556,7 @@ export class ContentView extends Component {
 
         // render everything-- if edit page then we have extra things for the user to create pages.
         return (
-            <div style={{ marginTop: 0, marginBottom: 40 }}> {/*style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}*/}
+            <div style={{ marginTop: 0, marginBottom: 50 }}> {/*style={{ marginTop: "100px", marginLeft: "5%", marginRight: "5%" }}*/}
                 {((this.props.edit && this.state.canEdit) || !this.props.edit) &&
                     <div>
                         {this.props.edit &&
