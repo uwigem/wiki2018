@@ -55,10 +55,12 @@ export class Tabs extends Component {
                     padding: 8 * 3,
                     display: this.state.value === i ? '' : 'none',
                     transition: 'display 0.5s',
-                    lineHeight: 'normal'
+                    lineHeight: 'normal',
                 }} key={'tabC' + i}>
                     <Fade clear when={this.state.value === i} duration={500} cascade>
-                        {remark().use(reactRenderer).processSync(d.data).contents}
+                        <div style={{ fontSize: '16px' }}>
+                            {remark().use(reactRenderer).processSync(d.data).contents}
+                        </div>
                     </Fade>
                 </Typography>
             })}
