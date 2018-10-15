@@ -1,0 +1,18 @@
+.tabsContent {
+    font-size: 16px;
+}
+
+.tabsContent p {
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.tabsContent img {
+    margin: auto;
+    width: 100%;
+}
+
+.tabsContent div {
+    margin: auto;
+    width: 100%;
+}
