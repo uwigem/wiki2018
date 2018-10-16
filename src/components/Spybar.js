@@ -76,13 +76,13 @@ export class Spybar extends Component {
         } else if (x < 500) {
             maxLength = 25;
         } else if (x < 525) {
-            maxLength = 32;
+            maxLength = 27;
         } else if (x < 550) {
-            maxLength = 32;
+            maxLength = 29;
         } else if (x < 600) {
-            maxLength = 35;
+            maxLength = 32;
         } else {
-            maxLength = 40;
+            maxLength = 35;
         }
 
         return <div style={{ paddingTop: 15, position: 'sticky', top: 60 }}>
