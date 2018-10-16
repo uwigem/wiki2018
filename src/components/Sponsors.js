@@ -105,7 +105,6 @@ export class Sponsors extends Component {
                 return 0;
             }
         });
-
         return <div>
             <div style={{ margin: 'auto', width: '90%', marginTop: 20, textAlign: 'center', fontSize: '24px' }}>
                 We want to thank all of our sponsors for their support.
@@ -142,6 +141,7 @@ export class Sponsors extends Component {
                                     let x = d.XPOS ? d.XPOS : 50;
                                     let y = d.YPOS ? d.YPOS : 20;
                                     let size = d.CUSTSIZE ? d.CUSTSIZE : 100;
+
                                     return <Col md={3} key={'subimg' + i} style={{
                                         textAlign: 'center',
                                         margin: 10,
@@ -188,7 +188,7 @@ export class Sponsors extends Component {
                                                     backgroundColor: this.state.hover[i] ? this.mainColor : 'white',
                                                     transition: 'height 0.5s, background-color 0.5s, color 0.5s',
                                                     color: this.state.hover[i] ? 'white' : 'black',
-                                                }} className={"scrollBox"}>
+                                                }}>
                                                     <Fade duration={500} clear>
                                                         <div style={{
                                                             position: 'absolute',
