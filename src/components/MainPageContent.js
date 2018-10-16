@@ -38,7 +38,7 @@ export class MainPageContent extends Component {
         this.friction = 1 / 30;
         this.minWidth = 1054;
 
-        setInterval(() => { this.moveBackground(); }, 15); // This will update the parallax background at ~60 fps
+        // setInterval(() => { this.moveBackground(); }, 15); // This will update the parallax background at ~60 fps
 
         window.addEventListener("resize", this.updateDim);
     }
@@ -85,10 +85,10 @@ export class MainPageContent extends Component {
      * @param {event} e
      */
     moveBackgroundEvent = (e) => {
-        let lMouseX = Math.max(-100, Math.min(100, (window.innerWidth) / 2 - e.clientX));
-        let lMouseY = Math.max(-100, Math.min(100, (window.innerHeight) / 2 - e.clientY));
-        this.lFollowX = (20 * lMouseX) / 100
-        this.lFollowY = (20 * lMouseY) / 100
+        // let lMouseX = Math.max(-100, Math.min(100, (window.innerWidth) / 2 - e.clientX));
+        // let lMouseY = Math.max(-100, Math.min(100, (window.innerHeight) / 2 - e.clientY));
+        // this.lFollowX = (20 * lMouseX) / 100
+        // this.lFollowY = (20 * lMouseY) / 100
     }
 
     render() {

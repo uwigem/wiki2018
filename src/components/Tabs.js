@@ -43,8 +43,10 @@ export class Tabs extends Component {
 
     render() {
         let it = this.state.tabObjs;
-        return <div style={{ marginTop: 20, marginBottom: 20 }}><AppBar position="static">
-            <TabsMUI value={this.state.value} onChange={this.handleChange}>
+        return <div style={{ margin: 'auto', marginTop: 20, marginBottom: 20, width: '95%' }}><AppBar position="static">
+            <TabsMUI value={this.state.value} onChange={this.handleChange} style={{ width: '100%' }}
+                scrollable
+                scrollButtons="auto">
                 {it.map((d, i) => <Tab key={'tab' + i} value={i} label={d.title} />)}
             </TabsMUI>
         </AppBar>
@@ -58,6 +60,7 @@ export class Tabs extends Component {
                     display: this.state.value === i ? '' : 'none',
                     transition: 'display 0.5s',
                     lineHeight: 'normal',
+                    width: '100%'
                 }} key={'tabC' + i}>
                     <Fade clear when={this.state.value === i} duration={500} cascade>
                         <div style={{ fontSize: '16px' }} className={"tabsContent"}>

@@ -44,11 +44,12 @@ export class SplitView extends Component {
                                     width: '80%',
                                     margin: 'auto',
                                     boxShadow: '5px 5px 10px gray'
-                                }}></div>
+                                }}
+                                    key={'split' + i}></div>
                                 {/* <img src={d.data.trim()} style={{ width: '80%', height: 'auto' }} /> */}
                             </Col>
                         } else {
-                            return <Col md={6}><div>{remark().use(reactRenderer).processSync(d.data).contents}</div></Col>
+                            return <Col md={6} key={'split' + i}><div>{remark().use(reactRenderer).processSync(d.data).contents}</div></Col>
                         }
                     })}
                 </Row>

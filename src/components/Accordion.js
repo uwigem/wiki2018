@@ -44,7 +44,7 @@ export class Accordion extends Component {
         let it = this.state.accObjs;
         return <div style={{ marginTop: 20, marginBottom: 20, marginLeft: '5%', marginRight: '5%' }}>
             {it.map((d, i) => {
-                return <ExpansionPanel>
+                return <ExpansionPanel key={'acc-' + i}>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography>{d.title}</Typography>
                     </ExpansionPanelSummary>

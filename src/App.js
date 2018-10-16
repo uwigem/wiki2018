@@ -24,7 +24,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/Sponsors";
+        this.debugURL = "/Entrepreneurship";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -36,6 +36,7 @@ class App extends Component {
         this.setEdit = this.setEdit.bind(this);
 
         let imgs = this.state.data.getImgsToPrefetch();
+        // console.log(imgs);
     }
 
 

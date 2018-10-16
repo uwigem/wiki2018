@@ -36,7 +36,7 @@ export class HeaderBar extends Component {
         this.minWidth = 850;
         this.headerBarPercentage = 0.3;
 
-        setInterval(() => { this.moveBackground(); }, 15); // This will update the parallax background at ~60 fps
+        // setInterval(() => { this.moveBackground(); }, 15); // This will update the parallax background at ~60 fps
 
         window.addEventListener("resize", this.updateDim);
     }
@@ -163,7 +163,7 @@ export class HeaderBar extends Component {
                             textAlign: 'center',
                             fontFamily: 'Leixo'
                         }}>
-                            <Fade clear duration={1500} when={this.state.imageLoaded}>
+                            <Fade clear duration={500} when={this.state.imageLoaded}>
                                 {title}
                             </Fade>
                         </div>
