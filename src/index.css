@@ -162,6 +162,8 @@ table {
     background: none;
     width: 80%;
     border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 th,

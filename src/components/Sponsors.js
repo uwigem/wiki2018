@@ -107,6 +107,10 @@ export class Sponsors extends Component {
         });
 
         return <div>
+            <div style={{ margin: 'auto', width: '90%', marginTop: 20, textAlign: 'center', fontSize: '24px' }}>
+                We want to thank all of our sponsors for their support.
+                Our project would not have been possible without them!
+            </div>
             {this.sections.map((sect, sectIndex) => {
                 return <div key={'sect' + sectIndex} style={{ marginBottom: 20, marginTop: 20 }}>
                     <div style={{ margin: 'auto', width: '100%', textAlign: 'center', fontSize: 50 }}>{sect}</div>
@@ -144,14 +148,14 @@ export class Sponsors extends Component {
                                         transition: 'height 0.5s',
                                         maxWidth: 380,
                                         minWidth: 280,
-                                    }}><a href={d.LINK} target="_blank">
+                                    }}><a href={d.LINK ? d.LINK : '#'} target="_blank">
                                             <div style={{
                                                 width: '100%',
                                                 maxWidth: 380,
                                                 minWidth: 280,
                                                 height: 'auto',
                                                 minHeight: 380,
-                                                backgroundColor: d.PICTURE === "http://2018.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png" && this.state.loaded[i] ? 'lightgray' : 'white',
+                                                backgroundColor: this.state.loaded[i] ? '#f1f1f1' : 'white',
                                                 margin: 'auto',
                                                 borderRadius: 20,
                                                 overflow: 'hidden',
@@ -172,6 +176,7 @@ export class Sponsors extends Component {
                                                     height: `${this.state.cardBody}%`,
                                                     backgroundColor: 'white',
                                                     background: `url(${d.PICTURE}) no-repeat ${x}% ${y}%`,
+                                                    backgroundPositionY: '50%',
                                                     backgroundSize: `${size}%`
                                                 }}></div></Fade>
                                                 <div style={{

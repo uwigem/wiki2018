@@ -46,7 +46,7 @@ export class SubImages extends Component {
         return <div style={{ margin: 'auto', marginTop: 30, marginBottom: 30, textAlign: 'center' }}>
             <Grid fluid style={{ padding: 0, margin: 0 }}>
                 <Fade clear cascade>
-                    <Row style={{ padding: 0, margin: 0 }}>
+                    <Row style={{ padding: 0, margin: 0 }} center="xs">
                         {data && data.map((d, i) => {
                             let x = d.XPOS ? d.XPOS : 50;
                             let y = d.YPOS ? d.YPOS : 50;
@@ -75,7 +75,7 @@ export class SubImages extends Component {
                                                 }} className={'linkSubImage'}></div>
                                                 <div style={{
                                                     padding: 5,
-                                                    fontSize: '10pt'
+                                                    fontSize: '11pt'
                                                 }}>{d.DESCRIPTION}</div>
                                             </a>
                                         }

@@ -25,7 +25,7 @@ export class SplitView extends Component {
 
     render() {
         let it = this.state.spObjs;
-        console.log(this.state.spObjs[0]);
+        // console.log(this.state.spObjs[0]);
         return <div style={{ marginTop: 20, marginBottom: 20, marginLeft: '5%', marginRight: '5%' }}>
             <Grid fluid>
                 <Row>
