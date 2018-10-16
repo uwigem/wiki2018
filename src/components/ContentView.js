@@ -20,6 +20,7 @@ import { PDF } from './PDF';
 import { GalleryContent } from './GalleryContent';
 import { Sponsors } from './Sponsors';
 import { Accordion } from './Accordion';
+import { SplitView } from './SplitView';
 
 
 configureAnchors({ offset: -64, scrollDuration: 1000 }); // -18 for hide, -64 for no hide
@@ -332,6 +333,16 @@ export class ContentView extends Component {
                     restParamsArrGal.push(obj);
                 });
                 returnDiv = <div><GalleryContent photos={restParamsArrGal} /></div>;
+                break;
+            case "SPLITVIEW":
+                let spData = data.split("===").slice(1);
+                let spObjs = spData.map(d => {
+                    let dSplit = d.split('\n');
+                    let title = dSplit[1]
+                    let data = dSplit.slice(2).join('\n');
+                    return { title, data };
+                });
+                returnDiv = <div><SplitView spObjs={spObjs} /></div>
                 break;
             default:
                 returnDiv = <div>stub div</div>;
