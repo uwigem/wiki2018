@@ -42,7 +42,6 @@ export class Accordion extends Component {
 
     render() {
         let it = this.state.accObjs;
-        console.log(it);
         return <div style={{ marginTop: 20, marginBottom: 20, marginLeft: '5%', marginRight: '5%' }}>
             {it.map((d, i) => {
                 return <ExpansionPanel>

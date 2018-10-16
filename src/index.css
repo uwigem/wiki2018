@@ -180,4 +180,5 @@ code {
     border: none;
     background: none;
     line-height: inherit;
+    display: block;
 }

@@ -66,6 +66,79 @@ export default class Data {
     }
 }
 
+
+/**
+ * display constants. This has a very different use case than CSS does.
+ * Mainly will be used for certain material-ui elements.
+ */
+var displayConstants = {
+    primaryColor: "#420DAB",
+    secondaryColor: "#6308b2",
+    globalColor: false,
+    pageSpecificColors: {
+        Home: {
+            primaryColor: "#FFFFFF",
+            secondaryColor: "#FFFF00"
+        },
+        Project: {
+            primaryColor: "#FF0000",
+            secondaryColor: "#00FF00"
+        }
+    },
+    logo: "http://2017.igem.org/wiki/images/e/e9/T--Washington--WLogo.png",
+    buttonHeight: "16px"
+};
+
+/**
+ * These are mostly ALL placeholder values. We will DEFINITELY CHANGE THIS.
+ * http://2018.igem.org/Judging/Pages_for_Awards
+ * TODO modify a lot!
+ */
+var navbarData = [
+    {
+        title: "Home",
+        names: ["Home", "UW 2017", "UW 2016", "UW 2015", "UW 2014", "UW 2013", "UW 2012", "UW 2011", "UW 2010", "UW 2009", "UW 2008"],
+        links: [
+            "http://2018.igem.org/Team:Washington",
+            "http://2017.igem.org/Team:Washington",
+            "http://2016.igem.org/Team:Washington",
+            "http://2015.igem.org/Team:Washington",
+            "http://2014.igem.org/Team:Washington",
+            "http://2013.igem.org/Team:Washington",
+            "http://2012.igem.org/Team:Washington",
+            "http://2011.igem.org/Team:Washington",
+            "http://2010.igem.org/Team:Washington",
+            "http://2009.igem.org/Team:Washington",
+            "http://2008.igem.org/Team:Washington"
+        ]
+    },
+    {
+        title: "Project",
+        names: ["Project Description", "Design", "Experiments", "Notebook", "InterLab", "Model", "Results", "Parts"],
+        links: ["/Description", "/Design", "/Experiments", "/Notebook", "/InterLab", "/Model", "/Results", "/Parts"]
+    },
+    {
+        title: "Human Practices",
+        names: ["Human Practices", "Collaborations", "Education & Engagement", "Entrepreneurship", "HP_Design", "Team Development"],
+        links: ["/Human_Practices", "/Collaborations", "/Public_Engagement", "/Entrepreneurship", "/HP_Design", "/Team_Development"]
+    },
+    {
+        title: "Safety",
+        names: ["Safety"],
+        links: ["/Safety"]
+    },
+    {
+        title: "People",
+        names: ["Team", "Attributions", "Sponsors", "Gallery"],
+        links: ["/Team", "/Attributions", "/Sponsors", "/Gallery"]
+    },
+    {
+        title: "Judging",
+        names: ["Medal Requirements"],
+        links: ["/Medal_Requirements"]
+    },
+];
+
 var contentData = [{
     "content": [{
         "data": "HEADER\nTEXT=LOREM IPSUM\nSUBTITLE=lorem ipsum my duders\nBACKGROUND=http://2018.igem.org/wiki/images/1/1f/T--Washington--LabBG.jpg\nBACKGROUNDOPACITY=0.60\nBACKGROUNDLIGHTNESS=10\nTEXTHEIGHT=12\nSUBTITLEHEIGHT=7\nBLUR=3",
@@ -83,7 +156,10 @@ var contentData = [{
         "data": "Insert text",
         "type": "MARKDOWN"
     }, {
-        "data": "abc",
+        "data": "```javascript\nfunction() {\n  test.test;\n}\n```",
+        "type": "MARKDOWN"
+    }, {
+        "data": ".footnote[.red.bold[*] Important footnote]",
         "type": "MARKDOWN"
     }, {
         "data": "dc",
@@ -562,74 +638,3 @@ var contentData = [{
 
 
 
-/**
- * display constants. This has a very different use case than CSS does.
- * Mainly will be used for certain material-ui elements.
- */
-var displayConstants = {
-    primaryColor: "#420DAB",
-    secondaryColor: "#6308b2",
-    globalColor: false,
-    pageSpecificColors: {
-        Home: {
-            primaryColor: "#FFFFFF",
-            secondaryColor: "#FFFF00"
-        },
-        Project: {
-            primaryColor: "#FF0000",
-            secondaryColor: "#00FF00"
-        }
-    },
-    logo: "http://2017.igem.org/wiki/images/e/e9/T--Washington--WLogo.png",
-    buttonHeight: "16px"
-};
-
-/**
- * These are mostly ALL placeholder values. We will DEFINITELY CHANGE THIS.
- * http://2018.igem.org/Judging/Pages_for_Awards
- * TODO modify a lot!
- */
-var navbarData = [
-    {
-        title: "Home",
-        names: ["Home", "UW 2017", "UW 2016", "UW 2015", "UW 2014", "UW 2013", "UW 2012", "UW 2011", "UW 2010", "UW 2009", "UW 2008"],
-        links: [
-            "http://2018.igem.org/Team:Washington",
-            "http://2017.igem.org/Team:Washington",
-            "http://2016.igem.org/Team:Washington",
-            "http://2015.igem.org/Team:Washington",
-            "http://2014.igem.org/Team:Washington",
-            "http://2013.igem.org/Team:Washington",
-            "http://2012.igem.org/Team:Washington",
-            "http://2011.igem.org/Team:Washington",
-            "http://2010.igem.org/Team:Washington",
-            "http://2009.igem.org/Team:Washington",
-            "http://2008.igem.org/Team:Washington"
-        ]
-    },
-    {
-        title: "Project",
-        names: ["Project Description", "Design", "Experiments", "Notebook", "InterLab", "Model", "Results", "Parts"],
-        links: ["/Description", "/Design", "/Experiments", "/Notebook", "/InterLab", "/Model", "/Results", "/Parts"]
-    },
-    {
-        title: "Human Practices",
-        names: ["Human Practices", "Collaborations", "Education & Engagement", "Entrepreneurship", "HP_Design", "Team Development"],
-        links: ["/Human_Practices", "/Collaborations", "/Public_Engagement", "/Entrepreneurship", "/HP_Design", "/Team_Development"]
-    },
-    {
-        title: "Safety",
-        names: ["Safety"],
-        links: ["/Safety"]
-    },
-    {
-        title: "People",
-        names: ["Team", "Attributions", "Sponsors", "Gallery"],
-        links: ["/Team", "/Attributions", "/Sponsors", "/Gallery"]
-    },
-    {
-        title: "Judging",
-        names: ["Medal Requirements"],
-        links: ["/Medal_Requirements"]
-    },
-];

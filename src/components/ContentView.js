@@ -21,6 +21,7 @@ import { GalleryContent } from './GalleryContent';
 import { Sponsors } from './Sponsors';
 import { Accordion } from './Accordion';
 
+
 configureAnchors({ offset: -64, scrollDuration: 1000 }); // -18 for hide, -64 for no hide
 
 // ContentView is the main content hub that controls a certain page's

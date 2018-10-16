@@ -9,9 +9,11 @@
         "@fortawesome/react-fontawesome": "0.1.0-11",
         "@material-ui/core": "^1.5.1",
         "@material-ui/icons": "^1.1.1",
+        "codemirror": "^5.40.2",
         "detect-browser": "^3.0.1",
         "firebase": "^5.4.2",
-        "highlight.js": "^9.12.0",
+        "hast-util-sanitize": "^1.2.0",
+        "highlight.js": "^9.13.0",
         "react": "^16.4.2",
         "react-custom-scrollbars": "^4.2.1",
         "react-dom": "^16.4.2",
@@ -25,7 +27,9 @@
         "react-scripts": "^1.1.5",
         "react-scrollable-anchor": "^0.6.1",
         "remark": "^9.0.0",
-        "remark-react": "^4.0.3"
+        "remark-react": "^4.0.3",
+        "remark-react-codemirror": "^1.0.5",
+        "remark-react-lowlight": "^0.7.0"
     },
     "scripts": {
         "start": "react-scripts start",
