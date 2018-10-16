@@ -241,8 +241,131 @@ var contentData = [{
         "data": "HEADER\nTEXT=INTERLAB\nBACKGROUND=http://2018.igem.org/wiki/images/1/1f/T--Washington--LabBG.jpg\nBACKGROUNDOPACITY=0.60\nBACKGROUNDLIGHTNESS=10\nTEXTHEIGHT=12\nMINPADDINGTOP=120\nSUBTITLEHEIGHT=7\nBLUR=3",
         "type": "SPECIAL"
     }, {
-        "data": "FOURPICTURES",
+        "data": "SECTION\noverview\nOverview",
         "type": "SPECIAL"
+    }, {
+        "data": "# Overview\n\nSince 2014, the iGEM Measuring Committee has been dedicated to developing a robust and repeatable measurement procedure for Green Fluorescent Protein (GFP). To do so, iGEM has held the Interlab Study for several years, utilizing the international reach of the competition to test their procedures and collect data. We are proud to have participated in this study so that this ongoing effort can come closer to developing a universal way to measure GFP regardless of machinery and resources.\n\nThe main protocol for the 2018 Interlab Study was provided by iGEM headquarters and can be found [here](http://2018.igem.org/Measurement/InterLab/Plate_Reader).\n\nWe followed the Plate Reader and CFU protocol with the tools provided by iGEM.\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nexperience\nExperience",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Experience\nThe protocol was simple to follow. We made a few adjustments to the protocol due to limitations on supplies:\n\n1. Use of clear plates instead of black bottom plates\n1. Use of 15 mL conical tubes covered in foil instead of 50 mL conical tubes\n\nWe also ran into some issues with growing up the cultures as our incubator/shaker could only hold the conical tubes upright instead of slanted, which may have affected how well they were able to grow. Overall, the protocols were not too challenging, and it gave us an opportunity to work heavily with plate readers and learn how to set up the readings in various ways.\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\ncalibration1\nCalibration 1",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Calibration 1: OD₆₀₀ Reference Point using LUDOX\n\nLUDOX Reference Point\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/b/bd/T--Washington--1aa.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:60%",
+        "type": "IMAGE"
+    }, {
+        "data": "LUDOX CL-X was used as a point reference to turn ABS₆₀₀ measurements into OD₆₀₀ measurements.  LUDOX solution was used due to its low absorbance value. This calibration was necessary because plate reader measurements of absorbance are volume dependent as the depth of the fluid in the well changes path length of light passing through the sample. \n\nOur results over four replicates were extremely close which showed consistency in pipetting and machine reading. Calibration 1 was repeated three times in order to check for consistency.\nOur OD₆₀₀/Abs₆₀₀ correction factor turned out to 3.247. For all cell density readings using this instrument with the same settings and volume, we converted to OD₆₀₀ by multiplying by 3.247.\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\ncalibration2\nCalibration 2",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Calibration 2: Microspheres\n\nThe point of using monodisperse silica microspheres was that their size and optical characteristics are similar to cells and we know the exact number of spheres we have. This allows us to use a standard curve of particle concentration, which we can use to convert to ABS₆₀₀ measurements for the estimated number of cells.\n\nSpecs used:\n* 530 nm emission\n* 485 nm excitation\n\nMicrosphere Absorbance in Serial Dilutions Raw Data",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/2/2e/T--Washington--2aa.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "Particle Standard Curve",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/0/0f/T--Washington--3aa.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "Particle Standard Curve on a Log Scale",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/7/72/T--Washington--4aa.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "Particles / OD",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/d/d8/T--Washington--5aa.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "The data was consistent over four replicates, suggesting that the readings were done quickly enough before the microspheres settled to the bottom of the well, as they will settle after a short period of time. We thought an automix feature on the machine would help mix the beads better, but the results turned out to be worse and had clumps of beads at the bottom. To counter this problem, we pipetted up and down four times in a circle around the well, ending with the more concentrated wells. After checking that there was no bead pellet, we received the expected results. We know that this is expected because each well’s total number of particles should have been half of the previous well’s value, as the concentration was cut in half for each well. The particle standard curve on the log scale, although supposed to be 1:1, turned out to be an exponential curve. We suspect that this may be due to a machine error. Throughout six trials, with the technique of pipetting up and down three times, the log curve was still a straight line.\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\ncalibration3\nCalibration 3",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Calibration 3: Fluorescein standard curve\n\nThe data was consistent over four replicates, showing that there was no error in pipetting or diluting. A fluorescein experiment was used as the third calibration to create a standard curve - this was done so that any difference in how plate readers reported fluorescence could be compared between different teams’ data, regardless of the brand of the plate reader used. This will be used to convert the cell-based readings to an equivalent concentration\n\n* 530 nm emission\n* 485 nm excitation\n\nFluorescein Raw Data",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/f/f0/T--Washington--6.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/a/ac/T--Washington--7.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/7/79/T--Washington--8.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "Fluorescein / a.u.",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/e/ef/T--Washington--9.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "Colony Raw Plate Readings",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/d/dc/T--Washington--10.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/6/66/T--Washington--11.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "Fluorescence per OD Experimental Values\n\nThe Unit Scaling Factors determined by the calibration is\n\nOD₆₀₀/Abs₆₀₀ = 3.25\n\nμM Fluorescein/a.u. = 4.49E-4\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/8/8e/T--Washington--12.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/9/9e/T--Washington--13.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/a/aa/T--Washington--14.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "Fluorescence per Particle Experimental Values\n\nUnit Scaling Factors determined by the calibration is:\n\nParticles/Abs₆₀₀ = 2.52E8\n\nMEFL/a.u = 2.71E9\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/9/91/T--Washington--15.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/2/22/T--Washington--16.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/f/f1/T--Washington--17.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "Plate Culture Count and CFU Values",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/f/f7/T--Washington--18.png,,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
     }],
     "isContent": true,
     "pageTitle": "/InterLab"
@@ -360,7 +483,7 @@ var contentData = [{
         "data": "SECTION\ncitations\nCitations",
         "type": "SPECIAL"
     }, {
-        "data": "# Citations\n\n* Muyldermans, S. Nanobodies: Natural Single-Domain Antibodies. _Annu. Rev. Biochem._ **82**, 775–797 (2013).\n* Yan, J., Li, G., Hu, Y., Ou, W. & Wan, Y. Construction of a synthetic phage-displayed Nanobody library with CDR3 regions randomized by trinucleotide cassettes for diagnostic applications. _Journal of Translational Medicine_ **12**, 343 (2014).\n* Fairhead M, Howarth M. Site-specific biotinylation of purified proteins using BirA. *Methods in molecular biology (Clifton, NJ)*. 2015;1266:171-184.\n* James, P. & Halladay, J. Genomic Libraries and a Host Strain Designed for Highly Efficient Two-Hybrid Selection in Yeast. _Genetics_ **144**, 1425–1436 (1996).\n* Möckli, N. & Auerbach, D. Quantitative β-galactosidase assay suitable for high-throughput applications in the yeast two-hybrid system. _BioTechniques_ **36**, 872–876 (2004)",
+        "data": "# Citations\n\n1. Muyldermans, S. Nanobodies: Natural Single-Domain Antibodies. _Annu. Rev. Biochem._ **82**, 775–797 (2013).\n1. Yan, J., Li, G., Hu, Y., Ou, W. & Wan, Y. Construction of a synthetic phage-displayed Nanobody library with CDR3 regions randomized by trinucleotide cassettes for diagnostic applications. _Journal of Translational Medicine_ **12**, 343 (2014).\n1. Fairhead M, Howarth M. Site-specific biotinylation of purified proteins using BirA. *Methods in molecular biology (Clifton, NJ)*. 2015;1266:171-184.\n1. James, P. & Halladay, J. Genomic Libraries and a Host Strain Designed for Highly Efficient Two-Hybrid Selection in Yeast. _Genetics_ **144**, 1425–1436 (1996).\n1. Möckli, N. & Auerbach, D. Quantitative β-galactosidase assay suitable for high-throughput applications in the yeast two-hybrid system. _BioTechniques_ **36**, 872–876 (2004)",
         "type": "MARKDOWN"
     }],
     "isContent": true,
@@ -440,13 +563,12 @@ var contentData = [{
         "data": "HEADER\nTEXT=HUMAN PRACTICES\nBACKGROUND=http://2018.igem.org/wiki/images/7/7b/T--Washington--TEAMBanner.png\nBACKGROUNDOPACITY=0.60\nBACKGROUNDLIGHTNESS=10\nTEXTHEIGHT=9\nMINTITLEHEIGHT=6\nMINPADDINGTOP=120\nSUBTITLEHEIGHT=7\nBLUR=3",
         "type": "SPECIAL"
     }, {
-        "data": "SECTION\nlorem\nloremip",
-        "type": "SPECIAL"
-    }, {
-        "data": "# Lorem\n\nLorem ipsum",
+        "data": "# Human Practices - Introduction\n\nWith our theme of “Stronger Together” in mind, our team sought to integrate human practices into nearly every part of our project.  This was made possible by an extremely interdisciplinary team, with interests in not only science, but also business, design, communication, education, and public engagement.  In addition to thinking carefully and creatively about the impact of our project on our world, we actively engaged with stakeholders and the public about our project, and the dialogues we had informed and shaped the direction of our work.  Furthermore, as a team, we firmly believe in giving back to our community and that having a positive presence in our neighborhoods is essential to fostering a climate open to science and innovation. Thus, our work outside of the lab, including our education projects, events for the public, and collaborations with other teams, was extremely important to us.\n",
         "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=3\nPICTURE=http://2018.igem.org/wiki/images/thumb/7/73/T--Washington--LumenVisit.jpg/800px-T--Washington--LumenVisit.jpg;DESCRIPTION=Our business team was developed to engage with potential stakeholders, customers, and industry advisors about the feasibility of bringing our new technology to market. We consulted scientists from several well-known institutions to improve our understanding of issues they face and gauge the commercial value of our products. We assessed the needs of these potential customers by identifying small molecules that they have trouble detecting. Our team assimilated information that we gained from interviews and market research into a detailed business plan outlining our strategy for introducing our products to market.;LINK=http://2018.igem.org/Team:Washington/Entrepreneurship;XPOS=60\nPICTURE=http://2018.igem.org/wiki/images/2/2d/T--Washington--Panel.png;DESCRIPTION=We believe that collaboration between teams is one of the most productive and fun aspects of iGEM because it allows us to hear about ideas and experiences from other teams as well as share our ideas with other excited scientists. This year, we collaborated with iTesla-SoundBio, our local high-school team, on training and InterLab, and hosted the first-ever Pacific Northwest iGEM Meetup for teams in our region. We also worked with teams abroad to translate our outreach booklet and implement our activities in their communities.;LINK=http://2018.igem.org/Team:Washington/Collaborations;XPOS=60\nPICTURE=http://2018.igem.org/wiki/images/7/7b/T--Washington--TEAMBanner.png;DESCRIPTION=The Design team’s goal was to help communicate our project more effectively to the outside world and spread the knowledge of synthetic biology and its potential impact. The art and design work we did allowed us to be more conscientious of our message and how to best portray that information for the intended audience. We worked on art for posters and flyers, designed logos for our project and events hosted by our team, and helped design competition deliverables including the figures, poster, presentation, and wiki. We also worked in partnership with the Outreach team to illustrate their synthetic biology activity booklet.;LINK=http://2018.igem.org/Team:Washington/HP_Design;XPOS=25\nPICTURE=http://2018.igem.org/wiki/images/e/e0/T--Washington--Sadhana1.jpg;DESCRIPTION=Our outreach team’s goal was to increase science literacy, particularly relating to synthetic biology, among younger students and the general public. Our outreach efforts especially targeted underserved communities. We created a 100+ page synthetic biology activity booklet that was translated into multiple languages by other teams to aid in teaching synthetic biology to students around the world. Additionally, we organized many events, including visiting classrooms, teaching kids with autism, tabling at community events, and instructing students in Ahmedabad, India. We also created a dialogue with the general public through “man-on-the-street”-style interviews and a synthetic biology panel event.;LINK=http://2018.igem.org/Team:Washington/Public_Engagement;XPOS=25",
+        "type": "SPECIAL"
     }],
-    "isContent": true,
     "pageTitle": "/Human_Practices"
 }, {
     "content": [{
@@ -631,7 +753,7 @@ var contentData = [{
         "data": "SECTION\noverallfocus\nOverall Focus",
         "type": "SPECIAL"
     }, {
-        "data": "# Overall Focus",
+        "data": "# Overall Focus\n\nOur educational outreach efforts were focused on making scientific learning more accessible by targeting underserved groups, including lower income schools and children with disabilities. Seattle, Washington has one of the largest equity gaps in the United States with white students being almost ten times more likely than black students to attend a school with reading test scores in the city’s top 20th percentile. In general, lower income students are about four times as likely to attend low-performing schools [1]. In fact, over 6,000 students in Seattle alone were given low-income housing by the school district, and over 35,000 students were counted as homeless in Washington State [2]. Additionally, as the Special Olympics USA was held at the University of Washington over the summer, we had a greater awareness about the educational opportunities that children with intellectual disabilities often lack.\n\nAfter learning about these inequities, we wrote and illustrated a 100+ page multilingual synthetic biology booklet that is full of illustrations, especially designed for English Language Learners at lower income schools and for children with disabilities. We implemented the lessons from our booklet at school visits, both locally and internationally, specifically targeting lower income schools, which were determined by the percentage of students that are federally eligible for free or reduced lunch. Additionally, we taught a lesson about the central dogma of molecular biology to a summer camp for kids with autism.\n\nFurthermore, we created a dialogue with the general public by interviewing people about their opinions regarding synthetic biology at Gas Works Park, a famous park in Seattle. We also planned a synthetic biology panel event called “Sit Down with Synbio” that initiated a conversation between the general public and synthetic biology experts with approximately 100 people in attendance. The goal of this event was to raise awareness about synthetic biology and its value to the general public by giving people a chance to ask questions.\n\n1. https://www.seattletimes.com/seattle-news/education/pilot-project-to-help-seattle-schools-homeless-families-find-housing/\n",
         "type": "MARKDOWN"
     }, {
         "data": "SECTION\nevents\nEvents",
@@ -640,7 +762,67 @@ var contentData = [{
         "data": "SEP",
         "type": "SPECIAL"
     }, {
-        "data": "# Events",
+        "data": "# Events\n\n## Community Events\n\n### Shoreline STEM Fest\n\nHeld at Shoreline Community College, this festival combines a traditional science fair servicing hundreds of K-12 students in the Shoreline School District with hands-on exhibits and demonstrations presented by university groups, research institutes, and industry professionals. At this fair, we conducted our Lego DNA/Jellybean Peptide Activity to teach kids about the central dogma of molecular biology.\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=3\nPICTURE=http://2018.igem.org/wiki/images/b/b6/T--Washington--Shoreline3.jpg;XPOS=75;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/d/d6/T--Washington--Shoreline1.jpg;XPOS=75;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/0/05/T--Washington--Shoreline2.jpg",
+        "type": "SPECIAL"
+    }, {
+        "data": "### Ben Franklin Elementary Math Fest\n\nThis event, presented by Prime Factor Math Circle School, engaged students aged 5-12 in hands-on activities, problem solving, and games about math, computer science, and other STEM disciplines. At this event, we used our Lego DNA/Jellybean Peptide Activity.",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=3\nPICTURE=http://2018.igem.org/wiki/images/4/49/T--Washington--MathFestival3.jpg;XPOS=75;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/5/59/T--Washington--MathFestival2.jpg;XPOS=75;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/3/33/T--Washington--MathFestival1.jpg;YPOS=25",
+        "type": "SPECIAL"
+    }, {
+        "data": "### Introduce a Girl to BioE\n\nDue to the huge gender gap in engineering, this event aimed to introduce girls ages K-12 to the ever-expanding field of bioengineering. At this event, we introduced about 150 girls to the building blocks of life with our Lego DNA/Jellybean Peptide Activity.\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=3\nPICTURE=http://2018.igem.org/wiki/images/6/6a/T--Washington--IntroduceAGirlToBIOE1.jpg;XPOS=75;YPOS=12\nPICTURE=http://2018.igem.org/wiki/images/a/a1/T--Washington--IntroduceAGirlToBIOE2.jpg;XPOS=15;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/3/3e/T--Washington--IntroduceAGirlToBIOE3.jpg;YPOS=25",
+        "type": "SPECIAL"
+    }, {
+        "data": "### Gasworks\n\nDuring the Pacific Northwest iGEM Meetup, we conducted an outreach event at Gas Works Park, which is a famous park that was originally the site of a coal gasification plant and features a breathtaking view of the Seattle skyline. As families often spend their evening in the park, we engaged kids with synthetic biology using our Lego DNA/Jellybean Peptide Activity.\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "## School Visits\n\n### Elementary\n\nNorthgate Elementary is an underserved school near the University of Washington, where 86% of students receive free or reduced lunch and many students are from minority groups, including 43% Hispanic students and 24% black students. We introduced 4th and 5th grade students to synthetic biology with our Fruit DNA Extraction Activity and Gel Electrophoresis Bunny Activity. The students were excited that they got to do both a hands-on activity and an activity with real-life applications by solving a crime scene!\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=3\nPICTURE=http://2018.igem.org/wiki/images/a/a2/T--Washington--Northgate1.jpg;XPOS=75;YPOS=12\nPICTURE=http://2018.igem.org/wiki/images/3/30/T--Washington--Northgate2.jpg;XPOS=15;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/2/2e/T--Washington--Northgate3.jpg;YPOS=25",
+        "type": "SPECIAL"
+    }, {
+        "data": "### Middle\n\n**International School**\n\nDuring our visit to the International School in Bellevue, Washington, we introduced the students to the building blocks of molecular biology. The students learned about the central dogma of molecular biology through the Lego DNA/Jellybean Peptide Activity and conducted a Fruit DNA Extraction, where they learned about experimental design.\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=3\nPICTURE=http://2018.igem.org/wiki/images/7/72/T--Washington--InternationalSchool1.jpg;XPOS=75;YPOS=12\nPICTURE=http://2018.igem.org/wiki/images/c/c3/T--Washington--InternationalSchool2.jpg;XPOS=15;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/d/d7/T--Washington--InternationalSchool3.jpg;YPOS=25",
+        "type": "SPECIAL"
+    }, {
+        "data": "**Sadhana School in Ahmedabad, India**\n\nTo expand our outreach focus internationally, our Outreach Lead, Ishira, introduced students to synthetic biology at Sadhana School in Ahmedabad, India, which has some underserved students. Ishira taught students in grades 6-8 with the Lego DNA/Jellybean Peptide Activity. This event was interesting, because the students had a hard time understanding Ishira’s American accent. As a result, she taught most of the lesson in the local language, Gujarati, but received amusing questions from students such as what the phrase “kick butt” means in relation to a protein that is essential for fighting pathogens when one is sick. Additionally, instead of using puffed marshmallows as a “glue” to connect the jellybean “amino acids,” Ishira had to make icing, because the puffed marshmallows contain eggs, and Sadhana School is a vegetarian school. Overall, the students had a great time learning about international research and understood the basics of the central dogma of molecular biology!\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=3\nPICTURE=http://2018.igem.org/wiki/images/e/e0/T--Washington--Sadhana1.jpg;XPOS=75;YPOS=12\nPICTURE=http://2018.igem.org/wiki/images/a/ab/T--Washington--Sadhana2.jpg;XPOS=15;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/3/39/T--Washington--Sadhana3.jpg;YPOS=25",
+        "type": "SPECIAL"
+    }, {
+        "data": "### High\n\n**Kent Meridian High School**\n\nKent Meridian High School is an underserved high school, where 60% of students receive free or reduced lunch. During our visit, we introduced students that are in grades 9-12 to synthetic biology with our Solving Global Problems Activity and CRISPR Ethics Activity.",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=3\nPICTURE=http://2018.igem.org/wiki/images/c/c4/T--Washington--KentMeridian1.jpg;XPOS=75;YPOS=12\nPICTURE=http://2018.igem.org/wiki/images/b/b3/T--Washington--KentMeridian2.jpg;XPOS=15;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/4/4e/T--Washington--KentMeridian3.jpg;YPOS=25",
+        "type": "SPECIAL"
+    }, {
+        "data": "**Rainier Beach High School**\n\nAccording to a Seattle Times article,[1] Rainier Beach High School was once considered the worst high school in Seattle and had a reputation for gangs and lackluster academics. While the graduation rates have improved, almost 70% of students at Rainier Beach High School receive free or reduced lunch and the school has a significant minority enrollment with 58% of students identifying as black. During our visit, we introduced 11th and 12th grade students to synthetic biology through our Solving Global Problems Activity and discussed possible college majors and career options.",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=3\nPICTURE=http://2018.igem.org/wiki/images/8/87/T--Washington--Rainier1.jpg;XPOS=75;YPOS=12\nPICTURE=http://2018.igem.org/wiki/images/b/bc/T--Washington--Rainier2.jpg;XPOS=15;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/1/1b/T--Washington--Rainier3.jpg;YPOS=25",
+        "type": "SPECIAL"
+    }, {
+        "data": "### Citations\n\n1. https://www.seattletimes.com/education-lab/stunning-surge-in-graduation-rate-as-rainier-beach-gamble-pays-off",
+        "type": "MARKDOWN"
+    }, {
+        "data": "## Disability Events\n\n### Adventure Camp for Children with Autism\n\nWe introduced kids in grades 5-8 with autism to synthetic biology. We had many members volunteer at this event to give the students individualized attention and move at a slower pace. Additionally, our Lego DNA/Jellybean Peptide Activity has many images to aid learning. Overall, the students enjoyed learning about synthetic biology and enjoyed being engaged in a hands-on activity!",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=3\nPICTURE=http://2018.igem.org/wiki/images/a/a2/T--Washington--AutismCamp1.jpg;XPOS=75;YPOS=12\nPICTURE=http://2018.igem.org/wiki/images/e/ea/T--Washington--AutismCamp2.jpg;XPOS=15;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/3/39/T--Washington--AutismCamp3.jpg;YPOS=25",
+        "type": "SPECIAL"
+    }, {
+        "data": "## UW Events\n\n### Engineering Discovery Days\nAt Engineering Discovery Days, students and faculty from all UW engineering departments share their work with students, teachers, families, and the community. This 2-day annual event is free, open to everyone, and is largely geared towards elementary school groups. Our team hosted an exhibit demonstrating a fruit DNA extraction. Over the course of the two-day event, we estimate that 400 students visited our booth.\n\n### Engineering Welcome\nAt UW’s Engineering Welcome, we engaged incoming freshman interested in engineering with discussions about synthetic biology, iGEM, and the potential impact that synthetic biology has. This event was many students’ introduction to synthetic biology, so we encouraged them to attend our synthetic biology panel event, Sit Down with Synbio.\n\n### Dawg Daze Event with DAWGMA\nWe partnered with DAWGMA, another synthetic biology club at UW, to give a talk about synthetic biology to incoming freshman interested in the field. We introduced the basic ideas of synthetic biology, our project, and advertised our synthetic biology panel event, Sit Down with Synbio.\n\n### Red Square Tabling\nDuring UW’s annual club fair, we tabled at Red Square at UW. During this time, we introduced UW students to synthetic biology to recruit for the next iGEM season and promote our synthetic biology panel event, Sit Down with Synbio.\n",
         "type": "MARKDOWN"
     }, {
         "data": "SEP",
@@ -649,8 +831,11 @@ var contentData = [{
         "data": "SECTION\nbooklet\nSynthetic Biology Activity Booklet",
         "type": "SPECIAL"
     }, {
-        "data": "# Synthetic Biology Activity Booklet\n\nWashington iGEM’s Synthetic Biology Activity Booklet aims to embrace the spirit of iGEM by making scientific learning more accessible internationally. We spent more than 100 hours writing and graphically illustrating our 100+ page activity booklet. Although none of the members who wrote and illustrated this booklet are studying graphic design, we taught ourselves Adobe Illustrator to create informative and eye-catching visuals to make learning easier, especially for English Language Learners and children with disabilities. \n\nAfter writing our activity booklet, we collaborated with other iGEM teams to translate our booklet into languages such as Spanish, Vietnamese, French, and Hindi. Through the translations, we hope to provide copies of our activities to students in their native language, both in the Seattle area (for English Language Learners) and internationally.\n\nAdditionally, our curriculum has already been distributed to several schools in the Seattle area as well as a school in India. We will also be meeting a UW professor in November to review our curriculum and ensure that it is ideal for effectively teaching synthetic biology to students from diverse backgrounds.\n\n## Quotes from Some Writers of the Booklet:\n* \"I don’t know about you guys, but I couldn’t read up to the fourth grade because I’m dyslexic. I would have loved having visual activities when I was younger. This is why I am so proud of our lessons for younger kids like the Lego DNA/Jellybean Peptide Activity and the Gel Electrophoresis Bunny Activity. These activities do an amazing job illustrating the concepts, allowing people who have a hard time reading have a better understanding of what is going on since they have visual diagrams and clues to follow along with while doing the activity.\" ~ Aimee Ellis\n\n* \"As awesome as synthetic biology is, or more broadly speaking - biology, it might not be for everyone. If you want to engage an audience you have to make them actively involved and not just lecture at them - this is especially true for younger groups. There are lots of textbooks out there that can teach people about biology, but not a lot of them are meant for the purpose of active learning. Our activity booklet is meant to get students actively involved and excited about biology no matter what kind of background they come from. Biology can be and IS for everyone.\" ~ Aerilynn Nguyen\n\n* \"Having grown up in a suburban “bubble” in the Seattle metropolitan area, I was shocked to learn about the inequities in the education system so close to my home. As I was looking at the statistics for students that received free and reduced lunch at potential schools that we were going to visit, the website would often compare the high percentage at those schools with the low percentage of students that needed free or reduced lunch at schools in the school district that I attended. This astonishing revelation was at the core of my desire to make scientific learning more equally accessible with the formation of this booklet.\" ~ Ishira Parikh\n\n## External links to the booklet (hosted on Google Drive)\n* [English](https://drive.google.com/file/d/1QTV1T5mVoGVDJiceAqnrysdved8rScxp/view)\n",
+        "data": "# Synthetic Biology Activity Booklet\n\nWashington iGEM’s Synthetic Biology Activity Booklet aims to embrace the spirit of iGEM by making scientific learning more accessible internationally. We spent more than 100 hours writing and graphically illustrating our 100+ page activity booklet. Although none of the members who wrote and illustrated this booklet are studying graphic design, we taught ourselves Adobe Illustrator to create informative and eye-catching visuals to make learning easier, especially for English Language Learners and children with disabilities. We also included instruction sheets for other iGEM teams/teachers to explain how each activity works.\n\nAfter writing our activity booklet, we collaborated with other iGEM teams to translate our booklet into languages such as Spanish, Vietnamese, French, and Hindi. Through the translations, we hope to provide copies of our activities to students in their native language, both in the Seattle area (for English Language Learners) and internationally.\n\nAdditionally, our curriculum has already been distributed to several schools in the Seattle area as well as a school in India. We are also meeting a UW professor in November to review our curriculum and ensure that it is ideal for effectively teaching synthetic biology to students from diverse backgrounds. Furthemore, we have coordinated a meeting to work with Washington State Senator Bob Hasegawa in the hope of administering our curriculum to a wider range of schools and the general public.\n\n## Quotes from Some Writers of the Booklet:\n* \"I don’t know about you guys, but I couldn’t read up to the fourth grade because I’m dyslexic. I would have loved having visual activities when I was younger. This is why I am so proud of our lessons for younger kids like the Lego DNA/Jellybean Peptide Activity and the Gel Electrophoresis Bunny Activity. These activities do an amazing job illustrating the concepts, allowing people who have a hard time reading have a better understanding of what is going on since they have visual diagrams and clues to follow along with while doing the activity.\" ~ Aimee Ellis\n\n* \"As awesome as synthetic biology is, or more broadly speaking - biology, it might not be for everyone. If you want to engage an audience you have to make them actively involved and not just lecture at them - this is especially true for younger groups. There are lots of textbooks out there that can teach people about biology, but not a lot of them are meant for the purpose of active learning. Our activity booklet is meant to get students actively involved and excited about biology no matter what kind of background they come from. Biology can be and IS for everyone.\" ~ Aerilynn Nguyen\n\n* \"Having grown up in a suburban “bubble” in the Seattle metropolitan area, I was shocked to learn about the inequities in the education system so close to my home. As I was looking at the statistics for students that received free and reduced lunch at potential schools that we were going to visit, the website would often compare the high percentage at those schools with the low percentage of students that needed free or reduced lunch at schools in the school district that I attended. This astonishing revelation was at the core of my desire to make scientific learning more equally accessible with the formation of this booklet.\" ~ Ishira Parikh\n\n## External links to the booklet (hosted on Google Drive)\n* [English](https://drive.google.com/file/d/1QTV1T5mVoGVDJiceAqnrysdved8rScxp/view)\n* [Spanish](https://drive.google.com/open?id=1-n1eRb9uqGOwH4moj1VujEoF6RSAZE9i) translated by [iGEM TecCEM](http://2018.igem.org/Team:TecCEM)\n* [CRISPR Sections in Vietnamese](https://drive.google.com/a/uw.edu/file/d/1JnqtvfWRQsKsWurePw4LH35pfez4lBGn/view?usp=sharing) translated by [NUS Singapore](http://2018.igem.org/Team:NUS_Singapore-A)\n* [Engineer an Organism Activity in Hindi](https://drive.google.com/a/uw.edu/file/d/1wRE_8JlFZp5AVkhluuLfsbDNC3q4cSaM/view?usp=sharing) translated by [ICT Mumbai](http://2018.igem.org/Team:ICT-Mumbai)\n",
         "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=4\nPICTURE=http://2018.igem.org/wiki/images/c/cb/T--Washington--1a.png\nPICTURE=http://2018.igem.org/wiki/images/7/7e/T--Washington--2a.png\nPICTURE=http://2018.igem.org/wiki/images/b/b6/T--Washington--3a.png\nPICTURE=http://2018.igem.org/wiki/images/c/c6/T--Washington--4a.png",
+        "type": "SPECIAL"
     }, {
         "data": "SECTION\nsitdownwithsynbio\nSit Down with Synbio",
         "type": "SPECIAL"
@@ -658,7 +843,52 @@ var contentData = [{
         "data": "SEP",
         "type": "SPECIAL"
     }, {
-        "data": "# Sit Down with Synbio",
+        "data": "# Sit Down with Synbio\n\nTo initiate a dialogue between synthetic biology experts and the general public, Washington iGEM planned, organized, and hosted a synthetic biology panel event called “Sit Down with Synbio.” The two-hour event consisted of a keynote speech by Dr. Scott McIsaac, a Principal Investigator at the anti-aging Bay Area startup Calico Life Sciences, which is funded by Google. During the remainder of the event, the panelists answering pre-submitted questions and questions asked by the audience during the event. This event was extensively advertised to the community by putting up posters, posting on Facebook groups, and being featured on websites like [Geekwire](https://www.geekwire.com/calendar-event/sit-down-with-synbio/).\n\nSome of the topics discussed included GMOs, Artificial Intelligence in synthetic biology, ethics, and the diversity of skillsets needed in synthetic biology, much like on our own iGEM team!\n\nThis event required months of planning including reserving an auditorium and equipment, creating a website, making advertising material and a pamphlet. Ultimately, we estimate that about 100 people attended the event, and we were also featured on UW’s newspaper, The Daily!\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SUBIMAGES\nMAXIMAGESPERROW=3\nPICTURE=http://2018.igem.org/wiki/images/9/99/T--Washington--SitDownSynbio1.jpg;XPOS=75;YPOS=12\nPICTURE=http://2018.igem.org/wiki/images/8/83/T--Washington--SitDownSynbio2.jpg;XPOS=15;YPOS=25\nPICTURE=http://2018.igem.org/wiki/images/d/db/T--Washington--SitDownSynbio3.jpg;YPOS=25",
+        "type": "SPECIAL"
+    }, {
+        "data": "## Footage (Hosted on YouTube)\n\n* [Introduction](https://youtu.be/pArxzti-jl8)\n* [Answers to pre-submitted questions](https://youtu.be/SQfStiwVwY8)\n* [Questions Asked During the Event Part 1](https://youtu.be/VbI1gmY4NPs)\n* [Questions Asked During the Event Part 2](https://youtu.be/CVZFyDgtodQ)\n\n## Other links\n* [Poster](https://drive.google.com/open?id=17zBOHIEeRFbAqHnhXN7oSOqEQMA27apt)\n* [Pamphlet](https://drive.google.com/open?id=1lGZfhi91hit2fZ-DQw5LRAi_pf1OkxPA)\n* [Website](http://students.washington.edu/uwigem/sitdownsynbio/)\n* [Daily Article](http://www.dailyuw.com/science/article_906900ea-caa7-11e8-966d-ebed7823f5d2.html)\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\ncommunityinterviews\nCommunity Interviews",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Community Interviews\n\nDuring the Pacific Northwest iGEM Meetup, we created a dialogue with the public at Gas Works Park. Gas Works Park is a famous park that was originally the site of a goal gasification plant and features a breathtaking view of the Seattle skyline.\nWe asked people enjoying the sunny day at the park about their knowledge of synthetic biology, the biotech industry, and their opinions on Vitamin D and its detection to assess potential applications and consider the ethical and societal implications of our project.\n\n## What comes to mind when you think of synthetic biology?\n\n* “I think of farming and stem cells, stem cells research--things like that. I guess I think about things that are man made, not just things that naturally exist in the world..things that have been altered.”\n* “Something manmade, manmade stuff, not organic. Lab.”\n* “I think about biology--animals, plants. And it’s synthetic, so going along with genetic engineering that’s going on right now and expansion through technology.”\n* “Robot plants”\n\n## What do you know about Vitamin D?  Do you think you get sufficient Vitamin D?\n* “[Vitamin D intake] is lacking in Seattle. I felt it this winter. You leave work and the sun’s down..Everytime I go in to the doctor about a general health issue, the doctor tells me that you might want to take vitamin D supplements. Everytime I think of a vitamin D deficiency, I think of seasonal depression, I think of it affecting your mental health more than anything else.”\n* “I work 8 to 5, so I don’t think I get enough. Isn’t Vitamin D deficiency linked to depression and anxiety? I have anxiety issues, so sometimes I think about whether or not I get vitamin D. It’s hard to pinpoint where the deficiency is.”\n* “I take vitamin D all the time when I get sick. I use my liquid drops when I get sick.”\n\n## Do you feel like you can easily predict when you have enough vitamin D?\n* “It pretty much just depends on how much I’ve literally been in the sun. I don’t think about anything else. I only started thinking about it when I moved it to Seattle, and I remember being like I should start taking supplements, because I’m  not seeing sunlight.”\n\n## What if there was a device or some way for you to easily tell how much vitamin D you have in your body; do you think that would actually help?\n* “Yeah I would love that but then I would be curious to see how that would then actually link up with my mental health.As someone who struggles from depression and anxiety off and on, I would be really curious to see if it gets worse with vitamin D levels...I would be interested if it actually had an impact on me.”\n* “Everyone thinks of seasonal depression but nobody thinks about how to measure it.”\n\n## They asked us a question:\n* “Do you believe that in academia that corporations should stay out of the picture because you are solving problems in the name of science first and foremost, not solving something for the bottom line of the corporation inside of an academic realm?”\n\nFrom these interviews, we came away with a few key insights about how synthetic biology is perceived by the public and concerns that members of the public have about ethics in scientific research. Additionally, we heard significant concerns about vitamin D deficiency and its effects on mental and physical health due to the lack of sunlight in our region.\n\nOne common misconception about synthetic biology is that it mainly deals with GMO agriculture. We explained that the field of synthetic biology is much broader than that, encompassing solutions to problems in areas as diverse as medicine, sustainable energy, and environmental cleanup. Our team does not currently focus on plant synthetic biology; we are using harmless bacteria to develop a detection system.\n\nAnother area of concern for people was regarding funding for academic research and potential conflicts of interest. One person we interviewed asked us: \n\n“Do you believe that in academia that corporations should stay out of the picture because you are solving problems in the name of science first and foremost, not solving something for the bottom line of the corporation inside of an academic realm?”\n\nWe think issues of bias and conflict of interest are important for all iGEM teams, and indeed all researchers, to consider, since funding sources often have disparate interests from researchers, especially those working on fundamental science advancements (not applied science).  A similar issue was discussed at our Sit Down with SynBio panel event, when funding from government agencies, such as the Department of Defense, was discussed in regard to duel use of fundamental technology.  It is essential that scientists weigh the implications of their research being used in ways that they may not approve of.\n\nFinally, as it relates to our project, we found that vitamin D insufficiency is a serious concern for Seattleites, especially in the winter and for those who work indoor jobs.  Many suspect that their experiences with fatigue, anxiety, and depression may be exacerbated by vitamin D deficiency, and are urged by their doctors to take supplements, but they currently do not possess the methods to determine for themselves whether they are receiving enough.  Furthermore, we realized that those we interviewed mainly think about getting vitamin D from sunlight, but did not mention a healthy diet can provide vitamin D as well. We think that educating people more about the importance of eating vitamin D-rich foods is an area for improvement in our region.\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nclass\nClass",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Class\n\n## Purpose\n\nAt the end of last season, Washington iGEM was left with very few training resources to teach the next season’s new members. As for what was there, our returning members were frustrated with the old training process. The result was a conviction to overhaul the training process for wetlab and drylab going into the next season.\n\n## Classes\n\nWe needed to train members differently based on which team they would be joining, so we created four different classes for our subteams. Each of these classes were run by returning members who had expertise in that area.\n\nWetlab - Angel Wong & Karl Anderson\n\nSoftware - Andrew Hu\n\nHardware - William Kwok\n\nSimulations - Yoshi Goto\n\n## Curriculum\n\nSyllabi:\n\n[Wetlab class](https://docs.google.com/document/d/1ECTl_-AO9TruBBa3VTglOg6EfFbIAS5S5LSUVEm5-fs/edit?usp=sharing)\n\n[Drylab classes](https://docs.google.com/document/d/1qhnRhazDiDUfX2lLycewbArTvVEK0hvELHkfC5zJbjA/edit?usp=sharing)\n\nYou can see the course website for all of the drylab courses [here](http://students.washington.edu/uwigem/18sp/)\n\n## Background\n\nCreating a new class is difficult, as it involves synthesizing learning objectives, curriculum activities, and assessments. If any one of these is not given appropriate consideration, it can create a very unsatisfying learning experience for students. We started to develop the structure by splitting up the classes, creating syllabi, and planning out content one quarter before the classes would start.\n\nThe biggest problem during curriculum development was the fact that we were still figuring out what our project this year would be at that time, meaning that we could not be sure of the best content to teach, especially in the drylab classes. Last year, we recruited many drylab members to work on our hardware/software project: the Chromastat. However, this year, we were unsure if we would use that same project, and if not, we did not know what we would be doing. We guessed early that we would be doing something with microfluidics, in coordination with an early idea for a wetlab project involving aptamers, but this idea was ultimately rejected. As a result, we went into teaching the class with a very general curriculum planned out. Software taught a general software engineering course, Simulations gave an introduction to various techniques and tools in modeling, and Hardware used the Chromastat as an example of biotech hardware and continued to work on it.\n\nWe continually asked for anonymous feedback from students but received relatively little. The suggestions we did receive mostly related to the problems already discussed.\n\nSince students received a grade for the courses, we had to create a rubric to assess their performance over the quarter. It was difficult to validate these scores in an objective way because our curriculum was not structured around exams or homework. Our grades mostly consisted of participation both in class and on the project. We ended up giving full credit to those who always showed up in class and put in the required amount of hours. The more difficult issue to address was determining the grades to give to those who did not meet these standards. We graded attendance and out of class participation linearly based on how much work they did, and then used the University of Washington’s recommended percentage score to GPA conversion table shown below\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/9/99/T--Washington--ClassGradingScale.png,Class grading scale,boxShadow: 5px 5px 10px gray,margin:auto,width:80%",
+        "type": "IMAGE"
+    }, {
+        "data": "## Results\n\nWe were able to get through almost all of the originally planned content across all four of the classes, and we found that some of our pedagogical methods were more effective than others. In particular, students generally responded poorly to lecture-style classes. Additionally, the fact that our generalized curriculum did not directly reference our project for this year caused some members to be confused as to how the content we were teaching them was relevant to our project.\n\nBy contrast, when we gave them self-guided projects, they were forced to become more engaged in the course work to finish the project. However, students were resistant to this more free-form style of learning, meaning that it took more preparation and effort on the teachers’ end.\n\n## Analysis\n\nIn the end, the iGEM class was able to fulfill our original goal of training our new members in a more rigorous and formal setting, but we learned through the process of running the class that iGEM does not necessarily need something as straightforward as a class. \n\nThe classroom is the most structured environment where learning can occur, but humans learn every day, by observing their environment and the people in it. Learning happens long after we leave school, especially in the workplace, whether through official training or self-managed trial and error.\n\nHowever, iGEM as an activity is unstructured by nature: students must organize themselves into a team, find experts to work with, create or adapt a synthetic biology project, learn how to do all of the necessary procedures, do literature review, and execute the project all by themselves, while balancing classes and summer commitments! The ideal iGEM training must match how iGEM itself operates, in an environment driven by the passion and curiosity of the students involved.\n\nNext year, we seek to create a more student-driven training, involving project-based learning. Additionally, any classroom-based instruction should use active learning to engage students to drive the experience. Our teachers will facilitate students experimenting with working on their own, given a framework for a project. Through trial and error they will gain the hands-on experience required to effectively run an iGEM project. This will also address the issue of members being confused as to how the course content would fit into the project. \n\n## Establishment as a Vertically Integrated Project (VIP)\n\nWe originally believed that we would just teach the class ourselves by reserving classroom space as a club, but we found out about a relatively recent project at the UW called Vertically Integrated Projects (VIP), which gives support to hands-on projects for undergraduates. By becoming a VIP, we were able to not only reserve class space, but also give our members graded credits for working in iGEM.\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\ncrowdfunding\nCrowdfunding Campaign",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Crowdfunding Campaign",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/b/bc/T--Washington--Givebutterlogo.jpg,Givebutter Logo adapted from givebutter.com,boxShadow: 5px 5px 10px gray,margin:auto,width:60%",
+        "type": "IMAGE"
+    }, {
+        "data": "In order to raise additional funds for our research and conference expenses, we worked with [Givebutter](https://givebutter.com/WashingtoniGEM2018), an innovative crowdfunding platform that is geared specifically towards student teams. This platform is unusual in that it allows people to make non-profit donations, donors have the option to cover platform fees, and all money raised goes towards the project, regardless of whether the campaign reaches its monetary goal. \n\nThrough this campaign, we were not only able to ensure that our students could move forward with their project, but we were also able to connect our friends and family to our work and show that our technology could help solve real-world problems they may face in their communities.\n\n[Link to the crowdfunding video](https://www.youtube.com/watch?v=WMXOW5X1cLM)",
         "type": "MARKDOWN"
     }],
     "isContent": true,
@@ -742,10 +972,73 @@ var contentData = [{
         "data": "HEADER\nTEXT=ATTRIBUTIONS\nBACKGROUND=http://2018.igem.org/wiki/images/7/7b/T--Washington--TEAMBanner.png\nBACKGROUNDOPACITY=0.60\nBACKGROUNDLIGHTNESS=10\nTEXTHEIGHT=12\nMINPADDINGTOP=120\nSUBTITLEHEIGHT=7\nBLUR=3\nMINTITLEHEIGHT=6",
         "type": "SPECIAL"
     }, {
-        "data": "SECTION\nlorem\nloremip",
+        "data": "SECTION\nprojectdevelopment\nProject Development",
         "type": "SPECIAL"
     }, {
-        "data": "# Lorem\n\nLorem ipsum",
+        "data": "# Project Development:\n\n## Gu Lab\n\n* Prof. Liangcai Gu, Assistant Professor, Department of Biochemistry, Institute of Protein Design\n* Dr. Shoukai Kang, Post-doctoral Fellow, Department of Biochemistry\n* Dr. Zhimin Huang, Post-doctoral Fellow, Department of Biochemistry\n* Li Sun, Research Engineer, Department of Biochemistry\n* Luis Castillo, Undergraduate Research Assistant, Department of Biochemistry\n* Jack Jiang, Undergraduate Research Assistant, Department of Biochemistry\n* \n## Baker Lab\n\n* Prof. David Baker, Professor, Department of Biochemistry; Director, Institute of Protein Design; HHMI Investigator\n* Dr. Chunfu Xu, Senior Fellow, Institute of Protein Design\n* Dr. Matthew Bick, Senior Fellow, Institute of Protein Design\n* Jason Klima, Graduate Research Assistant, Institute of Protein Design\n* Dr. Lance Stewart, Sr. Director of Strategy, Institute of Protein Design\n\n* Prof. Herbert Sauro, Associate Professor, Department of Bioengineering\n* Dr. Karen Thickman, Lecturer, Department of Microbiology, School of Medicine\n* Prof. James Carothers, Assistant Professor, Department of Chemical Engineering; Affiliated Investigator, NSF Synthetic Biology Engineering Research Center\n* Prof. Tomikazu Sasaki, Professor, Department of Chemistry\n* Brooke Angell, Lab Manager, Fields Lab, Department of Genome Sciences\n* Lucia Shumaker, Former Research Scientist/Engineer, Fields Lab, Department of Genome Sciences",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nwetlab\nWetlab",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Wetlab:\n\n* Terra Vleeshouwer-Neumann, Research Scientist, Chen Lab, Department of Pathology\n* Texia Loh, Undergraduate Research Assistant, Chen Lab, Department of Pathology\n* Nick Terzopoulos, Assistant Research Scientist, Kaeberlein Lab, Department of Pathology\n* Brandy Tang, Research Associate, Human Photonics Lab, Department of Mechanical Engineering.\n* Andrew Francis, PhD Candidate, Fu lab, Department of Chemistry ",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nsimulations\nSimulations",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Simulations:\n\n* Prof. Frank Dimaio, Assistant Professor, Department of Biochemistry, Institute of Protein Design\n* Prof. Herbert Sauro",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nbusiness\nBusiness",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Business:\n\n* Dr. William Canestaro, Managing Director, Washington Research Foundation\n* Lumen Bioscience, Inc.\n* Institute of Systems Biology\n* Prof. Liangcai Gu\n* Dirk Smith, Founding Partner, Cascadia Drug Development Group\n* Just Biotherapeutics, Inc,\n* Amyris, Inc.",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nfundraising\nFundraising",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Fundraising:\n\n* Damien Chapman, Director for Corporate and Foundation Relations, UW Medicin",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\noutreach\nOutreach",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Outreach:\n\n## Schools\n\n* International School, Bellevue, WA\n* Janet Roberts \n* Teacher: Cheryl McClure\n* Adventure Science Camp, Seattle, WA\n* Teachers: Sylwia Mazur Johnson & Zoe Leverso\n* Kent Meridian High School, Kent, WA\n* Jodie Spitze\n* Teacher: Brian Gabert\n* Rainier Beach High School, Seattle, WA\n* Kelly Rolón\n* Teacher: Karla Nyquist\n* Northgate Elementary School, Seattle, WA\n* Principal: Dedy Fauntleroy\n* Kea Ireland, Northgate Elementary Secretary\n* Guillermo Carvajal\n* Teacher: Jenny Tang\n* Sadhana School, Ahmedabad, India\n* Principal & Trustee: Pranav Mistry\n\n## “Sit Down with SynBio” Event\n\n* Dr. Scott McIsaac (keynote speaker and panelist), Principal Investigator, Calico Life Sciences\n* Dr. Jim Roberts (panelist), Chief Scientific Officer, Lumen Biosciences, Inc.\n* Prof. Jennifer Nemhauser (panelist), Professor, Department of Biology\n* Prof. Herbert Sauro (panelist)",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nadministration\nAdministration",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Administration:\n\n* Kevin Lybarger, PhD Candidate, Department of Electrical Engineering\n* Prof. Brian Fabien, Associate Dean, Academic Affairs, College of Engineering; Professor, Department of Mechanical Engineering\n* Zulfiya Lafi, Administrator, Department of Biochemistry\n* Tonya Alan Hirtzel, Assistant to the Chair, Department of Biochemistry\n* Cynthia Acuario, Program Operations Analyst, Department of Biochemistry\n* John Doan, Budget/Fiscal Analyst, Department of Biochemistry\n* Tana Knight, Budget/Fiscal Analyst, Department of Biochemistry\n* Prof. Trisha Davis, Professor and Chair, Department of Biochemistry",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nmeetupvandv\nMeetup VIPs and Volunteers",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Meetup VIPs and Volunteers\n\n## VIPs\n\n* Dr. Ingrid Swanson Pultz, Chief Scientific Officer, PvP Biologics\n* Regina Wu, Co-Founder, SoundBio Lab\n* Cindy Wu, Co-Founder, Experiment\n* Dr. David Younger, Founder & CEO, A-Alpha Bio, Inc.\n* Dr. David Hirschberg, Founder & CEO, RAIN Incubator; Affiliate Associate Professor, University of * Washington Tacoma\n* Dr. Liangcai Gu\n* Roya Amini-Naieni, Founder & Director, PolymerSpace; Undergraduate Student, Harvey Mudd College\n## iGEM Ambassadors\n* Holly Bowman, Ambassador for North America\n* Amy Chen, Ambassador for North America\n## Volunteers\n* Sophie Liu, High School Student, Newport High School\n",
         "type": "MARKDOWN"
     }],
     "isContent": true,
@@ -755,7 +1048,7 @@ var contentData = [{
         "data": "HEADER\nTEXT=SPONSORS\nBACKGROUND=http://2018.igem.org/wiki/images/7/7b/T--Washington--TEAMBanner.png\nBACKGROUNDOPACITY=0.60\nBACKGROUNDLIGHTNESS=10\nTEXTHEIGHT=12\nSUBTITLEHEIGHT=7\nMINPADDINGTOP=120\nBLUR=3",
         "type": "SPECIAL"
     }, {
-        "data": "SPONSORS\nNAME=Company; SUBTEXT=Company stuff;PICTURE=https://via.placeholder.com/300.png;LINK=https://google.com;FILTER=Gold",
+        "data": "SPONSORS\nNAME=UW Biochemistry Department; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/e/e8/T--Washington--biochemlogo.png;LINK=https://depts.washington.edu/biowww/;FILTER=Diamond;CUSTSIZE=75\nNAME=Genscript; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/e/e7/T--Washington--Genscriptlogo.png;LINK=https://www.genscript.com/;FILTER=Diamond;CUSTSIZE=75\nNAME=IDT; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/9/9e/T--Washington--IDTlogo.png;LINK=https://www.idtdna.com;FILTER=Diamond;CUSTSIZE=75\nNAME=UW Paul G. Allen School of Computer Science & Engineering; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/0/01/T--Washington--CSElogo.png;LINK=https://www.cs.washington.edu/;FILTER=Diamond;CUSTSIZE=75\nNAME=Zulip; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/0/00/T--Washington--Zuliplogo.png;LINK=https://zulipchat.com/;FILTER=Diamond;CUSTSIZE=75\nNAME=UW Department of Biomedical Informatics and Medical Education; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/d/d5/T--Washington--bioinfologo.png;LINK=http://bime.uw.edu/;FILTER=Gold;CUSTSIZE=75\nNAME=UW Bioengineering Department; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/8/8f/T--Washington--BioElogo.png;LINK=https://bioe.uw.edu/;FILTER=Gold;CUSTSIZE=75\nNAME=Institute of Protein Design; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/a/a6/T--Washington--IPDlogo.png;LINK=http://www.ipd.uw.edu/;FILTER=Gold;CUSTSIZE=75\nNAME=PvP Biologics; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/d/d3/T--Washington--PvPlogo.png;LINK=https://www.pvpbio.com/;FILTER=Gold;CUSTSIZE=75\nNAME=Crowdfunding: Friends of Washington iGEM; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png;FILTER=Gold;CUSTSIZE=75\nNAME=UW Biology Department; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/8/89/T--Washington--biologo.png;LINK=https://www.biology.washington.edu/;FILTER=Silver;CUSTSIZE=75\nNAME=UW Applied Math Department; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/5/54/T--Washington--appliedmathlogo.png;LINK=https://amath.washington.edu/;FILTER=Silver;CUSTSIZE=75\nNAME=UW Chemistry Department; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/b/b5/T--Washington--chemlogo.png;LINK=http://depts.washington.edu/chem/;FILTER=Silver;CUSTSIZE=75\nNAME=NEB; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/4/49/T--Washington--NEBlogo.png;LINK=https://www.neb.com/;FILTER=Silver;CUSTSIZE=75\nNAME=UW Microbiology Department; SUBTEXT=;PICTURE=http://2018.igem.org/wiki/images/5/5e/T--Washington--microbiologo.png;LINK=https://microbiology.washington.edu/;FILTER=Bronze;CUSTSIZE=75\nNAME=UW Material Science and Engineering Department; SUBTEXT=;PICTURE=UW Material Science and Engineering Department;LINK=https://mse.washington.edu/;FILTER=Bronze;CUSTSIZE=75",
         "type": "SPECIAL"
     }],
     "pageTitle": "/Sponsors"
@@ -835,16 +1128,58 @@ var contentData = [{
     "pageTitle": "/HP_Design"
 }, {
     "content": [{
-        "data": "Insert text",
+        "data": "HEADER\nTEXT=TEAM DEVELOPMENT\nBACKGROUND=http://2018.igem.org/wiki/images/7/7b/T--Washington--TEAMBanner.png\nBACKGROUNDOPACITY=0.60\nBACKGROUNDLIGHTNESS=10\nTEXTHEIGHT=8\nMINTITLEHEIGHT=6\nMINPADDINGTOP=120\nSUBTITLEHEIGHT=7\nBLUR=3",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nteamcommunications\nTeam Communications",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Team Communications: A crucial aspect of an iGEM team\n\nAs of 2017, the University of Washington has over 45,000 enrolled students, of which about 40% are commuters, with a campus size of over 2.56km². On a campus like this, sometimes meeting together is close to impossible. Throughout the years of operating an iGEM team at the University of Washington, one of the biggest issues with team cohesion, morale, and success has been **communication**. Our advisers especially noted that this was true among the 3+ years they have been involved, and it remains a problem regardless of team size. With our unusually large team this year, it is an _especially_ large problem. Our team has experimented with various communication platforms that can fit with the fluidity and multi-faced nature of an iGEM team.\n\n## Trying different platforms\n\nOur team has tried many different methods of communication but most platforms fell short because they did not meet our criteria for our ideal communication platform. In the past, we have used Google Hangouts Chat, Facebook Messenger, and Slack Free edition. Based on this experience, we have identified shortcomings of these platforms. At the start of the season, the leadership team that continued from the 2017 team discussed what we wanted in a communication platform:\n\nBased on our past experience, our ideal platform would:\n\n* Be **portable and accessible**: The program should work on multiple operating systems (Windows, MacOS, Linux) and also be available on mobile apps (Android, iOS). \n* Be **stable**: The programs should be able to reliably send and receive messages and files, in any form, and not fail to send messages we type.\n* Be **affordable**: We do not have a budget that we can allocate to our communication platform, so we were ideally looking for an open-source free solution. Slack is expensive at $7/user/month. \n* Be **organized**: The platform should have a good way to organize many topics and discussion at the same time. One problem with Facebook Messenger and Google Hangouts was the lack of threading or separation by topics.\n* Be **searchable**: We send many messages every day. We need a way to search all messages in case we need to get back to it.\n* Have a layer of **privacy**: We have a complicated team structure. We need private and public channels, as well as the ability to privately message other users.\n* Have **long-term storage**: One issue with Slack is that our team easily reached our maximum message number limit, and halfway through the season, we started to lose crucial messages.\n\nWe have tried multiple messaging platforms listed below:\n\n| Platform | Comments |\n|-|-|\n| Rocket.chat | $10/month for the whole server, but limited threading capabilities. |\n| Ryver | Free, but the layout is confusing. It seems to be trying to be Slack and Trello in one. |\n| Trello | Great layout for task management, but it’s not intuitive for quick communication. |\n| Chanty | Too early in its development and lacks a lot of features that other programs have. |\n| HipChat | Too expensive! |\n| Bitrix24 | Too expensive! |\n| MatterMost | The platform is very good and intuitive, but is $150/month for 50 users. We could not find a server to host an instance. |\n| Slack | Slack was what we used last season, but the biggest complaints were that discussions couldn’t be sustained, and there was a maximum message retention limit. |\n| Google Hangouts | Very ubiquitous, but does not support threading or easy messaging of users. |\n| Facebook | Everyone uses Facebook, but often for personal, “non-work” uses, and many team members said they wanted to keep iGEM “business” separate from their personal social media. Messenger has the same problem as Google Hangouts. |\n| IRC | IRC is too niche and too minimalist. The messages that people send will also not be visible if they are offline. |\n| SnapChat | Too casual and won’t be conducive to working. |\n| Zoom | Works great as a video messaging system, but it’s too simple and doesn’t have features necessary for the team. |\n| GroupMe, WeChat, LINE, Kakotalk, Whatsapp | Instant messaging platforms like these are too casual and has the same problem as Google Hangouts. |",
         "type": "MARKDOWN"
     }, {
-        "data": "Insert text",
+        "data": "http://2018.igem.org/wiki/images/7/7f/T--Washington--SlackUsage.jpg,Slack usage,boxShadow: 5px 5px 10px gray,margin:auto,width:90%",
+        "type": "IMAGE"
+    }, {
+        "data": "Figure 1. Our analytics of Slack usage last year. We went well over 10 times the amount of free messages we had.\n\nAfter lots of experimentation, we found a relatively new platform called Zulip.",
         "type": "MARKDOWN"
     }, {
-        "data": "Insert text",
+        "data": "## Zulip\n\nZulip is a very different communication platform developed at MIT (just like iGEM!) in 2012 as a startup. In 2014, it was acquired by Dropbox while in private beta, where it met favorable opinions from beta users. In late 2015, it was released as open source software. The Zulip project is now one of the world’s largest active open source projects. There is now a company dedicated to developing Zulip, as well as a hosted server service funded by the National Science Foundation. [1] The core team developing Zulip includes former and current Dropbox employees, MIT and Stanford graduates, and core Python contributors. [2]\n\nZulip has an innovative approach to chat styling: They combine Slack’s immediacy and portability with an email threading model. This allows teams to immediately address completely different discussions, while keeping organization and neatness. Zulip wonderfully hits almost all of our criteria. [3]\n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/a/ab/T--Washington--ZulipScreenshot.jpg,Zulip desktop,boxShadow: 5px 5px 10px gray,margin:auto,width:90%",
+        "type": "IMAGE"
+    }, {
+        "data": "Figure 2. A screenshot of Zulip, desktop program version, Windows, dark mode. Note its email-threading method of showing multiple discussions at once.\n\n| Criteria | Zulip feature |\n|-|-|\n| Portable + Accessible | Zulip was built on a platform supported by all OSes, and if the desktop app doesn’t work, it can be used in the browser, just like Slack. It also has an Android and iOS app. |\n| Stable | Zulip was originally still the beta version when we started using it. Since then, stability of the desktop and mobile apps have improved dramatically to almost no issues. |\n| Cheap | Zulip has the same pricing plan as Slack. But, unlike Slack, they offer their premium plan to non-profit groups. After asking them, they immediately offered us a premium plan for free! |\n| Organized | Zulip is organized into “streams” (akin to “channels”) and “topics” within the streams. Their home window can show multiple topics within streams at once. Our team members have really responded well, and it has created efficient and rapid communication possible. |\n| Searchable | Zulip has a global search bar that can search every single post ever, which works almost immediately. |\n| Privacy | Zulip allows for private streams, private messages, and group private messages. |\n| Long-term Storage | With the premium plan, we are able to keep every single message, as well as 10GB of storage for every single member! |\n\nSince the beginning of the season, we have been using Zulip. In the winter, Zulip had many issues and their Android app was almost completely unusable. Contrary to almost all other messaging platforms and the companies that run them, the **Zulip development team is extremely transparent**. Almost all of their development discussion among workers and volunteers happens on a public Zulip chat server. This means that our members can **report bugs directly to the staff**, and get a reply often within minutes, with a fix implemented in days, sometimes **immediately**.",
+        "type": "MARKDOWN"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/0/0a/T--Washington--ZulipBugs.jpg,Zulip Bug reporting,boxShadow: 5px 5px 10px gray,margin:auto,width:90%",
+        "type": "IMAGE"
+    }, {
+        "data": "http://2018.igem.org/wiki/images/2/28/T--Washington--Zulipusage.jpg,Zulip usage statistics,boxShadow: 5px 5px 10px gray,margin:auto,width:97%",
+        "type": "IMAGE"
+    }, {
+        "data": "Figure 4: Our Zulip analytics for the whole season. We reached almost 60,000 messages with an average of 60 users. By the end of our season, we had 44 active members in the team using Zulip.\n\nAfter we stressed the importance of the android app to our team, the lead developers surveyed other teams utilizing Zulip, and greatly prioritized stability of the app. Within a few months, the android app now works as well as the mature desktop app. The **openness** and **accessibility** of the development team was extremely refreshing to our team. We realized that this kind of culture was something to emulate within our iGEM team as well. We strongly recommend Zulip for iGEM teams in the future.",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\nteamopsandmgmt\nTeam Operations & Management",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Team Operations and Management\n\nWhen managing a team of over 40 members, it is essential to keep every member engaged, informed, and motivated to contribute to the project. This year, our operations team, comprised of our two Administrative Leads, Andrew Hu and Angel Wong, and our Director of Internal Affairs, Krithi Basu, worked hard with the help of our advisors, Yoshi Goto and Anastasia Nicolov, to ensure that each team member felt comfortable voicing their questions and concerns and was generally excited to be in iGEM. \n\nAt the beginning of the summer, individual check-ins were conducted with every single member on the team. We felt that these check-ins were essential to not only understanding members’ experiences on the team thus far, but also being receptive to new ideas regarding the project or general team structure and operations. During these check-ins, a variety of questions were asked, some specific to members’ subteams and others about understanding of the project, information access and organization on Zulip, and feedback and suggestions for how leadership can better manage the team. At the end of these check-ins, our Director of Internal Affairs had a _26-page document_ compiling each members’ responses, complete with summaries of observations and feedback for every subteam lead to read and adjust their leadership style accordingly. \n\nUpon concluding the check-ins and listening to everyone’s evaluations, it became apparent that there was too much of a divide between subteams--most people had yet to meet every person on the team! This isolation resulted in a lack of communication and awareness of the work in different aspects of the team. The operations team took members’ suggestions for improvement and created a weekly updates stream on Zulip where every subteam lead would post an update every week about what their subteam had accomplished over the week and their goals for the upcoming week. We received lots of positive reactions from members after instituting this stream, indicating that we succeeded in improving communication and awareness across the whole team. Additionally, to further combat isolation between subteams, we began to hold social events, including weekly optional lunches, an Escape Room, and an evening outing at a boba cafe! \n\nThroughout the season, our Director of Internal Affairs performed periodic check-ins with members who became inactive for long periods of time without communication. These check-ins helped determine whether inactive members required more guidance, needed to take a break due to other commitments, or simply lost motivation. The concerns of such members were immediately passed on to the relevant leadership members who would provide more instruction and guidance for how they can continue to contribute. We also created an anonymous team management survey as a sort of virtual check-in at the beginning of fall to collect members’ latest opinions, feedback, questions, and concerns about the way various subteams and the overall team was run through the summer. Based on the responses, some improvements that we will incorporate for the team next season are more frequent all-team meetings, better delegation of work, and stronger communication between leadership and general members. Furthermore, to create a more continuous channel of feedback from team members, we will be creating and advertising an anonymous feedback form throughout the season. \n\nAs this year’s season ends, we have learned that to successfully run a large team, the most important priority is clear and constant communication between each part of the team. For other teams, we recommend the use of individual check-ins, anonymous feedback surveys, weekly updates from all subteams (including administration), and social events to create a positive community where every individual feels comfortable asking questions and expressing any concerns or suggestions for improvement. Such an environment is ideal for optimal learning, collaboration, productivity, and overall fun in an iGEM team! \n",
+        "type": "MARKDOWN"
+    }, {
+        "data": "SEP",
+        "type": "SPECIAL"
+    }, {
+        "data": "SECTION\ncitations\nCitations",
+        "type": "SPECIAL"
+    }, {
+        "data": "# Citations\n\n* [https://zulipchat.com/history/](https://zulipchat.com/history/)\n* [https://zulipchat.com/team/](https://zulipchat.com/team/)\n* [https://zulipchat.com/features/](https://zulipchat.com/features/)",
         "type": "MARKDOWN"
     }],
-    "isContent": false,
+    "isContent": true,
     "pageTitle": "/Team_Development"
 }, {
     "content": [{
