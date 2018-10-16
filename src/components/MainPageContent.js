@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardContent, Typography } from '@material-ui/core';
+// import { Card, CardContent, Typography } from '@material-ui/core';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import Button from '@material-ui/core/Button';
 import './MainPageContent.css'
@@ -178,7 +178,7 @@ export class MainPageContent extends Component {
                         {/* </Fade> */}
                     </div>
                     <ScrollableAnchor id={'overview'}><div id="overview-spy"></div></ScrollableAnchor>
-                    <div style={{ marginTop: 70 }}></div>
+                    {/* <div style={{ marginTop: 70 }}></div>
                     <Card style={{ minWidth: 250, maxWidth: "80%", margin: "auto", marginTop: 0, textAlign: 'center' }}>
                         <CardContent>
                             <Fade cascade duration={1000}>
@@ -199,7 +199,7 @@ export class MainPageContent extends Component {
                             </Fade>
                         </CardContent>
                     </Card>
-                    <div style={{ marginTop: 300 }}></div>
+                    <div style={{ marginTop: 300 }}></div> */}
                 </Fade>
             </div >
         );

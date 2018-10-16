@@ -553,7 +553,7 @@ export class ContentView extends Component {
                 {this.generateSegment(newContentData.content[0], 0, newContentData)}
                 <Grid fluid>
                     <Row>
-                        <Col md={3}><Spybar spyArr={spyArr} positions={this.state.spyPositions} /></Col>
+                        <Col md={3}><Spybar spyArr={spyArr} positions={this.state.spyPositions} updateDim={this.updateDim} /></Col>
                         <Col md={8}>{newContentData.content.map((d, i) => {
                             if (i > 0) {
                                 return this.generateSegment(d, i, newContentData);

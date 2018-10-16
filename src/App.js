@@ -24,7 +24,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/Human_Practices";
+        this.debugURL = "/Collaborations";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -35,45 +35,7 @@ class App extends Component {
         this.getContentData = this.getContentData.bind(this);
         this.setEdit = this.setEdit.bind(this);
 
-        // Images to prefetch:
-        // 
-        let imgs = [
-            // Team images
-            'http://2018.igem.org/wiki/images/d/d9/T--Washington--HLogo1.png',
-            "http://2018.igem.org/wiki/images/5/58/T--Washington--AerilynnTeam.jpg",
-            "http://2018.igem.org/wiki/images/2/2f/T--Washington--AlanPic.jpg",
-            "http://2018.igem.org/wiki/images/b/bc/T--Washington--AnastasiaTeam.jpg",
-            "http://2018.igem.org/wiki/images/c/ce/T--Washington--AndrewTeam.jpg",
-            "http://2018.igem.org/wiki/images/a/ac/T--Washington--AngelTeam.jpg",
-            "http://2018.igem.org/wiki/images/1/1a/T--Washington--CharlieTeam.jpg",
-            "http://2018.igem.org/wiki/images/5/5d/T--Washington--ChemayTeam.jpg",
-            "http://2018.igem.org/wiki/images/5/50/T--Washington--DallasTeam.jpg",
-            "http://2018.igem.org/wiki/images/9/99/T--Washington--SauroTeam.jpg",
-            "http://2018.igem.org/wiki/images/2/20/T--Washington--GuTeam.jpg",
-            "http://2018.igem.org/wiki/images/d/de/T--Washington--TPhotoDreycey.jpg",
-            "http://2018.igem.org/wiki/images/1/1d/T--Washington--GraceTeam.jpg",
-            "http://2018.igem.org/wiki/images/6/6c/T--Washington--HannahTeam.jpg",
-            "http://2018.igem.org/wiki/images/f/fb/T--Washington--IshiraTeam.jpg",
-            "http://2018.igem.org/wiki/images/e/e6/T--Washington--JayTeam.jpg",
-            "http://2018.igem.org/wiki/images/4/49/T--Washington--JoshuaTeam.jpg",
-            "http://2018.igem.org/wiki/images/e/e7/T--Washington--KarlTeam.jpg",
-            "http://2018.igem.org/wiki/images/b/b2/T--Washington--KrithiTeam.jpg",
-            "http://2018.igem.org/wiki/images/c/ca/T--Washington--RenaldoTeam.jpg",
-            "http://2018.igem.org/wiki/images/7/77/T--Washington--SairandriTeam.jpg",
-            "http://2018.igem.org/wiki/images/e/ec/T--Washington--SeaEunTeam.jpg",
-            "http://2018.igem.org/wiki/images/7/7d/T--Washington--VeraTeam.jpg",
-            "http://2018.igem.org/wiki/images/0/0c/T--Washington--WilliamTeam.jpg",
-            "http://2018.igem.org/wiki/images/4/40/T--Washington--YoshiTeam.jpg",
-            'http://2018.igem.org/wiki/images/3/3d/T--Washington--PNWMeetup.png',
-            "http://2018.igem.org/wiki/images/7/78/T--Washington--CollabKeynoteSpeech.png",
-            "http://2018.igem.org/wiki/images/2/2d/T--Washington--Panel.png",
-            "http://2018.igem.org/wiki/images/c/c0/T--Washington--Ingrid.png",
-            "http://2018.igem.org/wiki/images/5/5e/T--Washington--David.png",
-            'http://2018.igem.org/wiki/images/5/5b/T--Washington--CindyWu.png',
-            'http://2018.igem.org/wiki/images/4/45/T--Washington--Regina.png',
-            'http://2018.igem.org/wiki/images/e/ec/T--Washington--RoyaTalk.png',
-
-        ]
+        let imgs = this.state.data.getImgsToPrefetch();
     }
 
 

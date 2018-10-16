@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import Fade from 'react-reveal/Fade';
 import './SubImages.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 
 export class SubImages extends Component {
@@ -43,7 +45,7 @@ export class SubImages extends Component {
 
     render() {
         let data = this.state.data;
-        return <div style={{ margin: 'auto', marginTop: 30, marginBottom: 30, textAlign: 'center' }}>
+        return <div style={{ margin: 30, textAlign: 'center' }}>
             <Grid fluid style={{ padding: 0, margin: 0 }}>
                 <Fade clear cascade>
                     <Row style={{ padding: 0, margin: 0 }} center="xs">
@@ -73,6 +75,10 @@ export class SubImages extends Component {
                                                     boxShadow: '5px 5px 10px gray',
                                                     marginBottom: 10
                                                 }} className={'linkSubImage'}></div>
+                                                {d.TITLE && <div style={{
+                                                    padding: 5,
+                                                    fontSize: '16pt'
+                                                }}>{d.TITLE} <FontAwesomeIcon icon={faArrowAltCircleRight} /></div>}
                                                 <div style={{
                                                     padding: 5,
                                                     fontSize: '11pt'
@@ -93,7 +99,11 @@ export class SubImages extends Component {
                                                 boxShadow: '5px 5px 10px gray',
                                                 marginBottom: 10
                                             }}></div>
-                                            <div style={{ padding: 5, fontSize: '10pt' }}>{d.DESCRIPTION}</div>
+                                            {d.TITLE && <div style={{
+                                                padding: 5,
+                                                fontSize: '16pt'
+                                            }}>{d.TITLE}</div>}
+                                            <div style={{ padding: 5, fontSize: '11pt' }}>{d.DESCRIPTION}</div>
                                         </div>
                                         }
                                     </div>

@@ -1,15 +1,16 @@
 .linkSubImage:hover {
-    border: 2px solid #420dab;
+    /* border: 2px solid #420dab; */
+    box-shadow: 5px 5px 10px #420dab;
 }
 
 .linkSubImage {
-    transition: border 0.2s;
+    transition: box-shadow 0.2s;
 }
 
 .linkSubImageTotal {
     transition: color 0.2s;
     color: black;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .linkSubImageTotal:hover {

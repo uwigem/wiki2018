@@ -99,7 +99,8 @@ export class Spybar extends Component {
             {arr.map((d, i) => {
                 return <div key={'spybar-' + i} style={{ marginTop: 10, height: 30, width: 'auto' }}>
                     <Grid fluid>
-                        <a style={{ textDecoration: 'none', color: 'black' }} href={d.href}>
+                        <a style={{ textDecoration: 'none', color: 'black' }} href={d.href}
+                            onClick={this.props.updateDim}>
                             <Row middle="xs">
                                 <span style={{
                                     // color: '#420dab',
