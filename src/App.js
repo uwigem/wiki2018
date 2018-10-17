@@ -24,7 +24,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "";
+        this.debugURL = "/Entrepreneurship";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -196,7 +196,8 @@ class App extends Component {
                                     a={a}
                                     data={this.state.data}
                                     contentData={contentData}
-                                    firebase={this.firebasePassIn} />
+                                    firebase={this.firebasePassIn}
+                                    IEOREDGE={this.props.IEOREDGE} />
                             </div>
 
                             <Footbar />

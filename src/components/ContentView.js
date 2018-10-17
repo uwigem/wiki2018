@@ -558,7 +558,7 @@ export class ContentView extends Component {
             newContentData.content = [];
         }
 
-        if ((newContentData && !newContentData.isContent) || this.state.minimized) {// && !isContent
+        if ((newContentData && !newContentData.isContent) || this.state.minimized || this.props.IEOREDGE) {// && !isContent
             contentMapping = newContentData.content.map((d, i) => {
                 return this.generateSegment(d, i, newContentData);
             })

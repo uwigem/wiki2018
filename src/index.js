@@ -14,14 +14,19 @@ You may continue to use the site, but please note that there will be bugs and po
 
 document.title = "Washington iGEM";
 
+let IEOREDGE = false;
+
 switch (browser && browser.name) {
     case 'edge':
+        IEOREDGE = true;
         nSupp(browser.name);
         break;
     case 'ie':
+        IEOREDGE = true;
         nSupp(browser.name);
         break;
     default:
+        IEOREDGE = false;
         break;
 }
 
@@ -37,4 +42,4 @@ firebase.initializeApp(config);
 
 window.W_IGEM_VERSION = '1.0.5'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App IEOREDGE={IEOREDGE} />, document.getElementById('root'));
