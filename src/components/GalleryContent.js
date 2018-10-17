@@ -44,6 +44,7 @@ export class GalleryContent extends Component {
         });
     }
 
+    /** shuffle code using the Fisher-Yates algorithm by Jeff on stackoverflow  */
     shuffle = (a) => {
         var j, x, i;
         for (i = a.length - 1; i > 0; i--) {
