@@ -35,7 +35,7 @@ export class SplitView extends Component {
                         let x = splitTitle[1] ? splitTitle[1] : 50;
                         let y = splitTitle[2] ? splitTitle[2] : 50;
                         if (title === "IMAGE") {
-                            return <Col md={6} style={{ textAlign: 'center' }}>
+                            return <Col md={6} style={{ textAlign: 'center' }} key={'split' + i}>
                                 <div style={{
                                     backgroundColor: 'white',
                                     background: `url(${d.data.trim()}) ${x}% ${y}% no-repeat`,
@@ -45,7 +45,7 @@ export class SplitView extends Component {
                                     margin: 'auto',
                                     boxShadow: '5px 5px 10px gray'
                                 }}
-                                    key={'split' + i}></div>
+                                ></div>
                                 {/* <img src={d.data.trim()} style={{ width: '80%', height: 'auto' }} /> */}
                             </Col>
                         } else {

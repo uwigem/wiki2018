@@ -21,6 +21,7 @@ import { GalleryContent } from './GalleryContent';
 import { Sponsors } from './Sponsors';
 import { Accordion } from './Accordion';
 import { SplitView } from './SplitView';
+import { NavigationBottom } from './NavigationBottom';
 
 
 configureAnchors({ offset: -64, scrollDuration: 1000 }); // -18 for hide, -64 for no hide
@@ -344,8 +345,22 @@ export class ContentView extends Component {
                 });
                 returnDiv = <div><SplitView spObjs={spObjs} /></div>
                 break;
+            case "NAVIGATION":
+                let restParamsNav = splitData.slice(1);
+                let navParams = {};
+                restParamsNav.forEach(d => {
+                    let KVs = d.split(";");
+                    KVs.forEach(e => {
+                        let KV = e.split("=")
+                        let K = KV[0].trim();
+                        let V = KV[1].trim();
+                        navParams[K] = V;
+                    });
+                });
+                returnDiv = <div><NavigationBottom navParams={navParams} /></div>
+                break;
             default:
-                returnDiv = <div>stub div</div>;
+                returnDiv = <div className={"stub-div"}></div>;
                 break;
         }
         return returnDiv;

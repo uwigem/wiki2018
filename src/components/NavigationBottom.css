@@ -1,0 +1,9 @@
+.navLinkA {
+    transition: color 0.2s;
+    color: black;
+    text-decoration: none;
+}
+
+.navLinkA:hover {
+    color: #420dab;
+}

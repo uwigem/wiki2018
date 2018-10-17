@@ -74,7 +74,7 @@ export class Spybar extends Component {
         } else if (x < 400) {
             maxLength = 18;
         } else if (x < 500) {
-            maxLength = 25;
+            maxLength = 22;
         } else if (x < 525) {
             maxLength = 27;
         } else if (x < 550) {
