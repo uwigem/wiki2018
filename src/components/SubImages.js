@@ -58,7 +58,7 @@ export class SubImages extends Component {
                                 <Fade when={this.state.loaded[i]}>
                                     <div>
                                         {d.LINK &&
-                                            <a href={d.LINK} target="_blank" style={{
+                                            <a href={d.LINK} style={{
                                                 textDecoration: 'none',
                                             }} className={"linkSubImageTotal"}>
                                                 <div style={{

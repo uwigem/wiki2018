@@ -359,6 +359,13 @@ export class ContentView extends Component {
                 });
                 returnDiv = <div><NavigationBottom navParams={navParams} /></div>
                 break;
+            case "VIDEO":
+                let restParamsVideo = splitData[1];
+                returnDiv = <div style={{ marginTop: 20, marginBottom: 20, textAlign: 'center' }}><video width="95%" height="auto" controls style={{ margin: 'auto', boxShadow: '5px 5px 10px gray' }}>
+                    <source src={restParamsVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                    </video></div>;
+                break;
             default:
                 returnDiv = <div className={"stub-div"}></div>;
                 break;

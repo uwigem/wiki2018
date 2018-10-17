@@ -182,5 +182,8 @@ code {
     border: none;
     background: none;
     line-height: inherit;
-    display: block;
+    display: inline;
+    margin-left: 6px;
+    margin-right: 6px;
+    color: maroon;
 }
