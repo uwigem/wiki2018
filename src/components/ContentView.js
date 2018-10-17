@@ -386,7 +386,7 @@ export class ContentView extends Component {
         let returnDiv = null;
         switch (data.type) {
             case "MARKDOWN":
-                returnDiv = <div style={{ marginLeft: '5%', marginRight: '5%' }} className={'md'}>
+                returnDiv = <div style={{ marginLeft: '5%', marginRight: '5%', maxWidth: '100vw', overflowX: 'hidden' }} className={'md'}>
                     <Fade clear cascade duration={500}>
                         {remark().use(reactRenderer).processSync(data.data).contents}
                     </Fade>

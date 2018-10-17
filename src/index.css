@@ -21,6 +21,7 @@ body {
     height: 100%;
     padding: 0 !important;
     background-color: var(--backgroundColor);
+    overflow-x: hidden;
 }
 
 header {
@@ -186,4 +187,11 @@ code {
     margin-left: 6px;
     margin-right: 6px;
     color: maroon;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.md pre {
+    max-width: 100%;
+    overflow-x: hidden;
 }
