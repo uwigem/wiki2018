@@ -24,7 +24,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/Entrepreneurship";
+        this.debugURL = "/Gallery";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -36,6 +36,7 @@ class App extends Component {
         this.setEdit = this.setEdit.bind(this);
 
         this.imgsToPrefetch = this.state.data.getImgsToPrefetch();
+        this.loaded = 0;
         // console.log(imgs);
     }
 
@@ -43,7 +44,17 @@ class App extends Component {
         this.imgsToPrefetch.forEach(d => {
             const img = new Image();
             img.src = d;
+            img.onload = () => {
+                this.loaded++;
+                if (this.loaded === this.imgsToPrefetch.length) {
+                    this.prefetchImagesWaveTwo();
+                }
+            };
         });
+    }
+
+    prefetchImagesWaveTwo() {
+
     }
 
     componentDidMount() {
