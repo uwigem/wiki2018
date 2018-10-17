@@ -57,8 +57,8 @@ export class GalleryContent extends Component {
     }
 
     /** End boilerplate code */
-    componentWillReceiveProps(nextProps) {
-        let photos = this.shuffle(nextProps.photos)
+    componentWillReceiveProps({ photos }) {
+        // let photos = this.shuffle(nextProps.photos)
         this.setState({ photos });
     }
 
