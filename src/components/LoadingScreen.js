@@ -7,7 +7,7 @@ export class LoadingScreen extends Component {
         return (
             <div style={{ textAlign: 'center', margin: 'auto', width: '100%' }}>
                 <br /><br /><br /><br /><br /><br /><br /><br /><br />
-                <h1 style={{ margin: 'auto', width: '100%', textAlign: 'center' }}>Page loading...</h1>
+                <h1 style={{ margin: 'auto', width: '100%', textAlign: 'center', color: '#420dab', fontSize: 50 }}>Page loading</h1>
                 <div className="sk-circle">
                     <div className="sk-circle1 sk-child"></div>
                     <div className="sk-circle2 sk-child"></div>
