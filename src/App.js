@@ -9,9 +9,9 @@ import { Footbar } from './components/Footbar';
 import Data from './data/Data';
 
 // comment out for production build
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
+// import 'firebase/database';
 ///
 
 window.addEventListener('unload', function () { });
@@ -24,7 +24,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/Gallery";
+        this.debugURL = "/Human_Practices";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -106,12 +106,12 @@ class App extends Component {
         // and plug that in to Data.js. Then when you comment this part out, and the import statement
         // out, then you can get all the data.
         // COMMENT OUT FOR PRODUCTION
-        this.firebasePassIn = firebase;
-        let dataRef = firebase.database().ref("/");
-        dataRef.on("value", (snapshot) => {
-            this.firebaseIsSet = true;
-            this.setState({ contentData: snapshot.val() });
-        });
+        // this.firebasePassIn = firebase;
+        // let dataRef = firebase.database().ref("/");
+        // dataRef.on("value", (snapshot) => {
+        //     this.firebaseIsSet = true;
+        //     this.setState({ contentData: snapshot.val() });
+        // });
         ////////////////////////////////////////////
     }
 
@@ -151,10 +151,10 @@ class App extends Component {
      *          }
      */
     displayLoadingMessage() {
-        // this.setState({ loading: true });
-        // setTimeout(() => {
-        //     this.setState({ loading: false });
-        // }, 100);
+        this.setState({ loading: true });
+        setTimeout(() => {
+            this.setState({ loading: false });
+        }, 3000);
     }
 
     /**

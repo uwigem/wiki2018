@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 import './index.css';
 import App from './App';
 import { detect } from 'detect-browser';
@@ -30,15 +30,15 @@ switch (browser && browser.name) {
         break;
 }
 
-var config = {
-    apiKey: "AIzaSyDCQF40jxKpF8So-kbj_uqtYKBnlGHVReA",
-    authDomain: "wiki2018-987d7.firebaseapp.com",
-    databaseURL: "https://wiki2018-987d7.firebaseio.com",
-    projectId: "wiki2018-987d7",
-    storageBucket: "wiki2018-987d7.appspot.com",
-    messagingSenderId: "158742751002"
-};
-firebase.initializeApp(config);
+// var config = {
+//     apiKey: "AIzaSyDCQF40jxKpF8So-kbj_uqtYKBnlGHVReA",
+//     authDomain: "wiki2018-987d7.firebaseapp.com",
+//     databaseURL: "https://wiki2018-987d7.firebaseio.com",
+//     projectId: "wiki2018-987d7",
+//     storageBucket: "wiki2018-987d7.appspot.com",
+//     messagingSenderId: "158742751002"
+// };
+// firebase.initializeApp(config);
 
 window.W_IGEM_VERSION = '1.0.5'
 
