@@ -24,7 +24,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/Human_Practices";
+        this.debugURL = "/Model";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -211,7 +211,7 @@ class App extends Component {
                                     IEOREDGE={this.props.IEOREDGE} />
                             </div>
 
-                            <Footbar />
+                            <Footbar a={a} />
                         </div>
                     }
 

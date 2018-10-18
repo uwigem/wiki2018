@@ -109,13 +109,13 @@ export class Footbar extends Component {
                     <Zoom clear cascade duration={1000}>
                         {this.items.map((d, i) => {
                             return <Col key={'footbar' + i}>
-                                {!d.logo && <a href={d.link} alt={d.alt}><FontAwesomeIcon icon={d.icon} size={this.state.minimized ? "1x" : "2x"}
+                                {!d.logo && <a onClick={this.props.a} href={d.link} alt={d.alt}><FontAwesomeIcon icon={d.icon} size={this.state.minimized ? "1x" : "2x"}
                                     className={`icon`}
                                     style={{ color: this.state.hover[i] ? '#420dab' : 'white', margin: 10 }}
                                     onMouseEnter={() => { this.addHover(i) }}
                                     onMouseLeave={() => { this.removeHover(i) }} /></a>}
                                 {d.logo &&
-                                    <a href={d.link} alt={d.alt}>
+                                    <a onClick={this.props.a} href={d.link} alt={d.alt}>
                                         <div style={{ margin: 10, position: 'relative', width: this.state.minimized ? 40 : 80, zIndex: 2 }} onMouseEnter={() => { this.addHover(i) }}
                                             onMouseLeave={() => { this.removeHover(i) }}>
                                             {/* <img src={d.logo.purple} style={{

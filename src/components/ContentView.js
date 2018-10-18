@@ -280,7 +280,7 @@ export class ContentView extends Component {
                     });
                     restParamsArrSub.push(obj);
                 })
-                returnDiv = <div><SubImages maxImagesPerRow={maxImagesPerRow} data={restParamsArrSub} /></div>
+                returnDiv = <div><SubImages a={this.props.a} maxImagesPerRow={maxImagesPerRow} data={restParamsArrSub} /></div>
                 break;
             case "SEP":
                 returnDiv = <div style={{
@@ -357,7 +357,7 @@ export class ContentView extends Component {
                         navParams[K] = V;
                     });
                 });
-                returnDiv = <div><NavigationBottom navParams={navParams} /></div>
+                returnDiv = <div><NavigationBottom a={this.props.a} navParams={navParams} /></div>
                 break;
             case "VIDEO":
                 let restParamsVideo = splitData[1];

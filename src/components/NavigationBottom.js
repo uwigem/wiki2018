@@ -31,14 +31,14 @@ export class NavigationBottom extends Component {
                     <Col style={{ width: '50%', textAlign: 'left' }}>
                         {it.LEFT && it.LEFTNAME &&
                             <div>
-                                <a href={it.LEFT} className={"navLinkA"}><FontAwesomeIcon icon={this.iconLeft} style={{ marginRight: 10 }} /> {it.LEFTNAME}</a>
+                                <a onClick={this.props.a} href={it.LEFT} className={"navLinkA"}><FontAwesomeIcon icon={this.iconLeft} style={{ marginRight: 10 }} /> {it.LEFTNAME}</a>
                             </div>
                         }
                     </Col>
                     <Col style={{ width: '50%', textAlign: 'right' }}>
                         {it.RIGHT && it.RIGHTNAME &&
                             <div>
-                                <a href={it.RIGHT} className={"navLinkA"}>{it.RIGHTNAME} <FontAwesomeIcon icon={this.iconRight} style={{ marginLeft: 10 }} /> </a>
+                                <a onClick={this.props.a} href={it.RIGHT} className={"navLinkA"}>{it.RIGHTNAME} <FontAwesomeIcon icon={this.iconRight} style={{ marginLeft: 10 }} /> </a>
                             </div>
                         }</Col>
                 </Row>
