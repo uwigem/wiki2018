@@ -151,10 +151,10 @@ class App extends Component {
      *          }
      */
     displayLoadingMessage() {
-        this.setState({ loading: true });
-        setTimeout(() => {
-            this.setState({ loading: false });
-        }, 500);
+        // this.setState({ loading: true });
+        // setTimeout(() => {
+        //     this.setState({ loading: false });
+        // }, 100);
     }
 
     /**
