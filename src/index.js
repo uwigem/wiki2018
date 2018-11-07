@@ -16,6 +16,7 @@ const currAccessDate = Date.now();
 
 // Ensure that people are at the correct year.
 // Unix epoch time here is for June 14, 2019
+// 1560556800000
 if (currAccessDate > 1560556800000) {
     let year = new Date(currAccessDate);
     year = year.getFullYear();
@@ -26,7 +27,9 @@ if (currAccessDate > 1560556800000) {
     }
     alert(`You are currently viewing our 2018 project.
     
-    Check out our ${year} project over here http://${year}.igem.org/Team:Washington.`)
+Check out our ${year} project over at the link below!
+
+http://${year}.igem.org/Team:Washington.`)
 }
 
 document.title = "Washington iGEM";
