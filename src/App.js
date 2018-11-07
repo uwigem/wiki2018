@@ -9,9 +9,9 @@ import { Footbar } from './components/Footbar';
 import Data from './data/Data';
 
 // comment out for production build
-// import firebase from 'firebase/app';
-// import 'firebase/auth';
-// import 'firebase/database';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 ///
 
 window.addEventListener('unload', function () { });
@@ -24,7 +24,7 @@ class App extends Component {
     // Set up debugURL
     constructor(props) {
         super(props);
-        this.debugURL = "/Model";
+        this.debugURL = "/Editor";
         this.name = "http://2018.igem.org/Team:Washington";
         this.state = {
             loading: true,
@@ -106,12 +106,12 @@ class App extends Component {
         // and plug that in to Data.js. Then when you comment this part out, and the import statement
         // out, then you can get all the data.
         // COMMENT OUT FOR PRODUCTION
-        // this.firebasePassIn = firebase;
-        // let dataRef = firebase.database().ref("/");
-        // dataRef.on("value", (snapshot) => {
-        //     this.firebaseIsSet = true;
-        //     this.setState({ contentData: snapshot.val() });
-        // });
+        this.firebasePassIn = firebase;
+        let dataRef = firebase.database().ref("/");
+        dataRef.on("value", (snapshot) => {
+            this.firebaseIsSet = true;
+            this.setState({ contentData: snapshot.val() });
+        });
         ////////////////////////////////////////////
     }
 
@@ -121,7 +121,7 @@ class App extends Component {
      * @return {object} page content data as a json object
      */
     getContentData() {
-        if (this.firebaseIsSet && Date.now() < 1539835140000) { // Hardcoded value for Wiki freeze, just for security
+        if (this.firebaseIsSet) { // && Date.now() < 1539835140000) { // Hardcoded value for Wiki freeze, just for security
             return this.state.contentData.pageData;
         } else {
             return this.state.data.getContentData();
